@@ -41,7 +41,7 @@
             background-color: var(--superficie-clara);
             color: var(--texto-titulo);
             line-height: 1.6;
-            padding-top: 110px; /* Espaçamento padrão para telas grandes */
+            padding-top: 110px;
         }
 
         .area-restrita {
@@ -50,7 +50,7 @@
             padding: 0 24px;
         }
 
-        /* --- TOPO INSTITUCIONAL CORRIGIDO --- */
+        /* --- TOPO INSTITUCIONAL --- */
         .barra-topo {
             background-color: #ffffff;
             padding: 18px 0;
@@ -128,7 +128,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- SEÇÃO 1: CAPTURA DE LEADS (E-BOOK MORFOLOGIA) --- */
+        /* --- SEÇÃO 1: CAPTURA DE LEADS --- */
         .bloco-captura {
             background: linear-gradient(135deg, #ffffff 0%, #E2F8F7 100%);
             padding: 50px 0;
@@ -297,7 +297,7 @@
             height: auto;
         }
 
-        /* --- PAINEL DE VANTAGENS (BARRA AZUL) --- */
+        /* --- PAINEL DE VANTAGENS --- */
         .painel-vantagens {
             background-color: var(--azul-principal);
             border-radius: 16px;
@@ -343,7 +343,7 @@
             position: relative;
         }
 
-        /* --- MURAL DE VÍDEOS (METODOLOGIA) --- */
+        /* --- MURAL DE VÍDEOS --- */
         .mural-videos {
             display: flex;
             flex-wrap: wrap;
@@ -404,7 +404,7 @@
             flex-wrap: wrap;
             gap: 24px;
             justify-content: center;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
         }
 
         .box-oferta {
@@ -447,6 +447,19 @@
             margin-bottom: 15px;
         }
 
+        .aviso-direcionamento {
+            font-size: 14px;
+            font-weight: 700;
+            color: #E11D48;
+            background-color: #FFF1F2;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #FFE4E6;
+            margin-top: auto;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
         .valor-tag {
             font-size: 20px;
             font-weight: 800;
@@ -479,7 +492,41 @@
             margin-top: auto;
         }
 
-        /* --- SISTEMA DE COMENTÁRIOS INTERATIVOS --- */
+        /* --- CARD DE DOWNLOAD FINAL --- */
+        .secao-download-final {
+            margin-bottom: 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-download-exclusivo {
+            background: linear-gradient(135deg, #ffffff 0%, #E2F8F7 100%);
+            border: 2px dashed var(--marca-ciano);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0, 210, 206, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card-download-exclusivo h3 {
+            font-size: 24px;
+            color: var(--azul-principal);
+            font-weight: 800;
+        }
+
+        .card-download-exclusivo p {
+            font-size: 14px;
+            color: var(--texto-titulo);
+            max-width: 450px;
+        }
+
+        /* --- SISTEMA DE COMENTÁRIOS --- */
         .area-comentarios {
             background-color: #ffffff;
             border-radius: 16px;
@@ -547,7 +594,7 @@
             color: var(--texto-titulo);
         }
 
-        /* --- BASE DO SITE (FOOTER) --- */
+        /* --- FOOTER --- */
         footer {
             background-color: var(--azul-principal);
             color: #ffffff;
@@ -611,7 +658,7 @@
             text-decoration: none;
         }
 
-        /* --- BOTAO FLUTUANTE WHATSAPP --- */
+        /* --- BOTAO WHATSAPP --- */
         .wrapper-whatsapp {
             position: fixed;
             bottom: 24px;
@@ -657,7 +704,6 @@
             100% { transform: scale(1.5); opacity: 0; }
         }
 
-        /* --- RESPONSIVIDADE ADAPTATIVA (CORREÇÃO DE CELULAR) --- */
         @media (max-width: 992px) {
             .box-oferta { width: calc(50% - 12px); }
             .card-multimidia { width: calc(50% - 12px); }
@@ -665,7 +711,7 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 195px; /* Empurra dinamicamente todo o conteúdo do site para baixo no celular, evitando cortes */
+                padding-top: 195px;
             }
             .secao-principal { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
             .lado-esquerdo { padding-right: 0; }
@@ -700,10 +746,12 @@
         <div class="area-restrita layout-captura">
             <div class="info-captura">
                 <h2>Baixe Grátis: E-book <span>Morfologia Estratégica</span></h2>
-                <p>Domine a base mais cobrada em provas de concursos públicos. Preencha seus dados abaixo e receba imediatamente no seu e-mail.</p>
-                <form class="formulario-lead" action="#" method="POST" onsubmit="alert('Obrigado! Seu e-book foi enviado para o e-mail cadastrado.'); return false;">
-                    <input type="text" placeholder="Seu primeiro nome" required>
-                    <input type="email" placeholder="Seu melhor e-mail" required>
+                <p>Domine a base mais cobrada em provas de concursos públicos. Preencha seus dados abaixo para liberar o acesso na vitrine.</p>
+                
+                <form class="formulario-lead" id="formCapturaLeads" action="#" method="POST">
+                    <input type="text" id="leadNome" placeholder="Seu primeiro nome" required>
+                    <input type="email" id="leadEmail" placeholder="Seu melhor e-mail" required>
+                    <input type="tel" id="leadWhatsapp" placeholder="Seu WhatsApp (com DDD)" required>
                     <button type="submit" class="btn-enviar-lead">Garantir E-book</button>
                 </form>
             </div>
@@ -733,7 +781,6 @@
             </div>
         </section>
 
-        <!-- --- PAINEL DE VANTAGENS ATUALIZADO --- -->
         <section class="painel-vantagens">
             <div class="item-vantagem">
                 <i class="fa-solid fa-bolt-lightning"></i>
@@ -809,6 +856,18 @@
             <h2 class="rotulo-secao">Meus Produtos</h2>
             <div class="hub-produtos">
                 
+                <div class="box-oferta" id="ebook-vitrine" style="border: 1px solid rgba(0, 210, 206, 0.4);">
+                    <img src="8.jpg" alt="Ebook Morfologia Estratégica" class="capa-produto">
+                    <h3>E-book - Morfologia Estratégica</h3>
+                    
+                    <div class="aviso-direcionamento">
+                        <i class="fa-solid fa-arrow-down" style="margin-bottom: 5px; display: block; font-size: 16px;"></i>
+                        Role a página até o Anthropology Card. Lá você baixará o seu e-book grátis.
+                    </div>
+                    
+                    <div class="valor-tag" style="color: var(--marca-ciano-vibrante); margin-top: 10px; margin-bottom: 5px;">GRÁTIS</div>
+                </div>
+
                 <div class="box-oferta">
                     <img src="1.jpg" alt="Curso Português Estratégico" class="capa-produto">
                     <h3>Curso - Português Estratégico</h3>
@@ -840,11 +899,10 @@
                 </div>
 
                 <div class="box-oferta">
-                    <img src="1.jpg" alt="Correção de Redação" class="capa-produto">
+                    <img src="9.jpg" alt="Correção de Redação" class="capa-produto">
                     <h3>Pacote Especial de Correção de Redação</h3>
                     <div class="legenda-oferta">Correções detalhadas com critérios de banca</div>
-                    <div class="valor-tag">Em Breve</div>
-                    <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas">Consultar Valores</a>
+                    <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas">Agendar</a>
                 </div>
 
                 <div class="box-oferta">
@@ -855,6 +913,15 @@
                     <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas">Saiba Mais</a>
                 </div>
 
+            </div>
+        </section>
+
+        <section class="secao-download-final">
+            <div class="card-download-exclusivo">
+                <i class="fa-solid fa-cloud-arrow-down" style="font-size: 40px; color: var(--marca-ciano-vibrante);"></i>
+                <h3>Seu Bônus Está Pronto!</h3>
+                <p>Obrigado por se cadastrar. Clique abaixo para abrir o material completo de Morfologia Estratégica diretamente no Google Drive.</p>
+                <a href="https://drive.google.com/file/d/1IDLftylQi6jp5Op4vRglKDJzcH2fJ5uh/view?usp=drivesdk" target="_blank" class="btn-acao-vendas" style="padding: 16px 60px;">Acessar E-book Gratuitamente</a>
             </div>
         </section>
 
@@ -915,16 +982,29 @@
             const secaoPrincipal = document.querySelector('.secao-principal');
             
             if (barraTopo && secaoPrincipal) {
-                // Ponto exato onde termina a seção principal com a sua foto (topo + altura)
                 const fimSecaoFoto = secaoPrincipal.offsetTop + secaoPrincipal.offsetHeight;
                 
-                // Se a rolagem passar da foto (e antes de tocar na barra azul), recolhe o menu
                 if (window.scrollY > fimSecaoFoto) {
                     barraTopo.classList.add('escondida');
                 } else {
                     barraTopo.classList.remove('escondida');
                 }
             }
+        });
+
+        document.getElementById('formCapturaLeads').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const nome = document.getElementById('leadNome').value;
+
+            alert('Perfeito, ' + nome + '! Seu bônus foi liberado abaixo na nossa lista de produtos.');
+
+            const secaoProdutos = document.getElementById('produtos');
+            if (secaoProdutos) {
+                secaoProdutos.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            this.reset();
         });
     </script>
 
