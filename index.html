@@ -542,6 +542,27 @@
             margin-top: auto;
         }
 
+        /* --- NOVA ESTRUTURA PARA TRÊS BOTÕES --- */
+        .container-tres-botoes {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .linha-botoes-duplos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .container-tres-botoes .btn-acao-vendas {
+            padding: 12px 6px;
+            font-size: 11px; 
+        }
+
         .grupo-botoes-duplos {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -958,6 +979,11 @@
             .botoes-topo-container { width: 100%; max-width: 320px; }
             .chamada-topo { padding: 12px; }
             .container-botoes-captura { justify-content: center; }
+            
+            /* Ajuste responsivo para que os botões fiquem empilhados no celular */
+            .linha-botoes-duplos {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1137,15 +1163,18 @@
                     <div class="valor-subtag">Mensal RS: 30,00</div>
                     <a href="https://go.hotmart.com/O105756691F?dp=1" class="btn-acao-vendas">Entrar</a>
                 </div>
-
                 <div class="box-oferta">
                     <img src="4.jpg" alt="Aula Particular" class="capa-produto">
                     <h3>Aula Particular</h3>
                     <div class="legenda-oferta">com professor William Queiroz</div>
                     <div class="status-vagas">Vagas Limitadas</div>
-                    <div class="grupo-botoes-duplos">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Informações</a>
-                        <button onclick="abrirModalPix('Aula Particular')" class="btn-acao-vendas">Contratar</button>
+                    
+                    <div class="container-tres-botoes">
+                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
+                        <div class="linha-botoes-duplos">
+                            <a href="COLOQUE_AQUI_O_LINK_DA_HOTMART" class="btn-acao-vendas">Contratar via Cartão</a>
+                            <button onclick="abrirModalPix('Aula Particular')" class="btn-acao-vendas">Contratar pelo PIX</button>
+                        </div>
                     </div>
                 </div>
 
@@ -1153,9 +1182,13 @@
                     <img src="9.jpg" alt="Correção de Redação" class="capa-produto">
                     <h3>Pacote Especial de Correção de Redação</h3>
                     <div class="legenda-oferta">Correções detalhadas com critérios de banca</div>
-                    <div class="grupo-botoes-duplos">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Informações</a>
-                        <button onclick="abrirModalPix('Pacote Especial de Correção de Redação')" class="btn-acao-vendas">Contratar</button>
+                    
+                    <div class="container-tres-botoes">
+                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
+                        <div class="linha-botoes-duplos">
+                            <a href="COLOQUE_AQUI_O_LINK_DA_HOTMART" class="btn-acao-vendas">Contratar via Cartão</a>
+                            <button onclick="abrirModalPix('Pacote Especial de Correção de Redação')" class="btn-acao-vendas">Contratar pelo PIX</button>
+                        </div>
                     </div>
                 </div>
 
@@ -1163,9 +1196,13 @@
                     <img src="10.jpg" alt="Mentoria Black Premium" class="capa-produto">
                     <h3>Mentoria Black Premium</h3>
                     <div class="legenda-oferta">Com professor William Queiroz</div>
-                    <div class="grupo-botoes-duplos">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Informações</a>
-                        <button onclick="abrirModalPix('Mentoria Black Premium')" class="btn-acao-vendas">Contratar</button>
+                    
+                    <div class="container-tres-botoes">
+                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
+                        <div class="linha-botoes-duplos">
+                            <a href="COLOQUE_AQUI_O_LINK_DA_HOTMART" class="btn-acao-vendas">Contratar via Cartão</a>
+                            <button onclick="abrirModalPix('Mentoria Black Premium')" class="btn-acao-vendas">Contratar pelo PIX</button>
+                        </div>
                     </div>
                 </div>
 
