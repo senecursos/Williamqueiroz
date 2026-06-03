@@ -101,6 +101,11 @@
             margin-top: 2px;
         }
 
+        .menu-navegacao {
+            display: flex;
+            align-items: center;
+        }
+
         .menu-navegacao a {
             text-decoration: none;
             color: var(--texto-titulo);
@@ -112,6 +117,62 @@
 
         .menu-navegacao a:hover {
             color: var(--marca-ciano);
+        }
+
+        /* --- NOVA BARRA DE PESQUISA ESTILIZADA --- */
+        .container-busca-topo {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-left: 8px;
+            border-left: 1px solid #E2E8F0;
+            padding-left: 16px;
+        }
+
+        .input-busca-topo {
+            width: 40px;
+            height: 36px;
+            background-color: var(--superficie-clara);
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 0 12px 0 35px;
+            font-size: 12px;
+            color: var(--texto-titulo);
+            outline: none;
+            cursor: pointer;
+            transition: width 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .input-busca-topo:focus,
+        .input-busca-topo:not(:placeholder-shown) {
+            width: 180px;
+            cursor: text;
+            background-color: #ffffff;
+            border-color: var(--marca-ciano);
+        }
+
+        .icone-busca-topo {
+            position: absolute;
+            left: 28px;
+            color: var(--texto-suporte);
+            font-size: 13px;
+            pointer-events: none;
+            transition: color 0.3s ease;
+        }
+
+        .input-busca-topo:focus + .icone-busca-topo {
+            color: var(--marca-ciano-vibrante);
+        }
+
+        /* Efeito de piscar o card encontrado */
+        @keyframes destaqueCard {
+            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+            50% { transform: scale(1.03); border-color: var(--marca-ciano-vibrante); box-shadow: 0 0 20px rgba(0, 210, 206, 0.4); }
+            100% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        }
+
+        .card-pesquisado-destaque {
+            animation: destaqueCard 1.5s ease-in-out 2;
         }
 
         .botoes-topo-container {
@@ -304,6 +365,7 @@
             color: var(--texto-titulo);
             font-weight: 400;
             flex: 1;
+            text-align: justify;
         }
 
         .btn-acao-vendas {
@@ -469,6 +531,7 @@
             align-items: center;
             border: 1px solid rgba(0,0,0,0.03);
             scroll-margin-top: 170px; 
+            transition: border-color 0.3s ease;
         }
 
         .capa-produto {
@@ -967,7 +1030,7 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 240px;
+                padding-top: 260px;
             }
             .secao-principal { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
             .lado-esquerdo { padding-right: 0; }
@@ -975,15 +1038,12 @@
             .molde-foto { width: 280px; height: 280px; margin-bottom: 30px; border-radius: 16px; }
             .card-multimidia, .box-oferta { width: 100%; }
             .alinhamento-topo { flex-direction: column; gap: 12px; text-align: center; }
-            .menu-navegacao { margin: 4px 0; }
+            .menu-navegacao { margin: 4px 0; justify-content: center; flex-wrap: wrap; gap: 8px; }
+            .container-busca-topo { border-left: none; padding-left: 0; margin-left: 0; margin-top: 5px; }
             .botoes-topo-container { width: 100%; max-width: 320px; }
             .chamada-topo { padding: 12px; }
             .container-botoes-captura { justify-content: center; }
-            
-            /* Ajuste responsivo para que os botões fiquem empilhados no celular */
-            .linha-botoes-duplos {
-                grid-template-columns: 1fr;
-            }
+            .linha-botoes-duplos { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1001,6 +1061,11 @@
                 <a href="#metodologia">Metodologia</a>
                 <a href="#produtos">Produtos</a>
                 <a href="#card-socio">Seja Meu Sócio</a>
+                
+                <div class="container-busca-topo">
+                    <input type="text" id="campoBusca" class="input-busca-topo" placeholder="Buscar no site..." onkeydown="verificarTeclaBusca(event)">
+                    <i class="fa-solid fa-magnifying-glass icone-busca-topo"></i>
+                </div>
             </nav>
             
             <div class="botoes-topo-container">
@@ -1015,7 +1080,7 @@
             <div class="info-captura">
                 <h2>Baixe Grátis: E-book <span>Morfologia Estratégica</span></h2>
                 <p>Siga os dois passos abaixo de forma rápida para liberar o acesso ao seu material pedagógico imediatamente.</p>
-                <span class="detalhe-formulario">O formulário requer apenas o seu nome, e-mail e número de WhatsApp para receber nossas updates.</span>
+                <span class="detalhe-formulario">O formulário requer apenas o seu nome, e-mail e número de WhatsApp para receber nossas atualizações.</span>
                 
                 <div class="container-botoes-captura">
                     <button onclick="abrirModalForm()" class="btn-quadrado-captura btn-captura-form">
@@ -1167,7 +1232,8 @@
                     <img src="4.jpg" alt="Aula Particular" class="capa-produto">
                     <h3>Aula Particular</h3>
                     <div class="legenda-oferta">com professor William Queiroz</div>
-                    <div class="status-vagas">Vagas Limitadas</div>
+                    <div class="status-vagas">Vagas Abertas e Limitadas // Aproveite a
+                    PROMOÇÃO ESPECIAL = 30% de desconto, em qualquer plano, para pagamentos via PIX</div>
                     
                     <div class="container-tres-botoes">
                         <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
@@ -1195,7 +1261,7 @@
                 <div class="box-oferta" id="card-mentoria">
                     <img src="10.jpg" alt="Mentoria Black Premium" class="capa-produto">
                     <h3>Mentoria Black Premium</h3>
-                    <div class="legenda-oferta">Com professor William Queiroz</div>
+                    <div class="legenda-oferta" style="font-size: 0.85rem;">Com Professor William Queiroz, você estudará de forma eficiente e com a melhor técnica de aprendizado que será desenvolvida baseada nas suas habilidades e tempo disponível para estudo. Na Mentoria Black Premium, você receberá todo o acompanhamento pedagógico necessário para criar o melhor plano de estudo para cada uma das matérias cobradas no edital e conquistar a sua tão almejada vaga. </div>
                     
                     <div class="container-tres-botoes">
                         <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
@@ -1223,7 +1289,7 @@
                 <div class="box-oferta">
                     <img src="6.jpg" alt="Projeto Ação Jovem" class="capa-produto">
                     <h3>Projeto Ação Jovem</h3>
-                    <div class="legenda-oferta">Esse é um trabalho gratuito ofertado pelo professor William Queiroz através da Sene e com parcerias com instituições educacionais.</div>
+                    <div class="legenda-oferta" style="font-size: 0.85rem;">Esse é um trabalho gratuito ofertado pelo professor William Queiroz através da Sene e com parcerias com instituições educacionais.</div>
                     <a href="https://instagram.com/comigovoceaprende" target="_blank" class="btn-acao-vendas">Conhecer</a>
                 </div>
 
@@ -1370,15 +1436,62 @@
             const secaoPrincipal = document.getElementById('bloco-principal');
             
             if (barraTopo && secaoPrincipal) {
+                // Modificado para usar a seção "Chega de Estudos Aleatórios" como gatilho exato
                 const gatilhoSumir = secaoPrincipal.offsetTop;
                 
-                if (window.scrollY >= (gatilhoSumir - 130)) { 
+                // O cabeçalho some suavemente assim que a rolagem alcança o início dessa seção
+                if (window.scrollY >= (gatilhoSumir - 140)) { 
                     barraTopo.classList.add('escondida');
                 } else {
                     barraTopo.classList.remove('escondida');
                 }
             }
         });
+
+        /* --- SCRIPT DO SISTEMA DE BUSCA INTELIGENTE --- */
+        function verificarTeclaBusca(event) {
+            if (event.key === 'Enter') {
+                executarBuscaNoSite();
+            }
+        }
+
+        function executarBuscaNoSite() {
+            const termoBusca = document.getElementById('campoBusca').value.toLowerCase().trim();
+            if (termoBusca === "") return;
+
+            // Seleciona todos os cards de produtos ofertados
+            const cardsProdutos = document.querySelectorAll('.box-oferta');
+            let itemEncontrado = null;
+
+            // Varre os cards procurando correspondência no título ou no texto descritivo
+            for (let card of cardsProdutos) {
+                const titulo = card.querySelector('h3').innerText.toLowerCase();
+                const legenda = card.querySelector('.legenda-oferta') ? card.querySelector('.legenda-oferta').innerText.toLowerCase() : '';
+                
+                if (titulo.includes(termoBusca) || legenda.includes(termoBusca)) {
+                    itemEncontrado = card;
+                    break;
+                }
+            }
+
+            if (itemEncontrado) {
+                // Calcula a rolagem considerando o tamanho fixo da barra do cabeçalho
+                const topoCard = itemEncontrado.getBoundingClientRect().top + window.scrollY - 160;
+                
+                window.scrollTo({
+                    top: topoCard,
+                    behavior: 'smooth'
+                });
+
+                // Aplica uma animação de pulso visual para destacar o card pro usuário
+                itemEncontrado.classList.add('card-pesquisado-destaque');
+                setTimeout(() => {
+                    itemEncontrado.classList.remove('card-pesquisado-destaque');
+                }, 3000);
+            } else {
+                alert('Nenhum produto ou serviço específico foi encontrado para o termo pesquisado. Tente termos como "Aula Particular", "Redação" ou "Mentoria".');
+            }
+        }
     </script>
 
 </body>
