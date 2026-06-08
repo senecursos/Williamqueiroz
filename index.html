@@ -45,7 +45,7 @@
             background-color: var(--superficie-clara);
             color: var(--texto-titulo);
             line-height: 1.6;
-            padding-top: 140px;
+            padding-top: 165px;
         }
 
         .area-restrita {
@@ -164,7 +164,6 @@
             color: var(--marca-ciano-vibrante);
         }
 
-        /* Efeito de piscar o card encontrado */
         @keyframes destaqueCard {
             0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
             50% { transform: scale(1.03); border-color: var(--marca-ciano-vibrante); box-shadow: 0 0 20px rgba(0, 210, 206, 0.4); }
@@ -178,8 +177,8 @@
         .botoes-topo-container {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            min-width: 260px;
+            gap: 5px;
+            min-width: 280px;
         }
 
         .chamada-topo {
@@ -188,7 +187,7 @@
             text-decoration: none;
             font-size: 11px;
             font-weight: 700;
-            padding: 10px 18px;
+            padding: 8px 14px;
             border-radius: 6px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -201,13 +200,52 @@
             background-color: var(--azul-profundo);
         }
 
-        .chamada-topo.btn-mentoria-topo {
-            background-color: var(--marca-ciano);
+        .chamada-topo.btn-curso-topo {
+            background-color: var(--azul-principal);
             color: #ffffff;
         }
 
+        /* --- BOTAO DESAFIO ATUALIZADO --- */
+        .chamada-topo.btn-desafio-topo {
+            background-color: #25D366; /* Verde WhatsApp */
+            color: #ffffff; /* Texto Branco */
+            border: 2px solid #FFD700; /* Borda Ouro */
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            animation: pulsoDestaqueBotao 2s infinite ease-in-out;
+            
+            /* --- NOVO: Borda Preta no Texto (Stroke) --- */
+            text-shadow: 
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000;
+            
+            /* Garante alinhamento do ícone amendoado */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .chamada-topo.btn-desafio-topo:hover {
+            background-color: #20ba59;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+        }
+
+        .chamada-topo.btn-mentoria-topo {
+            background-color: #E2E8F0;
+            color: var(--azul-principal);
+        }
+
         .chamada-topo.btn-mentoria-topo:hover {
-            background-color: var(--marca-ciano-vibrante);
+            background-color: #CBD5E1;
+        }
+
+        @keyframes pulsoDestaqueBotao {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         /* --- SEÇÃO 1: CAPTURA DE LEADS --- */
@@ -1030,7 +1068,7 @@
 
         @media (max-width: 768px) {
             body {
-                padding-top: 260px;
+                padding-top: 310px;
             }
             .secao-principal { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
             .lado-esquerdo { padding-right: 0; }
@@ -1069,8 +1107,14 @@
             </nav>
             
             <div class="botoes-topo-container">
-                <a href="https://pay.hotmart.com/K105536423Y" class="chamada-topo">Adquira o Português Estratégico</a>
-                <a href="#card-mentoria" class="chamada-topo btn-mentoria-topo">Entre para a Mentoria Black Premium</a>
+                
+                <a href="https://wa.me/5588994409549" class="chamada-topo btn-desafio-topo">
+                    <i class="fa-solid fa-trophy" style="color: #FFD700; font-size: 1.1rem;"></i> 
+                    Desafio de Gramática (Grupo VIP)
+                </a>
+                
+                <a href="https://pay.hotmart.com/K105536423Y" class="chamada-topo btn-curso-topo">Adquira o Português Estratégico</a>
+                <a href="#card-mentoria" class="chamada-topo btn-mentoria-topo">Mentoria Black Premium</a>
             </div>
         </div>
     </header>
@@ -1201,11 +1245,10 @@
                     
                     <div class="valor-tag" style="color: var(--marca-ciano-vibrante); margin-top: -10px; margin-bottom: 5px;">GRÁTIS</div>
 
-<div class="aviso-direcionamento">
-    <i class="fa-solid fa-arrow-down" style="margin-bottom: 5px; display: block; font-size: 16px;"></i>
-    Role a página até o último card. Lá você baixará o seu e-book grátis.
-</div>
-
+                    <div class="aviso-direcionamento">
+                        <i class="fa-solid fa-arrow-down" style="margin-bottom: 5px; display: block; font-size: 16px;"></i>
+                        Role a página até o último card. Lá você baixará o seu e-book grátis.
+                    </div>
                 </div>
 
                 <div class="box-oferta">
@@ -1229,17 +1272,17 @@
                     <div class="valor-subtag">Mensal RS: 30,00</div>
                     <a href="https://go.hotmart.com/O105756691F?dp=1" class="btn-acao-vendas">Entrar</a>
                 </div>
+
                 <div class="box-oferta">
                     <img src="4.jpg" alt="Aula Particular" class="capa-produto">
                     <h3>Aula Particular</h3>
                     <div class="legenda-oferta">com professor William Queiroz</div>
-                    <div class="status-vagas">Vagas Abertas e Limitadas // Aproveite a
-                    PROMOÇÃO ESPECIAL = 30% de desconto*, em qualquer plano, para pagamentos via PIX.</div>
+                    <div class="status-vagas">Vagas Abertas e Limitadas // Aproveite a PROMOÇÃO ESPECIAL = 30% de desconto*, em qualquer plano, para pagamentos via PIX.</div>
                     <div class="status-vagas">*Os valores "em verde" já estão com o desconto calculado.</div>
                     <div class="container-tres-botoes">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
+                        <a href="https://wa.me/5588994409549" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
                         <div class="linha-botoes-duplos">
-                            <a href=https://go.hotmart.com/A106114140M?dp=1 class="btn-acao-vendas">Contratar via Cartão</a>
+                            <a href="https://go.hotmart.com/A106114140M?dp=1" class="btn-acao-vendas">Contratar via Cartão</a>
                             <button onclick="abrirModalPix('Aula Particular')" class="btn-acao-vendas">Contratar pelo PIX</button>
                         </div>
                     </div>
@@ -1251,9 +1294,9 @@
                     <div class="legenda-oferta">Correções detalhadas com critérios de banca</div>
                     
                     <div class="container-tres-botoes">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
+                        <a href="https://wa.me/5588994409549" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
                         <div class="linha-botoes-duplos">
-                            <a href=https://go.hotmart.com/K106116060L?dp=1 class="btn-acao-vendas">Contratar via Cartão</a>
+                            <a href="https://go.hotmart.com/K106116060L?dp=1" class="btn-acao-vendas">Contratar via Cartão</a>
                             <button onclick="abrirModalPix('Pacote Especial de Correção de Redação')" class="btn-acao-vendas">Contratar pelo PIX</button>
                         </div>
                     </div>
@@ -1262,15 +1305,13 @@
                 <div class="box-oferta" id="card-mentoria">
                     <img src="10.jpg" alt="Mentoria Black Premium" class="capa-produto">
                     <h3>Mentoria Black Premium</h3>
-
-<div class="status-vagas" style="margin-top: -10px; margin-bottom: 15px; font-size: 0.85rem;">Vagas Abertas e Limitadas</div>
-
-<div class="legenda-oferta" style="font-size: 0.85rem;">Com Professor William Queiroz, você estudará de forma eficiente e com a melhor técnica de aprendizado que será desenvolvida baseada nas suas habilidades e tempo disponível para estudo. Na Mentoria Black Premium, você receberá todo o acompanhamento pedagógico necessário para criar o melhor plano de estudo para cada uma das matérias cobradas no edital e conquistar a sua tão almejada vaga. </div>
+                    <div class="status-vagas" style="margin-top: -10px; margin-bottom: 15px; font-size: 0.85rem;">Vagas Abertas e Limitadas</div>
+                    <div class="legenda-oferta" style="font-size: 0.85rem;">Com Professor William Queiroz, você estudará de forma eficiente e com a melhor técnica de aprendizado que será desenvolvida baseada nas suas habilidades e tempo disponível para estudo. Na Mentoria Black Premium, você receberá todo o acompanhamento pedagógico necessário para criar o melhor plano de estudo para cada uma das matérias cobradas no edital e conquistar a sua tão almejada vaga.</div>
                     
                     <div class="container-tres-botoes">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
+                        <a href="https://wa.me/5588994409549" target="_blank" class="btn-acao-vendas btn-info-secundario">Maiores Informações</a>
                         <div class="linha-botoes-duplos">
-                            <a href=https://go.hotmart.com/P106115838M?dp=1 class="btn-acao-vendas">Contratar via Cartão</a>
+                            <a href="https://go.hotmart.com/P106115838M?dp=1" class="btn-acao-vendas">Contratar via Cartão</a>
                             <button onclick="abrirModalPix('Mentoria Black Premium')" class="btn-acao-vendas">Contratar pelo PIX</button>
                         </div>
                     </div>
@@ -1285,7 +1326,7 @@
                     <div class="valor-tag">R$ 50,00</div>
                     <div class="valor-subtag">Investimento Único</div>
                     <div class="grupo-botoes-duplos">
-                        <a href="https://wa.me/5588996380932" target="_blank" class="btn-acao-vendas btn-info-secundario">Informações</a>
+                        <a href="https://wa.me/5588994409549" target="_blank" class="btn-acao-vendas btn-info-secundario">Informações</a>
                         <a href="COLOQUE_SEU_LINK_DO_HOTMART_AQUI" class="btn-acao-vendas">Quero ser seu sócio agora</a>
                     </div>
                 </div>
@@ -1336,7 +1377,7 @@
         <div class="area-restrita">
             <div class="canais-comunicacao">
                 <a href="mailto:cursos.sene@gmail.com"><i class="fa-regular fa-envelope"></i> cursos.sene@gmail.com</a>
-                <a href="https://wa.me/5588996380932" target="_blank"><i class="fa-brands fa-whatsapp"></i> (88) 99638-0932</a>
+                <a href="https://wa.me/5588994409549" target="_blank"><i class="fa-brands fa-whatsapp"></i> (88) 99638-9549</a>
                 <a href="https://www.youtube.com/@ProfessorWilliamQueiroz" target="_blank" class="link-destacado"><i class="fa-brands fa-youtube"></i> Show de Português</a>
             </div>
             
@@ -1387,7 +1428,7 @@
     </div>
 
     <div class="wrapper-whatsapp">
-        <a href="https://wa.me/5588996380932" class="icone-whatsapp" target="_blank">
+        <a href="https://wa.me/5588994409549" class="icone-whatsapp" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
         </a>
     </div>
@@ -1440,10 +1481,8 @@
             const secaoPrincipal = document.getElementById('bloco-principal');
             
             if (barraTopo && secaoPrincipal) {
-                // Modificado para usar a seção "Chega de Estudos Aleatórios" como gatilho exato
                 const gatilhoSumir = secaoPrincipal.offsetTop;
                 
-                // O cabeçalho some suavemente assim que a rolagem alcança o início dessa seção
                 if (window.scrollY >= (gatilhoSumir - 140)) { 
                     barraTopo.classList.add('escondida');
                 } else {
@@ -1459,15 +1498,13 @@
             }
         }
 
-        function executarBuscaNoSite() {
+        function ejecutarBuscaNoSite() {
             const termoBusca = document.getElementById('campoBusca').value.toLowerCase().trim();
             if (termoBusca === "") return;
 
-            // Seleciona todos os cards de produtos ofertados
             const cardsProdutos = document.querySelectorAll('.box-oferta');
             let itemEncontrado = null;
 
-            // Varre os cards procurando correspondência no título ou no texto descritivo
             for (let card of cardsProdutos) {
                 const titulo = card.querySelector('h3').innerText.toLowerCase();
                 const legenda = card.querySelector('.legenda-oferta') ? card.querySelector('.legenda-oferta').innerText.toLowerCase() : '';
@@ -1479,7 +1516,6 @@
             }
 
             if (itemEncontrado) {
-                // Calcula a rolagem considerando o tamanho fixo da barra do cabeçalho
                 const topoCard = itemEncontrado.getBoundingClientRect().top + window.scrollY - 160;
                 
                 window.scrollTo({
@@ -1487,7 +1523,6 @@
                     behavior: 'smooth'
                 });
 
-                // Aplica uma animação de pulso visual para destacar o card pro usuário
                 itemEncontrado.classList.add('card-pesquisado-destaque');
                 setTimeout(() => {
                     itemEncontrado.classList.remove('card-pesquisado-destaque');
