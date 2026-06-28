@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentoria Black Premium - Prof. William Queiroz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-principal: #0B2240;
+            --azul-profundo: #0D1B2A;
+            --marca-ciano: #00D2CE;
+            --marca-ciano-vibrante: #00B8B4;
+            --superficie-clara: #F8FAFC;
+            --texto-titulo: #1E293B;
+            --texto-suporte: #64748B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+        
+        body {
+            background-color: var(--superficie-clara);
+            color: var(--texto-titulo);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container-pagina {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid #E2E8F0;
+        }
+
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--texto-suporte);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .btn-voltar:hover { color: var(--azul-principal); }
+
+        h1 {
+            font-size: 28px;
+            color: var(--azul-principal);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 15px;
+        }
+
+        /* Container do Vídeo Responsivo 16:9 */
+        .container-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-color: #000;
+        }
+
+        .container-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--azul-principal);
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #334155;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .box-destaque {
+            background-color: #F1F5F9;
+            border-left: 4px solid var(--marca-ciano);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .btn-fechar-pagina {
+            display: block;
+            width: 100%;
+            background-color: #64748B;
+            color: #ffffff;
+            border: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 16px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2);
+            margin-top: 40px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .btn-fechar-pagina:hover {
+            background-color: var(--azul-principal);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-pagina">
+        <!-- Botão Voltar Superior -->
+        <button onclick="retornarParaSite()" class="btn-voltar">
+            <i class="fa-solid fa-arrow-left"></i> Retornar para o site
+        </button>
+
+        <h1>Mentoria Black Premium</h1>
+
+        <!-- ÁREA DO SEU VÍDEO NO TOPO -->
+        <div class="container-video">
+            <!-- Substitua o LINK_DO_SEU_VIDEO abaixo pelo link real do seu vídeo do YouTube da Mentoria -->
+            <iframe src="https://www.youtube.com/embed/LINK_DO_SEU_VIDEO?rel=0" 
+                    title="Mentoria Black Premium - Prof. William Queiroz" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- CHAMADA ESTRATÉGICA ABAIXO DO VÍDEO -->
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; margin-top: 0; margin-bottom: 30px; color: #18181B; text-align: center;">
+            Antes de ler tudo com atenção, clique no play acima <i class="fa-solid fa-circle-up" style="color: var(--marca-ciano);"></i>. Eu quero falar com você. Só levará 1 minuto.
+        </h3>
+
+        <h2>O que exatamente é a Mentoria Black Premium e como ela se diferencia de uma aula particular comum?</h2>
+        <p>A Mentoria Black Premium é o programa de acompanhamento mais exclusivo e completo da Cene. Diferente de uma aula particular comum, onde nós focamos especificamente no conteúdo de uma matéria, a Mentoria Black Premium funciona como uma verdadeira engenharia de aprovação para a sua vida.</p>
+        
+        <p>Nós não vamos olhar apenas para o Português e para a Redação; nós vamos abraçar todas as disciplinas do edital do concurso que você deseja prestar. O foco aqui é organização pedagógica, eficiência e consistência de ponta a ponta. Assim que você entra no programa, nós agendamos uma reunião estratégica para mapear a sua realidade. A partir daí, eu desenvolvo um cronograma de estudos 100% personalizado, indico as técnicas exatas que você deve aplicar e quais atividades extras precisa executar para cobrir todo o conteúdo digital de forma inteligente, sem andar em círculos.</p>
+
+        <h2>Para quem é indicada a Mentoria Black Premium?</h2>
+        <p>Ela é indicada para quem quer parar de estudar de forma amadora e deseja o direcionamento de um profissional para ser altamente competitivo(a), seja para um concurso que já está com edital aberto ou para se antecipar a um edital que vai sair.</p>
+        
+        <p>Este programa foi desenhado sob medida para quem tem uma rotina desafiadora e não sabe como conciliar o tempo. Se você trabalha em escala de 12 por 36, eu vou adaptar o seu cronograma para essa realidade. Se você trabalha de segunda a sábado, o planejamento será moldado para isso. Se você trabalha de manhã e estuda à tarde, nós faremos os cálculos exatos em cima das matérias da sua banca para que o seu tempo renda o máximo possível. A mentoria é para quem precisa que o estudo se adapte à sua vida real, garantindo que nenhuma disciplina fique para trás e que você chegue no dia da prova preparado(a) para dar o seu melhor.</p>
+
+        <h2>O que compõe o ecossistema de suporte da Mentoria Black Premium?</h2>
+        <p>Ao se tornar um(a) aluno(a) Black Premium, você entra em um ciclo de acompanhamento de 4 meses de duração com acesso a um arsenal completo de ferramentas de elite. O seu ecossistema inclui:</p>
+        
+        <p><strong>Acesso ao Curso Português Estratégico:</strong> Você recebe o meu curso online completo, incluindo futuras atualizações e novos cursos online que possam surgir no período em que você estiver estudando comigo.</p>
+        
+        <p><strong>10 Horas de Aulas Particulares de Português:</strong> Que você pode distribuir e agendar comigo ao longo dos 4 meses, gastando mais horas nos meses em que sentir maior necessidade.</p>
+        
+        <p><strong>Acompanhamento de Desempenho:</strong> Aplicação de simulados periódicos — que podem ser quinzenais ou mensais, a depender da sua evolução nas matérias.</p>
+        
+        <p><strong>Pacote Especial de Correção de Redações:</strong> Para garantir que a sua escrita atinja a nota máxima.</p>
+        
+        <p><strong>Materiais Exclusivos:</strong> Links, aulas e materiais de apoio exclusivos que abrangem as diversas disciplinas do seu foco de estudo, além do e-book Noções de Língua Portuguesa.</p>
+        
+        <p><strong>Acesso Direto e Grupo VIP:</strong> Canal direto comigo via WhatsApp para suporte imediato às suas dúvidas e inserção na nossa comunidade VIP de alunos(as).</p>
+
+        <h2>Qual é o nível de entrega que eu espero de um(a) aluno(a) Black Premium?</h2>
+        <p>Para fazer parte da Mentoria Black Premium, o nível de compromisso exigido é máximo. Eu não aceito amadorismo aqui. O que eu espero de você como aluno(a) Premium é que você esteja genuinamente disposto(a) a sacrificar quatro meses de diversões supérfluas e excessos. Não estou falando do descanso necessário — afinal, todo ser humano precisa de suas 7 a 8 horas de sono para render bem —, mas sim daquela procrastinação disfarçada de descanso. Se você chega em casa e tem 5 horas livres antes de dormir, essas horas não serão gastas de pernas para o ar mexendo na internet; elas serão dedicadas ao seu futuro.</p>
+        
+        <div class="box-destaque">
+            Eu espero um(a) aluno(a) que siga com afinco as minhas instruções, os meus conselhos e a rotina que eu calcular para os próximos quatro meses da sua vida após ingressar na mentoria Black Premium. Utilizando uma figura de linguagem: se eu disser para você pensar azul, é para você pensar azul e aplicar a técnica exatamente como foi determinado.
+        </div>
+
+        <p>Eu vou entregar o meu 100%, o melhor ecossistema e todas as ferramentas de elite da Cene, mas você precisa fazer a sua parte: receber a instrução e executar cada recomendação sem desculpas. Se você tem esse sangue nos olhos para vencer em quatro meses, o seu lugar é aqui.</p>
+
+        <!-- Botão Inferior de Fechar / Retornar -->
+        <button onclick="retornarParaSite()" class="btn-fechar-pagina">Retornar para o site</button>
+    </div>
+
+    <script>
+        function retornarParaSite() {
+            if (window.history.length > 1) {
+                window.close();
+                setTimeout(function() {
+                    window.location.href = "index.html#produtos";
+                }, 100);
+            } else {
+                window.location.href = "index.html#produtos";
+            }
+        }
+    </script>
+</body>
+</html>

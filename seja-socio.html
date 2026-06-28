@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Meu Sócio - Prof. William Queiroz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-principal: #0B2240;
+            --azul-profundo: #0D1B2A;
+            --marca-ciano: #00D2CE;
+            --marca-ciano-vibrante: #00B8B4;
+            --superficie-clara: #F8FAFC;
+            --texto-titulo: #1E293B;
+            --texto-suporte: #64748B;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+        
+        body {
+            background-color: var(--superficie-clara);
+            color: var(--texto-titulo);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container-pagina {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid #E2E8F0;
+        }
+
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--texto-suporte);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .btn-voltar:hover { color: var(--azul-principal); }
+
+        h1 {
+            font-size: 28px;
+            color: var(--azul-principal);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 15px;
+        }
+
+        /* Container do Vídeo Responsivo 16:9 */
+        .container-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background-color: #000;
+        }
+
+        .container-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--azul-principal);
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #334155;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .box-destaque {
+            background-color: #F1F5F9;
+            border-left: 4px solid var(--marca-ciano);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .btn-fechar-pagina {
+            display: block;
+            width: 100%;
+            background-color: #64748B;
+            color: #ffffff;
+            border: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 16px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2);
+            margin-top: 40px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .btn-fechar-pagina:hover {
+            background-color: var(--azul-principal);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-pagina">
+        <!-- Botão Voltar Superior -->
+        <button onclick="retornarParaSite()" class="btn-voltar">
+            <i class="fa-solid fa-arrow-left"></i> Retornar para o site
+        </button>
+
+        <h1>Parceria Estratégica: Seja Meu Sócio</h1>
+
+        <!-- ÁREA DO SEU VÍDEO NO TOPO -->
+        <div class="container-video">
+            <!-- Substitua o LINK_DO_SEU_VIDEO abaixo pelo link real do seu vídeo do YouTube sobre a sociedade -->
+            <iframe src="https://www.youtube.com/embed/LINK_DO_SEU_VIDEO?rel=0" 
+                    title="Seja Meu Sócio - Prof. William Queiroz" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- CHAMADA ESTRATÉGICA COM AJUSTE DE TEMPO -->
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; margin-top: 0; margin-bottom: 30px; color: #18181B; text-align: center;">
+            Antes de ler tudo com atenção, clique no play acima <i class="fa-solid fa-circle-up" style="color: var(--marca-ciano);"></i>. Eu quero falar com você. Só levará 1 minuto.
+        </h3>
+
+        <h2>Qual é o objetivo principal da parceria "Seja Meu Sócio"?</h2>
+        <p>O objetivo principal desta parceria é expandir o alcance e a divulgação do curso Português Estratégico através dos nossos canais. A meta aqui é puramente de negócios: gerar receita mútua fazendo com que este produto chegue ao maior número possível de pessoas que necessitam dele.</p>
+        
+        <p>E preste atenção no tamanho do mercado onde estamos entrando: nós estamos trabalhando com uma carência gigantesca focada em concursos públicos, um setor onde milhares de novas vagas são abertas anualmente por todo o país. Cada um desses milhares de candidatos(as) é um(a) cliente potencial nosso. É um público massivo que precisa obrigatoriamente dominar o português para mudar de vida, o que nos dá uma projeção financeira fantástica de crescimento a curto e longo prazo.</p>
+        
+        <p>Eu entrei com a criação, a estrutura do produto e o conhecimento. O papel do(a) sócio(a) parceiro(a) é focar na prospecção e na divulgação estratégica para esse público. Para viabilizar isso, nós utilizamos toda a tecnologia de afiliação e comissionamento da plataforma Hotmart, o que garante total transparência e segurança financeira para ambas as partes.</p>
+        
+        <p>No entanto, para fazer parte desta sociedade, existe um critério de entrada: o investimento inicial de R$ 50. Esse valor não é uma taxa de venda, mas sim um filtro de comprometimento. Eu procuro parceiros(as) de negócios que estejam genuinamente engajados(as) e dispostos(as) a trabalhar de forma profissional. Se você tem essa disponibilidade mínima para investir no seu início, é o primeiro sinal de que você valoriza a parceria. Em contrapartida a esse comprometimento, você receberá o meu suporte e a orientação necessária para desempenhar o seu papel de sócio(a) com máxima eficiência.</p>
+
+        <h2>Como funciona essa sociedade na prática e quais são as regras na Hotmart?</h2>
+        <p>Na prática, o funcionamento é muito simples e totalmente automatizado. Assim que você realiza o investimento inicial de R$ 50, você recebe o acesso a um treinamento prático com o passo a passo, nos mínimos detalhes, para se afiliar ao meu produto do zero. Você não precisa ter nenhuma experiência prévia no mercado digital para começar. Tudo o que você precisa é de um celular — mesmo que seja um aparelho com as configurações mais básicas, desde que ele consiga rodar o aplicativo da Hotmart.</p>
+        
+        <p>A parceria é operacionalizada dentro da Hotmart, que é a plataforma responsável por rastrear as suas vendas e garantir que o seu dinheiro caia na sua conta com total segurança. A divisão do negócio é estabelecida em 60% para a empresa e 40% de comissão direto para você. Como essa porcentagem é calculada em cima do valor líquido, já descontando as taxas automáticas da plataforma, você vai receber exatamente R$ 28,39 de lucro limpo na sua conta por cada única venda que realizar do nosso curso de R$ 79,90. É um processo transparente, seguro e direto na sua conta.</p>
+
+        <h2>O que o(a) parceiro(a) ganha com isso e qual o suporte que a empresa oferece?</h2>
+        <p>Ao se tornar meu(minha) sócio(a) parceiro(a), você ganha o direito de comercialização de um produto de altíssimo nível no mercado: o curso Português Estratégico. Estamos falando de um treinamento completo, prático e extremamente objetivo, com 13 horas de duração divididas em 22 aulas. Um dos grandes diferenciais desse material, além da objetividade, é a última aula, a aula 22, que é focada 100% em Redação Estratégica, onde eu entrego um passo a passo definitivo para o(a) aluno(a) construir uma redação de nota máxima em concursos públicos. Por ser um conteúdo direto ao ponto, a nossa taxa de devolução é praticamente nula, o que significa estabilidade e segurança para as suas comissões.</p>
+        
+        <p>Além do direito de venda do curso, a empresa entrega a você uma estrutura pronta para você trabalhar. Você receberá o e-book Morfologia Estratégica, que poderá ser oferecido de forma 100% gratuita para atrair e capturar os seus clientes potenciais. Nós também fornecemos um pacote de materiais de divulgação contendo banners profissionais e vídeos de vendas prontos para você utilizar nas suas redes sociais.</p>
+        
+        <p>Para fechar o suporte, você terá acesso a um treinamento exclusivo com técnicas e estratégias de venda desenhadas para este produto, além de um canal de suporte oficial via e-mail para sanar qualquer dúvida operacional que você tenha na sua jornada. Você entra com o trabalho de divulgação e nós te entregamos todas as ferramentas necessárias para o sucesso.</p>
+
+        <h2>Para quem NÃO é esta parceria e o que se espera de um(a) sócio(a)?</h2>
+        <p>Para encerrar, eu preciso deixar muito claro para quem este modelo de sociedade não serve. Esta parceria não é para pessoas que não querem se engajar, que não estão dispostas a mergulhar de verdade no mercado digital ou que têm preguiça de fazer divulgações. Não é para quem acha que o projeto consiste em fazer apenas uma postagem isolada no Instagram ou no Facebook e sentar para esperar rios de dinheiro caírem na conta. O digital não funciona assim. Não é para quem não quer ter sucesso real e não quer se dedicar com seriedade ao trabalho — porque, sem dedicação, você pode até fazer uma ou duas vendas por acaso, mas nunca vai atingir o volume que realmente te tira da inércia e muda o seu patamar financeiro.</p>
+        
+        <div class="box-destaque">
+            Mas vale uma observação de negócios muito importante aqui: mergulhar no mercado digital e fazer essas divulgações não significa que você precisa expor a sua imagem. Você não precisa aparecer. Você vai utilizar a minha imagem e a marca do Português Estratégico. Todo o seu trabalho pode ser feito nos bastidores, de forma 100% anônima e profissional, focando apenas na estratégia de vendas.
+        </div>
+
+        <p>O que eu espero de um(a) sócio(a) é justamente o oposto de tudo o que eu disse que não quero. Eu espero um(a) parceiro(a) que enxergue essa oportunidade, que se conecte com a visão da nossa empresa e que entre de cabeça para executar o trabalho e crescer junto comigo. Se você tem esse perfil de compromisso, essa vaga de sociedade é sua.</p>
+
+        <!-- Botão Inferior de Fechar / Retornar -->
+        <button onclick="retornarParaSite()" class="btn-fechar-pagina">Retornar para o site</button>
+    </div>
+
+    <script>
+        function retornarParaSite() {
+            if (window.history.length > 1) {
+                window.close();
+                setTimeout(function() {
+                    window.location.href = "index.html#produtos";
+                }, 100);
+            } else {
+                window.location.href = "index.html#produtos";
+            }
+        }
+    </script>
+</body>
+</html>
