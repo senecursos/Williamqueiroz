@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabela de Conjugação Verbal</title>
+  <title>Gramática - Advérbios e Conjugação Verbal</title>
   <style>
     :root {
       --primary-color: #1e3a8a;
@@ -99,11 +99,126 @@
     .nominal-forms span {
       font-size: 0.95rem;
     }
+
+    /* Estilos específicos para a lista de advérbios e observações */
+    .adverb-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .adverb-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .adverb-item strong.category {
+      color: var(--primary-color);
+      display: inline-block;
+      min-width: 130px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .obs-section {
+      margin-top: 24px;
+      background: #eff6ff;
+      border-left: 4px solid var(--secondary-color);
+      padding: 16px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .obs-section h4 {
+      margin: 0 0 10px 0;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+    }
+
+    .obs-section ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .obs-section li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .obs-section li:last-child {
+      margin-bottom: 0;
+    }
+
+    .example-text {
+      font-style: italic;
+      color: #334155;
+    }
   </style>
 </head>
 <body>
 
 <div class="conjugation-container">
+
+  <!-- ==================== CLASSIFICAÇÃO DO ADVÉRBIO ==================== -->
+  <section class="verb-section">
+    <h2 class="verb-title">Classificação do Advérbio</h2>
+    <p style="margin-bottom: 20px; font-size: 1rem;">De acordo com a circunstância que exprime, o advérbio pode ser de:</p>
+
+    <div class="adverb-list">
+      <div class="adverb-item">
+        <strong class="category">Tempo:</strong>
+        ontem, hoje, amanhã, breve, logo, antes, depois, agora, já, sempre, nunca, jamais, cedo, tarde, outrora, ainda, antigamente, novamente, brevemente, raramente, entrementes, imediatamente etc.
+      </div>
+
+      <div class="adverb-item">
+        <strong class="category">Lugar:</strong>
+        aqui, ali, aí, cá, lá, acolá, atrás, perto, longe, acima, abaixo, adiante, dentro, fora, além, aquém, defronte, algures (em algum lugar), alhures (em outro lugar) etc.
+      </div>
+
+      <div class="adverb-item">
+        <strong class="category">Modo:</strong>
+        bem, mal, assim, depressa, devagar, e a maior parte dos que terminam em <em>-mente</em>: calmamente, suavemente, tristemente etc.
+      </div>
+
+      <div class="adverb-item">
+        <strong class="category">Afirmação:</strong>
+        sim, deveras, certamente, realmente, efetivamente etc.
+      </div>
+
+      <div class="adverb-item">
+        <strong class="category">Negação:</strong>
+        não, absolutamente, tampouco.
+      </div>
+
+      <div class="adverb-item">
+        <strong class="category">Dúvida:</strong>
+        talvez, quiçá, acaso, decerto, porventura, provavelmente, possivelmente etc.
+      </div>
+
+      <div class="adverb-item">
+        <strong class="category">Intensidade:</strong>
+        muito, pouco, bastante, mais, menos, demais, assaz, tão, tanto, meio, todo etc.
+      </div>
+    </div>
+
+    <div class="obs-section">
+      <h4>OBSERVAÇÕES</h4>
+      <ol>
+        <li>Forma-se advérbio derivado do adjetivo com o acréscimo de <em>-mente</em>: <span class="example-text">tristemente</span> (de triste), <span class="example-text">docemente</span> (de doce), <span class="example-text">felizmente</span> (de feliz), <span class="example-text">alegremente</span> (de alegre) etc.</li>
+        <li><em>Tampouco</em> equivale a <em>também não</em>. É usado após oração declarativa.<br><span class="example-text">Ele não me fez promessas nem eu tampouco a ele.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==================== TÍTULO DA SEÇÃO DE CONJUGAÇÃO ==================== -->
+  <h1 style="color: var(--primary-color); font-size: 2rem; margin-top: 50px; margin-bottom: 30px; text-align: center; border-bottom: 2px solid var(--border-color); padding-bottom: 12px;">
+    Conjugação Verbal das Três Terminações: -AR, -ER e -IR
+  </h1>
 
   <!-- ==================== 1ª CONJUGAÇÃO (-AR): CANTAR ==================== -->
   <section class="verb-section">
@@ -137,7 +252,7 @@
           <tr><td class="pronoun">Ele/Ela</td><td>cantou</td></tr>
           <tr><td class="pronoun">Nós</td><td>cantamos</td></tr>
           <tr><td class="pronoun">Vós</td><td>cantastes</td></tr>
-          <tr><td class="pronoun">Eles/Elas</td><td>cantarama</td></tr>
+          <tr><td class="pronoun">Eles/Elas</td><td>cantaram</td></tr>
         </table>
       </div>
 
