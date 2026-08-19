@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor William Queiroz | Português Estratégico</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 12px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 6px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-brand h1 {
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.85rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* PUBLICIDADE (2 ESPAÇOS VERTICAIS 9:16) */
+    .ad-section-title {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 2px;
+      margin-bottom: 6px;
+    }
+
+    .ads-grid-1x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .ad-card {
+      background-color: #e2e8f0;
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      aspect-ratio: 9 / 16;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px;
+      margin: 0 auto;
+      overflow: hidden;
+      transition: background-color 0.2s, border-color 0.2s;
+      position: relative;
+    }
+
+    .ad-card:hover {
+      background-color: #dbeafe;
+      border-color: var(--accent-color);
+    }
+
+    .ad-card a {
+      text-decoration: none;
+      color: var(--brand-color);
+      font-weight: 700;
+      font-size: 0.82rem;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.3;
+    }
+
+    .ad-card img, 
+    .ad-card iframe, 
+    .ad-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 0;
+    }
+
+    /* CAIXA DE MENSAGEM / DESCONTO */
+    .info-box {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      margin-top: -10px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .info-box p {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* BOTÕES PRINCIPAIS */
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .main-nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: background-color 0.2s, transform 0.1s;
+      width: 100%;
+      text-align: left;
+    }
+
+    .main-nav-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-resumos-main {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-simulados-main {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    .btn-icon {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    /* SEÇÕES EXPANSÍVEIS */
+    .collapsible-content {
+      display: none;
+      margin-bottom: 12px;
+      padding-top: 6px;
+    }
+
+    .collapsible-content.active {
+      display: block;
+    }
+
+    /* LISTA DE ITENS */
+    .items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .item-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      color: var(--text-dark);
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .item-card:hover {
+      border-color: var(--accent-color);
+      background-color: #f1f5f9;
+    }
+
+    .item-info h3 {
+      font-size: 0.85rem;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .item-info p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .item-arrow {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-left: 8px;
+    }
+
+    .item-arrow-simulado {
+      color: var(--green-action);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ANÚNCIOS -->
+    <div class="ad-section-title">Espaço Publicitário</div>
+    <div class="ads-grid-1x2">
+      
+      <!-- ESPAÇO 1 -->
+      <div class="ad-card">
+        <a href="https://wa.me/5588994409549?text=Ol%C3%A1%2C%20gostaria%20de%20anunciar%20minha%20marca%20no%20seu%20site." target="_blank" rel="noopener">
+          Clique para anunciar sua marca aqui
+        </a>
+      </div>
+
+      <!-- ESPAÇO 2 -->
+      <div class="ad-card">
+        <a href="https://wa.me/5588994409549?text=Ol%C3%A1%2C%20gostaria%20de%20anunciar%20minha%20marca%20no%20seu%20site." target="_blank" rel="noopener">
+          Clique para anunciar sua marca aqui
+        </a>
+      </div>
+
+    </div>
+
+    <!-- CAIXA DE TEXTO / INFORMAÇÕES DE DESCONTO -->
+    <div class="info-box">
+      <p>Você receberá desconto se...</p>
+    </div>
+
+    <!-- BOTÕES E LISTAS EXPANSÍVEIS -->
+    <div class="nav-buttons">
+      
+      <!-- BOTÃO 1: RESUMOS (24 ATUALIZADOS) -->
+      <button class="main-nav-btn btn-resumos-main" onclick="toggleSection('resumos-list', 'icon-resumos')">
+        <span>📚 Resumos de Aulas (24)</span>
+        <span id="icon-resumos" class="btn-icon">▼</span>
+      </button>
+
+      <!-- LISTA DE RESUMOS -->
+      <div id="resumos-list" class="collapsible-content">
+        <div class="items-list">
+          <a href="aula01.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 01. MORFOLOGIA</h3>
+              <p>Introdução, Substantivos & Adjetivos + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula02.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 02. MORFOLOGIA</h3>
+              <p>Pronomes + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula03.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 03. MORFOLOGIA</h3>
+              <p>Verbos + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula04.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 04. MORFOLOGIA</h3>
+              <p>Preposições, Adverbiais & Numerais + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula05.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 05. MORFOLOGIA</h3>
+              <p>Conjunções + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula06.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 06. Curiosidades da Língua Portuguesa</h3>
+              <p>Aula indispensável + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula07.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 07. SINTAXE</h3>
+              <p>Introdução, Sujeito & Predicado + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula08.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 08. SINTAXE</h3>
+              <p>Termos Essenciais + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula09.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 09. SINTAXE</h3>
+              <p>Termos Integrantes + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula10.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 10. SINTAXE</h3>
+              <p>Termos Acessórios + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula11.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 11. Orações Subordinadas</h3>
+              <p>Substantivas e Adjetivas + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula12.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 12. Orações Subordinadas</h3>
+              <p>Adverbiais + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula13.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 13. Colocação Pronominal</h3>
+              <p>Próclise, ênclise e mesóclise + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula14.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 14. Tonalidade das Palavras</h3>
+              <p>Tonicidade e acentuação + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula15.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 15. Acentuação Gráfica</h3>
+              <p>Regras e Novo Acordo + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula16.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 16. Crase</h3>
+              <p>Emprego do acento indicativo + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula17.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 17. Regras de Vírgula</h3>
+              <p>Pontuação aplicada + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula18.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 18. Estrutura e Formação das Palavras</h3>
+              <p>Processos morfossintáticos + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula19.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 19. Concordância Nominal</h3>
+              <p>Relações entre nomes + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula20.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 20. Concordância Verbal</h3>
+              <p>Relações entre verbo e sujeito + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula21.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 21. Semântica e Coesão Lexical</h3>
+              <p>Sinônimos, Antônimos, Parônimos, Homônimos, Hiperônimos & Polissemia, Repetição, Substituição, Anáfora, Catáfora... + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="aula22.html" class="item-card">
+            <div class="item-info">
+              <h3>Aula 22. Redação</h3>
+              <p>Dissertação-argumentativa + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="conteudoextra01.html" class="item-card">
+            <div class="item-info">
+              <h3>Conteúdo Extra 01</h3>
+              <p>Figuras de linguagem semânticas, fonéticas e sintáticas + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+          <a href="conteudoextra02.html" class="item-card">
+            <div class="item-info">
+              <h3>Conteúdo Extra 02</h3>
+              <p>Regras de hífen + exercícios</p>
+            </div>
+            <span class="item-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- BOTÃO 2: SIMULADOS (10 ITENS) -->
+      <button class="main-nav-btn btn-simulados-main" onclick="toggleSection('simulados-list', 'icon-simulados')">
+        <span>📝 Simulados Rápidos (10)</span>
+        <span id="icon-simulados" class="btn-icon">▼</span>
+      </button>
+
+      <!-- LISTA DE SIMULADOS -->
+      <div id="simulados-list" class="collapsible-content">
+        <div class="items-list">
+          <a href="simulado01.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 01</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado02.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 02</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado03.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 03</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado04.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 04</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado05.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 05</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado06.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 06</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado07.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 07</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado08.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 08</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado09.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 09</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+          <a href="simulado10.html" class="item-card">
+            <div class="item-info">
+              <h3>Simulado 10</h3>
+              <p>20 questões estilo prova (com comentário)</p>
+            </div>
+            <span class="item-arrow item-arrow-simulado">→</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function toggleSection(sectionId, iconId) {
+      const content = document.getElementById(sectionId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>
