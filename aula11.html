@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 11 - Período Composto: Subordinadas Substantivas e Adjetivas | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 11- Período Composto: Análise Sintática das Orações Subordinadas</h2>
+
+      <p class="intro-text">
+        As orações subordinadas têm o potencial de assumir a função sintática que seria própria do substantivo, do adjetivo e do advérbio. Quando ela aparece, sempre vem induzida por uma conjunção integrante, ou pronome relativo ou conjunções subordinadas (que já detalhamos na morfologia – "estudo 4").
+      </p>
+
+      <p class="intro-text">
+        A compreensão do funcionamento das orações dentro das orações (de período composto) para que a análise sintática possa ser feita corretamente, dependerá do seu nível de compreensão da análise sintática do "estudo 5", e de algumas regras e técnicas específicas que serão apresentadas logo mais abaixo.
+      </p>
+
+      <p class="intro-text">
+        Primeiramente, precisamos conhecer quais são os tipos e as classificações possíveis que as orações subordinadas assumem dentro das orações. São elas:
+      </p>
+
+      <!-- ================= ORAÇÕES SUBORDINADAS SUBSTANTIVAS ================= -->
+      <h3 class="topic-header">Orações Subordinadas Substantivas</h3>
+
+      <p class="intro-text">
+        São aquelas que assumem as funções que seriam próprias do substantivo. Elas serão induzidas pelas conjunções integrantes "QUE" ou "SE", e são classificadas de acordo com a função sintática que exercem. Será induzida, mais comumente, pela conjunção integrante "QUE".
+      </p>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> Para diferenciar o "que" conjunção integrante do "que" pronome relativo, bastará você tentar substituir a palavra "que" pelo pronome "o qual" (exemplos dessa substituição estarão contidas na explicação, logo mais à frente, do funcionamento das orações subordinadas adjetivas). Se essa substituição for mal sucedida, fazendo a oração perder o sentido, é porque trata-se de uma oração subordinada substantiva.
+      </div>
+
+      <p class="intro-text">As orações subordinadas substantivas são:</p>
+
+      <!-- 1) Objetiva Direta -->
+      <div class="morphic-card">
+        <h3>1) Orações Subordinadas Substantivas OBJETIVAS DIRETAS</h3>
+        <p>Assumem o papel do objeto direto, complementando o sentido do verbo transitivo direto.</p>
+        <ul class="example-list">
+          <li>Ex. 1: Eu quero <u>QUE você venha me visitar</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o trecho: "que você venha me visitar" está complementando o sentido do verbo "quero", pois quem quer, quer "alguma coisa". Neste exemplo; a classificação da oração subordinada é: <strong>oração subordinada substantiva objetiva direta</strong>, pois está assumindo a função própria do objeto direto.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O professor garantiu <u>que todos seriam aprovados</u>.</li>
+          <li>Ex. 3: Não sei <u>se eles chegarão a tempo</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 2) Objetiva Indireta -->
+      <div class="morphic-card">
+        <h3>2) Orações Subordinadas Substantivas OBJETIVAS INDIRETAS</h3>
+        <p>Assumem o papel do objeto indireto, complementando o sentido do verbo transitivo indireto.</p>
+        <ul class="example-list">
+          <li>Ex. 1: Torço para <u>QUE você seja aprovado</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o trecho: "que você seja aprovado" está complementando o sentido do verbo "torço", pois quem torce, torce "para alguém" (ou "para alguma coisa"). Neste exemplo; a classificação da oração subordinada é: <strong>oração subordinada substantiva objetiva indireta</strong>, pois está assumindo a função própria do objeto indireto.)
+        </div>
+        <div class="obs-box" style="margin-top: 6px; margin-bottom: 6px;">
+          <strong>Obs.:</strong> Observe que a ligação entre a oração subordinada e o verbo, se dá através da preposição "para".
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Gosto <u>de que me tratem com respeito</u>.</li>
+          <li>Ex. 3: A diretora insiste <u>em que façamos o relatório hoje</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 3) Completiva Nominal -->
+      <div class="morphic-card">
+        <h3>3) Orações Subordinadas Substantivas COMPLETIVAS NOMINAIS</h3>
+        <p>Assumem o papel do complemento nominal, complementando algum nome da oração.</p>
+        <ul class="example-list">
+          <li>Ex. 1: Tenho necessidade de <u>QUE você volte</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o trecho: "que você volte", está complementando o sentido do substantivo "necessidade". O substantivo "necessidade" é "objeto direto" do "verbo transitivo direto" (tenho). "Que você volte" está especificando qual é a necessidade do sujeito, e está se ligando ao substantivo através da preposição "de". A classificação desta oração subordinada é: <strong>oração subordinada substantiva completiva nominal</strong>, pois está assumindo uma função própria do complemento nominal.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Estamos certos <u>de que a prova será fácil</u>.</li>
+          <li>Ex. 3: Ele tinha medo <u>de que a verdade fosse revelada</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 4) Subjetiva -->
+      <div class="morphic-card">
+        <h3>4) Orações Subordinadas Substantivas SUBJETIVAS</h3>
+        <p>Funcionam como sujeito do verbo da oração principal.</p>
+
+        <p class="intro-text" style="font-size: 0.94rem;">
+          A oração subordinada assumirá a função de sujeito quando o sujeito não estiver contido na oração principal e o verbo da oração principal estiver em terceira pessoa.
+        </p>
+
+        <ul class="example-list">
+          <li>Ex. 1: É bom <u>"QUE" você saia daqui</u>.</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 8px;">Analise duas coisas neste exemplo:</p>
+        <ul class="example-list">
+          <li>1- O sujeito não está contido na oração principal. (oração principal = É bom)</li>
+          <li>2- O verbo da oração principal está em terceira pessoa. (Verbo = É), ou seja (ele) É.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          A classificação desta oração será: <strong>oração subordinada substantiva subjetiva</strong>.
+        </div>
+
+        <div class="obs-box">
+          <strong>Obs.:</strong> Observando estas duas regras você conseguirá distinguir a oração subordinada substantiva subjetiva da oração subordinada substantiva objetiva direta.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: É necessário <u>que todos prestem atenção</u>.</li>
+          <li>Ex. 3: Convém <u>que cheguemos mais cedo hoje</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 5) Predicativa -->
+      <div class="morphic-card">
+        <h3>5) Orações Subordinadas Substantivas PREDICATIVAS</h3>
+        <p>Funcionam como predicativo do sujeito da oração principal (que é produzida utilizando um "verbo de ligação").</p>
+        <ul class="example-list">
+          <li>Ex. 1: Minha esperança é <u>QUE você volte</u>.</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 8px;">Analise duas coisas neste exemplo:</p>
+        <ul class="example-list">
+          <li>1- O verbo da oração principal é de ligação e aparece antes da conjunção "que". = "é" (que)</li>
+          <li>2- O verbo de ligação, por natureza, necessita de um predicativo do sujeito, quem assumirá essa função será o trecho: "que você volte", que trata-se da oração subordinada substantiva predicativa.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          A classificação desta oração será: <strong>oração subordinada substantiva predicativa</strong>.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O nosso desejo era <u>que o projeto fosse aprovado</u>.</li>
+          <li>Ex. 3: A verdade é <u>que ninguém esperava por isso</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 6) Apositiva -->
+      <div class="morphic-card">
+        <h3>6) Orações Subordinadas Substantivas APOSITIVAS</h3>
+        <p>Funcionam como um aposto explicativo de algum termo da oração principal e, sempre, aparece depois de dois pontos.</p>
+        <ul class="example-list">
+          <li>Ex. 1: A minha esperança é esta: <u>QUE você volte</u>.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          A classificação desta oração será: <strong>oração subordinada substantiva apositiva</strong>.
+        </div>
+
+        <div class="obs-box">
+          <strong>Obs.:</strong> Os últimos dois exemplos foram frases parecidas, para que você perceba os detalhes de cada oração subordinada substantiva. A observação das regras, bem como a análise do contexto no qual as orações estão inseridas, será determinante para que você possa classificá-las corretamente.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Só quero uma coisa: <u>que você cumpra o contrato</u>.</li>
+          <li>Ex. 3: Ele deixou um aviso: <u>que todos aguardassem na sala</u>.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= ORAÇÕES SUBORDINADAS ADJETIVAS ================= -->
+      <h3 class="topic-header">Orações Subordinadas Adjetivas</h3>
+
+      <p class="intro-text">
+        São aquelas que assumem as funções que seriam próprias do adjetivo. Serão caracterizadas por serem induzidas pelo pronome relativo “QUE”. Vale ressaltar que quando a palavra “que” é um pronome relativo, ele poderá ser facilmente substituído pelos pronomes “cujo” e “qual” (ou suas flexões de gênero e número).
+      </p>
+
+      <ul class="example-list" style="margin-bottom: 12px;">
+        <li>Ex.: O resultado da prova de Marcela, <u>QUE foi aluna da faculdade</u>, finalmente chegou.</li>
+      </ul>
+
+      <p class="intro-text" style="font-size: 0.94rem;">Agora observe a substituição do pronome “que” pelo pronome “a qual”:</p>
+      <p style="font-size: 0.92rem; font-weight: bold; color: var(--brand-color); margin-bottom: 16px;">
+        ➔ O resultado da prova de Marcela, <u>A QUAL foi aluna da faculdade</u>, finalmente chegou.
+      </p>
+
+      <p class="intro-text">As orações subordinadas adjetivas são:</p>
+
+      <!-- 1) Restritivas -->
+      <div class="morphic-card">
+        <h3>1) Orações Subordinadas Adjetivas RESTRITIVAS</h3>
+        <p>Elas têm a função de restringir o termo anterior e não aparecerá entre vírgulas. Veja:</p>
+        <ul class="example-list">
+          <li>Ex. 1: O ser humano <u>QUE trabalha</u> é mais feliz.</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 8px;">Perceba três coisas nesse exemplo:</p>
+        <ul class="example-list">
+          <li>1- O pronome relativo “que” sendo substituído = O ser humano O QUAL trabalha é mais feliz.</li>
+          <li>2- A oração subordinada adjetiva não está entre vírgulas.</li>
+          <li>3- A restrição ocorre quando pegamos uma categoria chamada nesta oração de “ser humano” e deixamos claro que não são todos que são felizes, são só aqueles que trabalham. Isso é uma ideia de restrição.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          A classificação desta oração será: <strong>oração subordinada adjetiva restritiva</strong>.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Os alunos <u>que estudaram com empenho</u> garantiram a aprovação.</li>
+          <li>Ex. 3: Os remédios <u>que venceram ontem</u> foram descartados.</li>
+        </ul>
+      </div>
+
+      <!-- 2) Explicativas -->
+      <div class="morphic-card">
+        <h3>2) Orações Subordinadas Adjetivas EXPLICATIVAS</h3>
+        <p>Elas têm a função de explicar o termo anterior e aparecerá entre vírgulas. Veja:</p>
+        <ul class="example-list">
+          <li>Ex. 1: Os humanos, <u>QUE são dotados de raciocínio</u>, saberão escolher.</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 8px;">Perceba três coisas nesse exemplo:</p>
+        <ul class="example-list">
+          <li>1- O pronome relativo “QUE” sendo substituído = Os humanos, OS QUAIS são dotados de raciocínio, saberão escolher.</li>
+          <li>2- A oração subordinada adjetiva explicativa está entre vírgulas.</li>
+          <li>3- Quando eu leio a frase do exemplo e percebo que a oração subordinada adjetiva explica que o motivo pelo qual os humanos saberão escolher é porque são dotados de raciocínio, fica clara a ideia de explicação.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          A classificação desta oração será: <strong>oração subordinada adjetiva explicativa</strong>.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O Sol, <u>que é a estrela central do nosso sistema</u>, ilumina a Terra.</li>
+          <li>Ex. 3: Machado de Assis, <u>que escreveu Dom Casmurro</u>, foi um grande mestre da literatura.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 11)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na frase <em>"É fundamental que você chegue pontualmente à reunião"</em>, a oração destacada exerce a função de sujeito da oração principal. Portanto, classifica-se como:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Substantiva Objetiva Direta.</li>
+            <li>b) Oração Subordinada Substantiva Subjetiva.</li>
+            <li>c) Oração Subordinada Adjetiva Explicativa.</li>
+            <li>d) Oração Subordinada Substantiva Predicativa.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Em <em>"O diretor declarou que o regulamento seria alterado"</em>, a oração sublinhada completa o sentido do verbo transitivo direto "declarou". Trata-se de uma:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Substantiva Objetiva Direta.</li>
+            <li>b) Oração Subordinada Substantiva Objetiva Indireta.</li>
+            <li>c) Oração Subordinada Adjetiva Restritiva.</li>
+            <li>d) Oração Subordinada Substantiva Completiva Nominal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa que apresenta uma <strong>ORAÇÃO SUBORDINADA ADJETIVA RESTRITIVA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O carro, que era muito antigo, quebrou na rodovia.</li>
+            <li>b) Os funcionários que bateram a meta receberam prêmio.</li>
+            <li>c) Meu pai, que é muito dedicado, chegou do trabalho.</li>
+            <li>d) Sabe-se que a prova será exigente.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na oração <em>"Tenho certeza de que faremos uma excelente prova"</em>, a oração em destaque completa o sentido do substantivo "certeza", ligada por preposição. A classificação correta é:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Substantiva Objetiva Indireta.</li>
+            <li>b) Oração Subordinada Substantiva Completiva Nominal.</li>
+            <li>c) Oração Subordinada Substantiva Predicativa.</li>
+            <li>d) Oração Subordinada Adjetiva Explicativa.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a opção em que a oração em destaque é uma <strong>SUBORDINADA ADJETIVA EXPLICATIVA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) A água que é potável serve para o consumo humano.</li>
+            <li>b) O Brasil, que é o maior país da América Latina, possui grande biodiversidade.</li>
+            <li>c) Convém que façamos a revisão completa da matéria.</li>
+            <li>d) Desejo apenas isto: que sejamos vitoriosos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Em <em>"Nossa intenção era que todos participassem da cerimônia"</em>, a oração sublinhada atua como predicativo do sujeito acompanhado do verbo de ligação "era". Logo, trata-se de:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Substantiva Subjetiva.</li>
+            <li>b) Oração Subordinada Substantiva Predicativa.</li>
+            <li>c) Oração Subordinada Substantiva Apositiva.</li>
+            <li>d) Oração Subordinada Adjetiva Restritiva.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na frase <em>"Todos necessitam de que a paz seja restaurada"</em>, a oração em destaque completa o sentido do verbo "necessitam" (quem necessita, necessita de algo). Classifica-se como:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Substantiva Objetiva Indireta.</li>
+            <li>b) Oração Subordinada Substantiva Completiva Nominal.</li>
+            <li>c) Oração Subordinada Substantiva Objetiva Direta.</li>
+            <li>d) Oração Subordinada Adjetiva Explicativa.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em <em>"Ela fez uma única exigência: que a entrega ocorresse até meio-dia"</em>, a oração introduzida pelos dois pontos exerce função de aposto. Trata-se de uma:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Substantiva Predicativa.</li>
+            <li>b) Oração Subordinada Substantiva Apositiva.</li>
+            <li>c) Oração Subordinada Adjetiva Restritiva.</li>
+            <li>d) Oração Subordinada Substantiva Subjetiva.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Observe as frases:<br>
+          I. <em>Os atletas que treinaram forte conquistaram medalhas.</em><br>
+          II. <em>Os atletas, que treinaram forte, conquistaram medalhas.</em><br>
+          A respeito do sentido das frases, é correto afirmar que:</p>
+          <ul class="exercise-options">
+            <li>a) Em I, entende-se que apenas uma parte dos atletas treinou forte e ganhou medalhas.</li>
+            <li>b) Em II, entende-se que apenas alguns atletas treinaram forte.</li>
+            <li>c) Ambas possuem exatamente o mesmo sentido genérico.</li>
+            <li>d) Em I, a oração é adjetiva explicativa e em II é adjetiva restritiva.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> O termo "QUE" introduz uma <strong>ORAÇÃO SUBORDINADA SUBSTANTIVA</strong> na seguinte opção:</p>
+          <ul class="exercise-options">
+            <li>a) O livro que eu li é excelente.</li>
+            <li>b) O aluno que estuda aprende a matéria.</li>
+            <li>c) Percebi que você se esforçou para o exame.</li>
+            <li>d) A cidade onde nasci é muito agradável.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a11', 'icon-a11')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a11">▼</span>
+        </button>
+
+        <div id="gabarito-a11" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — A oração principal "É fundamental" possui verbo na 3ª pessoa sem sujeito expresso nele. O sujeito é a própria oração "que você chegue pontualmente" (Substantiva Subjetiva).
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — O verbo "declarou" é transitivo direto (quem declara, declara algo). A oração "que o regulamento seria alterado" atua como Objeto Direto (Substantiva Objetiva Direta).
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — A oração "que bateram a meta" introduzida pelo pronome relativo "que" (= os quais) restringe o grupo de funcionários sem o uso de vírgulas (Adjetiva Restritiva).
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — A oração complementa o sentido do substantivo "certeza" (nome), ligando-se por meio da preposição "de", sendo portanto Substantiva Completiva Nominal.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — "que é o maior país da América Latina" explica um atributo do termo antecedente "O Brasil", vem separada por vírgulas e é introduzida por pronome relativo (Adjetiva Explicativa).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — A oração funciona como predicativo do sujeito "Nossa intenção", estando ligada a ele pelo verbo de ligação "era" (Substantiva Predicativa).
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: A</strong> — O verbo "necessitam" é transitivo indireto (pede a preposição "de"). A oração cumpre o papel de objeto indireto (Substantiva Objetiva Indireta).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — A oração vem após dois pontos detalhando o substantivo "exigência", exercendo a função sintática de aposto (Substantiva Apositiva).
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: A</strong> — Na frase I (sem vírgulas/restritiva), somente os atletas que treinaram forte ganharam medalha (uma parte deles). Na frase II (com vírgulas/explicativa), entende-se que *todos* os atletas treinaram forte e ganharam medalha.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: C</strong> — Em "Percebi que você se esforçou...", a palavra "QUE" é uma conjunção integrante (não pode ser substituída por "o qual"), introduzindo uma Oração Subordinada Substantiva Objetiva Direta. Nas alternativas A e B, o "que" é pronome relativo.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conteúdo Extra - Figuras de Linguagem | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .section-header {
+      font-size: 1.15rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 4px solid var(--brand-color);
+      padding-left: 8px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS / REGRAS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E BIZUS */
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--green-action);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #14532d;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar este conteúdo</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO EXTRA ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Conteúdo Extra: Figuras de Linguagem</h2>
+
+      <p class="intro-text">
+        As figuras de linguagem constituem recursos estilísticos empregados para atribuir maior expressividade ao texto. Em provas de concursos públicos, são avaliadas tanto pela identificação direta quanto pelo apoio à interpretação textual.
+      </p>
+
+      <h3 class="section-header">PARTE I: FIGURAS SEMÂNTICAS, DE PENSAMENTO E FONÉTICAS</h3>
+
+      <!-- METÁFORA E COMPARAÇÃO -->
+      <div class="morphic-card">
+        <h3>1. Metáfora vs. Comparação</h3>
+        
+        <p><strong>➔ Metáfora:</strong> Emprego de um termo em sentido figurado, fundamentado em uma comparação implícita (sem conector explicito).</p>
+        <ul class="example-list">
+          <li>"Aquele testemunho é um **rochedo** de firmeza."</li>
+          <li>"A mente do jurado era um **labirinto** impenetrável."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Comparação (Símile):</strong> Comparação explícita entre dois elementos, valendo-se de conectivos comparativos (como, tal qual, feito, assim como).</p>
+        <ul class="example-list">
+          <li>"O réu permaneceu **como** uma estátua diante do juiz."</li>
+          <li>"A verdade surgiu **tal qual** um raio na escuridão."</li>
+        </ul>
+      </div>
+
+      <!-- METONÍMIA E CATACRESE -->
+      <div class="morphic-card">
+        <h3>2. Metonímia e Catacrese</h3>
+
+        <p><strong>➔ Metonímia:</strong> Substituição de um termo por outro dada a relação de proximidade de sentido (autor pela obra, continente pelo conteúdo, a parte pelo todo).</p>
+        <ul class="example-list">
+          <li>"O advogado leu **Machado de Assis** na biblioteca." (A obra pelo autor)</li>
+          <li>"O jovem não tinha **um teto** para morar." (A parte pelo todo)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Catacrese:</strong> Emprego impróprio de um termo por ausência de palavra específica na língua para designar determinado objeto.</p>
+        <ul class="example-list">
+          <li>"Sentei no **braço da poltrona** para aguardar a sessão."</li>
+          <li>"O cozinheiro descascou o **dente de alho** com agilidade."</li>
+        </ul>
+      </div>
+
+      <!-- SINESTESIA, ANTÍTESE E PARADOXO -->
+      <div class="morphic-card">
+        <h3>3. Sinestesia, Antítese e Paradoxo</h3>
+
+        <p><strong>➔ Sinestesia:</strong> Fusão de diferentes percepções sensoriais (visão, audição, tato, paladar, olfato) em uma mesma expressão.</p>
+        <ul class="example-list">
+          <li>"A testemunha tinha um **olhar frio** e distante." (Visão + Tato)</li>
+          <li>"Ouvia-se uma **voz doce** no plenário." (Audição + Paladar)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Antítese:</strong> Aproximação de palavras de sentidos opostos, mantendo a coerência lógica.</p>
+        <ul class="example-list">
+          <li>"A lei busca a **paz**, mas prevê a **guerra**."</li>
+          <li>"Entre o **riso** e o **choro**, o réu ouviu a sentença."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Paradoxo (Oxímoro):</strong> Reunião de ideias contraditórias em um mesmo enunciado, anulando a lógica comum.</p>
+        <ul class="example-list">
+          <li>"O silêncio do acusado era um **grito ensurdecedor**."</li>
+          <li>"Viver na ilegalidade é uma **escuridão luminosa**."</li>
+        </ul>
+
+        <div class="bizu-box">
+          <strong>⚡ DICA DO PROFESSOR WILLIAM QUEIROZ: ANTÍTESE vs. PARADOXO</strong>
+          <br>• <strong>Antítese:</strong> Contrapõe palavras opostas dentro de uma lógica válida.
+          <br>• <strong>Paradoxo:</strong> Associa conceitos incompatíveis que se anulam mutuamente.
+        </div>
+      </div>
+
+      <!-- HIPÉRBOLE, EUFEMISMO, IRONIA E PERSONIFICAÇÃO -->
+      <div class="morphic-card">
+        <h3>4. Hipérbole, Eufemismo, Ironia e Prosopopeia</h3>
+
+        <p><strong>➔ Hipérbole:</strong> Exagero intencional para enfatizar a declaração.</p>
+        <ul class="example-list">
+          <li>"A petição continha **um milhão de detalhes** insignificantes."</li>
+          <li>"Aguardou a decisão por **séculos** de angústia."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Eufemismo:</strong> Emprego de termos suaves para atenuar uma mensagem penosa ou severa.</p>
+        <ul class="example-list">
+          <li>"O depoente **faltou com a verdade** durante a sessão." (Mentiu)</li>
+          <li>"O servidor público **partiu para o plano superior**." (Faleceu)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Ironia:</strong> Afirmação contrária ao pensamento real, com propósito crítico ou sarcástico.</p>
+        <ul class="example-list">
+          <li>"Excelente pontualidade: a sessão iniciaria às nove e o patrono chegou ao meio-dia."</li>
+          <li>"Que civilidade admirável a do rapaz que agrediu os presentes."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Prosopopeia (Personificação):</strong> Atribuição de características ou ações humanas a seres inanimados ou irracionais.</p>
+        <ul class="example-list">
+          <li>"O papel **gemia** sob o peso das severas denúncias."</li>
+          <li>"O tribunal **contemplava** em silêncio o julgamento."</li>
+        </ul>
+      </div>
+
+      <!-- FIGURAS FONÉTICAS -->
+      <div class="morphic-card">
+        <h3>5. Figuras Fonéticas (Sonoras)</h3>
+
+        <p><strong>➔ Aliteração:</strong> Repetição sistemática de consoantes para criar efeito sonoro.</p>
+        <ul class="example-list">
+          <li>"O **r**ato **r**eclamava do **r**isco **r**eiterado."</li>
+          <li>"**V**ozes **v**eladas, **v**eludinas **v**ozes."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Assonância:</strong> Repetição harmônica de sons vocálicos na frase.</p>
+        <ul class="example-list">
+          <li>"A linha f**a**p**a** c**a**i na **a**p**a**g**a**d**a** estr**a**d**a**."</li>
+          <li>"O que a m**e**nt**e** s**e**nt**e** o corpo pr**e**s**e**nt**e**."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Onomatopeia:</strong> Imitação verbal de sons ou ruídos da realidade.</p>
+        <ul class="example-list">
+          <li>"O **tique-taque** do relógio marcava o fim do prazo."</li>
+          <li>"Incomodava a todos o **tic-tic** da caneta sobre a banca."</li>
+        </ul>
+      </div>
+
+      <h3 class="section-header">PARTE II: FIGURAS SINTÁTICAS (DE CONSTRUÇÃO)</h3>
+
+      <!-- ELIPSE E ZEUGMA -->
+      <div class="morphic-card">
+        <h3>1. Elipse e Zeugma</h3>
+
+        <p><strong>➔ Elipse:</strong> Omissão de um termo subentendido pelo contexto, mas que não foi citado previamente.</p>
+        <ul class="example-list">
+          <li>"[Nós] **Chegamos** pontualmente para o exame."</li>
+          <li>"Na sala do magistrado, apenas **silêncio**." (Omissão de *havia*)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Zeugma:</strong> Omissão de um termo que <strong>já foi mencionado</strong> anteriormente na estrutura textual.</p>
+        <ul class="example-list">
+          <li>"O delegado analisou o inquérito; o escrivão, [analisou] a certidão."</li>
+          <li>"Uns defendiam a tese; outros, [defendiam] a antítese."</li>
+        </ul>
+      </div>
+
+      <!-- POLISSÍNDETO E ASSÍNDETO -->
+      <div class="morphic-card">
+        <h3>2. Polissíndeto e Assíndeto</h3>
+
+        <p><strong>➔ Polissíndeto:</strong> Repetição intencional de conjunções (geralmente *e*) para exprimir acúmulo ou continuidade.</p>
+        <ul class="example-list">
+          <li>"O jurista leu, **e** estudou, **e** debateu, **e** venceu a causa."</li>
+          <li>"E sofre, **e** chora, **e** luta, **e** persiste."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Assíndeto:</strong> Ausência de conjunções coordenativas entre os orações, conferindo dinamismo.</p>
+        <ul class="example-list">
+          <li>"Chegou, examinou as provas, proferiu o voto."</li>
+          <li>"Vim, vi, venci."</li>
+        </ul>
+      </div>
+
+      <!-- PLEONASMO, ANACOLUTO, ANÁFORA E HIPÉRBATO -->
+      <div class="morphic-card">
+        <h3>3. Pleonasmo, Anacoluto, Anáfora e Hipérbato</h3>
+
+        <p><strong>➔ Pleonasmo Literário:</strong> Repetição de ideia para reforço expressivo (diferente do *vício de linguagem*).</p>
+        <ul class="example-list">
+          <li>"A testemunha viu **com os próprios olhos** o ocorrido."</li>
+          <li>"Chorei **um pranto doloroso** diante da sentença."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Anacoluto:</strong> Interrupção da ordem sintática, deixando um termo sem função gramatical definida.</p>
+        <ul class="example-list">
+          <li>"Essa nova lei, a população precisa conhecer os detalhes dela."</li>
+          <li>"O réu, todos sabiam da inocência dele."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Anáfora Sintática:</strong> Repetição de palavras no início de frases seguidas.</p>
+        <ul class="example-list">
+          <li>"**É a constituição** que norteia. **É a constituição** que garante."</li>
+          <li>"**Buscamos** a verdade. **Buscamos** a justiça."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Hipérbato (Inversão):</strong> Inversão da ordem direta da oração (Sujeito + Verbo + Complemento).</p>
+        <ul class="example-list">
+          <li>"Caminhava cautelosamente o relator no Plenário."</li>
+          <li>"Ouviram do Ipiranga as margens plácidas."</li>
+        </ul>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS DIVERSIFICADOS -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação (20 Questões)</h3>
+
+        <!-- QUESTÃO 1 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>1.</strong> Identifique a figura presente no trecho: <em>"Aquele testemunho foi um escudo para o acusado."</em></p>
+          <ul class="exercise-options">
+            <li>a) Metonímia</li>
+            <li>b) Metáfora</li>
+            <li>c) Comparação</li>
+            <li>d) Catacrese</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 2 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a frase em que há a ocorrência de <strong>Metonímia</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O promotor agiu como um leão perante o júri.</li>
+            <li>b) O tempo voou durante a sessão do julgamento.</li>
+            <li>c) O tribunal consumiu garrafas de água no debate.</li>
+            <li>d) As paredes do fórum ouviam o desespero do réu.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 3 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>3.</strong> A expressão <em>"O acusado faltou com a verdade perante o juiz"</em> configura recurso denominado:</p>
+          <ul class="exercise-options">
+            <li>a) Eufemismo</li>
+            <li>b) Hipérbole</li>
+            <li>c) Ironia</li>
+            <li>d) Paradoxo</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 4 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>4.</strong> Em qual das alternativas ocorre um <strong>Paradoxo</strong>?</p>
+          <ul class="exercise-options">
+            <li>a) O dia estava radiante, porém a noite trouxe tempestade.</li>
+            <li>b) Chorou rios de lágrimas com a aprovação.</li>
+            <li>c) O tique-taque do relógio ecoava na sala.</li>
+            <li>d) Viver na ilegalidade é uma cega luminosidade.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 5 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>5.</strong> O recurso que consiste na aproximação de sentidos de órgãos sensoriais distintos é a:</p>
+          <ul class="exercise-options">
+            <li>a) Aliteração</li>
+            <li>b) Assonância</li>
+            <li>c) Sinestesia</li>
+            <li>d) Catacrese</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 6 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa em que se identifica a figura de linguagem <strong>Antítese</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O direito busca a ordem, mas enfrenta o caos.</li>
+            <li>b) O relator era um poço de sabedoria.</li>
+            <li>c) Sentou-se no braço da poltrona para aguardar.</li>
+            <li>d) Discursou por mil anos sem parar.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 7 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>7.</strong> A frase <em>"Comprei o dente de alho na feira"</em> constitui exemplo de:</p>
+          <ul class="exercise-options">
+            <li>a) Metáfora</li>
+            <li>b) Metonímia</li>
+            <li>c) Sinestesia</li>
+            <li>d) Catacrese</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 8 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em <em>"O advogado argumentou, e provou, e insistiu, e venceu a causa"</em>, nota-se a presença do:</p>
+          <ul class="exercise-options">
+            <li>a) Assíndeto</li>
+            <li>b) Polissíndeto</li>
+            <li>c) Anacoluto</li>
+            <li>d) Hipérbato</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 9 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>9.</strong> O trecho <em>"A casa de leis aprovou o projeto com rapidez"</em> exibe um caso de:</p>
+          <ul class="exercise-options">
+            <li>a) Hipérbole</li>
+            <li>b) Prosopopeia</li>
+            <li>c) Metonímia</li>
+            <li>d) Zeugma</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 10 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>10.</strong> A omissão de um termo que já foi mencionado em oração anterior denomina-se:</p>
+          <ul class="exercise-options">
+            <li>a) Zeugma</li>
+            <li>b) Elipse</li>
+            <li>c) Anacoluto</li>
+            <li>d) Anáfora</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 11 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>11.</strong> Assinale a opção que exibe uma <strong>Prosopopeia (Personificação)</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Cheguei, observei as provas, decidi o caso.</li>
+            <li>b) Ele tinha um olhar gelado e insensível.</li>
+            <li>c) Aquele parecer continha um milhão de falhas.</li>
+            <li>d) O código penal vigia a conduta dos cidadãos.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 12 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>12.</strong> Em <em>"Lentamente caminhava o magistrado até a mesa"</em>, o deslocamento do sujeito caracteriza:</p>
+          <ul class="exercise-options">
+            <li>a) Anacoluto</li>
+            <li>b) Hipérbato</li>
+            <li>c) Assíndeto</li>
+            <li>d) Pleonasmo</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 13 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>13.</strong> A frase <em>"Chegamos cedo para a realização do concurso"</em> apresenta a omissão de 'Nós'. Trata-se de:</p>
+          <ul class="exercise-options">
+            <li>a) Elipse</li>
+            <li>b) Zeugma</li>
+            <li>c) Catacrese</li>
+            <li>d) Anáfora</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 14 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>14.</strong> Assinale a alternativa em que se identifica a figura fonética <strong>Onomatopeia</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O vento varria as folhas na praça.</li>
+            <li>b) Pedro Paulo pintou o painel principal.</li>
+            <li>c) O tic-tac do relógio mantinha o candidato tenso.</li>
+            <li>d) A linha fapa cai na apagada estrada.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 15 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>15.</strong> A repetição continuada de sons consonantes como em <em>"Vozes veladas, veludinas vozes"</em> constitui:</p>
+          <ul class="exercise-options">
+            <li>a) Assonância</li>
+            <li>b) Onomatopeia</li>
+            <li>c) Sinestesia</li>
+            <li>d) Aliteração</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 16 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>16.</strong> A frase <em>"Que grande honestidade a do funcionário que desviou os verbas públicas"</em> exemplifica:</p>
+          <ul class="exercise-options">
+            <li>a) Eufemismo</li>
+            <li>b) Ironia</li>
+            <li>c) Metáfora</li>
+            <li>d) Paradoxo</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 17 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>17.</strong> Aponte a alternativa em que ocorre um <strong>Pleonasmo Literário</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Subiu para cima do palco para falar.</li>
+            <li>b) Entrou para dentro da sala de audiência.</li>
+            <li>c) Vi com meus próprios olhos a fraude no certame.</li>
+            <li>d) Adiou para depois a decisão liminar.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 18 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>18.</strong> Em <em>"Esse servidor novo, a administração confia nele"</em>, ocorre uma quebra na estrutura sintática denominada:</p>
+          <ul class="exercise-options">
+            <li>a) Anacoluto</li>
+            <li>b) Polissíndeto</li>
+            <li>c) Hipérbato</li>
+            <li>d) Elipse</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 19 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>19.</strong> A repetição de palavras no início de orações seguidas (<em>"É a lei que pune. É a lei que protege."</em>) configura:</p>
+          <ul class="exercise-options">
+            <li>a) Assíndeto</li>
+            <li>b) Zeugma</li>
+            <li>c) Aliteração</li>
+            <li>d) Anáfora</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 20 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>20.</strong> Em <em>"Vim, vi, venci"</em>, a ausência deliberada de conjunções entre as orações caracteriza o:</p>
+          <ul class="exercise-options">
+            <li>a) Polissíndeto</li>
+            <li>b) Assíndeto</li>
+            <li>c) Anacoluto</li>
+            <li>d) Eufemismo</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-extra-1', 'icon-extra-1')">
+          <span>Ver Gabarito Comentado (20 Questões)</span>
+          <span id="icon-extra-1">▼</span>
+        </button>
+
+        <div id="gabarito-extra-1" class="accordion-content">
+          <div class="gabarito-item"><strong>1. B</strong> — Comparação implícita sem conectivo explícito (Metáfora).</div>
+          <div class="gabarito-item"><strong>2. C</strong> — Substituição do conteúdo ("água") pelo continente ("garrafas") (Metonímia).</div>
+          <div class="gabarito-item"><strong>3. A</strong> — Suavização da expressão "mentiu" (Eufemismo).</div>
+          <div class="gabarito-item"><strong>4. D</strong> — Associação ilógica de "cega" com "luminosidade" (Paradoxo).</div>
+          <div class="gabarito-item"><strong>5. C</strong> — Cruzamento de sentidos sensoriais físicos (Sinestesia).</div>
+          <div class="gabarito-item"><strong>6. A</strong> — Oposição lógica entre os termos "ordem" e "caos" (Antítese).</div>
+          <div class="gabarito-item"><strong>7. D</strong> — Uso figurado por falta de nome específico (Catacrese).</div>
+          <div class="gabarito-item"><strong>8. B</strong> — Repetição deliberada do conectivo "e" (Polissíndeto).</div>
+          <div class="gabarito-item"><strong>9. C</strong> — Substituição do Congresso/Parlamento por "casa de leis" (Metonímia).</div>
+          <div class="gabarito-item"><strong>10. A</strong> — Omissão de termo previamente expresso na frase (Zeugma).</div>
+          <div class="gabarito-item"><strong>11. D</strong> — Atribuição da ação humana de "vigiar" ao código penal (Prosopopeia).</div>
+          <div class="gabarito-item"><strong>12. B</strong> — Inversão da ordem direta da oração (Hipérbato).</div>
+          <div class="gabarito-item"><strong>13. A</strong> — Omissão de termo não expresso antes, mas contextualizado (Elipse).</div>
+          <div class="gabarito-item"><strong>14. C</strong> — Imitação de ruído natural ou mecânico (Onomatopeia).</div>
+          <div class="gabarito-item"><strong>15. D</strong> — Repetição de sons consonantais /v/ (Aliteração).</div>
+          <div class="gabarito-item"><strong>16. B</strong> — Declaração oposta ao sentido real com teor crítico (Ironia).</div>
+          <div class="gabarito-item"><strong>17. C</strong> — Enfatização expressiva de uma ideia (Pleonasmo Literário).</div>
+          <div class="gabarito-item"><strong>18. A</strong> — Quebra da sequência sintática regular da frase (Anacoluto).</div>
+          <div class="gabarito-item"><strong>19. D</strong> — Repetição de termos no início de enunciados consecutivos (Anáfora).</div>
+          <div class="gabarito-item"><strong>20. B</strong> — Ausência de conjunções separando orações (Assíndeto).</div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

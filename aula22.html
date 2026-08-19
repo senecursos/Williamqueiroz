@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 22 - Redação: Dissertação Argumentativa | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .section-header {
+      font-size: 1.15rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 4px solid var(--brand-color);
+      padding-left: 8px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    /* EXEMPLOS DIDÁTICOS */
+    .text-example {
+      background-color: #ffffff;
+      border-left: 3px solid var(--border-color);
+      padding: 10px 12px;
+      font-style: italic;
+      font-size: 0.93rem;
+      color: #334155;
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E BIZUS */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--green-action);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #14532d;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* MODELO DE REDAÇÃO COMPLETO */
+    .essay-box {
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .essay-box h4 {
+      text-align: center;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      font-size: 1.05rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 6px;
+    }
+
+    .essay-p {
+      margin-bottom: 12px;
+      text-align: justify;
+      text-indent: 1.5em;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-right: 4px;
+      display: inline-block;
+      text-indent: 0;
+    }
+
+    .tag-intro { background-color: #dbeafe; color: #1e40af; }
+    .tag-dev { background-color: #fef3c7; color: #92400e; }
+    .tag-concl { background-color: #dcfce7; color: #166534; }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 22 - Redação: Dissertação Argumentativa</h2>
+
+      <p class="intro-text">
+        Antes de aprender a construir uma dissertação argumentativa de excelência para concursos públicos, é fundamental reconhecer as características dos principais tipos e gêneros textuais cobrados pelas bancas examinadoras.
+      </p>
+
+      <h3 class="section-header">PARTE I: TIPOS E GÊNEROS TEXTUAIS</h3>
+
+      <!-- NARRATIVO -->
+      <div class="morphic-card">
+        <h3>1. Texto Narrativo</h3>
+        <p>Tem como objetivo relatar uma sequência de fatos ou acontecimentos reais ou fictícios, vivenciados por personagens em um determinado tempo e espaço.</p>
+        <p><strong>Elementos essenciais:</strong> Enredo, personagens, tempo, espaço e narrador.</p>
+        <div class="text-example">
+          "Naquela manhã chuvosa de terça-feira, o inspetor caminhou lentamente até a porta do escritório. Ao abrir a fechadura, percebeu que os documentos confidenciais haviam desaparecido da mesa principal."
+        </div>
+      </div>
+
+      <!-- DESCRITIVO -->
+      <div class="morphic-card">
+        <h3>2. Texto Descritivo</h3>
+        <p>Busca retratar verbalmente os detalhes de um objeto, pessoa, lugar, animal ou cena, funcionando como uma imagem construída com palavras.</p>
+        <p><strong>Elementos essenciais:</strong> Predomínio de adjetivos, verbos de ligação e riqueza de pormenores sensoriais.</p>
+        <div class="text-example">
+          "A sala de reuniões era ampla e austera. No centro, uma mesa de madeira escura e polida refletia a iluminação fria das lâmpadas fluorescentes. As paredes cinzentas exibiam apenas um antigo relógio de bronze."
+        </div>
+      </div>
+
+      <!-- DISSERTATIVO EXPOSITIVO -->
+      <div class="morphic-card">
+        <h3>3. Texto Dissertativo-Expositivo</h3>
+        <p>Apresenta informações, dados, conceitos ou explicações sobre determinado assunto de forma neutra e objetiva, **sem a intenção de convencer o leitor ou defender um ponto de vista**.</p>
+        <p><strong>Elementos essenciais:</strong> Informação isenta, dados estatísticos, linguagem formal e denotativa.</p>
+        <div class="text-example">
+          "A inteligência artificial consiste na capacidade de sistemas computacionais simularem processos cognitivos humanos, tais como aprendizado e tomada de decisões, com base na análise de grandes volumes de dados."
+        </div>
+      </div>
+
+      <!-- DISSERTATIVO ARGUMENTATIVO -->
+      <div class="morphic-card">
+        <h3>4. Texto Dissertativo-Argumentativo (O Padrão dos Concursos)</h3>
+        <p>Além de expor um tema, **defende uma tese (ponto de vista)** por meio de argumentos consolidados, visando persuadir ou convencer a banca examinadora.</p>
+        <p><strong>Elementos essenciais:</strong> Tese clara, fundamentação teórica, lógica de causa e efeito e conclusão conclusiva/propositiva.</p>
+        <div class="text-example">
+          "O avanço desordenado das tecnologias digitais exige regulamentação urgente no Brasil. A falta de controle sobre os dados pessoais compromete a privacidade dos cidadãos e fragiliza as instituições democráticas."
+        </div>
+      </div>
+
+      <!-- INJUNTIVO -->
+      <div class="morphic-card">
+        <h3>5. Texto Injuntivo (Instrucional)</h3>
+        <p>Tem a finalidade de instruir, orientar ou prescrever normas de conduta ao leitor.</p>
+        <p><strong>Elementos essenciais:</strong> Uso ostensivo de verbos no modo imperativo ou no infinitivo.</p>
+        <div class="text-example">
+          "Para cadastrar sua senha, acesse o portal do candidato. Informe o número do CPF, clique em 'Continuar' e digite os seis dígitos recebidos via mensagem de texto."
+        </div>
+      </div>
+
+      <!-- OUTROS GÊNEROS DE PROVA -->
+      <div class="morphic-card">
+        <h3>6. Outros Gêneros Cobrados em Provas</h3>
+        
+        <p><strong>➔ Texto Publicitário (Propaganda):</strong> Possui intenção persuasiva comercial ou social. Emprega linguagem mista (verbal e não verbal), slogans impactantes e apelo direto ao interlocutor.</p>
+
+        <p style="margin-top: 10px;"><strong>➔ Tirinhas / Quadrinhos:</strong> Utilizam a narrativa visual combinada a diálogos curtos para construir crítica social, ironia ou humor. Muito cobrados em questões de interpretação e gramática aplicada.</p>
+      </div>
+
+      <h3 class="section-header">PARTE II: A ESTRUTURA DA DISSERTAÇÃO ARGUMENTATIVA</h3>
+
+      <!-- INTRODUÇÃO -->
+      <div class="morphic-card">
+        <h3>1. A Introdução</h3>
+        <p>A introdução deve conter entre 5 e 7 linhas e ser estruturada em três partes fundamentais:</p>
+
+        <p><strong>a) Exposição do Tema:</strong> Apresente a temática proposta pela banca utilizando suas próprias palavras. <strong>Nunca copie os termos idênticos da proposta</strong>.</p>
+        
+        <p><strong>b) Formulação da Tese:</strong> Expresse um posicionamento claro e objetivo sobre o tema. Essa tese não deve ser formulada em 1ª pessoa (ex: "eu acho"), mas sim representar uma análise técnica e de interesse coletivo.</p>
+
+        <p><strong>c) Antecipação dos Argumentos (Roteiro):</strong> Apresente dois (ou três) aspectos centrais que sustentarão sua tese. Cada um desses pontos será desenvolvido separadamente nos parágrafos seguintes.</p>
+
+        <div class="bizu-box">
+          <strong>⚡ DICA DO PROFESSOR WILLIAM QUEIROZ: INTRODUÇÃO</strong>
+          <br>A introdução é o mapa da sua redação. Se você citar o argumento A e o argumento B na introdução, o seu 2º parágrafo OBRIGATORIAMENTE tratará do argumento A, e o 3º parágrafo OBRIGATORIAMENTE tratará do argumento B.
+        </div>
+      </div>
+
+      <!-- DESENVOLVIMENTO -->
+      <div class="morphic-card">
+        <h3>2. O Desenvolvimento (D1 e D2)</h3>
+        <p>É o corpo do texto, composto geralmente por 2 parágrafos de 7 a 9 linhas cada. Em cada parágrafo de desenvolvimento, você deve:</p>
+        
+        <p>• Aprofundar apenas <strong>um dos pontos</strong> previstos no roteiro da introdução.<br>
+        • Utilizar elementos de fundamentação: dados estatísticos, legislação (Constituição Federal, leis estaduais/federais), referências históricas ou citações de autoridades.<br>
+        • Explicar a relação lógica de causa, consequência ou impacto social do problema.</p>
+      </div>
+
+      <!-- CONCLUSÃO -->
+      <div class="morphic-card">
+        <h3>3. A Conclusão Propositiva</h3>
+        <p>Em concursos, a conclusão deve retomar a tese e apresentar uma **solução concreta** para o problema debatido (diferente da conclusão meramente resumitiva). A proposta de intervenção completa deve responder a quatro perguntas básicas:</p>
+
+        <p>1. <strong>Quem executará?</strong> (Agente responsável: Estado, Ministérios, Sociedade, Família, Mídia).<br>
+        2. <strong>O que será feito?</strong> (Ação prática e exequível).<br>
+        3. <strong>Como / Por quais meios será feito?</strong> (Mecanismo de implementação).<br>
+        4. <strong>Qual o benefício gerado?</strong> (Efeito e impacto social a curto, médio e longo prazo).</p>
+      </div>
+
+      <!-- BIZUS DE COESÃO -->
+      <div class="morphic-card" style="border-left-color: var(--brand-color);">
+        <h3 style="color: var(--brand-color);">4. Linguagem e Conectivos</h3>
+        
+        <p><strong>❌ Evite fórmulas batidas:</strong> Expressões como <em>"primeiramente"</em>, <em>"ademais"</em>, <em>"atualmente no mundo em que vivemos"</em> e <em>"desde os primórdios da humanidade"</em> empobrecem o texto e revelam falta de repertório vocabular.</p>
+
+        <p><strong>✅ Conectivo recomendado na Conclusão:</strong> O uso da conjunção conclusiva <strong>"Portanto"</strong> no início do parágrafo final é amplamente aceito e esperado pelas bancas examinadoras para marcar o encerramento lógico da tese.</p>
+      </div>
+
+      <h3 class="section-header">PARTE III: MODELO PRÁTICO DE REDAÇÃO NOTA 100</h3>
+
+      <div class="essay-box">
+        <h4>Tema: Os desafios para a democratização do acesso à tecnologia no Brasil</h4>
+
+        <p class="essay-p">
+          <span class="tag tag-intro">INTRODUÇÃO</span> A Constituição Federal de 1988 assegura o acesso à informação e à educação como direitos fundamentais inalienáveis. Contudo, a persistente disparidade no acesso aos recursos tecnológicos no Brasil impede que parcela expressiva da população usufrua plenamente de tais garantias. Essa problemática decorre tanto da omissão estatal na infraestrutura digital quanto da escassez de letramento tecnológico nas redes públicas de ensino.
+        </p>
+
+        <p class="essay-p">
+          <span class="tag tag-dev">DESENVOLVIMENTO 1</span> A falta de investimentos públicos em infraestrutura básica de telecomunicações perpetua a exclusão social no país. Em diversas regiões periféricas e rurais, o acesso à internet de alta velocidade permanece escasso ou inexistente. Como consequência, cidadãos residentes nessas localidades encontram-se privados de serviços essenciais, como o ensino a distância, a busca por empregos e o atendimento bancário digital, agravando a desigualdade socioeconômica nacional.
+        </p>
+
+        <p class="essay-p">
+          <span class="tag tag-dev">DESENVOLVIMENTO 2</span> A ausência de programas efetivos de capacitação digital nas escolas públicas limita o desenvolvimento das novas gerações. Ter acesso físico ao computador ou ao telefone celular não garante, por si só, o uso consciente e produtivo da informação. Sem o devido treinamento pedagógico, estudantes carentes tornam-se vulneráveis à desinformação e perdem competitividade no mercado de trabalho moderno, cada vez mais exigente em competências tecnológicas.
+        </p>
+
+        <p class="essay-p">
+          <span class="tag tag-concl">CONCLUSÃO</span> Portanto, medidas urgentes são necessárias para consolidar a inclusão digital no país. Cabe ao Governo Federal, por meio do Ministério das Comunicações, expandir a rede pública de fibra óptica para municípios isolados e periferias, utilizando verbas orçamentárias destinadas ao desenvolvimento regional. Além disso, o Ministério da Educação deve implementar oficinas permanentes de tecnologia nas escolas públicas. Com essas ações, o Brasil garantirá o cumprimento das diretrizes constitucionais a curto e longo prazo.
+        </p>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS SIMPLES -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação (10 Questões)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> O tipo textual que tem como característica principal a orientação da conduta do leitor por meio de verbos no imperativo é o:</p>
+          <ul class="exercise-options">
+            <li>a) Narrativo</li>
+            <li>b) Injuntivo</li>
+            <li>c) Dissertativo-expositivo</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> A diferença fundamental entre a dissertação <strong>expositiva</strong> e a <strong>argumentativa</strong> reside no fato de que esta última obrigatoriamente apresenta:</p>
+          <ul class="exercise-options">
+            <li>a) Linguagem conotativa e figurada</li>
+            <li>b) Defesa de uma tese com poder de persuasão</li>
+            <li>c) Narrativa baseada em personagens fictícios</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na estrutura da dissertação argumentativa, a formulação da **tese** deve ser feita idealmente na:</p>
+          <ul class="exercise-options">
+            <li>a) Conclusão</li>
+            <li>b) Introdução</li>
+            <li>c) Transição do D1 para o D2</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na introdução de um texto dissertativo, ao tratar do tema proposto pela banca, o candidato deve:</p>
+          <ul class="exercise-options">
+            <li>a) Copiar fielmente as palavras da proposta</li>
+            <li>b) Reescrever o tema com suas próprias palavras</li>
+            <li>c) Ignorar o tema e focar apenas na tese</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a alternativa que indica um elemento obrigatório em uma proposta de intervenção completa na conclusão:</p>
+          <ul class="exercise-options">
+            <li>a) Narrador em primeira pessoa</li>
+            <li>b) Identificação do agente executor da medida</li>
+            <li>c) Citação exata de um poema</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Qual das seguintes conjunções é altamente recomendada para iniciar o parágrafo conclusivo de uma dissertação?</p>
+
+          <ul class="exercise-options">
+            <li>a) Entretanto</li>
+            <li>b) Portanto</li>
+            <li>c) Porquanto</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Um parágrafo que descreve minuciosamente os aspectos físicos de um ambiente de trabalho sem narrar ações pertence ao tipo:</p>
+          <ul class="exercise-options">
+            <li>a) Descritivo</li>
+            <li>b) Injuntivo</li>
+            <li>c) Argumentativo</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em relação ao desenvolvimento de um texto dissertativo-argumentativo, é correto afirmar que:</p>
+          <ul class="exercise-options">
+            <li>a) Cada parágrafo deve abordar vários temas aleatórios.</li>
+            <li>b) Deve fundamentar o ponto de vista com dados, leis ou fatos comprováveis.</li>
+            <li>c) Deve ser escrito em tom pessoal e informal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> O gênero textual que utiliza linguagem mista (texto e imagem) com o objetivo de conscientizar ou vender um produto é o:</p>
+          <ul class="exercise-options">
+            <li>a) Manual de instruções</li>
+            <li>b) Texto publicitário</li>
+            <li>c) Artigo científico</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Na conclusão da dissertação, detalhar o **meio/modo** de execução da proposta de intervenção responde à pergunta:</p>
+          <ul class="exercise-options">
+            <li>a) Quem fará a ação?</li>
+            <li>b) Como a ação será colocada em prática?</li>
+            <li>c) Qual será o resultado final obtido?</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans-22', 'icon-gab-22')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab-22">▼</span>
+        </button>
+
+        <div id="gabarito-ans-22" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — O texto injuntivo prescreve instrução ou ordem, utilizando verbos no imperativo ou infinitivo.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — A dissertação argumentativa exige a exposição de argumentos para defender uma tese e convencer o leitor.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — A tese (posicionamento central) deve ser explicitada na introdução para nortear todo o desenvolvimento do texto.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — Copiar os termos do tema da banca pode ser apenado como paráfrase não autoral; deve-se reescrever com autonomia vocabulárica.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — Toda proposta de solução deve explicitar o Agente (quem executará a medida).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — "Portanto" é a conjunção coordenativa conclusiva por excelência para conectar o encerramento do raciocínio.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: A</strong> — A apresentação detalhada de características físicas de um lugar caracteriza a tipologia descritiva.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — O desenvolvimento necessita de repertório legitimado e argumentos consistentes para validar a tese.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — O texto publicitário utiliza apelos visuais e verbais persuasivos dirigidos ao público.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — O elemento "meio/modo" esclarece os mecanismos práticos de viabilização da intervenção.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 07 - Sintaxe: Introdução e Vozes do Verbo | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES MÓRFICOS / SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .conversion-box {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 0.92rem;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .conversion-box div {
+      margin-bottom: 6px;
+    }
+
+    .conversion-box div:last-child {
+      margin-bottom: 0;
+    }
+
+    /* DICAS E OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .tip-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #166534;
+      margin-top: 14px;
+      margin-bottom: 16px;
+    }
+
+    .tip-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 07 - Sintaxe: Introdução e Vozes do Verbo</h2>
+
+      <!-- ================= INTRODUÇÃO À SINTAXE ================= -->
+      <h3 class="topic-header">Introdução à Sintaxe</h3>
+
+      <p class="intro-text">
+        É a parte da gramática que estuda as relações e combinações entre as palavras de um enunciado e entre as frases de um texto.
+      </p>
+      
+      <p class="intro-text">
+        Pela definição de sintaxe, uma palavra não poderá ser analisada independentemente. É obrigatório que o contexto no qual uma palavra esteja inserida seja levado em consideração, para que possamos compreender o papel que ela está desempenhando dentro da frase, ou entender o papel de uma frase dentro de um texto.
+      </p>
+
+      <p class="intro-text">
+        As classes gramaticais, aquelas que estudamos na morfologia, podem desempenhar funções diferentes dentro da sintaxe. Por exemplo, um substantivo poderá ser o núcleo do sujeito ou o núcleo do objeto do verbo (e ainda há outras possibilidades). O mesmo acontece com as outras classes gramaticais. Não se analisa uma frase (ou um texto) sintaticamente, desconsiderando a relação entre o termo analisado e os outros termos que formam o contexto.
+      </p>
+
+
+      <!-- ================= VOZES DO VERBO ================= -->
+      <h3 class="topic-header">Vozes do Verbo</h3>
+
+      <p class="intro-text">
+        A <strong>voz verbal</strong> indica a relação estabelecida entre o sujeito e a ação expressa pelo verbo. Em termos práticos, indica se o sujeito executa (pratica), recebe (sofre) ou realiza e sofre a ação verbal simultaneamente.
+      </p>
+
+      <!-- VOZ ATIVA -->
+      <div class="morphic-card">
+        <h3>1. Voz Ativa</h3>
+        <p>Ocorre quando o sujeito é <strong>agente</strong>, ou seja, pratica a ação expressa pelo verbo.</p>
+        <ul class="example-list">
+          <li><u>O professor</u> explicou a matéria de sintaxe. (Sujeito agente: "O professor")</li>
+          <li><u>Os alunos</u> tiraram muitas dúvidas durante a aula.</li>
+          <li><u>A banca examinadora</u> elaborou questões complexas.</li>
+        </ul>
+      </div>
+
+      <!-- VOZ PASSIVA -->
+      <div class="morphic-card">
+        <h3>2. Voz Passiva</h3>
+        <p>Ocorre quando o sujeito é <strong>paciente</strong>, ou seja, recebe (sofre) a ação verbal. A voz passiva apresenta duas formas principais no português:</p>
+
+        <p style="margin-top: 10px;"><strong>A) Voz Passiva Analítica:</strong> Formada por <em>Verbo Auxiliar (SER/ESTAR) + Verbo Principal no Particípio</em>.</p>
+        <ul class="example-list">
+          <li>A matéria de sintaxe <u>foi explicada</u> pelo professor.</li>
+          <li>Questões complexas <u>foram elaboradas</u> pela banca.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>B) Voz Passiva Sintética (ou Pronominal):</strong> Formada por <em>Verbo Transitivo Direto na 3ª pessoa + Pronome "SE" (Partícula Apassivadora)</em>.</p>
+        <ul class="example-list">
+          <li><u>Explicou-se</u> a matéria de sintaxe. <em>(= A matéria foi explicada)</em></li>
+          <li><u>Alugam-se</u> apartamentos para estudantes. <em>(= Apartamentos são alugados)</em></li>
+          <li><u>Venderam-se</u> todas as vagas do curso. <em>(= Todas as vagas foram vendidas)</em></li>
+        </ul>
+      </div>
+
+      <!-- VOZ REFLEXIVA -->
+      <div class="morphic-card">
+        <h3>3. Voz Reflexiva</h3>
+        <p>Ocorre quando o sujeito é <strong>agente e paciente ao mesmo tempo</strong>, isto é, pratica a ação sobre si mesmo. Acompanha pronome reflexivo (me, te, se, nos, vos).</p>
+        <ul class="example-list">
+          <li>O estudante <u>se preparou</u> para a prova. <em>(Preparou a si mesmo)</em></li>
+          <li>A menina <u>penteou-se</u> em frente ao espelho.</li>
+          <li>Eles <u>abraçaram-se</u> após a divulgação do resultado. <em>(Voz reflexiva recíproca: um ao outro)</em></li>
+        </ul>
+      </div>
+
+      <!-- TRANSIÇÃO DE VOZES -->
+      <div class="tip-box">
+        <strong>🎯 Esquema Estratégico de Conversão (Voz Ativa → Voz Passiva Analítica):</strong>
+        <div class="conversion-box">
+          <div>• <strong>Sujeito da Ativa</strong> ➔ vira <strong>Agente da Passiva</strong> (preposicionado)</div>
+          <div>• <strong>Objeto Direto da Ativa</strong> ➔ vira <strong>Sujeito Paciente</strong></div>
+          <div>• <strong>Verbo Principal</strong> ➔ vira <strong>Verbo Auxiliar + Particípio</strong></div>
+        </div>
+        <em>Exemplo:</em><br>
+        • Ativa: <em>"O candidato (sujeito) resolveu a questão (objeto direto)."</em><br>
+        • Passiva Analítica: <em>"A questão (sujeito paciente) foi resolvida pelo candidato (agente da passiva)."</em>
+      </div>
+
+      <div class="obs-box">
+        <strong>⚠️ Atenção para o Concurso!</strong><br>
+        Apenas verbos transitivos diretos (VTD) ou transitivos diretos e indiretos (VTDI) aceitam a passagem para a voz passiva, pois necessitam do <strong>objeto direto</strong> para ser transformado em sujeito paciente.
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (Aula 07)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a alternativa que apresenta uma frase na <strong>Voz Passiva Analítica</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Os fiscais recolheram todas as provas no horário estipulado.</li>
+            <li>b) O resultado final do concurso foi homologado pelo diretor.</li>
+            <li>c) O jovem cortou-se com a folha de papel.</li>
+            <li>d) Vendem-se livros didáticos em excelente estado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Transpondo a oração <em>"O professor corrigiu os exercícios de sintaxe"</em> para a voz passiva, obtém-se a forma verbal:</p>
+          <ul class="exercise-options">
+            <li>a) Corrigiam-se.</li>
+            <li>b) Foram corrigidos.</li>
+            <li>c) Tinham corrigido.</li>
+            <li>d) Corrigiram.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na frase <em>"Divulgaram-se os gabaritos preliminares"</em>, a palavra <strong>SE</strong> exerce a função de:</p>
+          <ul class="exercise-options">
+            <li>a) Pronome reflexivo.</li>
+            <li>b) Índice de indeterminação do sujeito.</li>
+            <li>c) Partícula apassivadora.</li>
+            <li>d) Conjunção subordinada condicional.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Assinale a frase que se encontra na <strong>Voz Reflexiva</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O aluno feriu-se ao manusear o material de escritório.</li>
+            <li>b) Construíram-se novos prédios públicos na capital.</li>
+            <li>c) As explicações foram dadas com muita clareza.</li>
+            <li>d) O candidato respondeu a todas as questões.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Na oração <em>"O edital foi publicado pela banca examinadora"</em>, o termo sublinhado desempenha a função sintática de:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto direto.</li>
+            <li>b) Sujeito agente.</li>
+            <li>c) Agente da passiva.</li>
+            <li>d) Complemento nominal.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a7', 'icon-a7')">
+          <span>Ver Gabarito Comentado (5 Questões)</span>
+          <span id="icon-a7">▼</span>
+        </button>
+
+        <div id="gabarito-a7" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — "foi homologado pelo diretor" apresenta verbo auxiliar SER + particípio (homologado) acompanhado do agente da passiva.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — "Os exercícios de sintaxe foram corrigidos pelo professor." O verbo no pretérito perfeito do indicativo (corrigiu) vira "foram corrigidos".
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: C</strong> — O verbo "divulgar" é VTD. Com o pronome "SE", forma a voz passiva sintética (Os gabaritos preliminares foram divulgados).
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: A</strong> — O sujeito "O aluno" praticou e sofreu a ação de ferir a si próprio.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: C</strong> — Na voz passiva analítica, o termo introduzido pela preposição "por/pela" que executa a ação é o Agente da Passiva.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

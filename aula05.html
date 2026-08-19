@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 05 - Morfologia: Conjunções | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-top: 14px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .conj-box {
+      background-color: #eff6ff;
+      border: 1px dashed #bfdbfe;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: var(--brand-color);
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E DICAS DE ESTUDO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .tip-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #166534;
+      margin-top: 14px;
+      margin-bottom: 16px;
+    }
+
+    .tip-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 05 - Morfologia</h2>
+
+      <!-- ================= 8) CONJUNÇÕES ================= -->
+      <h3 class="topic-header">8) Conjunções</h3>
+
+      <p class="intro-text">
+        É a palavra que liga duas orações; ou termos semelhantes da mesma oração.
+      </p>
+
+      <div class="morphic-card">
+        <p><strong>Ex. 1: Ligando duas orações &gt;</strong> A irmã dele era firme <u>mas também</u> era compreensiva. <em>(conjunção sublinhada)</em></p>
+        <p><strong>Ex. 2: Ligando dois termos semelhantes &gt;</strong> Ela era mãe <u>e</u> dona-de-casa. <em>(conjunção sublinhada)</em></p>
+      </div>
+
+      <!-- ALERTA IMPORTANTE -->
+      <div class="obs-box">
+        <strong>Importante:</strong><br>
+        Antes de prosseguirmos com o estudo das conjunções, será preciso definirmos o que é <strong>frase</strong>, <strong>oração</strong> e <strong>período</strong>.<br><br>
+
+        • <strong>Frase</strong> – Todo enunciado de sentido completo, possuindo verbos ou não.<br>
+        <em>Ex.: Que cãozinho alegre! (Não possui verbo)</em><br><br>
+
+        • <strong>Oração</strong> – É uma frase que se estrutura em torno de um verbo ou locução verbal.<br>
+        <em>Ex.: O cãozinho <u>estava</u> alegre. (Verbo que indica estado)</em><br><br>
+
+        • <strong>Período</strong> – É a frase organizada com uma ou mais orações. Esse período pode ser <strong>simples</strong>, se a frase possuir apenas um verbo; ou pode ser <strong>composto</strong>, se a frase possuir dois ou mais verbos.<br><br>
+
+        <em>Exemplos:</em>
+        <ul class="example-list" style="margin-top: 6px;">
+          <li>O ventilador <u>incomoda</u> demais. <em>(Período simples, ou seja, a frase possui apenas um verbo)</em></li>
+          <li>Elas <u>fizeram</u> a festa quando a data do aniversário <u>chegou</u>. <em>(Período composto, ou seja, a frase possui dois verbos)</em></li>
+        </ul>
+      </div>
+
+      <p class="intro-text">Agora, vamos seguir com o estudo das conjunções.</p>
+
+      <!-- TIPOS DE CONJUNÇÕES -->
+      <h4 class="subtitle">Tipos de conjunções</h4>
+
+      <!-- 1) CONJUNÇÕES COORDENADAS -->
+      <h3 class="topic-header" style="font-size: 1.15rem; margin-top: 16px;">1) Conjunções coordenadas</h3>
+
+      <p class="intro-text">
+        Quando as orações são ligadas por uma conjunção coordenada, trata-se de um período composto por coordenação, significando que as orações que participam desse período composto são equivalentes e todas elas têm sentido (mesmo que isoladas), mas quando unidas tornam o enunciado mais completo.
+      </p>
+
+      <div class="morphic-card">
+        <p><strong>Ex.:</strong> O lobo é forte. + O lobo é mau. + O lobo é grande. = <em>O lobo é forte, mau <u>e</u> grande.</em> (conjunção aditiva "e").</p>
+      </div>
+
+      <p class="intro-text">As conjunções coordenadas classificam-se em:</p>
+
+      <div class="morphic-card">
+        <h3>a) Aditiva</h3>
+        <p>Passam ideia de soma ou adição.</p>
+        <ul class="example-list">
+          <li>Não veio <u>nem</u> telefonou. <em>(Exemplo original)</em></li>
+          <li>Estudou bastante <u>e</u> passou no concurso. <em>(Exemplo adicional)</em></li>
+          <li>Não só trabalha <u>mas também</u> faz faculdade. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <div class="conj-box">
+          <strong>Conjunções coordenadas aditivas principais:</strong> e, nem, mas também, (não só)... como, (tanto)... quanto.
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>b) Adversativa</h3>
+        <p>Passam ideia de contrariedade ou oposição.</p>
+        <ul class="example-list">
+          <li>Estudei bastante, <u>mas</u> não passei na prova. <em>(Exemplo original)</em></li>
+          <li>Treinou muito, <u>porém</u> não obteve a medalha. <em>(Exemplo adicional)</em></li>
+          <li>O dia estava ensolarado, <u>contudo</u> fazia muito frio. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <div class="conj-box">
+          <strong>Conjunções coordenadas adversativas principais:</strong> mas, porém, todavia, contudo, entretanto, no entanto, não obstante.
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>c) Alternativa</h3>
+        <p>Passam ideia de alternância ou escolha.</p>
+        <ul class="example-list">
+          <li><u>Ora</u> estou triste, <u>ora</u> estou alegre. <em>(Exemplo original)</em></li>
+          <li><u>Ou</u> você estuda, <u>ou</u> trabalha neste horário. <em>(Exemplo adicional)</em></li>
+          <li><u>Quer</u> faça chuva, <u>quer</u> faça sol, iremos ao evento. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <div class="conj-box">
+          <strong>Conjunções coordenadas alternativas principais:</strong> ou...ou, ora...ora, já...já, quer...quer, seja...seja.
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>d) Explicativa</h3>
+        <p>Explicam algo contido na frase.</p>
+        <ul class="example-list">
+          <li>Preciso dormir, <u>pois</u> estou com sono. <em>(Exemplo original)</em></li>
+          <li>Apressa-te, <u>que</u> já é tarde. <em>(Exemplo adicional)</em></li>
+          <li>Não saia sem agasalho, <u>porque</u> está chovendo. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <div class="conj-box">
+          <strong>Conjunções coordenadas explicativas principais:</strong> que, porque, porquanto, pois (antes do verbo).
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>e) Conclusiva</h3>
+        <p>Conclui uma ideia exposta na frase.</p>
+        <ul class="example-list">
+          <li>Estou com medo, <u>logo</u> prefiro ficar em casa. <em>(Exemplo original)</em></li>
+          <li>Estudou com dedicação; <u>portanto</u>, foi aprovado. <em>(Exemplo adicional)</em></li>
+          <li>O trânsito está travado; chegará, <u>pois</u>, com atraso. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <div class="conj-box">
+          <strong>Conjunções coordenadas conclusivas principais:</strong> logo, portanto, por isso, por conseguinte, pois (depois do verbo).
+        </div>
+      </div>
+
+      <p class="intro-text">
+        No período composto por coordenação, uma das orações não terá nenhuma conjunção fazendo parte de sua estrutura; classificaremos esta oração como sendo uma <strong>ORAÇÃO COORDENADA ASSINDÉTICA</strong>. A oração que carrega a conjunção em sua estrutura será classificada como sendo uma <strong>ORAÇÃO COORDENADA SINDÉTICA + a classificação de sua conjunção</strong>. Veja o exemplo abaixo:
+      </p>
+
+      <div class="morphic-card">
+        <p><strong>Ex.:</strong> O atleta era forte, <u>mas</u> perdeu a luta. ("mas" é uma conjunção adversativa)</p>
+        <p>A classificação das orações será da seguinte forma:</p>
+        <ul class="example-list">
+          <li><strong>Oração 1 = O atleta era forte</strong><br><em>(Não tem conjunção) (Sua classificação será: ORAÇÃO COORDENADA ASSINDÉTICA.)</em></li>
+          <li><strong>Oração 2 = mas perdeu a luta</strong><br><em>(Carrega a conjunção adversativa) (Sua classificação será: ORAÇÃO COORDENADA SINDÉTICA ADVERSATIVA)</em></li>
+        </ul>
+      </div>
+
+      <!-- DICA DE ESTUDO 1 DO PROFESSOR -->
+      <div class="tip-box">
+        <strong>Dica de estudo do Prof. William Queiroz:</strong><br>
+        Pessoalmente, eu penso e aconselho que: devido à grande quantidade de conjunções subordinadas que existem, decorar as conjunções coordenadas é indispensável para que a distinção entre os dois tipos de conjunção seja facilitada, pois é possível classificar as subordinadas de forma intuitiva, mas só será possível se você souber, com segurança, que não se trata de uma conjunção coordenada.
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> É óbvio que a distinção entre coordenada e subordinada é mais do que apenas decorando estas conjunções (perceberemos isso na sintaxe). A sua distinção não é tão ínfima e superficial, entretanto, decorá-las já ajudará bastante.
+      </div>
+
+
+      <!-- 2) CONJUNÇÕES SUBORDINADAS -->
+      <h3 class="topic-header" style="font-size: 1.15rem; margin-top: 22px;">2) Conjunções subordinadas</h3>
+
+      <p class="intro-text">
+        Quando as orações são ligadas por uma conjunção subordinada, trata-se de um período composto por subordinação, significando que existe uma "oração principal" e uma "oração subordinada", onde uma não terá sentido completo se não estiver agregada à outra.
+      </p>
+
+      <div class="morphic-card">
+        <p><strong>Ex.:</strong> Só vou para a festa, <u>se</u> você for. (A conjunção subordinada é o "se")</p>
+        <p>Caso eu tente desmembrar esse período composto e separar as duas orações, elas perderão o sentido:</p>
+        <ul class="example-list">
+          <li>Oração principal: <em>só vou para a festa</em></li>
+          <li>Oração subordinada: <em>se você for</em></li>
+        </ul>
+        <p style="margin-top: 8px;">
+          A oração que não carrega a conjunção subordinada é a oração principal; a oração que carrega a conjunção subordinada é a oração subordinada e sua classificação será correspondente à classificação da conjunção que ela carrega. No exemplo acima, o trecho "se você for" é uma oração subordinada condicional, pois o "se" é uma conjunção condicional.
+        </p>
+      </div>
+
+      <p class="intro-text">As conjunções subordinadas classificam-se em:</p>
+
+      <!-- 1- Temporais -->
+      <div class="morphic-card">
+        <h3>1) Temporais</h3>
+        <p>Integram orações com ideia de tempo.</p>
+        <ul class="example-list">
+          <li><u>Quando</u> eu chegar, falarei com você. <em>(Exemplo original)</em></li>
+          <li>Todos saíram <u>assim que</u> o sinal tocou. <em>(Exemplo adicional)</em></li>
+          <li>Aguarde aqui <u>enquanto</u> resolvo a documentação. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"quando eu chegar"</em> é classificado como <strong>ORAÇÃO SUBORDINADA TEMPORAL</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções temporais:</strong> quando, enquanto, logo que, depois que, assim que, sempre que.
+        </div>
+      </div>
+
+      <!-- 2- Causais -->
+      <div class="morphic-card">
+        <h3>2) Causais</h3>
+        <p>Integram orações que dão ideia de causa.</p>
+        <ul class="example-list">
+          <li>Não comprou um carro, <u>já que</u> lhe faltou dinheiro. <em>(Exemplo original)</em></li>
+          <li>A rua alagou <u>porque</u> choveu intensamente. <em>(Exemplo adicional)</em></li>
+          <li><u>Como</u> estava doente, não compareceu à aula. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"já que lhe faltou dinheiro"</em> é classificado como <strong>ORAÇÃO SUBORDINADA CAUSAL</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções causais:</strong> por que, que, já que, visto que, como, uma vez que.
+        </div>
+      </div>
+
+      <!-- 3- Condicionais -->
+      <div class="morphic-card">
+        <h3>3) Condicionais</h3>
+        <p>Integram orações que remetem a estabelecer condições ou hipóteses.</p>
+        <ul class="example-list">
+          <li><u>Se</u> você for, eu irei. <em>(Exemplo original)</em></li>
+          <li><u>Caso</u> precise de ajuda, ligue para mim. <em>(Exemplo adicional)</em></li>
+          <li>Não passará no teste <u>a menos que</u> treine diariamente. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"se você for"</em> é classificado como <strong>ORAÇÃO SUBORDINADA CONDICIONAL</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções condicionais:</strong> se, caso, contanto que, a menos que, desde que, sem que.
+        </div>
+      </div>
+
+      <!-- 4- Proporcionais -->
+      <div class="morphic-card">
+        <h3>4) Proporcionais</h3>
+        <p>Integram orações que dão ideia de simultaneidade ou proporção.</p>
+        <ul class="example-list">
+          <li><u>Quanto</u> mais estudamos, mais dúvidas temos. <em>(Exemplo original)</em></li>
+          <li>O trânsito melhora <u>à medida que</u> a noite avança. <em>(Exemplo adicional)</em></li>
+          <li><u>À proporção que</u> subíamos a serra, a temperatura caía. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"quanto mais estudamos"</em> é classificado como <strong>ORAÇÃO SUBORDINADA PROPORCIONAL</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções proporcionais:</strong> à proporção que, à medida que, quanto mais... mais, quanto melhor... quanto pior.
+        </div>
+      </div>
+
+      <!-- 5- Finais -->
+      <div class="morphic-card">
+        <h3>5) Finais</h3>
+        <p>Integram orações porque transmitem uma finalidade ou objetivo.</p>
+        <ul class="example-list">
+          <li>Correu <u>para que</u> conseguisse fugir. <em>(Exemplo original)</em></li>
+          <li>Treinou exaustivamente <u>a fim de que</u> conquistasse a vaga. <em>(Exemplo adicional)</em></li>
+          <li>Fez sinal <u>de maneira que</u> todos se calassem. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"para que conseguisse fugir"</em> é classificado como <strong>ORAÇÃO SUBORDINADA FINAL</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções finais:</strong> para que, a fim de que, de maneira que, porque (com sentido de para que).
+        </div>
+      </div>
+
+      <!-- 6- Consecutivas -->
+      <div class="morphic-card">
+        <h3>6) Consecutivas</h3>
+        <p>Integram orações e passam a ideia de consequência de um fato anterior.</p>
+        <ul class="example-list">
+          <li>É um homem perigoso, <u>de forma que</u> é temido. <em>(Exemplo original)</em></li>
+          <li>Gritou <u>tanto que</u> ficou completamente rouco. <em>(Exemplo adicional)</em></li>
+          <li>Choveu <u>de sorte que</u> as ruas ficaram intransitáveis. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"de forma que é temido"</em> é classificado como <strong>ORAÇÃO SUBORDINADA CONSECUTIVA</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções consecutivas:</strong> que (precedido de tão, tal, tanto, tamanho), sem que, de sorte que, de modo que.
+        </div>
+      </div>
+
+      <!-- 7- Concessivas -->
+      <div class="morphic-card">
+        <h3>7) Concessivas</h3>
+        <p>Integram orações que terão sentido de contrariedade ou quebra de expectativa.</p>
+        <ul class="example-list">
+          <li><u>Embora</u> estivesse cansado, concluiu o trabalho. <em>(Exemplo original)</em></li>
+          <li>Compareceu ao evento <u>ainda que</u> estivesse doente. <em>(Exemplo adicional)</em></li>
+          <li><u>Apesar de que</u> fez calor, a praia permaneceu vazia. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"embora estivesse cansado"</em> é classificado como <strong>ORAÇÃO SUBORDINADA CONCESSIVA</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções concessivas:</strong> embora, ainda que, se bem que, apesar de que, posto que, conquanto.
+        </div>
+      </div>
+
+      <!-- 8- Comparativas -->
+      <div class="morphic-card">
+        <h3>8) Comparativas</h3>
+        <p>Integram orações com a ideia de comparação entre dois elementos.</p>
+        <ul class="example-list">
+          <li>Você gosta de música <u>menos do que</u> eu. <em>(Exemplo original)</em></li>
+          <li>Aquele garoto correu <u>como</u> um atleta profissional. <em>(Exemplo adicional)</em></li>
+          <li>O projeto é tão importante <u>assim como</u> a execução. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"menos do que eu"</em> é classificado como <strong>ORAÇÃO SUBORDINADA COMPARATIVA</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções comparativas:</strong> como, assim como, mais do que, menos do que, tal qual.
+        </div>
+      </div>
+
+      <!-- 9- Conformativas -->
+      <div class="morphic-card">
+        <h3>9) Conformativas</h3>
+        <p>Integram orações que exprimem conformidade de um fato com outro.</p>
+        <ul class="example-list">
+          <li><u>Segundo</u> foi informado, ele não virá. <em>(Exemplo original)</em></li>
+          <li>Fizemos a prova <u>conforme</u> o professor orientou. <em>(Exemplo adicional)</em></li>
+          <li>O réu agiu <u>consoante</u> determina a lei. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>O trecho: <em>"segundo foi informado"</em> é classificado como <strong>ORAÇÃO SUBORDINADA CONFORMATIVA</strong>.</p>
+        <div class="conj-box">
+          <strong>Algumas conjunções conformativas:</strong> conforme, segundo, consoante, como, que.
+        </div>
+      </div>
+
+      <!-- 10- Integrantes -->
+      <div class="morphic-card">
+        <h3>10) Integrantes</h3>
+        <p>Integram orações que equivalem a substantivos.</p>
+        <ul class="example-list">
+          <li>Espero <u>que você volte</u>. = Espero <u>sua volta</u>. <em>(Exemplo original)</em></li>
+          <li>Perguntei <u>se ela viria</u> ao encontro. <em>(Exemplo adicional)</em></li>
+          <li>É necessário <u>que todos estudem</u> morfologia. <em>(Exemplo adicional)</em></li>
+        </ul>
+        <p>
+          <em>(Neste exemplo original, perceba que: "que você volte" virou "sua volta". A palavra "volta" está equivalendo a um substantivo. O trecho: "que você volte" é classificado como ORAÇÃO SUBORDINADA INTEGRANTE.)</em>
+        </p>
+        <div class="conj-box">
+          <strong>Conjunções integrantes principais:</strong> que, se.
+        </div>
+      </div>
+
+      <!-- NOTAS DE ENCERRAMENTO -->
+      <div class="obs-box">
+        <strong>Nota Gramatical:</strong><br>
+        Quando uma conjunção for formada por duas ou mais palavras, será chamada de <strong>locução conjuntiva</strong> <em>(ex.: visto que, assim que, a fim de que)</em>.
+      </div>
+
+      <div class="tip-box">
+        <strong>Nota do Autor (Prof. William Queiroz):</strong><br>
+        Devido à grande quantidade de conjunções subordinadas, eu optei por citar apenas algumas. É notório que em algumas classificações, algumas conjunções se repitam ou adotem novo significado, isso é normal de se ver em orações subordinadas. Por isso, um pouco mais acima, eu havia citado que decorar as conjunções coordenadas ajudaria bastante, pois em grande escala, as orações subordinadas necessitam de interpretação por parte de quem as ler.
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (Conjunções Coordenadas e Subordinadas)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na oração <em>"Estudou com afinco, <u>porém</u> não obteve a nota mínima"</em>, a conjunção destacada introduz uma ideia de:</p>
+          <ul class="exercise-options">
+            <li>a) Adição.</li>
+            <li>b) Oposição / Contrariedade.</li>
+            <li>c) Causa.</li>
+            <li>d) Conclusão.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a opção em que a conjunção sublinhada possui valor <strong>explicativo</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Venha logo, <u>porque</u> o filme já vai começar.</li>
+            <li>b) Não viajou <u>porque</u> estava sem dinheiro.</li>
+            <li>c) Treinou tanto <u>que</u> ficou exausto.</li>
+            <li>d) <u>Como</u> choveu, o jogo foi cancelado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> A oração <em>"<u>Embora</u> fizesse muito frio, fomos à praia"</em> é classificada morfossintaticamente como subordinada:</p>
+          <ul class="exercise-options">
+            <li>a) Causal.</li>
+            <li>b) Concessiva.</li>
+            <li>c) Condicional.</li>
+            <li>d) Consecutiva.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na frase <em>"<u>Caso</u> você precise de esclarecimentos, envie uma mensagem"</em>, a conjunção expressa circunstância de:</p>
+          <ul class="exercise-options">
+            <li>a) Tempo.</li>
+            <li>b) Proporção.</li>
+            <li>c) Condição.</li>
+            <li>d) Conformidade.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Em <em>"O aluno respondeu às questões <u>conforme</u> o professor havia orientado"</em>, o termo sublinhado é uma conjunção subordinada:</p>
+          <ul class="exercise-options">
+            <li>a) Conformativa.</li>
+            <li>b) Comparativa.</li>
+            <li>c) Consecutiva.</li>
+            <li>d) Final.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Aponte a alternativa que traz uma conjunção coordenada <strong>conclusiva</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Estudou bastante, <u>por isso</u> passou no concurso.</li>
+            <li>b) Não trabalha <u>nem</u> estuda.</li>
+            <li>c) <u>Ora</u> sorri, <u>ora</u> chora.</li>
+            <li>d) Chegou atrasado, <u>contudo</u> realizou a prova.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na frase <em>"Quero <u>que</u> você faça os exercícios"</em>, a palavra sublinhada é classificada como uma conjunção subordinada:</p>
+          <ul class="exercise-options">
+            <li>a) Causal.</li>
+            <li>b) Comparativa.</li>
+            <li>c) Integrante.</li>
+            <li>d) Temporal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em <em>"Fiz o sinal <u>a fim de que</u> todos prestassem atenção"</em>, a locução conjuntiva em destaque indica:</p>
+          <ul class="exercise-options">
+            <li>a) Causa.</li>
+            <li>b) Finalidade.</li>
+            <li>c) Proporção.</li>
+            <li>d) Consequência.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Assinale a alternativa cuja conjunção exprime ideia de <strong>proporcionalidade</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Saímos <u>assim que</u> parou de chover.</li>
+            <li>b) <u>À medida que</u> o tempo passa, ficamos mais experientes.</li>
+            <li>c) Falou <u>de modo que</u> impressionou a todos.</li>
+            <li>d) Correu <u>como</u> um leopardo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Na frase <em>"O sol nasceu, <u>logo</u> o dia será quente"</em>, a oração coordenada introduzida pela conjunção "logo" é classificada como:</p>
+          <ul class="exercise-options">
+            <li>a) Coordenada Sindética Aditiva.</li>
+            <li>b) Coordenada Sindética Adversativa.</li>
+            <li>c) Coordenada Sindética Conclusiva.</li>
+            <li>d) Coordenada Assindética.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — "Porém" é uma conjunção coordenada adversativa, indicando oposição/contrariedade em relação à primeira oração.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — Na opção A, o "porque" explica o motivo do pedido imperativo ("Venha logo"). Na opção B, indica causa.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — "Embora" é uma conjunção subordinada concessiva, indicando uma concessão ou quebra de expectativa.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: C</strong> — "Caso" estabelece uma condição ou hipótese para a realização da ação verbal principal.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: A</strong> — "Conforme" estabelece relação de conformidade com a orientação do professor.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: A</strong> — "Por isso" é uma locução conjuntiva coordenada conclusiva, assim como *portanto* e *logo*.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: C</strong> — O "que" liga a oração principal a uma oração subordinada substantiva ("Quero ISTO"), funcionando como conjunção integrante.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — "A fim de que" exprime o objetivo ou a finalidade da realização do sinal.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — "À medida que" é a locução conjuntiva proporcional por excelência, indicando simultaneidade gradativa.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: C</strong> — A oração que contém a conjunção conclusiva "logo" é classificada como Oração Coordenada Sindética Conclusiva.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

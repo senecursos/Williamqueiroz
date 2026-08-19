@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conteúdo Extra 02 - Emprego do Hífen | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .section-header {
+      font-size: 1.15rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 4px solid var(--brand-color);
+      padding-left: 8px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS / REGRAS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card.no-hifen {
+      border-left-color: #dc2626;
+    }
+
+    .morphic-card.special-cases {
+      border-left-color: #d97706;
+      background-color: #fffbeb;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E BIZUS */
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--green-action);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #14532d;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar este conteúdo</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO EXTRA 02 ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Conteúdo Extra 02: Emprego do Hífen</h2>
+
+      <p class="intro-text">
+        É um sinal em forma de traço horizontal que serve para unir termos que formam palavras compostas. O Novo Acordo Ortográfico pacificou diversas regras para concursos públicos; conheça os casos de uso obrigatório, de proibição e as exceções consagradas.
+      </p>
+
+      <h3 class="section-header">PARTE I: CASOS EM QUE SE USA O HÍFEN</h3>
+
+      <!-- REGRA 1 -->
+      <div class="morphic-card">
+        <h3>1. Adjetivos Compostos e Composição por Justaposição</h3>
+        <p>Emparelha-se hífen na união de adjetivos compostos e em formações por justaposição cujos elementos mantêm sua autonomia fonética e unidade de sentido.</p>
+        <ul class="example-list">
+          <li><strong>Adjetivos compostos:</strong> Azul-celeste, Afro-descendente.</li>
+          <li><strong>Composição por justaposição:</strong> Guarda-noturno.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 2 -->
+      <div class="morphic-card">
+        <h3>2. Prefixo "MAL"</h3>
+        <p>Usa-se o hífen quando o prefixo <strong>MAL</strong> anteceder palavras iniciadas por <strong>vogal</strong>, <strong>H</strong> ou <strong>L</strong>.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Mal-amado, Mal-humorado.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 3 -->
+      <div class="morphic-card">
+        <h3>3. Elemento "BEM"</h3>
+        <p>Usa-se hífen em palavras compostas cujo primeiro elemento é <strong>BEM</strong> (salvo exceções consagradas pelo uso).</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Bem-amado, Bem-humorado.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 4 -->
+      <div class="morphic-card">
+        <h3>4. Nomes Geográficos</h3>
+        <p>Usa-se o hífen em topônimos iniciados por verbos ou pelos artigos/elementos Grã, Grão ou entre de conexão.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Entre-os-rios, Grã-Bretanha.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 5 -->
+      <div class="morphic-card">
+        <h3>5. Nomes de Espécies e Nomes Científicos em Geral</h3>
+        <p>Mantém-se o hífen para designar espécies botânicas e zoológicas.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Bico-de-papagaio, Bem-te-vi.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 6 -->
+      <div class="morphic-card">
+        <h3>6. Segundo Elemento Iniciado por "H"</h3>
+        <p>Usa-se o hífen nas formações em que o segundo elemento começa com a letra <strong>H</strong>.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Pré-história, Super-Homem.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 7 -->
+      <div class="morphic-card">
+        <h3>7. Prefixo e Segundo Elemento Terminados na Mesma Letra</h3>
+        <p>Usa-se hífen quando o prefixo termina com a mesma vogal/letra com que se inicia o segundo elemento.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Micro-ondas, Auto-observação.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 8 -->
+      <div class="morphic-card">
+        <h3>8. Prefixos "SUB" e "B" / "D" diante de "R"</h3>
+        <p>Aplica-se o hífen quando o prefixo termina em "B" ou "D" e o radical subsequente inicia-se pela letra <strong>R</strong>.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Sub-região.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 9 -->
+      <div class="morphic-card">
+        <h3>9. Prefixos Tônicos "PÓS", "PRÉ" e "PRÓ"</h3>
+        <p>Usa-se hífen quando os prefixos <strong>PÓS</strong>, <strong>PRÉ</strong> e <strong>PRÓ</strong> forem tônicos e mantiverem significado independente (com acento).</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Pós-graduação, Pré-natal, Pré-escolar.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 10 -->
+      <div class="morphic-card">
+        <h3>10. Prefixos de Anterioridade ou Estado ("EX", "RECÉM", "VICE", "ALÉM", "SEM")</h3>
+        <p>O hífen é obrigatório com os prefixos que indicam afastamento, condição anterior ou situação limite.</p>
+        <ul class="example-list">
+          <li><strong>Formações com prefixo "EX" (sentido de anterior):</strong> Ex-namorada, Ex-presidente.</li>
+          <li><strong>Outros prefixos com sentido de anterior/estado:</strong> Recém-casado, Vice-presidente, Além-mar, Sem-vergonha.</li>
+        </ul>
+      </div>
+
+
+      <h3 class="section-header">PARTE II: CASOS EM QUE NÃO SE USA O HÍFEN</h3>
+
+      <!-- NÃO USA 1 -->
+      <div class="morphic-card no-hifen">
+        <h3>1. Locuções em Geral</h3>
+        <p>Não se emprega o hífen nas locuções substantivas, adjetivas, adverbiais, prepositivas ou conjuntivas.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Fim de semana, mestre de obra, dia a dia.</li>
+        </ul>
+      </div>
+
+      <!-- NÃO USA 2 -->
+      <div class="morphic-card no-hifen">
+        <h3>2. Palavras "NÃO" e "QUASE"</h3>
+        <p>Não se junta por hífen as palavras de negação ou aproximação "NÃO" e "QUASE" ao termo seguinte.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Não fumante, quase morto.</li>
+        </ul>
+      </div>
+
+      <!-- NÃO USA 3 -->
+      <div class="morphic-card no-hifen">
+        <h3>3. Vogais Diferentes entre Prefixo e Segundo Elemento</h3>
+        <p>Se o primeiro elemento (prefixo) terminar com uma vogal <strong>diferente</strong> da vogal que começa o segundo elemento, escreve-se tudo junto.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Socioeconômico, Socioeducador.</li>
+        </ul>
+      </div>
+
+      <!-- NÃO USA 4 -->
+      <div class="morphic-card no-hifen">
+        <h3>4. Prefixo Terminado em Vogal + "R" ou "S"</h3>
+        <p>Se o primeiro elemento terminar com vogal e o segundo elemento começar com <strong>"R"</strong> ou <strong>"S"</strong>, não se usa hífen e <strong>duplica-se a consoante</strong> (RR ou SS).</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Ultrassonografia, Contraregra (Grafia atual: <strong>Contrarregra</strong>).</li>
+        </ul>
+      </div>
+
+      <!-- NÃO USA 5 -->
+      <div class="morphic-card no-hifen">
+        <h3>5. Prefixos "DES" e "IN" com Perda do "H"</h3>
+        <p>Quando os prefixos "DES" e "IN" se juntam a palavras iniciadas por "H", esta consoante é eliminada e os termos se aglutinam sem hífen.</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Desumano.</li>
+        </ul>
+      </div>
+
+      <!-- NÃO USA 6 -->
+      <div class="morphic-card no-hifen">
+        <h3>6. Prefixo "RE"</h3>
+        <p>Com o prefixo "RE", junta-se diretamente ao segundo termo, mesmo que este inicie pela vogal "E".</p>
+        <ul class="example-list">
+          <li><strong>Exemplos:</strong> Reeleito, Reescrever.</li>
+        </ul>
+      </div>
+
+
+      <h3 class="section-header">PARTE III: OBSERVAÇÕES E CATEGORIAS ESPECIFAIS (EXCEÇÕES CONSAGRADAS)</h3>
+
+      <div class="morphic-card special-cases">
+        <h3>⚠️ Observações do Professor William Queiroz</h3>
+        <p>
+          Algumas das regras do quadro acima possuem exceções; entretanto, todas as regras estão atualizadas e colocadas de forma simples e direta. As exceções são palavras cujas formas já estão consagradas pelo uso na Língua Portuguesa:
+        </p>
+
+        <ul class="example-list" style="margin-top: 10px;">
+          <li><strong>Aglutinações por perda de noção de composição:</strong> Mandachuva, paraquedas.</li>
+          <li><strong>Locuções consagradas que Mantêm o Hífen:</strong> Água-de-colônia, cor-de-rosa, pé-de-meia, arco-da-velha, mais-que-perfeito, Deus-dará, queima-roupa.</li>
+          <li><strong>Prefixos Átonos (sem acento):</strong> Preconceito, prever, pospor. (Diferentes de PRÉ e PÓS tônicos).</li>
+          <li><strong>Prefixo "COO-" (sempre junta sem hífen):</strong> Coocupante, coordenar, cooperação, cooperar... (e palavras similares, da mesma família de palavras das citadas).</li>
+        </ul>
+      </div>
+
+      <div class="bizu-box">
+        <strong>⚡ BIZU DE CONCURSO: REGRA DO VOGAL IGUAL VS. VOGAL DIFERENTE</strong>
+        <br>• <strong>Vogais IGUAIS se repelem (com hífen):</strong> Micro-ondas, anti-inflamatório.
+        <br>• <strong>Vogais DIFERENTES se atraem (sem hífen):</strong> Autoestima, socioeconômico.
+      </div>
+
+
+      <!-- SEÇÃO DE EXERCÍCIOS -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação (20 Questões)</h3>
+
+        <!-- QUESTÃO 1 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a opção em que a palavra está grafada CORRETAMENTE quanto ao uso do hífen:</p>
+          <ul class="exercise-options">
+            <li>a) Microondas</li>
+            <li>b) Micro-ondas</li>
+            <li>c) Micro-econômico</li>
+            <li>d) Micro-sistema</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 2 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>2.</strong> Marque a alternativa na qual a locução NÃO deve conter hífen, segundo a regra geral:</p>
+          <ul class="exercise-options">
+            <li>a) Pé-de-meia</li>
+            <li>b) Água-de-colônia</li>
+            <li>c) Fim de semana</li>
+            <li>d) Cor-de-rosa</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 3 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>3.</strong> O vocábulo <em>"mandachuva"</em> não apresenta hífen por se tratar de um caso de:</p>
+          <ul class="exercise-options">
+            <li>a) Perda da noção de composição consagrada pelo uso</li>
+            <li>b) Regra geral de prefixos terminados em vogal</li>
+            <li>c) Emprego obrigatório do prefixo de negação</li>
+            <li>d) Locução adjetiva de uso culto</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 4 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>4.</strong> De acordo com a regra para o prefixo <strong>MAL</strong>, a grafia correta é:</p>
+          <ul class="exercise-options">
+            <li>a) Maleducado</li>
+            <li>b) Malsucedido</li>
+            <li>c) Mal-limpo</li>
+            <li>d) Mal-humorado</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 5 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>5.</strong> Indique a opção em que o prefixo junta-se diretamente ao segundo termo, <strong>sem hífen</strong>, dobrando a consoante R ou S:</p>
+          <ul class="exercise-options">
+            <li>a) Ultrassonografia</li>
+            <li>b) Ultra-som</li>
+            <li>c) Ultra-rápido</li>
+            <li>d) Ultra-sônica</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 6 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa que traz um exemplo correto de palavra formada com o prefixo <strong>EX</strong> (sentido de anterioridade):</p>
+          <ul class="exercise-options">
+            <li>a) Ex aluno</li>
+            <li>b) Exprefeito</li>
+            <li>c) Ex-presidente</li>
+            <li>d) Exdiretor</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 7 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na junção do prefixo <strong>"COO-"</strong> com palavras iniciadas por "O", o procedimento correto é:</p>
+          <ul class="exercise-options">
+            <li>a) Usar hífen sempre: Co-ocupante</li>
+            <li>b) Juntar sem hífen: Coocupante</li>
+            <li>c) Duplicar a consoante: Coo-ocupante</li>
+            <li>d) Usar apóstrofo: C'ocupante</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 8 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em qual dos casos o uso do hífen é OBRIGATÓRIO devido à presença do H no segundo elemento?</p>
+          <ul class="exercise-options">
+            <li>a) Desumano</li>
+            <li>b) Inábil</li>
+            <li>c) Reabilitar</li>
+            <li>d) Super-Homem</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 9 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>9.</strong> Assinale a alternativa em que a palavra está incorretamente grafada:</p>
+          <ul class="exercise-options">
+            <li>a) Auto-observação (Grafia correta: Autoobservação)</li>
+            <li>b) Socioeconômico</li>
+            <li>c) Reeleito</li>
+            <li>d) Paraquedas</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 10 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>10.</strong> Palavras com o prefixo tônico <strong>PRÉ</strong> (com acento) exigem hífen. Identifique a opção correta:</p>
+          <ul class="exercise-options">
+            <li>a) Prever</li>
+            <li>b) Preconceito</li>
+            <li>c) Pré-escolar</li>
+            <li>d) Preconceber</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 11 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>11.</strong> Assinale o vocábulo que segue a regra do prefixo <strong>SUB</strong> diante de palavra iniciada por <strong>R</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Subchefe</li>
+            <li>b) Sub-região</li>
+            <li>c) Subtenente</li>
+            <li>d) Subsolo</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 12 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>12.</strong> A regra geral determina que NÃO se usa hífen na união com as palavras:</p>
+          <ul class="exercise-options">
+            <li>a) RECÉM e VICE</li>
+            <li>b) BEM e MAL</li>
+            <li>c) PÓS e PRÓ</li>
+            <li>d) NÃO e QUASE</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 13 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>13.</strong> Qual das formações abaixo exemplifica um adjetivo composto que deve ser grafado com hífen?</p>
+          <ul class="exercise-options">
+            <li>a) Azul-celeste</li>
+            <li>b) Socioeducador</li>
+            <li>c) Desumano</li>
+            <li>d) Reescrever</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 14 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>14.</strong> O prefixo <strong>"RE-"</strong> aglutina-se ao segundo elemento sem hífen mesmo quando este se inicia pela vogal "E". Marca esta hipótese:</p>
+          <ul class="exercise-options">
+            <li>a) Re-editar</li>
+            <li>b) Re-empossar</li>
+            <li>c) Reescrever</li>
+            <li>d) Re-erguer</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 15 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>15.</strong> Assinale a grafia oficial correta para o termo que indica o profissional de bastidores do teatro/cinema:</p>
+          <ul class="exercise-options">
+            <li>a) Contra-regra</li>
+            <li>b) Contrarregra</li>
+            <li>c) Contra regra</li>
+            <li>d) Contraregra</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 16 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>16.</strong> Marque o exemplo em que o hífen é mantido por se tratar de nome de espécie animal ou botânica:</p>
+          <ul class="exercise-options">
+            <li>a) Mestre de obra</li>
+            <li>b) Dia a dia</li>
+            <li>c) Fim de semana</li>
+            <li>d) Bem-te-vi</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 17 (Gabarito A) -->
+        <div class="exercise-item">
+          <p><strong>17.</strong> A palavra <em>"socioeconômico"</em> é grafada sem hífen porque:</p>
+          <ul class="exercise-options">
+            <li>a) O prefixo termina em vogal diferente da vogal inicial do segundo termo.</li>
+            <li>b) O prefixo é tônico e acentuado.</li>
+            <li>c) O segundo termo começa com H.</li>
+            <li>d) Trata-se de uma exceção à regra do prefixo MAL.</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 18 (Gabarito C) -->
+        <div class="exercise-item">
+          <p><strong>18.</strong> Qual das opções apresenta uso OBRIGATÓRIO de hífen por contar com o prefixo <strong>VICE</strong>?</p>
+          <ul class="exercise-options">
+            <li>a) Vicecampeão</li>
+            <li>b) Vicerei</li>
+            <li>c) Vice-presidente</li>
+            <li>d) Vicediretor</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 19 (Gabarito B) -->
+        <div class="exercise-item">
+          <p><strong>19.</strong> Assinale a alternativa que indica uma locução adjetiva consagrada que MANTÉM o hífen de forma excepcional:</p>
+          <ul class="exercise-options">
+            <li>a) Dia a dia</li>
+            <li>b) Cor-de-rosa</li>
+            <li>c) Sala de aula</li>
+            <li>d) Pão de ló</li>
+          </ul>
+        </div>
+
+        <!-- QUESTÃO 20 (Gabarito D) -->
+        <div class="exercise-item">
+          <p><strong>20.</strong> A junção do prefixo <strong>DES</strong> com a palavra <strong>HUMANO</strong> gera o vocábulo legítimo:</p>
+          <ul class="exercise-options">
+            <li>a) Des-humano</li>
+            <li>b) Des humano</li>
+            <li>c) Des-umano</li>
+            <li>d) Desumano</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-extra-2', 'icon-extra-2')">
+          <span>Ver Gabarito Comentado (20 Questões)</span>
+          <span id="icon-extra-2">▼</span>
+        </button>
+
+        <div id="gabarito-extra-2" class="accordion-content">
+          <div class="gabarito-item"><strong>1. B</strong> — Prefixos terminados em vogal igual à inicial do segundo elemento exigem hífen (Micro-ondas).</div>
+          <div class="gabarito-item"><strong>2. C</strong> — Locuções em geral não usam hífen (Fim de semana).</div>
+          <div class="gabarito-item"><strong>3. A</strong> — "Mandachuva" perdeu o sentido de composição na grafia oficial.</div>
+          <div class="gabarito-item"><strong>4. D</strong> — O prefixo MAL exige hífen diante de H (Mal-humorado).</div>
+          <div class="gabarito-item"><strong>5. A</strong> — Prefixo terminado em vogal + R ou S junta-se dobrando a consoante (Ultrassonografia).</div>
+          <div class="gabarito-item"><strong>6. C</strong> — O prefixo EX com sentido de anterioridade sempre exige hífen (Ex-presidente).</div>
+          <div class="gabarito-item"><strong>7. B</strong> — O prefixo COO- junta-se diretamente ao segundo termo sem hífen (Coocupante).</div>
+          <div class="gabarito-item"><strong>8. D</strong> — O segundo termo iniciado por H exige hífen (Super-Homem).</div>
+          <div class="gabarito-item"><strong>9. A</strong> — Auto-observação é grafado COM hífen pois termina e começa com a vogal 'o'. A afirmação da alternativa 'a' é incorreta.</div>
+          <div class="gabarito-item"><strong>10. C</strong> — Prefixos tônicos acentuados exigem hífen (Pré-escolar).</div>
+          <div class="gabarito-item"><strong>11. B</strong> — SUB exige hífen diante de radical iniciado por R (Sub-região).</div>
+          <div class="gabarito-item"><strong>12. D</strong> — Não se usa hífen com as palavras "NÃO" e "QUASE".</div>
+          <div class="gabarito-item"><strong>13. A</strong> — Adjetivo composto grafado com hífen (Azul-celeste).</div>
+          <div class="gabarito-item"><strong>14. C</strong> — Prefixo RE junta-se diretamente sem hífen (Reescrever).</div>
+          <div class="gabarito-item"><strong>15. B</strong> — Prefixo terminado em vogal + R junta e dobra a letra (Contrarregra).</div>
+          <div class="gabarito-item"><strong>16. D</strong> — Nomes de espécies zoológicas mantêm o hífen (Bem-te-vi).</div>
+          <div class="gabarito-item"><strong>17. A</strong> — Vogais diferentes se atraem e se escrevem juntas (Socioeconômico).</div>
+          <div class="gabarito-item"><strong>18. C</strong> — O prefixo VICE exige hífen em todos os casos (Vice-presidente).</div>
+          <div class="gabarito-item"><strong>19. B</strong> — Exceção consagrada que mantém o hífen (Cor-de-rosa).</div>
+          <div class="gabarito-item"><strong>20. D</strong> — O prefixo DES elimina o H inicial e se junta sem hífen (Desumano).</div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

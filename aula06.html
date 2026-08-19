@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 06 - Morfologia: Curiosidades da Língua Portuguesa | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-top: 14px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-box {
+      background-color: #eff6ff;
+      border: 1px dashed #bfdbfe;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: var(--brand-color);
+      margin-top: 6px;
+      margin-bottom: 10px;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E DICAS DE ESTUDO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .tip-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #166534;
+      margin-top: 14px;
+      margin-bottom: 16px;
+    }
+
+    .tip-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 06 - Morfologia: Curiosidades da Língua Portuguesa</h2>
+
+      <!-- ================= 1) INTERJEIÇÃO ================= -->
+      <h3 class="topic-header">1) Interjeição</h3>
+
+      <p class="intro-text">
+        <strong>Interjeição</strong> é a palavra invariável que exprime emoções, sentimentos, sensações, estados de espírito ou apelos súbitos. Funciona como uma verdadeira oração-frase, pois transmite uma mensagem completa através de uma única emissão de voz (geralmente acompanhada de ponto de exclamação).
+      </p>
+
+      <div class="morphic-card">
+        <h3>Exemplos de Interjeições por Categoria:</h3>
+        <ul class="example-list">
+          <li><strong>Alegria / Prazer:</strong> <em>Ah!, Oh!, Oba!, Eba!, Viva!, Hurra!</em><br>Ex.: <u>Oba!</u> Fomos aprovados no concurso público!</li>
+          <li><strong>Alívio:</strong> <em>Ufa!, Uf!, Ah!, Ainda bem!</em><br>Ex.: <u>Ufa!</u> Terminamos a prova a tempo.</li>
+          <li><strong>Aposto / Apelo / Chamamento:</strong> <em>Psiu!, Olá!, Alô!, Socorro!, Ei!</em><br>Ex.: <u>Psiu!</u> Faça silêncio durante o exame.</li>
+          <li><strong>Dor / Sofrimento:</strong> <em>Ai!, Ui!</em><br>Ex.: <u>Ai!</u> Bati o pé na quina da mesa.</li>
+          <li><strong>Espanto / Surpresa:</strong> <em>Nossa!, Caramba!, Puxa!, Hein?!, Ué!</em><br>Ex.: <u>Nossa!</u> Como o tempo passou rápido.</li>
+          <li><strong>Desejo / Salvação:</strong> <em>Tomara!, Oxalá!, Quem me dera!</em><br>Ex.: <u>Tomara</u> que o resultado saia hoje!</li>
+          <li><strong>Advertência / Cuidado:</strong> <em>Cuidado!, Atenção!, Devagar!, Calma!</em><br>Ex.: <u>Atenção!</u> Leia as instruções do edital.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Locução Interjetiva:</strong> Ocorre quando duas ou mais palavras desempenham o papel de uma interjeição.<br>
+        <em>Ex.: Valha-me Deus!, Quem me dera!, Meu Deus!, Cruz credo!</em>
+      </div>
+
+
+      <!-- ================= 2) OS QUATRO PORQUÊS ================= -->
+      <h3 class="topic-header">2) Os Quatro Tipos de "Porquê"</h3>
+
+      <div class="morphic-card">
+        <h3>a) Por que (Separado e Sem Acento)</h3>
+        <p><strong>Uso 1:</strong> Em perguntas diretas ou indiretas (equivale a "por qual razão" ou "por qual motivo").</p>
+        <p><strong>Uso 2:</strong> Quando puder ser substituído por "pelo qual", "pela qual", "pelos quais", "pelas quais".</p>
+        <ul class="example-list">
+          <li><u>Por que</u> você não foi à aula ontem? <em>(Por qual razão)</em></li>
+          <li>Gostaria de saber <u>por que</u> o candidato faltou. <em>(Pergunta indireta)</em></li>
+          <li>Os caminhos <u>por que</u> passei eram difíceis. <em>(Pelos quais)</em></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>b) Por quê (Separado e Com Acento)</h3>
+        <p>Usado estritamente em **fim de frase** ou isolado, logo antes de uma pontuação (ponto-final, interrogação ou exclamação). A palavra "quê" torna-se tônica e exige acento circunflexo.</p>
+        <ul class="example-list">
+          <li>Eles não estudaram para o exame. <u>Por quê?</u></li>
+          <li>Você está rindo de quê? A professora nem contou piada!</li>
+          <li>Você não fez a inscrição até hoje? Por <u>quê</u>?</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>c) Porque (Junto e Sem Acento)</h3>
+        <p>É uma conjunção explicativa ou causal (equivale a "pois", "já que", "visto que"). Usado em respostas, justificativas e explicações.</p>
+        <ul class="example-list">
+          <li>Não fui à aula <u>porque</u> estava chovendo bastante. <em>(Pois / Visto que)</em></li>
+          <li>Aprendeu o conteúdo <u>porque</u> se dedicou todos os dias. <em>(Já que)</em></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>d) Porquê (Junto e Com Acento)</h3>
+        <p>É um **substantivo masculino** (significa "o motivo", "a razão"). Vem sempre acompanhado de um artigo, pronome ou numeral (ex.: *o porquê*, *um porquê*, *este porquê*). Admite plural (*os porquês*).</p>
+        <ul class="example-list">
+          <li>Não entendi <u>o porquê</u> de tanta confusão. <em>(O motivo)</em></li>
+          <li>Existem muitos <u>porquês</u> para esta decisão do juiz. <em>(Razões)</em></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= 3) MAS vs. MAIS vs. MÁS ================= -->
+      <h3 class="topic-header">3) Mas vs. Mais vs. Más</h3>
+
+      <div class="morphic-card">
+        <h3>• Mas (Conjunção Adversativa)</h3>
+        <p>Indica oposição, contrariedade ou quebra de expectativa. Pode ser substituído por <em>porém, contudo, todavia, entretanto</em>.</p>
+        <ul class="example-list">
+          <li>Estudou muito, <u>mas</u> não obteve a vaga.</li>
+        </ul>
+
+        <h3>• Mais (Advérbio / Pronome de Intensidade ou Quantidade)</h3>
+        <p>Indica soma, aumento, quantidade ou intensidade. É o oposto direto de <em>menos</em>.</p>
+        <ul class="example-list">
+          <li>Quero estudar <u>mais</u> horas por dia.</li>
+          <li>Dois <u>mais</u> dois são quatro.</li>
+        </ul>
+
+        <h3>• Más (Adjetivo Plural)</h3>
+        <p>Feminino plural do adjetivo *mau*. É o oposto de <em>boas</em>.</p>
+        <ul class="example-list">
+          <li>Aquelas pessoas têm <u>más</u> intenções. <em>(Oposto de boas intenções)</em></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= 4) MAL vs. MAU ================= -->
+      <h3 class="topic-header">4) Mal (com L) vs. Mau (com U)</h3>
+
+      <div class="morphic-card">
+        <p>A forma mais prática e infalível para não errar na prova é a substituição por antonímia:</p>
+
+        <div class="rule-box">
+          • <strong>MAL (com L)</strong> é o oposto de <strong>BEM</strong>.<br>
+          • <strong>MAU (com U)</strong> é o oposto de <strong>BOM</strong>.
+        </div>
+
+        <ul class="example-list">
+          <li>Ele se comportou muito <u>mal</u> na reunião. <em>(Oposto: comportou-se BEM)</em></li>
+          <li>O candidato estava de <u>mau</u> humor hoje. <em>(Oposto: de BOM humor)</em></li>
+          <li>Aquele homem é um <u>mau</u> profissional. <em>(Oposto: BOM profissional)</em></li>
+          <li><u>Mal</u> cheguei, a aula começou. <em>(Advérbio/Conjunção temporal)</em></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= 5) ACERCA DE vs. A CERCA DE vs. HÁ CERCA DE ================= -->
+      <h3 class="topic-header">5) Diferenças entre os tipos de "Acerca"</h3>
+
+      <div class="morphic-card">
+        <h3>a) Acerca de (Junto)</h3>
+        <p>É uma locução prepositiva que significa **"sobre"** ou **"a respeito de"**.</p>
+        <ul class="example-list">
+          <li>Conversamos <u>acerca de</u> questões de concordância. <em>(Sobre)</em></li>
+        </ul>
+
+        <h3>b) A cerca de (Separado)</h3>
+        <p>Expressa uma **distância aproximada** ou **tempo futuro estimado** (equivale a "a uma distância aproximada de").</p>
+        <ul class="example-list">
+          <li>O curso fica <u>a cerca de</u> dez quilômetros daqui. <em>(Distância)</em></li>
+        </ul>
+
+        <h3>c) Há cerca de (Com verbo Haver)</h3>
+        <p>Indica **tempo decorrido** (tempo passado) ou **existência** aproximada de algo (equivale a "faz aproximadamente").</p>
+        <ul class="example-list">
+          <li>Moro nesta cidade <u>há cerca de</u> cinco anos. <em>(Tempo decorrido / Faz cerca de)</em></li>
+          <li><u>Há cerca de</u> vinte alunos no auditório. <em>(Existem)</em></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= 6) TIPOS DE "A" E "O" ================= -->
+      <h3 class="topic-header">6) Diferenciação dos tipos de "A" e "O" na Morfologia</h3>
+
+      <div class="morphic-card">
+        <h3>Classificações do "A":</h3>
+        <ul class="example-list">
+          <li><strong>Artigo Definido:</strong> Antecede um substantivo feminino.<br>Ex.: <u>A</u> professora explicou <u>a</u> matéria.</li>
+          <li><strong>Preposição:</strong> Palavra invariável que liga termos e exige complemento.<br>Ex.: Entreguei o documento <u>a</u> ela. / Fui <u>a</u> Roma.</li>
+          <li><strong>Pronome Pessoal Oblíquo:</strong> Substitui um substantivo feminino da 3ª pessoa.<br>Ex.: Vi a aluna no corredor e <u>a</u> cumprimentei. <em>(Cumprimentei ela)</em></li>
+          <li><strong>Pronome Demonstrativo:</strong> Equivale a "aquela" ou "aquilo" (geralmente antes de *que* ou *de*).<br>Ex.: Esta caneta é bonita, mas <u>a</u> <em>(aquela)</em> que comprei é melhor.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Classificações do "O":</h3>
+        <ul class="example-list">
+          <li><strong>Artigo Definido:</strong> Antecede um substantivo masculino.<br>Ex.: <u>O</u> livro de português é excelente.</li>
+          <li><strong>Pronome Pessoal Oblíquo:</strong> Substitui um substantivo masculino da 3ª pessoa.<br>Ex.: Encontrei o edital e <u>o</u> li atentamente. <em>(Li ele)</em></li>
+          <li><strong>Pronome Demonstrativo:</strong> Equivale a "aquele" ou "aquilo" (geralmente antes de *que* ou *de*).<br>Ex.: Não entendi <u>o</u> <em>(aquilo)</em> que você disse. / Comprei o carro antigo e <u>o</u> de corrida.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= 7) O PALAVRÓRIO "SI", "SE" E "QUE" ================= -->
+      <h3 class="topic-header">7) Tipos de "Si", "Se" e "Que" no Português</h3>
+
+      <div class="morphic-card">
+        <h3>• O Pronome "SI":</h3>
+        <p>É um **pronome pessoal oblíquo tônico de terceira pessoa** com valor reflexivo ou recíproco. Deve ser sempre regido por preposição (*para si, de si, em si, consigo*).</p>
+        <ul class="example-list">
+          <li>O candidato guardou os comentários para <u>si</u>. <em>(Reflexivo)</em></li>
+          <li>Ele não cabe em <u>si</u> de tanta alegria.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>• O Curinga "SE":</h3>
+        <ul class="example-list">
+          <li><strong>Conjunção Subordinada Condicional:</strong> <u>Se</u> você estudar, será aprovado.</li>
+          <li><strong>Conjunção Subordinada Integrante:</strong> Não sei <u>se</u> haverá aula amanhã.</li>
+          <li><strong>Pronome Pessoal Reflexivo:</strong> O menino feriu-<u>se</u> com a tesoura.</li>
+          <li><strong>Partícula Apassivadora (PA):</strong> Alugam-<u>se</u> salas comerciais. <em>(Salas são alugadas)</em></li>
+          <li><strong>Índice de Indeterminação do Sujeito (IIS):</strong> Precisa-<u>se</u> de professores.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>• As Múltiplas Faces do "QUE":</h3>
+        <ul class="example-list">
+          <li><strong>Pronome Relativo:</strong> O e-book <u>que</u> comprei é excelente. <em>(O qual comprei)</em></li>
+          <li><strong>Conjunção Integrante:</strong> Tenho certeza de <u>que</u> venceremos.</li>
+          <li><strong>Substantivo Masculino:</strong> Aquele olhar tinha um <u>quê</u> de mistério. <em>(Vem acentuado e com artigo)</em></li>
+          <li><strong>Interjeição:</strong> <u>Quê?!</u> Você passou em primeiro lugar?!</li>
+          <li><strong>Pronome Interrogativo:</strong> <u>Que</u> dia é hoje?</li>
+        </ul>
+      </div>
+
+      <div class="tip-box">
+        <strong>Dica do Prof. William Queiroz:</strong><br>
+        Em provas de concurso público (ou ao anisar alguma frase) quando a palavra **QUE** puder ser trocada por *o qual / a qual / os quais / as quais*, ela será um **Pronome Relativo**. Quando introduzir uma oração subordinada e possa ser trocado por **isso, nisso ou disso**, será uma **Conjunção Integrante**. Guarde este bizú!
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (Aula 06)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a frase em que o uso do porquê está <strong>INCORRETO</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Não fui ao treino porque estava chovendo.</li>
+            <li>b) Por que você não compareceu à reunião ontem?</li>
+            <li>c) O motivo por que saí da empresa é confidencial.</li>
+            <li>d) Você não apresentou o trabalho. Por que?</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Complete as lacunas com a sequência correta: <em>"Ele falou ______ sobre os temas, ______ não convenceu a plateia; precisará de ______ argumentos."</em></p>
+          <ul class="exercise-options">
+            <li>a) mal / mas / mais</li>
+            <li>b) mau / mais / mas</li>
+            <li>c) mal / mais / mas</li>
+            <li>d) mau / mas / mais</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na frase <em>"Conversamos <u>acerca de</u> projetos futuros"</em>, o termo sublinhado equivale a:</p>
+          <ul class="exercise-options">
+            <li>a) A uma distância de.</li>
+            <li>b) Sobre / A respeito de.</li>
+            <li>c) Faz aproximadamente.</li>
+            <li>d) Em direção a.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Em <em>"Não entendi <u>o</u> que você explicou"</em>, a palavra destacada é classificada como:</p>
+          <ul class="exercise-options">
+            <li>a) Artigo definido.</li>
+            <li>b) Pronome pessoal oblíquo.</li>
+            <li>c) Pronome demonstrativo.</li>
+            <li>d) Preposição essencial.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a alternativa em que a palavra <strong>SE</strong> funciona como **Partícula Apassivadora**:</p>
+          <ul class="exercise-options">
+            <li>a) Se fizer sol, iremos ao parque.</li>
+            <li>b) Não sei se a prova foi adiada.</li>
+            <li>c) Venderam-se todos os ingressos do show.</li>
+            <li>d) Vive-se bem no interior do estado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a opção em que a palavra <strong>QUE</strong> é um **Pronome Relativo**:</p>
+          <ul class="exercise-options">
+            <li>a) O livro que li no final de semana é muito instrutivo.</li>
+            <li>b) É indispensável que todos cheguem no horário.</li>
+            <li>c) Quê! Você já terminou o teste?</li>
+            <li>d) Tenho certeza de que você será aprovado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na frase <em>"<u>Ufa!</u> Finalmente terminamos o projeto a tempo"</em>, o termo sublinhado é um exemplo de:</p>
+          <ul class="exercise-options">
+            <li>a) Conjunção explicativa.</li>
+            <li>b) Interjeição de alívio.</li>
+            <li>c) Advérbio de modo.</li>
+            <li>d) Pronome demonstrativo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Marque a opção que preenche corretamente as lacunas: <em>"A casa fica ______ dois quilômetros do centro e foi construída ______ cinco anos."</em></p>
+          <ul class="exercise-options">
+            <li>a) a cerca de / há cerca de</li>
+            <li>b) acerca de / a cerca de</li>
+            <li>c) há cerca de / acerca de</li>
+            <li>d) a cerca de / acerca de</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em <em>"Ela era uma pessoa de <u>mús</u> ações, mas fingia ter <u>bom</u> coração"</em>. Se trocarmos os termos destacados pelos seus antônimos correspondentes, teremos:</p>
+          <ul class="exercise-options">
+            <li>a) más / mau</li>
+            <li>b) boas / mau</li>
+            <li>c) boas / mal</li>
+            <li>d) más / mal</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Na frase <em>"O professor guardou o segredo para <u>si</u>"</em>, a palavra "si" pertence à seguinte classe gramatical:</p>
+          <ul class="exercise-options">
+            <li>a) Conjunção integrante.</li>
+            <li>b) Pronome pessoal oblíquo tônico.</li>
+            <li>c) Advérbio de lugar.</li>
+            <li>d) Partícula expletiva.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a6', 'icon-a6')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a6">▼</span>
+        </button>
+
+        <div id="gabarito-a6" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: D</strong> — Em fim de frase ou antes de pontuação final, deve-se usar "Por quê" (com acento circunflexo).
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — "falou mal" (modo, oposto de bem); "mas não convenceu" (oposição); "mais argumentos" (quantidade, oposto de menos).
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — "Acerca de" é uma locução prepositiva que significa *sobre* ou *a respeito de*.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: C</strong> — O "o" equivale a *aquilo* ("Não entendi aquilo que você explicou"), agindo como pronome demonstrativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: C</strong> — "Venderam-se todos os ingressos" = Todos os ingressos foram vendidos (verbo transitivo direto + PA).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: A</strong> — O "que" substitui o substantivo anterior "o livro" (O livro o qual li), sendo pronome relativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — "Ufa!" exprime alívio e estado emotivo súbito, tratando-se de uma interjeição.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: A</strong> — "a cerca de" indica distância aproximada; "há cerca de" com o verbo haver indica tempo decorrido no passado.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — Antônimo de *más* é *boas*; antônimo de *bom* é *mau* (com U).
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — "Si" é um pronome pessoal oblíquo tônico reflexivo regido pela preposição "para".
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

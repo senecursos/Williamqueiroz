@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 09 - Sintaxe: Termos Integrantes da Oração | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* TABELA DIDÁTICA */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .schematic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .schematic-table th, .schematic-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px;
+    }
+
+    .schematic-table th {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .schematic-table td {
+      background-color: #ffffff;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 09 - Sintaxe: Termos Integrantes da Oração</h2>
+
+      <!-- ================= 2) TERMOS INTEGRANTES ================= -->
+      <h3 class="topic-header">Termos Integrantes</h3>
+
+      <p class="intro-text">
+        Os termos integrantes de uma oração são aqueles que são indispensáveis para que a oração tenha um sentido. Dentro do conjunto dos termos integrantes teremos: os complementos, sejam eles verbais ou nominais; predicativos, sejam eles do sujeito ou do objeto; e o agente da passiva. Primeiramente, vamos definir todos eles e na sequência apresentarei como identificá-los e classificá-los nas frases.
+      </p>
+
+      <ul class="example-list" style="margin-bottom: 14px;">
+        <li><strong>Complementos verbais:</strong>
+          <br>– <strong>Objeto direto:</strong> Complementa o verbo transitivo e se liga a ele diretamente, sem intermédio de conectivos.
+          <br>– <strong>Objeto indireto:</strong> Complementa o verbo transitivo e precisa de um conectivo (preposição) para se ligar a ele, ou seja, de forma indireta.
+        </li>
+        <li style="margin-top: 8px;"><strong>Complementos nominais:</strong>
+          <br>Quando um nome dentro da oração possui sentido incompleto, o complemento nominal surgirá para complementar esse sentido e se ligará ao nome através de uma preposição.
+        </li>
+        <li style="margin-top: 8px;"><strong>Predicativos:</strong>
+          <br>– <strong>Predicativo do sujeito:</strong> É um adjetivo contido no predicado nominal, ou verbo-nominal, que qualifica o sujeito da oração.
+          <br>– <strong>Predicativo do objeto:</strong> É um adjetivo contido no predicado verbo-nominal, qualificando o objeto que complementa o verbo transitivo.
+        </li>
+        <li style="margin-top: 8px;"><strong>Agente da passiva:</strong>
+          <br>Está presente nas orações em que o sujeito sofre a ação. Se o sujeito está sofrendo uma ação, no predicado estará contido quem praticou a ação, e a este elemento que pratica tal ação chamaremos de agente da passiva.
+        </li>
+      </ul>
+
+      <!-- IMPORTANTE & ESQUEMA -->
+      <div class="obs-box">
+        <strong>IMPORTANTE:</strong><br><br>
+        Logo abaixo vamos nos aprofundar, detalhar e exemplificar cada um desses elementos, porém será preciso, antes disso, esclarecermos algo sobre verbos. Quem ditará os elementos que você deverá procurar dentro do predicado será o tipo de predicado que a oração carrega. Vale relembrar que:<br><br>
+
+        1- Quando os verbos são de ação, chamaremos estes de verbos <strong>SIGNIFICATIVOS</strong>, e estes podem ser transitivos (VT) ou intransitivos (VI).<br><br>
+        Estes verbos de ação (ou significativos), serão transitivos quando para terem sentido completo, necessitam de um complemento. Caso ele se ligue ao complemento de maneira direta, sem auxílio de conectores, ele será um verbo transitivo direto (VTD) e possuirá um objeto direto (OD), caso o verbo necessite de conectores, será um verbo transitivo indireto (VTI) e possuirá um objeto indireto (OI). Podem existir verbos transitivos que para terem sentido completo precisam possuir, agregados a ele, um "objeto direto" e um "objeto indireto", a estes verbos chamaremos de <strong>verbo transitivo direto e indireto (VTDI)</strong>. Quando os verbos forem transitivos, ou intransitivos, é impossível que exista predicativo do sujeito, mas pode haver predicativo do objeto (PO) caso o predicado seja verbo-nominal.<br><br>
+
+        2- Quando o predicado é <em>nominal</em>, o verbo que indica estado será chamado de <strong>VERBO DE LIGAÇÃO (VL)</strong>, e necessitará obrigatoriamente de um predicativo do sujeito (PS). Quando o predicado for nominal não será possível encontrar neste predicado, nem objetos de nenhuma natureza e nem predicativo do objeto.<br><br>
+
+        3- Quando o predicado for <em>verbo-nominal</em>, deveremos procurar por todos os termos integrantes, mas é claro, dificilmente encontraremos todos em um mesmo predicado, mesmo que este seja verbo-nominal.
+      </div>
+
+      <p class="intro-text" style="font-weight: 700; margin-top: 14px;">
+        Você encontrará na tabela a seguir, um esquema facilitado de cada predicado:
+      </p>
+
+      <div class="table-container">
+        <table class="schematic-table">
+          <thead>
+            <tr>
+              <th colspan="3">Verbo</th>
+            </tr>
+            <tr>
+              <th>Significativo (VTD, VTI, VTDI, VI)</th>
+              <th>De ligação (VL)</th>
+              <th>Significativo e de ligação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: bold; color: var(--brand-color);">Predicado verbal</td>
+              <td style="font-weight: bold; color: var(--brand-color);">Predicado nominal</td>
+              <td style="font-weight: bold; color: var(--brand-color);">Predicado verbo-nominal</td>
+            </tr>
+            <tr>
+              <td>Pode ter objetos: (OD), (OI) / Poderá ter ambos. / ou poderá não os ter.</td>
+              <td>Terá predicativo (PS)</td>
+              <td>Terá complemento(s) verbal(is) e predicativo(s)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <!-- ================= TERMOS INTEGRANTES DO PREDICADO VERBAL ================= -->
+      <h3 class="topic-header">Termos Integrantes do Predicado Verbal</h3>
+
+      <div class="morphic-card">
+        <h3>Objeto Direto</h3>
+        <p>É o complemento do verbo transitivo direto.</p>
+
+        <p style="font-weight: 700; color: var(--accent-color); margin-top: 8px;">➔ Aprendendo a identificá-lo... observe a oração: Nós ouvimos <u>um barulho</u>.</p>
+
+        <div class="didactic-explain">
+          (Observe que nesta oração a palavra "ouvimos" é o verbo que indica a "ação de ouvir", logo o predicado é verbal. Perceba que quem "ouve", ouve "alguma coisa". Para que a oração tenha sentido completo, é obrigatório que seja dito o que foi ouvido, no caso do exemplo acima; o que foi ouvido foi "UM BARULHO". Neste caso, o objeto direto (OD) será "um barulho", pois ele está complementando o sentido de "ouvimos", que será classificado como um verbo transitivo direto (VTD). A palavra "ouvimos" será um "verbo transitivo" porque precisa de um complemento, e será considerado um verbo transitivo direto porque não se liga ao seu objeto (que é: "um barulho") através de uma preposição.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O policial comprou <u>um carro novo</u>.</li>
+          <li>Ex. 3: Os alunos leram <u>o edital completo</u>.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Objeto Indireto</h3>
+        <p>É o complemento do verbo transitivo indireto.</p>
+
+        <p style="font-weight: 700; color: var(--accent-color); margin-top: 8px;">➔ Aprendendo a identificá-lo... observe a oração: Eu acredito <u>em Deus</u>.</p>
+
+        <div class="didactic-explain">
+          (Observe que nesta oração a palavra "acredito" é o verbo que indica a "ação de acreditar", logo o predicado é verbal. Perceba que quem "acredita", acredita "em alguma coisa". Para que a oração tenha sentido completo, é obrigatório que seja dito em que se acredita, no caso do exemplo acima; o sujeito acredita "EM DEUS". Neste caso, o objeto indireto (OI) será "em Deus", pois ele está complementando o sentido de "acredita", que será classificado como um verbo transitivo indireto (VTI). A palavra "acredito" será um "verbo transitivo" porque precisa de um complemento, e será considerado um verbo transitivo indireto porque se liga ao seu objeto (que é: "em Deus") através de uma preposição que é "EM".)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: A mãe gostava <u>daquela música antiga</u>.</li>
+          <li>Ex. 3: Os cidadãos necessitam <u>de segurança pública</u>.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Verbo Transitivo Direto e Indireto (VTDI)</h3>
+        <p>Necessitará de um objeto direto e um objeto indireto para completar o seu sentido. Vejamos abaixo como identificá-lo em uma oração:</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: Eu enviei <u>uma mensagem</u> <u>para o meu amigo</u>.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          (Observe que nesta oração a palavra "enviei" é o verbo que indica a "ação de enviar", logo o predicado é verbal. Seguindo o mesmo rito dos exemplos anteriores, analisaremos o verbo da seguinte forma: quem envia, "envia algo" (ou "alguma coisa") "para alguém" (ou "para algum lugar"), no caso do exemplo acima: UMA MENSAGEM será o objeto direto, pois não se liga ao verbo através de preposição. Seguindo com o mesmo raciocínio, quem envia, envia "para alguém"; no caso do exemplo acima: PARA O MEU AMIGO será o objeto indireto, pois precisa da preposição "para".)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O professor entregou <u>os certificados</u> <u>aos alunos</u>.</li>
+          <li>Ex. 3: O comerciante ofereceu <u>descontos especiais</u> <u>aos clientes</u>.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Verbos Intransitivos</h3>
+        <p>Não precisam de complemento, pois já possuem sentido completo.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: As folhas <u>caem</u>.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          (Observe que nesta oração a palavra "caem" é o verbo que indica a "ação de cair", logo o predicado é verbal. Porém este verbo não precisa de complemento, porque quem cai, não necessariamente cai "alguma coisa" ou "de alguma coisa", simplesmente cai. O mesmo acontece na frase: O menino <u>chora</u>. O verbo "chorar" já tem o sentido completo e não necessita de nenhum objeto.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O bebê <u>dormiu</u> profundamente.</li>
+          <li>Ex. 3: O avião <u>decolou</u> no horário previsto.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Complemento Nominal</h3>
+        <p>
+          A definição de complemento nominal (CN) é parecida com a do objeto indireto, a grande diferença é que o objeto indireto complementa "o verbo" transitivo indireto, já o complemento nominal, complementa "um nome". Este nome pode ser um substantivo ou um adjetivo ou um advérbio. O complemento nominal se ligará ao nome que ele complementa através de uma preposição.
+        </p>
+
+        <p style="font-weight: 700; color: var(--accent-color); margin-top: 8px;">➔ Aprendendo a identificá-lo... observe a frase: A criança tem medo <u>do escuro</u>.</p>
+
+        <div class="didactic-explain">
+          (Perceba que quando eu digo que "a criança tem medo", a frase já possui sentido completo, mas para deixá-la ainda mais completa, eu quero dizer de que é que "a criança tem medo". Quando eu digo que a criança tem medo do escuro, "DO ESCURO" está complementando a palavra "medo". A palavra "medo" é um substantivo, logo; "do escuro" está complementando o nome, consequentemente será um complemento nominal.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O candidato estava consciente <u>da responsabilidade</u>.</li>
+          <li>Ex. 3: Ele agiu favoravelmente <u>ao projeto</u>.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= TERMOS INTEGRANTES DO PREDICADO NOMINAL ================= -->
+      <h3 class="topic-header">Termos Integrantes do Predicado Nominal</h3>
+
+      <div class="morphic-card">
+        <h3>Predicativo do Sujeito (PS)</h3>
+        <p>
+          Se o predicado é nominal, significa que possui um verbo de ligação. Se possui um verbo de ligação, significa que terá um predicativo do sujeito (PS) que será uma adjetivação do sujeito desta oração. Vejamos:
+        </p>
+
+        <ul class="example-list">
+          <li>Ex. 1: Os quadros <u>eram caros</u>.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          (Observe que nesta oração a palavra "eram" é o verbo que indica um "estado", ou seja; um verbo de ligação (VL), logo o predicado é nominal. Perceba que quem "eram caros" eram "os quadros". O adjetivo "caros" se relaciona diretamente com o substantivo "quadros", podendo facilmente ser compreendido como "QUADROS CAROS". A partir do momento que você identifica que "caros" é uma qualificação de "quadros" (que no exemplo é o sujeito), então você entende que "caros" é um predicativo do sujeito (PS), pois é uma característica do sujeito expressa no predicado.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: A professora parecia <u>fatigada</u> após as aulas.</li>
+          <li>Ex. 3: Os alunos continuam <u>focados</u> no objetivo.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= TERMOS INTEGRANTES DO PREDICADO VERBO-NOMINAL ================= -->
+      <h3 class="topic-header">Termos Integrantes do Predicado Verbo-Nominal</h3>
+
+      <p class="intro-text">
+        Este predicado contém a ideia de ação e estado, sendo assim, é possível encontrar complementos e predicativos. Algo que precisa ser cuidadosamente analisado neste tipo de predicado, é que o verbo que indicará a ação poderá ser transitivo ou intransitivo, e em relação a ideia de estado, nem sempre o verbo de ligação estará explícito (como já havia sido exemplificado antes).
+      </p>
+
+      <div class="morphic-card">
+        <h3>Predicativo do Sujeito (em Predicado Verbo-Nominal)</h3>
+        <p>Quando o predicado verbo-nominal traz em sua estrutura um verbo intransitivo, também possuirá um predicativo do sujeito. Veja o exemplo abaixo:</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: O professor <u>chegou sério</u>.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          (Observe que "chegou" é um verbo de ação que possui sentido completo (VI), e observe que "sério" era como o professor estava, é a indicação de "estado". Como a palavra "sério" é a adjetivação do professor, que é o sujeito, então será um predicativo do sujeito.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Os corredores cruzaram a linha de chegada <u>exaustos</u>.</li>
+          <li>Ex. 3: A palestrante falava <u>entusiasmada</u> para o público.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Predicativo do Objeto (PO)</h3>
+        <p>Quando o predicado for verbo-nominal e este possua um verbo transitivo, ocorrerá do objeto (seja direto ou indireto) receber um adjetivo. Quando isso acontecer, essa adjetivação receberá o nome de predicativo do objeto (PO). Veja no exemplo abaixo:</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: A polícia <u>recuperou um carro quebrado</u>.</li>
+        </ul>
+
+        <div class="didactic-explain">
+          (Observe que "recuperou" é um verbo de ação que precisará de um objeto direto, pois quem recupera, recupera "algo", que no caso do exemplo foi "um carro quebrado". Note que "quebrado" era o "estado" em que o carro estava. Como o adjetivo quebrado está se relacionando diretamente com o substantivo carro, que no exemplo é o núcleo do objeto direto, então a palavra "quebrado" será classificada como um predicativo do objeto (PO), pois trata-se de uma adjetivação do objeto do verbo transitivo.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O juiz julgou o réu <u>culpado</u>.</li>
+          <li>Ex. 3: Encontrei os documentos <u>rasgados</u> na gaveta.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= AGENTE DA PASSIVA ================= -->
+      <h3 class="topic-header">Agente da Passiva</h3>
+
+      <p class="intro-text">
+        Para compreender a atuação do agente da passiva dentro da oração, primeiramente temos que entender como funciona as vozes do verbo. A ação expressa pelo verbo em relação ao sujeito é o que chamamos de voz verbal e elas podem ser três:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1) Voz ativa</h3>
+        <p>É aquela voz em que o sujeito pratica a ação, em outras palavras; o sujeito é o agente da ação.</p>
+        <ul class="example-list">
+          <li>Ex. 1: A mãe penteou o cabelo do filho.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Nesta oração, veja que o sujeito simples é "a mãe", e é ela (o sujeito) quem está exercendo a ação da frase.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O aluno resolveu a questão difícil.</li>
+          <li>Ex. 3: O vento derrubou as árvores da praça.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2) Voz passiva</h3>
+        <p>É aquela voz em que o sujeito sofre a ação, em outras palavras; o sujeito é paciente e recebe a ação.</p>
+        <ul class="example-list">
+          <li>Ex. 1: O cabelo do filho foi penteado pela mãe.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Nesta oração, veja que o sujeito simples é "o cabelo do filho", é ele (o sujeito) quem está recebendo a ação.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: A questão difícil foi resolvida pelo aluno.</li>
+          <li>Ex. 3: As árvores da praça foram derrubadas pelo vento.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3) Voz reflexiva</h3>
+        <p>É aquela em que o sujeito pratica e sofre a ação simultaneamente, em outras palavras; é o agente e o paciente da mesma ação.</p>
+        <ul class="example-list">
+          <li>Ex. 1: A mãe penteou-se.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Nesta oração, o sujeito simples é "a mãe", e é ela quem pratica a ação e simultaneamente recebe a ação.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O jovem cortou-se com o estilete.</li>
+          <li>Ex. 3: A garota olhou-se no espelho da sala.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> Para melhor compreensão, os exemplos foram citados com frases similares para que a diferença entre as vozes do verbo fosse melhor percebida. Também foram utilizados apenas exemplos com o sujeito simples, entretanto outros tipos de sujeitos, também, estarão à mercê destas mesmas vozes do verbo.
+      </div>
+
+      <!-- ENTENDENDO O AGENTE DA PASSIVA -->
+      <h3 class="topic-header" style="font-size: 1.15rem; border-bottom: none; margin-top: 18px;">Entendendo o Agente da Passiva</h3>
+
+      <p class="intro-text">
+        Esse termo integrante só aparecerá em orações cujo verbo esteja na "voz passiva", pois uma vez que o sujeito é quem sofre a ação, quem praticará esta mesma ação será um elemento localizado no predicado, a este elemento chamaremos de "agente da passiva". Vamos voltar a um dos exemplos citados acima:
+      </p>
+
+      <ul class="example-list">
+        <li>Ex. 1: O cabelo do filho foi penteado <u>pela mãe</u>.</li>
+      </ul>
+
+      <div class="didactic-explain">
+        (Como já havia sido analisado, o sujeito dessa oração é "o cabelo do filho", e ele foi penteado "PELA MÃE" que será classificado como agente da passiva, pois é esse termo que exerce a ação sobre o sujeito.)
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.: Sempre que o verbo estiver na voz passiva, a oração terá a seguinte fórmula:</strong><br><br>
+        <em>Sujeito + verbo auxiliar na terceira pessoa + verbo principal no particípio + agente da passiva = preposição (ou uma combinação prepositiva) + o substantivo (ou pronome).</em><br><br>
+
+        • Ex.: O brinquedo foi quebrado <u>pelo comerciante</u>.<br><br>
+        Sujeito simples (paciente) = O brinquedo<br>
+        ➔ Voz passiva = foi quebrado<br>
+        • verbo auxiliar em terceira pessoa = foi<br>
+        • verbo principal no particípio = quebrado<br><br>
+        ➔ Agente da passiva = pelo comerciante<br>
+        • combinação prepositiva = por + ele = pelo<br>
+        • núcleo do agente da passiva = comerciante (substantivo)
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 09)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Em <em>"O prefeito entregou as chaves da cidade ao novo embaixador"</em>, os termos em destaque "as chaves da cidade" e "ao novo embaixador" funcionam, respectivamente, como:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto Indireto e Objeto Direto.</li>
+            <li>b) Objeto Direto e Objeto Indireto.</li>
+            <li>c) Complemento Nominal e Agente da Passiva.</li>
+            <li>d) Objeto Direto e Predicativo do Objeto.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na oração <em>"Os cidadãos tinham necessidade de auxílio financeiro"</em>, o termo "de auxílio financeiro" exerce a função sintática de:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto Indireto.</li>
+            <li>b) Complemento Nominal.</li>
+            <li>c) Agente da Passiva.</li>
+            <li>d) Predicativo do Sujeito.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa que apresenta um <strong>PREDICATIVO DO OBJETO</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O aluno deixou a sala bastante animado.</li>
+            <li>b) O juiz considerou o réu inocente.</li>
+            <li>c) Os atletas pareciam muito cansados.</li>
+            <li>d) O professor explicou a matéria com clareza.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na frase <em>"A casa antiga foi destruída pela forte tempestade"</em>, o termo "pela forte tempestade" classifica-se sintaticamente como:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto Indireto.</li>
+            <li>b) Complemento Nominal.</li>
+            <li>c) Agente da Passiva.</li>
+            <li>d) Predicativo do Sujeito.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a frase que se encontra na <strong>VOZ REFLEXIVA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O projeto foi aprovado pela diretoria.</li>
+            <li>b) A menina feriu-se com o cacto no jardim.</li>
+            <li>c) Os alunos estudaram o livro inteiro.</li>
+            <li>d) Escreveram a carta com muita atenção.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Em <em>"O candidato permaneceu confiante durante todo o exame"</em>, o termo "confiante" é um:</p>
+          <ul class="exercise-options">
+            <li>a) Predicativo do Sujeito.</li>
+            <li>b) Predicativo do Objeto.</li>
+            <li>c) Objeto Direto.</li>
+            <li>d) Complemento Nominal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na oração <em>"Todos os passageiros confiam em dias melhores"</em>, o termo "em dias melhores" completa um verbo transitivo indireto, sendo classificado como:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto Direto.</li>
+            <li>b) Complemento Nominal.</li>
+            <li>c) Objeto Indireto.</li>
+            <li>d) Agente da Passiva.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Diferencie complemento nominal de objeto indireto. Na frase <em>"Ele tinha certeza da aprovação no concurso"</em>, o termo "da aprovação" é:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto Indireto, pois liga-se ao verbo 'tinha'.</li>
+            <li>b) Complemento Nominal, pois completa o sentido do substantivo 'certeza'.</li>
+            <li>c) Objeto Direto, pois não exige preposição obrigatória.</li>
+            <li>d) Agente da Passiva, pois o sujeito sofre a ação.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em <em>"Os passageiros chegaram exaustos ao aeroporto"</em>, a palavra "exaustos" funciona sintaticamente como:</p>
+          <ul class="exercise-options">
+            <li>a) Predicativo do Objeto.</li>
+            <li>b) Predicativo do Sujeito (em predicado verbo-nominal).</li>
+            <li>c) Objeto Direto.</li>
+            <li>d) Complemento Nominal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Transpondo a frase <em>"O engenheiro projetou a ponte"</em> para a voz passiva, o termo "o engenheiro" passará a ser:</p>
+          <ul class="exercise-options">
+            <li>a) Objeto Indireto ("pelo engenheiro").</li>
+            <li>b) Agente da Passiva ("pelo engenheiro").</li>
+            <li>c) Predicativo do Sujeito ("pelo engenheiro").</li>
+            <li>d) Complemento Nominal ("ao engenheiro").</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a9', 'icon-a9')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a9">▼</span>
+        </button>
+
+        <div id="gabarito-a9" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — Quem entrega, entrega algo ("as chaves da cidade" = OD) a alguém ("ao novo embaixador" = OI, pois há preposição).
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — "De auxílio financeiro" complementa o sentido do substantivo abstrato "necessidade" (nome), tratando-se de um Complemento Nominal.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — Na frase "O juiz considerou o réu inocente", a palavra "inocente" é a adjetivação/estado do objeto direto "o réu", caracterizando o Predicativo do Objeto.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: C</strong> — O sujeito "A casa antiga" sofre a ação de ser destruída, e "pela forte tempestade" é o termo que executa a ação na voz passiva (Agente da Passiva).
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — Em "A menina feriu-se", o sujeito executa e sofre a ação de ferir ao mesmo tempo (Voz Reflexiva).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: A</strong> — "Permanecer" é verbo de ligação e "confiante" atribui uma qualidade/estado diretamente ao sujeito "O candidato" (Predicativo do Sujeito).
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: C</strong> — O verbo "confiar" é transitivo indireto (quem confia, confia EM algo) e liga-se por preposição ao termo "em dias melhores" (Objeto Indireto).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — O termo "da aprovação" está ligado à palavra "certeza" (que é um substantivo/nome com sentido incompleto), logo atua como Complemento Nominal.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — O verbo "chegaram" é intransitivo (ação) e "exaustos" indica o estado em que os passageiros (sujeito) se encontravam (Predicativo do Sujeito em predicado verbo-nominal).
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — Na voz passiva ("A ponte foi projetada pelo engenheiro"), o antigo sujeito agente "O engenheiro" converte-se no Agente da Passiva ("pelo engenheiro").
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

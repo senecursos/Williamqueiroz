@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 13 - Colocação Pronomial | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 13 - Colocação Pronomial: Próclise, Ênclise e Mesóclise</h2>
+
+      <p class="intro-text">
+        Este estudo diz respeito à utilização dos pronomes oblíquos átonos (<em>me, nos, te, vos, se, o(s), a(s), lhe(s)</em>) em relação ao verbo. Quando o pronome oblíquo é colocado <strong>antes</strong> do verbo, chama-se de <strong>próclise</strong>. Quando o pronome oblíquo é colocado <strong>depois</strong> do verbo, chama-se de <strong>ênclise</strong>. Quando o pronome oblíquo é colocado no <strong>meio</strong> do verbo, chama-se de <strong>mesóclise</strong>.
+      </p>
+
+      <div class="obs-box">
+        <strong>Regra Prática de Prioridade:</strong> É importante saber que, no que diz respeito à colocação dos pronomes oblíquos, existe uma prioridade que precisa ser obedecida: <strong>a próclise sempre será a prioridade</strong>. Caso não aconteça de nenhuma palavra atrativa (regra de próclise) se encaixar no verbo analisado, as outras possibilidades (ênclise ou mesóclise) devem ser exploradas.
+      </div>
+
+      <!-- ================= REGRAS DA PRÓCLISE ================= -->
+      <h3 class="topic-header">Regras da Próclise</h3>
+      <p class="intro-text">
+        A próclise ocorre quando a oração contém <strong>palavras atrativas</strong> que "puxam" o pronome para antes do verbo:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Palavras que expressam negação</h3>
+        <p>Palavras como <em>não, ninguém, nunca, jamais, nada, nenhum</em> atram obrigatoriamente o pronome.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <u>Não</u> o desejo. / <u>Nunca</u> o desejei.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: <u>Ninguém</u> me contou sobre o ocorrido.</li>
+          <li>Ex. 3: <u>Jamais</u> se esqueça de suas origens.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Pronomes relativos, indefinidos e demonstrativos</h3>
+        <p>Aparecem introduzindo orações e atuam fortemente como fatores de atração.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Muitos <u>lhes</u> desejaram boa sorte. / Aquilo <u>me</u> comoveu. / Foi ela que <u>o</u> fez.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O livro que <u>me</u> deram é excelente (Pronome relativo).</li>
+          <li>Ex. 3: Todos <u>se</u> retiraram do auditório (Pronome indefinido).</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Advérbios ou locuções adverbiais</h3>
+        <p>Desde que não haja vírgula separando o advérbio do verbo.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Às vezes <u>a</u> vi passar.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Sempre <u>te</u> apoiarei nas tuas decisões.</li>
+          <li>Ex. 3: Hoje <u>se</u> comemora uma data especial.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>4. Palavras que expressam desejo (optativas) e orações exclamativas</h3>
+        <p>Orações que expressam votos ou sentimentos intensos.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Deus <u>nos</u> ajude!</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Bons ventos o <u>levem</u>!</li>
+          <li>Ex. 3: Como <u>te</u> admiro pela sua coragem!</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>5. Conjunções subordinativas</h3>
+        <p>Conjunções causais, condicionais, temporais, conformativas, etc.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Conforme <u>o</u> adverti, não tolerarei atrasos.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Quando <u>me</u> chamaram, apresentei os documentos.</li>
+          <li>Ex. 3: Embora <u>se</u> empenhasse, não conseguiu o resultado.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>6. Palavras interrogativas no início das orações</h3>
+        <p>Perguntas diretas ou indiretas iniciadas por pronomes ou advérbios interrogativos.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Quem <u>te</u> acompanhou? / Quando <u>te</u> entregaram?</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Por que <u>me</u> criticam tanto?</li>
+          <li>Ex. 3: Quanto <u>lhe</u> custou este computador?</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>7. Gerúndio precedido da preposição "EM"</h3>
+        <p>Estrutura fixa de alto valor atrativo em provas de concursos público.</p>
+        <ul class="example-list">
+          <li>Exemplo: Em <u>se</u> tratando de política, prefiro não opinar.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Em <u>se</u> confirmando a vaga, faremos a matrícula.</li>
+          <li>Ex. 3: Em <u>se</u> cumprindo o acordo, o contrato será assinado.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= REGRAS DA ÊNCLISE ================= -->
+      <h3 class="topic-header">Regras da Ênclise</h3>
+      <p class="intro-text">
+        A ênclise é a posição natural do pronome quando não houver palavra atrativa que exija a próclise:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Em frase iniciada por verbo (desde que não esteja no futuro)</h3>
+        <p>É proibido iniciar oração na norma-padrão com pronome oblíquo átono.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Importava-<u>se</u> demais com o futuro.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Entregaram-<u>lhe</u> os documentos ainda de manhã.</li>
+          <li>Ex. 3: Apresentou-<u>se</u> ao comandante com autoridade.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Com verbo no Infinitivo Impessoal ou Gerúndio</h3>
+        <p>Quando não houver fator atrativo de próclise e não houver a preposição "em" antes do gerúndio.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Vou contar-<u>lhe</u> tudo. / Segui avisando-<u>lhe</u> que era perigoso.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: É necessário ouvir-<u>lo</u> com atenção.</li>
+          <li>Ex. 3: O garoto saiu correndo, escondendo-<u>se</u> da chuva.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Nas frases imperativas afirmativas</h3>
+        <p>Comandos, ordens ou pedidos no modo imperativo.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Tenha consciência e devolva-<u>lhe</u> o livro.</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Faça-<u>me</u> o favor de fechar a porta.</li>
+          <li>Ex. 3: Sentem-<u>se</u> e escutem o que tenho a dizer.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Atenção Crucial (Verbo no Particípio):</strong> NUNCA se usa ênclise com verbo no particípio. <br>
+        • Correto: <em>Ele havia <u>me</u> avisado.</em> ou <em>Ele havia avisado-<u>me</u>?</em> (Errado!). O correto é: <em>Ele havia-<u>me</u> avisado.</em>
+      </div>
+
+
+      <!-- ================= REGRAS DA MESÓCLISE ================= -->
+      <h3 class="topic-header">Regras da Mesóclise</h3>
+      <p class="intro-text">
+        A mesóclise ocorre <strong>somente com verbos no Futuro do Presente ou Futuro do Pretérito</strong>, desde que NÃO haja palavra atrativa para exigir a próclise.
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Futuro do Presente</h3>
+        <ul class="example-list">
+          <li>Ex. Principal: Pagar-<u>lhe</u>-ei o que devo na semana que vem.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o pronome oblíquo separa o verbo e se encaixa no seu meio: PAGAREI &gt; PAGAR + LHE + EI.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Realizar-<u>se</u>-á o concurso no próximo mês.</li>
+          <li>Ex. 3: Dir-<u>te</u>-ei toda a verdade sobre o fato.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Futuro do Pretérito</h3>
+        <ul class="example-list">
+          <li>Ex. Principal: Pagar-<u>lhe</u>-ia o que devo, mas estou sem dinheiro.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o pronome oblíquo separa o verbo e se encaixa no seu meio: PAGARIA &gt; PAGAR + LHE + IA.)
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Acompanhar-<u>te</u>-ia na viagem se pudesse.</li>
+          <li>Ex. 3: Conceder-<u>se</u>-ia o desconto caso houvesse margem.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Se houver fator de atração:</strong> A próclise PREVALECE sobre a mesóclise! <br>
+        • Sem atração: <em>Dir-te-ei a verdade.</em> <br>
+        • Com atração: <em><strong>Não</strong> te direi a verdade.</em> (A palavra negativa "não" exige próclise).
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 13)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a frase em que a colocação pronominal está <strong>INCORRETA</strong> segundo a norma-padrão:</p>
+          <ul class="exercise-options">
+            <li>a) Me empreste a caneta, por favor.</li>
+            <li>b) Emprestes-me a caneta, por favor.</li>
+            <li>c) Jamais me emprestaria a caneta.</li>
+            <li>d) Emprestar-me-á a caneta amanhã.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na oração <em>"Não se esqueça de revisar a matéria"</em>, a colocação antes do verbo é obrigatória devido à presença de:</p>
+          <ul class="exercise-options">
+            <li>a) Um advérbio de modo.</li>
+            <li>b) Uma palavra com valor negativo.</li>
+            <li>c) Um pronome relativo.</li>
+            <li>d) Um verbo no futuro do presente.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a opção em que o uso da <strong>MESÓCLISE</strong> é adequado conforme a norma culta:</p>
+          <ul class="exercise-options">
+            <li>a) Não contar-te-ei a verdade sobre o ocorrido.</li>
+            <li>b) Entregar-lhe-emos os prêmios durante a cerimônia.</li>
+            <li>c) Quem entregar-lhe-á os documentos?</li>
+            <li>d) Se pudesse, ajudar-te-ia sem pensar.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Em <em>"Em se tratando de investimentos, a cautela é indispensável"</em>, a próclise é justificável pela presença de:</p>
+          <ul class="exercise-options">
+            <li>a) Gerúndio precedido pela preposição "em".</li>
+            <li>b) Verbo no infinitivo impessoal.</li>
+            <li>c) Conjunção subordinativa causal.</li>
+            <li>d) Pronome demonstrativo antecedente.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Marque a alternativa na qual a colocação pronominal atende perfeitamente à regra de <strong>ÊNCLISE</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Nunca falou-me a verdade.</li>
+            <li>b) Informaram-me que a reunião foi cancelada.</li>
+            <li>c) Que Deus te proteja nessa caminhada!</li>
+            <li>d) Ninguém lembrou-se do compromisso.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Na sentença <em>"Aquilo me deixou profundamente intrigado"</em>, o pronome está antes do verbo porque:</p>
+          <ul class="exercise-options">
+            <li>a) O pronome demonstrativo "Aquilo" atrai o pronome átono.</li>
+            <li>b) O verbo está no particípio.</li>
+            <li>c) Trata-se de uma oração imperativa.</li>
+            <li>d) Trata-se de uma oração optativa.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Assinale a frase que apresenta um ERRO de colocação pronominal com verbo no particípio:</p>
+          <ul class="exercise-options">
+            <li>a) O professor havia-me explicado o tema.</li>
+            <li>b) O professor me havia explicado o tema.</li>
+            <li>c) O professor havia explicado-me o tema.</li>
+            <li>d) O professor não me havia explicado o tema.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em <em>"Quando me avisarem sobre o resultado, entrarei em contato"</em>, a próclise ocorreu devido a:</p>
+          <ul class="exercise-options">
+            <li>a) Conjunção subordinativa temporal "Quando".</li>
+            <li>b) Adjetivo exclamativo.</li>
+            <li>c) Verbo no futuro do subjuntivo sem atração.</li>
+            <li>d) Pronome indefinido no início do período.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Observe as orações:<br>
+          I. <em>Ofereceram-lhe um excelente cargo na empresa.</em><br>
+          II. <em>Não lhe ofereceram o cargo desejado.</em><br>
+          Assinale a afirmativa correta:</p>
+          <ul class="exercise-options">
+            <li>a) Apenas I está correta.</li>
+            <li>b) Apenas II está correta.</li>
+            <li>c) Ambas estão corretas quanto à colocação pronominal.</li>
+            <li>d) Ambas estão incorretas na norma culta.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Na frase <em>"Quem te informou sobre a mudança de horário?"</em>, o pronome oblíquo "te" deve vir próclito ao verbo devido a:</p>
+          <ul class="exercise-options">
+            <li>a) Palavra interrogativa no início da oração.</li>
+            <li>b) Conjunção coordenativa explicativa.</li>
+            <li>c) Presença de verbo no futuro.</li>
+            <li>d) Presença de verbo no gerúndio.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a13', 'icon-a13')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a13">▼</span>
+        </button>
+
+        <div id="gabarito-a13" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: A</strong> — É proibido iniciar orações na norma culta com pronomes oblíquos átonos ("Me empreste"). O correto seria a ênclise: "Empreste-me".
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — A palavra "Não" possui valor negativo e atua como fator atrativo de próclise obrigatória.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — O verbo "Entregaremos" está no futuro do presente sem palavra atrativa, exigindo mesóclise ("Entregar-lhe-emos"). Na opção A e C, a negação "Não" e a palavra "Quem" exigem próclise.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: A</strong> — O gerúndio precedido pela preposição "em" ("Em se tratando") é uma estrutura fixa que exige o pronome próclito.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — Frase iniciada por verbo no passado sem fator atrativo exige a ênclise ("Informaram-me").
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: A</strong> — O pronome demonstrativo "Aquilo" atua como palavra atrativa, puxando o pronome oblíquo "me" para antes do verbo.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: C</strong> — Nunca se usa pronome oblíquo pós-posto (ênclise) a verbos no particípio ("explicado-me").
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: A</strong> — A conjunção subordinativa temporal "Quando" obriga o uso da próclise.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: C</strong> — Em I, a ênclise é usada pois a frase inicia por verbo; em II, a próclise é obrigatória pelo advérbio de negação "Não".
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: A</strong> — Palavras interrogativas ("Quem") no início da frase atraem obrigatoriamente o pronome oblíquo átono.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

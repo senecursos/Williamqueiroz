@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 08 - Sintaxe: Termos Essenciais da Oração | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 08 - Sintaxe: Termos Essenciais da Oração</h2>
+
+      <!-- ================= 1) TERMOS ESSENCIAIS ================= -->
+      <h3 class="topic-header">1) Termos Essenciais</h3>
+
+      <p class="intro-text">
+        Toda oração para ter significado é necessário que ela tenha <strong>sujeito</strong> e <strong>predicado</strong>.
+      </p>
+
+      <!-- SUJEITO -->
+      <h3 class="topic-header" style="font-size: 1.15rem; border-bottom: none; margin-top: 14px;">Sujeito</h3>
+      <p class="intro-text">
+        É o termo sobre o qual o restante da oração fala.
+      </p>
+
+      <ul class="example-list">
+        <li>Ex.: <u>O elefante</u> bebe água.</li>
+      </ul>
+
+      <div class="didactic-explain">
+        (A oração fala do elefante. Beber água foi a ação do elefante, logo, "o elefante" é o sujeito desta oração.)
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> Depois que você encontrar o sujeito da oração, é preciso estabelecer quem é o <strong>núcleo</strong> que, comumente, será um substantivo(s) ou pronome(s), ou ambos. Resumidamente, o núcleo do sujeito é a palavra mais importante, ou as palavras mais importantes que fazem parte do sujeito.
+      </div>
+
+      <p class="intro-text" style="font-weight: 700; margin-top: 16px;">
+        Para facilitar a nossa compreensão, entenderemos que existem 5 tipos de sujeito. São eles:
+      </p>
+
+
+      <!-- TIPOS DE SUJEITO -->
+      <div class="morphic-card">
+        <h3>1) Determinado Simples (ou simplesmente; sujeito simples)</h3>
+        <p>Será sujeito simples quando possuir apenas <strong>um núcleo</strong>.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: <u>O elefante</u> bebe água.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o substantivo "elefante" é o único núcleo, logo esse é um SUJEITO SIMPLES.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 2: <u>A professora</u> explicou o conteúdo com clareza.</li>
+          <li>Ex. 3: <u>Eles</u> chegaram cedo para o exame.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2) Determinado Composto (ou simplesmente; sujeito composto)</h3>
+        <p>Será sujeito composto quando possuir <strong>dois ou mais núcleos</strong>.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: <u>Eu e o elefante</u> comíamos amendoins.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o pronome "eu" e o substantivo "elefante" são núcleos do sujeito, neste caso, são dois núcleos, logo esse é um SUJEITO COMPOSTO.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 2: <u>O professor e os alunos</u> conversavam sobre o edital.</li>
+          <li>Ex. 3: <u>Cadernos, canetas e livros</u> estavam sobre a mesa.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3) Determinado Oculto (ou simplesmente; sujeito oculto / desinencial / elíptico)</h3>
+        <p>Será sujeito oculto, quando apesar de não aparecer na frase, o sujeito estar implícito, sendo possível percebê-lo.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: Estávamos todos assustados.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Perceba que o sujeito não está visível, porém ele está implícito e é possível entender que se trata do pronome "nós", ou seja, "NÓS tínhamos/estávamos", logo esse é um SUJEITO OCULTO.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 2: Estudamos bastante durante o final de semana. <em>(Nós)</em></li>
+          <li>Ex. 3: Encontrei o edital do concurso na internet. <em>(Eu)</em></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>4) Indeterminado</h3>
+        <p>Será considerado sujeito indeterminado quando não for possível determinar de quem a oração fala. Temos que observar duas regras para reconhecê-lo:</p>
+
+        <div class="rule-subtitle">Regra 1 - Quando o sujeito aparecer oculto, porém estiver na terceira pessoa do plural:</div>
+        <ul class="example-list">
+          <li>Ex. 1: Estavam tristes.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Note que nessa frase você consegue observar que quem "estavam tristes" eram "ELES", quando o sujeito aparece nessa condição, se encaixando nessa regra, será um SUJEITO INDETERMINADO.)
+        </div>
+
+        <div class="rule-subtitle">Regra 2 - Quando o sujeito aparecer oculto, porém estiver na terceira pessoa do singular e o verbo estiver acompanhado da partícula "se":</div>
+        <ul class="example-list">
+          <li>Ex. 2: Vende-se casas.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Note que o verbo "vende" está conjugado na terceira pessoa do singular; ELE vende. Note também que além do pronome estar oculto, o verbo traz agregado a partícula "se".)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 3: Rabiscaram toda a parede da sala de aula. <em>(Regra 1: 3ª pessoa do plural)</em></li>
+          <li>Ex. 4: Precisa-se de novos colaboradores na empresa. <em>(Regra 2: 3ª pessoa do singular + se / VTI)</em></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>5) Oração Sem Sujeito (ou Sujeito Inexistente)</h3>
+        <p>Existem algumas orações que são construídas sem sujeito, a partir do predicado. Esse tipo de oração é chamada de oração sem sujeito. São construídas com alguns verbos específicos. A oração será sem sujeito quando o predicado for construído a partir do verbo:</p>
+
+        <p style="margin-top: 8px;">➔ <strong>Haver</strong> - Significando existir, acontecer, realizar-se e fazer.</p>
+        <ul class="example-list">
+          <li><u>Há</u> muitos famintos aqui. <em>(existir)</em></li>
+          <li><u>Houve</u> algum problema? <em>(aconteceu)</em></li>
+          <li><u>Haverá</u> reuniões importantes amanhã.</li>
+        </ul>
+
+        <p style="margin-top: 8px;">➔ <strong>Fazer, Ser e Estar</strong> - Quando indicam tempo transcorrido ou tempo relativo a fenômeno da natureza.</p>
+        <ul class="example-list">
+          <li><u>Faz</u> dias que não saio.</li>
+          <li><u>Era</u> cedo demais.</li>
+          <li><u>Estava</u> um dia alegre.</li>
+          <li><u>Faz</u> três anos que passei no concurso.</li>
+        </ul>
+
+        <p style="margin-top: 8px;">➔ <strong>Verbos que são fenômenos da natureza:</strong> nevar, chover, trovejar...</p>
+        <ul class="example-list">
+          <li><u>Choveu</u> muito no estado do Ceará.</li>
+          <li><u>Trovejou</u> bastante durante a madrugada.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= 2) PREDICADO ================= -->
+      <h3 class="topic-header">2) Predicado</h3>
+
+      <p class="intro-text">
+        É o termo da oração que contém o verbo (em palavras mais claras, é a parte da oração que contém o verbo). O predicado vai dizer alguma coisa sobre o sujeito. Para que uma análise sintática seja bem-feita, é preciso que o predicado seja classified corretamente, pois cada tipo exigirá termos integrantes específicos.
+      </p>
+
+      <p class="intro-text">
+        Teremos três tipos de predicados: <strong>verbal, nominal e verbo-nominal</strong>. No "estudo 4" (sobre morfologia) nós já estudamos sobre o verbo, a essa altura de nossos estudos já é possível identificá-los nas frases. Será a partir dessa identificação que o predicado será classificado.
+      </p>
+
+      <!-- CLASSIFICAÇÃO DOS PREDICADOS -->
+      <h3 class="topic-header" style="font-size: 1.15rem; border-bottom: none; margin-top: 18px;">Classificação dos Predicados</h3>
+
+      <div class="morphic-card">
+        <h3>1) Predicado Verbal</h3>
+        <p>É aquele que possui somente verbo de ação. A partir de agora chamaremos esse tipo de verbo de <strong>SIGNIFICATIVOS</strong> e podem ser VERBOS TRANSITIVOS ou VERBOS INTRANSITIVOS.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: O bêbado <u>ligou o som</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Veja que a parte dessa oração que corresponde ao predicado é: "ligou o som". O verbo é a palavra "ligou". LIGAR é um verbo de ação, a ação de ligar, logo teremos uma oração que possui um PREDICADO VERBAL.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 2: Os bandidos <u>fugiram e desapareceram</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Veja que a parte dessa oração que corresponde ao predicado é: "fugiram e desapareceram". Os verbos são; a palavra "fugiram" e a palavra "desapareceram". FUGIR é um verbo de ação e DESAPARECER também é um verbo de ação, logo este predicado também é um PREDICADO VERBAL.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 3: O aluno <u>resolveu o simulado com atenção</u>.</li>
+          <li>Ex. 4: Os pássaros <u>voavam pelo céu ao entardecer</u>.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2) Predicado Nominal</h3>
+        <p>É aquele que possui somente verbos que passam a ideia de estado do sujeito. A partir de agora chamaremos esse tipo de verbo de <strong>VERBO DE LIGAÇÃO</strong>.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: O jovem rapaz <u>estava preocupado demais</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Veja que a parte da oração que corresponde ao predicado é: "estava preocupado demais". O verbo é a palavra "estava". ESTAR é um verbo que demonstra o estado em que o jovem rapaz estava, logo trata-se de um VERBO DE LIGAÇÃO, sendo assim, este predicado será classificado como: PREDICADO NOMINAL.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 2: A multidão <u>era tranquila</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Veja que a parte da oração que corresponde ao predicado é: "era tranquila". O verbo é a palavra "era". Esta palavra é uma das formas assumidas pelo verbo "SER" durante a sua conjugação. O verbo SER é um verbo que remete à ideia de estado, logo é um VERBO DE LIGAÇÃO, e consequentemente, essa frase possui um PREDICADO NOMINAL.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 3: O candidato <u>permanecia confiante</u> antes da prova.</li>
+          <li>Ex. 4: O dia <u>continua ensolarado</u> no Ceará.</li>
+        </ul>
+
+        <!-- OBSERVAÇÃO 1 ATUALIZADA - COMPLETA COM OS PRINCIPAIS VERBOS -->
+        <div class="obs-box">
+          <strong>Obs. 1: Guia Rápido dos Principais Verbos de Ligação nas Provas</strong><br><br>
+          Para que você não erre nenhuma questão, guarde estes verbos que mais costumam aparecer desempenhando o papel de conectar o sujeito à sua característica (estado ou condição):
+          <ul style="margin-top: 6px; padding-left: 18px; line-out: 1.45;">
+            <li><strong>SER</strong> (estado permanente): <em>"O professor <u>é</u> dedicado."</em></li>
+            <li><strong>ESTAR</strong> (estado provisório/temporário): <em>"O aluno <u>estava</u> ansioso."</em></li>
+            <li><strong>PERMANECER</strong> (continuidade de estado): <em>"Ela <u>permaneceu</u> calada."</em></li>
+            <li><strong>CONTINUAR</strong> (continuidade de estado): <em>"O tempo <u>continua</u> frio."</em></li>
+            <li><strong>PARECER</strong> (estado aparente): <em>"O caso <u>parece</u> complicado."</em></li>
+            <li><strong>TORNAR-SE</strong> (mudança de estado): <em>"Ele <u>tornou-se</u> especialista."</em></li>
+            <li><strong>FICAR</strong> (mudança/resultado de estado): <em>"O candidato <u>ficou</u> eufórico."</em></li>
+            <li><strong>PERMANECER / VIVER</strong> (estado contínuo): <em>"O idoso <u>vivia</u> doente."</em></li>
+          </ul>
+        </div>
+
+        <div class="obs-box">
+          <strong>Obs. 2:</strong> É possível, também, encontrar verbos naturalmente de ação, assumindo um papel de indicação de estado. Veja o exemplo abaixo:<br><br>
+          Ex.: O trabalhador <u>andava esquecido</u>.<br><br>
+          <em>(Perceba que o verbo "andava", naturalmente, trata-se de um verbo de ação, entretanto, no exemplo acima, ele passa uma ideia de estado do trabalhador, é como se dissesse: o trabalhador ESTAVA esquecido. É importante frisar que o contexto no qual o verbo está inserido deve ser sempre analisado.)</em>
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3) Predicado Verbo-Nominal</h3>
+        <p>É o predicado que traz em si, um verbo de ação e um verbo de estado, transmitindo, simultaneamente a ideia de ação e estado do sujeito.</p>
+
+        <ul class="example-list">
+          <li>Ex. 1: O escritor <u>atendeu aos fãs mesmo estando cansado</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Veja que a parte da oração que corresponde ao predicado é: "atendeu aos fãs mesmo estando cansado". A palavra "atender" e a palavra "estando" são os verbos desta oração. O verbo ATENDER é um verbo que remete à ação, e ESTAR é um verbo que remete à estado, logo esse predicado possui os dois tipos de verbos, consequentemente, trata-se de um PREDICADO VERBO-NOMINAL.)
+        </div>
+
+        <ul class="example-list">
+          <li>Ex. 2: Os alunos <u>chegaram eufóricos para a aula</u>.</li>
+          <li>Ex. 3: O atleta <u>terminou a maratona exausto</u>.</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs.:</strong> É possível encontrar predicado verbo-nominal cujo o VERBO DE LIGAÇÃO esteja oculto. Analise o exemplo abaixo:<br><br>
+          Ex.: O trabalhador <u>voltou para casa tranquilo</u>.<br><br>
+          <em>(Perceba que entre o substantivo "casa" e o adjetivo "tranquilo" existe um verbo de ligação oculto. Esta oração pode ser facilmente compreendida da seguinte forma: O trabalhador voltou para casa e "estava" tranquilo. Sendo assim, o predicado possui os dois tipos de verbos, logo este também será um PREDICADO VERBO-NOMINAL.)</em>
+        </div>
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 08)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na oração <em>"Havia muitos candidatos inscritos no processo seletivo"</em>, o sujeito é classificado como:</p>
+          <ul class="exercise-options">
+            <li>a) Sujeito simples.</li>
+            <li>b) Sujeito composto.</li>
+            <li>c) Oração sem sujeito (Inexistente).</li>
+            <li>d) Sujeito indeterminado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a alternativa em que o verbo em destaque funciona como <strong>VERBO DE LIGAÇÃO</strong> (Predicado Nominal):</p>
+          <ul class="exercise-options">
+            <li>a) O aluno <u>andou</u> rápido até a parada de ônibus.</li>
+            <li>b) O professor <u>andava</u> bastante ansioso com o resultado.</li>
+            <li>c) O menino <u>correu</u> para pegar o material.</li>
+            <li>d) Os fiscais <u>recolheram</u> todos os documentos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na frase <em>"Chegaram cansados e famintos do treino os jogadores"</em>, a classificação exata do predicado é:</p>
+          <ul class="exercise-options">
+            <li>a) Predicado Verbal.</li>
+            <li>b) Predicado Nominal.</li>
+            <li>c) Predicado Verbo-Nominal.</li>
+            <li>d) Predicado de Ligação.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Assinale a frase cujo sujeito é <strong>INDETERMINADO</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Faz três meses que estudei esse assunto.</li>
+            <li>b) Falaram muito bem da sua apresentação na reunião.</li>
+            <li>c) Ventou forte durante toda a noite de ontem.</li>
+            <li>d) Nós estudamos bastante para a prova de concurso.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Em <em>"O livro e o caderno ficaram sobre a bancada"</em>, a oração possui um:</p>
+          <ul class="exercise-options">
+            <li>a) Sujeito simples.</li>
+            <li>b) Sujeito oculto.</li>
+            <li>c) Sujeito composto.</li>
+            <li>d) Sujeito indeterminado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Na oração <em>"Faz dois anos que não visito minha cidade natal"</em>, o verbo 'faz' indica:</p>
+          <ul class="exercise-options">
+            <li>a) Sujeito indeterminado pela regra da 3ª pessoa.</li>
+            <li>b) Oração sem sujeito devido ao tempo decorrido.</li>
+            <li>c) Sujeito simples 'dois anos'.</li>
+            <li>d) Sujeito oculto 'eu'.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Assinale a alternativa cujo predicado seja <strong>VERBAL</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O professor parecia preocupado com a turma.</li>
+            <li>b) Os estudantes estudaram a matéria inteira.</li>
+            <li>c) A plateia permaneceu em silêncio.</li>
+            <li>d) O réu ouviu a sentença pálido.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Na frase <em>"Compraram-se livros novos para a biblioteca"</em>, a estrutura do sujeito classifica-se como:</p>
+          <ul class="exercise-options">
+            <li>a) Sujeito indeterminado.</li>
+            <li>b) Sujeito simples ("livros novos").</li>
+            <li>c) Oração sem sujeito.</li>
+            <li>d) Sujeito oculto.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Observe o enunciado: <em>"Assistimos ao filme em silêncio"</em>. O sujeito presente na oração é:</p>
+          <ul class="exercise-options">
+            <li>a) Indeterminado.</li>
+            <li>b) Inexistente.</li>
+            <li>c) Oculto (Nós).</li>
+            <li>d) Composto.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Em <em>"O candidato fez a prova e saiu da sala satisfeito"</em>, os predicados presentes são, respectivamente:</p>
+          <ul class="exercise-options">
+            <li>a) Predicado Verbal / Predicado Verbo-Nominal.</li>
+            <li>b) Predicado Nominal / Predicado Verbal.</li>
+            <li>c) Predicado Verbal / Predicado Nominal.</li>
+            <li>d) Predicado Verbo-Nominal / Predicado Verbo-Nominal.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a8', 'icon-a8')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a8">▼</span>
+        </button>
+
+        <div id="gabarito-a8" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: C</strong> — O verbo "haver" no sentido de existir/ocorrer é impessoal, portanto a oração é sem sujeito.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — No contexto de "andava bastante ansioso", o verbo "andava" equivale a *estava* (estado do sujeito), funcionando como verbo de ligação.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: C</strong> — Apresenta verbo de ação ("chegaram") e qualificadores/estado do sujeito ("cansados e famintos"), configurando predicado verbo-nominal.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — Verbo na 3ª pessoa do plural ("Falaram") sem sujeito explícito no contexto se encaixa na Regra 1 de sujeito indeterminado.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: C</strong> — Apresenta dois núcleos substantivos ("livro" e "caderno"), classificando-se como sujeito composto.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — O verbo "fazer" indicando tempo transcorrido/decorrido é impessoal, formando Oração Sem Sujeito.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — "Estudaram" é verbo significativo (ação) e não possui adjetivo predicativo referente ao sujeito no predicado, constituindo Predicado Verbal.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — Trata-se da voz passiva sintética com partícula apassivadora 'se' (Verbo Transitivo Direto + SE). O elemento "livros novos" é o sujeito paciente (Sujeito Simples).
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: C</strong> — A terminação do verbo "Assistimos" nos permite identificar facilmente que o sujeito é o pronome "Nós" (Sujeito Oculto ou Desinencial).
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: A</strong> — "Fez a prova" tem apenas ação (Predicado Verbal); "saiu da sala satisfeito" combina ação ("saiu") e estado ("satisfeito" / estava satisfeito), formando Predicado Verbo-Nominal.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

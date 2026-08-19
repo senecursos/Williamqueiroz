@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 03 - Morfologia: Verbos | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 1.12rem;
+      color: var(--brand-color);
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* TABELAS DIDÁTICAS */
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 0.90rem;
+    }
+
+    .custom-table th, .custom-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .custom-table th {
+      background-color: #e2e8f0;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* CONJUGAÇÃO ESTRUTURADA EM LINHAS */
+    .conjugation-block {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 14px;
+      margin-bottom: 18px;
+    }
+
+    .conjugation-block h4 {
+      color: var(--brand-color);
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    .tempo-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      background-color: #eff6ff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .conjugation-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+      font-family: monospace, sans-serif;
+    }
+
+    .conjugation-list li {
+      padding: 3px 6px;
+      border-bottom: 1px dashed #f1f5f9;
+      display: flex;
+    }
+
+    .conjugation-list li:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    .conjugation-list .person {
+      width: 110px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .conjugation-list .verb-form {
+      color: var(--brand-color);
+      font-weight: 600;
+    }
+
+    /* EXEMPLOS EXTRAS */
+    .extra-item {
+      background-color: #f1f5f9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+    }
+
+    .extra-item strong {
+      color: var(--brand-color);
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 03 - Morfologia</h2>
+      <h3 class="subtitle">Verbos</h3>
+
+      <p class="intro-text">
+        É a palavra que transmite a noção de uma <strong>ação</strong>, <strong>estado</strong> ou <strong>fenômeno da natureza</strong>. Sempre que você se deparar com um verbo, é preciso que você o analise por completo para que possa entender o seu comportamento dentro da oração à qual ele pertence.
+      </p>
+
+      <!-- PASSO A PASSO DA ANÁLISE VERBAL -->
+      <div class="morphic-card">
+        <h3>📌 Passo a Passo para Análise Verbal</h3>
+        
+        <p><strong>Passo 1 - Identificar o verbo na frase:</strong></p>
+        <ul class="example-list">
+          <li><em>O menino <u>correu</u> para longe.</em> (Ação)</li>
+          <li><em>O menino <u>estava</u> cansado.</em> (Estado)</li>
+          <li><em><u>Choveu</u> pela manhã.</em> (Fenômeno da natureza)</li>
+        </ul>
+
+        <p style="margin-top: 12px;"><strong>Passo 2 - Identificar a conjugação do verbo:</strong></p>
+        <p>Os verbos obedecem a três conjugações baseadas na terminação do infinitivo:</p>
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Conjugação</th>
+              <th>Terminação</th>
+              <th>Exemplos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primeira (1ª)</td>
+              <td>-ar</td>
+              <td>Andar, Cantar, Falar</td>
+            </tr>
+            <tr>
+              <td>Segunda (2ª)</td>
+              <td>-er (e -or)</td>
+              <td>Escrever, Correr, Pôr</td>
+            </tr>
+            <tr>
+              <td>Terceira (3ª)</td>
+              <td>-ir</td>
+              <td>Sorrir, Partir, Abrir</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="obs-box">
+          <strong>Obs.: Formas Nominais do Verbo</strong><br>
+           Para observar a qual conjugação o verbo pertence, converta-o para o infinitivo.
+          <ul style="margin-top: 6px; padding-left: 18px;">
+            <li><strong>Infinitivo (-AR, -ER, -IR):</strong> Falar, correr, cair</li>
+            <li><strong>Particípio (-ADO, -IDO):</strong> Falado, corrido, caído</li>
+            <li><strong>Gerúndio (-ANDO, -ENDO, -INDO):</strong> Falando, correndo, caindo</li>
+          </ul>
+          <em>Exemplo: "Corríamos" &rarr; Infinitivo: <strong>Correr</strong> (2ª conjugação).</em>
+        </div>
+
+        <p style="margin-top: 12px;"><strong>Passo 3 - Identificar tempo, modo, número e pessoa:</strong></p>
+        <ul class="example-list">
+          <li><strong>Pessoa e Número:</strong> 1ª, 2ª ou 3ª pessoa do Singular (Eu, Tu, Ele/Ela) ou Plural (Nós, Vós, Eles/Elas). Ex: <em>"Estávamos"</em> (Nós estávamos = 1ª pessoa do plural).</li>
+          <li><strong>Modo Verbal:</strong>
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Modo</th>
+                  <th>Definição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Indicativo</strong></td>
+                  <td>Quando a ação ocorre, ocorreu ou ocorrerá de fato (certeza). Ex: <em>O rapaz correrá amanhã.</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Subjuntivo</strong></td>
+                  <td>Quando há dúvidas, hipóteses ou incertezas sobre a ação. Ex: <em>Se o rapaz corresse amanhã...</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Imperativo</strong></td>
+                  <td>Quando trata-se de uma ordem, pedido, conselho ou exortação. Ex: <em>Corra amanhã!</em></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </div>
+
+      <!-- EXEMPLO COMPLETO DE ANÁLISE -->
+      <div class="extra-item" style="margin-bottom: 18px;">
+        <strong>🔎 Exemplo Prático de Análise:</strong> <em>"O lobo <u>era</u> mau."</em>
+        <br><br>
+        1. <strong>Infinitivo:</strong> Converter "ERA" &rarr; Verbo <strong>SER</strong> (terminação "ER" = 2ª conjugação).<br>
+        2. <strong>Pessoa/Número:</strong> (ELE) era = 3ª pessoa do singular.<br>
+        3. <strong>Modo/Tempo:</strong> Transmite um estado que de fato ocorria no passado &rarr; <strong>Modo Indicativo, Pretérito Imperfeito</strong>.
+      </div>
+
+      <!-- CLASSIFICAÇÃO DOS VERBOS -->
+      <h3 class="subtitle">Classificação dos Verbos</h3>
+
+      <div class="morphic-card">
+        <h3>1. Verbos Regulares</h3>
+        <p>Não sofrem alterações no radical nem nas terminações do modelo (paradigma) durante toda a conjugação.</p>
+        <p><strong>Exemplos:</strong> <em>Andar, cantar, correr, vender, partir, abrir.</em></p>
+        <p><em>Exemplo em frase: Eu <u>canto</u>, tu <u>cantas</u>, ele <u>canta</u> (o radical <strong>cant-</strong> permanece intacto).</em></p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Verbos Irregulares</h3>
+        <p>Apresentam alterações no radical ou nas terminações ao longo da conjugação.</p>
+        <p><strong>Exemplos:</strong> <em>Sentir, trazer, fazer, ouvir, saber, medir.</em></p>
+        <p><em>Exemplo em frase: Eu <u>faço</u>, tu <u>fazes</u>, ele <u>fará</u> (o radical altera para <strong>faç-</strong>, <strong>faz-</strong>, <strong>far-</strong>).</em></p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Verbos Anômalos</h3>
+        <p>São aqueles que, durante a conjugação, apresentam radicais completamente distintos e heterogêneos.</p>
+        <p><strong>Exemplos:</strong> <em>Ir, ser.</em></p>
+        <p><em>Exemplo em frase: Eu <u>vou</u>, eu <u>fui</u>, eu <u>irei</u> (o verbo <strong>IR</strong> muda drasticamente de radical).</em></p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>4. Verbos Defectivos</h3>
+        <p>Não possuem a conjugação completa em algum dos modos, tempos ou pessoas (geralmente por razões eufônicas ou de sentido).</p>
+        <p><strong>Exemplos:</strong> <em>Precaver, falir, demolir, abolir, colorir, reaver.</em></p>
+        <p><em>Exemplo em frase: O verbo <strong>falir</strong> não possui 1ª pessoa do singular no presente do indicativo (não existe "eu falo" no sentido de falência).</em></p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>5. Verbos Abundantes</h3>
+        <p>Apresentam duas ou mais formas equivalentes para ser conjugados em um determinado modo, tempo ou pessoa (muito comum no particípio).</p>
+        <p><strong>Exemplos:</strong></p>
+        <ul class="example-list">
+          <li><strong>No Presente do Indicativo:</strong> Verbo <em>haver</em> na 1ª pessoa do plural &rarr; Nós <em>"havemos"</em> ou nós <em>"hemos"</em>.</li>
+          <li><strong>No Particípio Duplo (Regular / Irregular):</strong>
+            <br>&bull; Aceitar &rarr; <em>Aceitado / Aceito</em>
+            <br>&bull; Entregar &rarr; <em>Entregado / Entregue</em>
+            <br>&bull; Imprimir &rarr; <em>Imprimido / Impresso</em>
+            <br>&bull; Enxugar &rarr; <em>Enxugado / Enxuto</em>
+          </li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>6. Verbos Auxiliares</h3>
+        <p>São verbos que se unem a outro verbo (chamado principal) para formar uma <strong>locução verbal</strong> ou um <strong>tempo composto</strong>. Os mais comuns são: <em>ser, estar, ter, haver</em>.</p>
+        <ul class="example-list">
+          <li><strong>Locução Verbal:</strong> <em>"<u>Está chegando</u> a hora."</em> (Auxiliar: <em>está</em> | Principal no gerúndio: <em>chegando</em>).</li>
+          <li><strong>Tempo Composto:</strong> <em>"O avô <u>teria falado</u> com o neto."</em> (Auxiliar: <em>teria</em> | Principal no particípio: <em>falado</em>).</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>7. Verbos Pronominais</h3>
+        <p>São aqueles conjugados acompanhados de pronomes oblíquos átonos (me, te, se, nos, vos). Podem ser:</p>
+        <ul class="example-list">
+          <li><strong>Essenciais:</strong> São usados obrigatoriamente com o pronome. Ex.: <em>Arrepender-se, queixar-se, suicidar-se.</em></li>
+          <li><strong>Acidentais:</strong> Podem ser usados com ou sem o pronome. Ex.: <em>Lembrar / Lembrar-se, Enganar / Enganar-se.</em></li>
+        </ul>
+        <p style="margin-top: 8px;"><em>Exemplo em frase: Ele <u>arrependeu-se</u> do erro cometido. / Nós <u>queixamo-nos</u> do barulho.</em></p>
+      </div>
+
+      <!-- SEÇÃO DE CONJUGAÇÕES ORGANIZADAS PESSOA A PESSOA -->
+      <h3 class="subtitle">📌 Conjugações Verbais Organizadas Pessoa por Pessoa</h3>
+      <p class="intro-text" style="font-size: 0.95rem;">
+        Confira abaixo a conjugação completa detalhada por pessoa do discurso (Eu, Tu, Ele, Nós, Vós, Eles) para facilitar o seu estudo.
+      </p>
+
+      <!-- 1ª CONJUGAÇÃO REGULAR: CANTAR -->
+      <div class="conjugation-block">
+        <h4>1ª Conjugação Regular: Verbo CANTAR (-AR)</h4>
+        
+        <div class="tempo-title">Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">canto</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">cantas</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">canta</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">cantamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">cantais</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">cantam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">cantei</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">cantaste</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">cantou</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">cantamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">cantastes</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">cantaram</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">cantava</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">cantavas</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">cantava</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">cantávamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">cantáveis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">cantavam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Mais-Que-Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">cantara</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">cantaras</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">cantara</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">cantáramos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">cantáreis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">cantaram</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">cantarei</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">cantarás</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">cantará</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">cantaremos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">cantareis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">cantarão</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Pretérito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">cantaria</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">cantarias</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">cantaria</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">cantaríamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">cantaríeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">cantariam</span></li>
+        </ul>
+
+        <div class="tempo-title">Presente do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Que) eu</span> <span class="verb-form">cante</span></li>
+          <li><span class="person">(Que) tu</span> <span class="verb-form">cantes</span></li>
+          <li><span class="person">(Que) ele</span> <span class="verb-form">cante</span></li>
+          <li><span class="person">(Que) nós</span> <span class="verb-form">cantemos</span></li>
+          <li><span class="person">(Que) vós</span> <span class="verb-form">canteis</span></li>
+          <li><span class="person">(Que) eles</span> <span class="verb-form">cantem</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Se) eu</span> <span class="verb-form">cantasse</span></li>
+          <li><span class="person">(Se) tu</span> <span class="verb-form">cantasses</span></li>
+          <li><span class="person">(Se) ele</span> <span class="verb-form">cantasse</span></li>
+          <li><span class="person">(Se) nós</span> <span class="verb-form">cantássemos</span></li>
+          <li><span class="person">(Se) vós</span> <span class="verb-form">cantásseis</span></li>
+          <li><span class="person">(Se) eles</span> <span class="verb-form">cantassem</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Quando) eu</span> <span class="verb-form">cantar</span></li>
+          <li><span class="person">(Quando) tu</span> <span class="verb-form">cantares</span></li>
+          <li><span class="person">(Quando) ele</span> <span class="verb-form">cantar</span></li>
+          <li><span class="person">(Quando) nós</span> <span class="verb-form">cantarmos</span></li>
+          <li><span class="person">(Quando) vós</span> <span class="verb-form">cantardes</span></li>
+          <li><span class="person">(Quando) eles</span> <span class="verb-form">cantarem</span></li>
+        </ul>
+
+        <div class="tempo-title">Imperativo Afirmativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">-</span> <span class="verb-form">-</span></li>
+          <li><span class="person">Canta</span> <span class="verb-form">tu</span></li>
+          <li><span class="person">Cante</span> <span class="verb-form">você</span></li>
+          <li><span class="person">Cantemos</span> <span class="verb-form">nós</span></li>
+          <li><span class="person">Cantai</span> <span class="verb-form">vós</span></li>
+          <li><span class="person">Cantem</span> <span class="verb-form">vocês</span></li>
+        </ul>
+      </div>
+
+      <!-- 2ª CONJUGAÇÃO REGULAR: VENDER -->
+      <div class="conjugation-block">
+        <h4>2ª Conjugação Regular: Verbo VENDER (-ER)</h4>
+
+        <div class="tempo-title">Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">vendo</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">vendes</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">vende</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">vendemos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">vendeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">vendem</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">vendi</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">vendeste</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">vendeu</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">vendemos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">vendestes</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">venderam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">vendia</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">vendias</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">vendia</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">vendíamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">vendíeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">vendiam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Mais-Que-Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">vendera</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">venderas</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">vendera</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">vendêramos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">vendêreis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">venderam</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">venderei</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">venderás</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">venderá</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">venderemos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">vendereis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">venderão</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Pretérito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">venderia</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">venderias</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">venderia</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">venderíamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">venderíeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">venderiam</span></li>
+        </ul>
+
+        <div class="tempo-title">Presente do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Que) eu</span> <span class="verb-form">venda</span></li>
+          <li><span class="person">(Que) tu</span> <span class="verb-form">vendas</span></li>
+          <li><span class="person">(Que) ele</span> <span class="verb-form">venda</span></li>
+          <li><span class="person">(Que) nós</span> <span class="verb-form">vendamos</span></li>
+          <li><span class="person">(Que) vós</span> <span class="verb-form">vendais</span></li>
+          <li><span class="person">(Que) eles</span> <span class="verb-form">vendam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Se) eu</span> <span class="verb-form">vendesse</span></li>
+          <li><span class="person">(Se) tu</span> <span class="verb-form">vendesses</span></li>
+          <li><span class="person">(Se) ele</span> <span class="verb-form">vendesse</span></li>
+          <li><span class="person">(Se) nós</span> <span class="verb-form">vendêssemos</span></li>
+          <li><span class="person">(Se) vós</span> <span class="verb-form">vendêsseis</span></li>
+          <li><span class="person">(Se) eles</span> <span class="verb-form">vendessem</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Quando) eu</span> <span class="verb-form">vender</span></li>
+          <li><span class="person">(Quando) tu</span> <span class="verb-form">venderes</span></li>
+          <li><span class="person">(Quando) ele</span> <span class="verb-form">vender</span></li>
+          <li><span class="person">(Quando) nós</span> <span class="verb-form">vendermos</span></li>
+          <li><span class="person">(Quando) vós</span> <span class="verb-form">venderdes</span></li>
+          <li><span class="person">(Quando) eles</span> <span class="verb-form">venderem</span></li>
+        </ul>
+
+        <div class="tempo-title">Imperativo Afirmativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">-</span> <span class="verb-form">-</span></li>
+          <li><span class="person">Vende</span> <span class="verb-form">tu</span></li>
+          <li><span class="person">Venda</span> <span class="verb-form">você</span></li>
+          <li><span class="person">Vendamos</span> <span class="verb-form">nós</span></li>
+          <li><span class="person">Vendei</span> <span class="verb-form">vós</span></li>
+          <li><span class="person">Vendam</span> <span class="verb-form">vocês</span></li>
+        </ul>
+      </div>
+
+      <!-- 3ª CONJUGAÇÃO REGULAR: PARTIR -->
+      <div class="conjugation-block">
+        <h4>3ª Conjugação Regular: Verbo PARTIR (-IR)</h4>
+
+        <div class="tempo-title">Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">parto</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">partes</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">parte</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">partimos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">partis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">partem</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">parti</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">partiste</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">partiu</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">partimos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">partistes</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">partiram</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">partia</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">partias</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">partia</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">partíamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">partíeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">partiam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Mais-Que-Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">partira</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">partiras</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">partira</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">partíramos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">partíreis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">partiram</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">partirei</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">partirás</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">partirá</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">partiremos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">partireis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">partirão</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Pretérito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">partiria</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">partirias</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">partiria</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">partiríamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">partiríeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">partiriam</span></li>
+        </ul>
+
+        <div class="tempo-title">Presente do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Que) eu</span> <span class="verb-form">parta</span></li>
+          <li><span class="person">(Que) tu</span> <span class="verb-form">partas</span></li>
+          <li><span class="person">(Que) ele</span> <span class="verb-form">parta</span></li>
+          <li><span class="person">(Que) nós</span> <span class="verb-form">partamos</span></li>
+          <li><span class="person">(Que) vós</span> <span class="verb-form">partais</span></li>
+          <li><span class="person">(Que) eles</span> <span class="verb-form">partam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Se) eu</span> <span class="verb-form">partisse</span></li>
+          <li><span class="person">(Se) tu</span> <span class="verb-form">partisses</span></li>
+          <li><span class="person">(Se) ele</span> <span class="verb-form">partisse</span></li>
+          <li><span class="person">(Se) nós</span> <span class="verb-form">partíssemos</span></li>
+          <li><span class="person">(Se) vós</span> <span class="verb-form">partísseis</span></li>
+          <li><span class="person">(Se) eles</span> <span class="verb-form">partissem</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Quando) eu</span> <span class="verb-form">partir</span></li>
+          <li><span class="person">(Quando) tu</span> <span class="verb-form">partires</span></li>
+          <li><span class="person">(Quando) ele</span> <span class="verb-form">partir</span></li>
+          <li><span class="person">(Quando) nós</span> <span class="verb-form">partirmos</span></li>
+          <li><span class="person">(Quando) vós</span> <span class="verb-form">partirdes</span></li>
+          <li><span class="person">(Quando) eles</span> <span class="verb-form">partirem</span></li>
+        </ul>
+
+        <div class="tempo-title">Imperativo Afirmativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">-</span> <span class="verb-form">-</span></li>
+          <li><span class="person">Parte</span> <span class="verb-form">tu</span></li>
+          <li><span class="person">Parta</span> <span class="verb-form">você</span></li>
+          <li><span class="person">Partamos</span> <span class="verb-form">nós</span></li>
+          <li><span class="person">Parti</span> <span class="verb-form">vós</span></li>
+          <li><span class="person">Partam</span> <span class="verb-form">vocês</span></li>
+        </ul>
+      </div>
+
+      <!-- VERBO ANÔMALO: SER -->
+      <div class="conjugation-block" style="border-left: 4px solid var(--accent-color);">
+        <h4>Verbo Anômalo Essencial: Verbo SER</h4>
+
+        <div class="tempo-title">Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">sou</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">és</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">é</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">somos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">sois</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">são</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">fui</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">foste</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">foi</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">fomos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">fostes</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">foram</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">era</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">eras</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">era</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">éramos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">éreis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">eram</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Mais-Que-Perfeito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">fora</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">foras</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">fora</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">fôramos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">fôreis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">foram</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Presente do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">serei</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">serás</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">será</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">seremos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">sereis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">serão</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Pretérito do Indicativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">Eu</span> <span class="verb-form">seria</span></li>
+          <li><span class="person">Tu</span> <span class="verb-form">serias</span></li>
+          <li><span class="person">Ele/Ela</span> <span class="verb-form">seria</span></li>
+          <li><span class="person">Nós</span> <span class="verb-form">seríamos</span></li>
+          <li><span class="person">Vós</span> <span class="verb-form">seríeis</span></li>
+          <li><span class="person">Eles/Elas</span> <span class="verb-form">seriam</span></li>
+        </ul>
+
+        <div class="tempo-title">Presente do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Que) eu</span> <span class="verb-form">seja</span></li>
+          <li><span class="person">(Que) tu</span> <span class="verb-form">sejas</span></li>
+          <li><span class="person">(Que) ele</span> <span class="verb-form">seja</span></li>
+          <li><span class="person">(Que) nós</span> <span class="verb-form">sejamos</span></li>
+          <li><span class="person">(Que) vós</span> <span class="verb-form">sejais</span></li>
+          <li><span class="person">(Que) eles</span> <span class="verb-form">sejam</span></li>
+        </ul>
+
+        <div class="tempo-title">Pretérito Imperfeito do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Se) eu</span> <span class="verb-form">fosse</span></li>
+          <li><span class="person">(Se) tu</span> <span class="verb-form">fosses</span></li>
+          <li><span class="person">(Se) ele</span> <span class="verb-form">fosse</span></li>
+          <li><span class="person">(Se) nós</span> <span class="verb-form">fôssemos</span></li>
+          <li><span class="person">(Se) vós</span> <span class="verb-form">fôsseis</span></li>
+          <li><span class="person">(Se) eles</span> <span class="verb-form">fossem</span></li>
+        </ul>
+
+        <div class="tempo-title">Futuro do Subjuntivo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">(Quando) eu</span> <span class="verb-form">for</span></li>
+          <li><span class="person">(Quando) tu</span> <span class="verb-form">fores</span></li>
+          <li><span class="person">(Quando) ele</span> <span class="verb-form">for</span></li>
+          <li><span class="person">(Quando) nós</span> <span class="verb-form">formos</span></li>
+          <li><span class="person">(Quando) vós</span> <span class="verb-form">fordes</span></li>
+          <li><span class="person">(Quando) eles</span> <span class="verb-form">forem</span></li>
+        </ul>
+
+        <div class="tempo-title">Imperativo Afirmativo</div>
+        <ul class="conjugation-list">
+          <li><span class="person">-</span> <span class="verb-form">-</span></li>
+          <li><span class="person">Sê</span> <span class="verb-form">tu</span></li>
+          <li><span class="person">Seja</span> <span class="verb-form">você</span></li>
+          <li><span class="person">Sejamos</span> <span class="verb-form">nós</span></li>
+          <li><span class="person">Sede</span> <span class="verb-form">vós</span></li>
+          <li><span class="person">Sejam</span> <span class="verb-form">vocês</span></li>
+        </ul>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Os verbos que apresentam profundas modificações em seus radicais ao longo de suas conjugações (como o verbo <em>SER</em> e o verbo <em>IR</em>) são classificados como:</p>
+          <ul class="exercise-options">
+            <li>a) Verbos Regulares.</li>
+            <li>b) Verbos Anômalos.</li>
+            <li>c) Verbos Defectivos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na frase <em>"O projeto já tinha sido entregue pelos diretores"</em>, a expressão destacada constitui um exemplo de:</p>
+          <ul class="exercise-options">
+            <li>a) Verbo abundante em forma simples.</li>
+            <li>b) Tempo composto com locução verbal.</li>
+            <li>c) Verbo defectivo na 3ª pessoa.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa em que a forma verbal destacada está no <strong>Pretérito Imperfeito do Indicativo</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O lobo <u>era</u> mau e vivia na floresta.</li>
+            <li>b) Quando ele <u>chegar</u>, conversaremos.</li>
+            <li>c) Nós <u>fomos</u> ao cinema ontem à noite.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Verbos que não possuem a conjugação completa para todas as pessoas gramaticais (como <em>falir</em> e <em>precaver</em>) são chamados de:</p>
+          <ul class="exercise-options">
+            <li>a) Auxiliares.</li>
+            <li>b) Pronominais.</li>
+            <li>c) Defectivos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a opção que apresenta um exemplo de verbo <strong>abundante</strong> na sua forma de particípio:</p>
+          <ul class="exercise-options">
+            <li>a) Cantado / Cantando.</li>
+            <li>b) Aceitado / Aceito.</li>
+            <li>c) Vendido / Venderia.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — Verbos anômalos são aqueles que apresentam mais de um radical em sua conjugação, modificando-se profundamente (ex.: <em>fui, sou, era / vou, fui, irei</em>).
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — A união de verbos auxiliares (<em>tinha sido</em>) com o verbo principal no particípio (<em>entregue</em>) forma uma locução verbal/tempo composto.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: A</strong> — <em>Era</em> é a forma do verbo SER no Pretérito Imperfeito do Indicativo, indicando uma ação ou estado contínuo e duradouro no passado.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: C</strong> — Os verbos defectivos são aqueles que não são conjugados em determinadas pessoas, tempos ou modos (por exemplo, <em>falir</em> não tem 1ª pessoa do singular no presente do indicativo).
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — <em>Aceitado/Aceito</em> é um caso típico de verbo abundante, apresentando duas formas de particípio (regular e irregular).
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

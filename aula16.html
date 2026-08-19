@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 16 - Utilização da Crase | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES REGRA */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .author-note {
+      font-size: 0.90rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* OBSERVAÇÕES E BIZUS */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #166534;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">11) Utilização da crase (`)</h2>
+
+      <p class="intro-text">
+        Também conhecida como “acento grave”, a crase é um acento que é utilizado sobre a vogal “a”, quando uma contração da preposição “a” + um artigo definido (no feminino) ou um pronome demonstrativo (no feminino), gera uma fusão de sons idênticos.
+      </p>
+
+      <div class="morphic-card">
+        <ul class="example-list">
+          <li><strong>Ex. 1:</strong> Eu fui à casa dela. = Eu fui (a + a) casa dela.</li>
+        </ul>
+        <span class="author-note">(Para que a preposição “a” e o artigo definido “a” não precisem aparecer duplicados na linguagem escrita, utiliza-se a crase.)</span>
+
+        <ul class="example-list">
+          <li><strong>Ex. 2:</strong> Conheci àquela casa abandonada. = Conheci (a + aquela) casa abandonada.</li>
+        </ul>
+        <span class="author-note">(Neste exemplo, a preposição mistura-se com o pronome demonstrativo.)</span>
+      </div>
+
+      <!-- ================= REGRAS DE UTILIZAÇÃO ================= -->
+      <h3 class="topic-header">Regras de utilização de crase</h3>
+
+      <p class="intro-text">
+        Existem os casos em que ocorre crase, os casos em que não ocorre, e também, temos os casos facultativos, de maneira geral, todos os casos em que ocorre a crase, envolve a interação da preposição “a” com palavras ou expressões femininas.
+      </p>
+
+      <p class="intro-text">
+        Devido à grande quantidade de regras existentes, nos concentraremos em aprender as situações em que ocorre a crase.
+      </p>
+
+      <div class="morphic-card">
+        <h3>Regra 1: Antes de palavras femininas que admitem artigo, desde que o verbo exija preposição. (VTI + OI)</h3>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Devemos obedecer às leis.</li>
+        </ul>
+        <div class="bizu-box">
+          <strong>⚡ Macete do "AO":</strong> Substitua a palavra feminina por uma masculina equivalente. Se no masculino surgir a forma <strong>"AO"</strong>, haverá crase no feminino!<br>
+          • Obedecer <u>às leis</u> ➔ Obedecer <u>aos regulamentos</u> (Deu "AO" ➔ Leva crase!).
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 2: Com pronomes demonstrativos, aquele, aquela, aqueles, aquelas e aquilo, desde que o verbo exija a preposição “a”.</h3>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Fui àquele quarto.</li>
+        </ul>
+        <div class="bizu-box">
+          <strong>⚡ Macete do "A ESTE":</strong> Substitua por "ESTE" ou "A ESTE". Se couber "A ESTE", o acento grave é obrigatório.<br>
+          • Fui <u>àquele</u> quarto ➔ Fui <u>a este</u> quarto (Tem "A ESTE" ➔ Tem crase!).
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 3: Quando a preposição “a” se ligar com os pronomes demonstrativos “a” ou “as” (representando aquela ou aquelas) e o termo seguinte exigir preposição.</h3>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Esta cena é igual à que vi ontem. = Esta cena é igual a (aquela) que vi ontem.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 4: Antes dos pronomes relativos “a qual” ou “as quais” desde que o verbo exija preposição.</h3>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Esta é a moça à qual me referi. (“referir” é um “VTI”).</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 5: Utilizaremos a crase:</h3>
+        
+        <p><strong>• Na indicação de horas.</strong></p>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Iremos às 3 da tarde.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>• Nas locuções adverbiais femininas;</strong></p>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Sentiu-se à vontade.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>• Nas locuções prepositivas formadas de palavras femininas (à beira de, à custa de, à força de, à sombra de, à moda de);</strong></p>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Atingiu o objetivo à custa de muito trabalho.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>• Nas locuções conjuntivas (à medida que, à proporção que);</strong></p>
+        <ul class="example-list">
+          <li><strong>Ex.:</strong> Melhorou à proporção que envelhecia.</li>
+        </ul>
+      </div>
+
+      <!-- ================= PRONÓMES DE TRATAMENTO E TOPÔNIMOS ================= -->
+      <h3 class="topic-header">Casos Especiais em Concursos</h3>
+
+      <div class="morphic-card">
+        <h3>Pronomes de Tratamento (Cuidado!)</h3>
+        <p>A regra geral proíbe crase antes de pronomes de tratamento. No entanto, três exceções femininas admitem artigo e **levam crase**: <strong>Sra., Srta. e Dona</strong> (quando especificada).</p>
+        <ul class="example-list">
+          <li>Dirigi-me <strong>à Senhora</strong> diretora. (Correto)</li>
+          <li>Refiro-me <strong>a Vossa Senhoria</strong>. (Sem crase - regra geral dos pronomes de tratamento)</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Nomes de Lugares e Cidades (Topônimos)</h3>
+        <div class="bizu-box">
+          <strong>⚡ Macete do Volto DE / Volto DA:</strong><br>
+          • <em>"Se vou A e volto DA, crase no A!"</em><br>
+          • <em>"Se vou A e volto DE, crase pra quê?"</em>
+        </div>
+        <ul class="example-list">
+          <li>Vou <strong>à</strong> Bahia. ➔ Volto <strong>DA</strong> Bahia (Leva crase!).</li>
+          <li>Vou <strong>a</strong> Roma. ➔ Volto <strong>DE</strong> Roma (Não leva crase!).</li>
+        </ul>
+      </div>
+
+      <!-- ================= CASOS FACULTATIVOS ================= -->
+      <h3 class="topic-header">Casos Facultativos (Uso Opcional)</h3>
+
+      <div class="morphic-card">
+        <h3>Os 3 Casos Facultativos</h3>
+        <ul class="example-list">
+          <li><strong>1. Antes de Nomes Próprios Femininos:</strong> Refiro-me <strong>a</strong> Maria. / Refiro-me <strong>à</strong> Maria.</li>
+          <li><strong>2. Antes de Pronomes Possessivos Femininos (Singular):</strong> Enviei o livro <strong>a</strong> minha mãe. / Enviei o livro <strong>à</strong> minha mãe.</li>
+          <li><strong>3. Após a preposição "ATÉ":</strong> Fui até <strong>a</strong> praia. / Fui até <strong>à</strong> praia.</li>
+        </ul>
+      </div>
+
+      <!-- ================= RESUMO DO QUE NÃO USAR ================= -->
+      <h3 class="topic-header">Resumo Relâmpago: Onde Jamais Usar Crase!</h3>
+      <div class="obs-box">
+        <strong>Para eliminação rápida em questões, NUNCA use crase:</strong><br>
+        1. Antes de palavras masculinas (<em>a pé, a cavalo, a prazo</em>).<br>
+        2. Antes de verbos no infinitivo (<em>a partir, a cantar, a falar</em>).<br>
+        3. Entre palavras repetidas em locuções (<em>dia a dia, cara a cara</em>).<br>
+        4. Com "A" no singular + palavra seguinte no plural (<em>Refiro-me a pessoas sinceras</em>).<br>
+        5. Antes de pronomes indefinidos, demonstrativos comuns e pessoais (<em>a todos, a ela, a esta</em>).
+      </div>
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 16)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a alternativa em que o uso do acento grave indicativo de crase é <strong>OBRIGATÓRIO</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Ele foi a pé para o trabalho.</li>
+            <li>b) O curso começará às 14 horas.</li>
+            <li>c) Não me refiro a esta candidata.</li>
+            <li>d) Começamos a estudar desde cedo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Marque a opção em que a crase é <strong>FACULTATIVA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Escrevi uma mensagem à minha irmã.</li>
+            <li>b) Fomos à praia no domingo passado.</li>
+            <li>c) O motorista entrou à esquerda.</li>
+            <li>d) Os alunos saíram às pressas do auditório.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a frase que apresenta o emprego da crase <strong>INCORRETO</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Ele comprou um imóvel à beira do lago.</li>
+            <li>b) O texto faz referência à moça que vimos.</li>
+            <li>c) Ficamos cara à cara com o perigo.</li>
+            <li>d) Ela gosta de se vestir à (moda de) anos 80.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Preencha as lacunas corretamente: "Pediu informação ___ Senhora, pois precisava ir ___ Curitiba e depois ___ Bahia."</p>
+          <ul class="exercise-options">
+            <li>a) a – a – a</li>
+            <li>b) à – a – à</li>
+            <li>c) à – à – à</li>
+            <li>d) a – à – a</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a frase em que o uso do acento grave está de acordo com a norma-padrão antes do pronome demonstrativo:</p>
+          <ul class="exercise-options">
+            <li>a) Não prestei atenção àquilo que foi dito.</li>
+            <li>b) Entreguei o presente à ela ontem.</li>
+            <li>c) Chegamos à esta conclusão rapidamente.</li>
+            <li>d) Refiro-me à essa professora do curso.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Em qual das opções a seguir a alteração da frase mantém a correção gramatical quanto ao uso da crase?</p>
+          <ul class="exercise-options">
+            <li>a) Cheguei a cidade de São Paulo ➔ Cheguei à São Paulo.</li>
+            <li>b) Fui até a porta ➔ Fui até à porta.</li>
+            <li>c) Falo a todos ➔ Falo à todos.</li>
+            <li>d) Andou a cavalo ➔ Andou à cavalo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Assinale a alternativa cuja locução conjuntiva ou adverbial exija o uso da crase:</p>
+          <ul class="exercise-options">
+            <li>a) A medida que o tempo passa, ficamos mais experientes. (Sem acento)</li>
+            <li>b) À medida que o tempo passa, ficamos mais experientes. (Com acento)</li>
+            <li>c) A proporção de inscritos aumentou.</li>
+            <li>d) Passo a passo faremos o trajeto.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Marque a alternativa correta quanto ao uso do acento grave na oração com pronome relativo:</p>
+          <ul class="exercise-options">
+            <li>a) Esta é a lei à qual todos devem se submeter.</li>
+            <li>b) Esta é a lei a qual todos devem se submeter.</li>
+            <li>c) Esta é a lei à que todos devem se submeter.</li>
+            <li>d) Esta é a lei a quem todos devem obedecer.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em "O candidato começou a falar a partir de 8h", para adequar a frase à norma culta quanto à crase na indicação de horas, deve-se usar:</p>
+          <ul class="exercise-options">
+            <li>a) "...a partir das 8h."</li>
+            <li>b) "...à partir das 8h."</li>
+            <li>c) "...à partir às 8h."</li>
+            <li>d) "...a partir à 8h."</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Assinale a opção em que a crase é proibida porque a palavra seguinte é masculina ou verbo:</p>
+          <ul class="exercise-options">
+            <li>a) Entregou o troféu à vencedora.</li>
+            <li>b) Todos os alunos se dispuseram a colaborar.</li>
+            <li>c) Ficou à beira de uma lágrima.</li>
+            <li>d) Chegaram à noite para o jantar.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a16', 'icon-a16')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a16">▼</span>
+        </button>
+
+        <div id="gabarito-a16" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — Antes de horas determinadas ("às 14 horas"), a crase é obrigatória. Nas demais: "pé" é masculino, "esta" é pronome que não aceita artigo e "estudar" é verbo.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — Antes de pronomes possessivos femininos no singular ("minha irmã"), a presença do artigo é opcional, tornando a crase facultativa.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: C</strong> — Não se usa crase entre palavras repetidas que formam locuções ("cara a cara", "dia a dia").
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — "À Senhora" leva crase (exceção dos pronomes de tratamento); "a Curitiba" não leva (volto DE Curitiba); "à Bahia" leva crase (volto DA Bahia).
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: A</strong> — O verbo "prestar atenção" exige a preposição "a", que se funde com o "a" de "aquilo" (àquilo). Não se usa crase antes de pronomes pessoais (ela) nem demonstrativos comuns (esta, essa).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — Após a preposição "até", o uso do artigo feminino antes do substantivo é facultativo, tornando "até a" ou "até à" ambas corretas.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — A locução conjuntiva proporcional feminina correta é "à medida que" (com acento grave obrigatório).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: A</strong> — Quem se submete, submete-se A algo; logo, exige-se a preposição "a", que se funde com o pronome relativo "a qual" = "à qual".
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: A</strong> — Nunca se usa crase antes de verbo ("a partir"). A forma correta para indicar o horário é "a partir das 8h".
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — Antes de verbo no infinitivo ("colaborar"), o uso da crase é estritamente proibido.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 15 - Regras de Acentuação Gráfica | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES REGRA */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 15 - Regras de Acentuação Gráfica</h2>
+
+      <p class="intro-text">
+        O estudo das regras de acentuação é complementar ao que acabamos de aprender na Aula 14. Uma vez que você consegue classificar as palavras quanto à sua tonalidade e identificar os encontros vocálicos, precisará apenas aplicar as regras de acentuação nas palavras.
+      </p>
+
+      <div class="obs-box">
+        <strong>Notas Gramaticais:</strong><br>
+        • Os acentos gráficos da língua portuguesa são: acento agudo (´), acento circunflexo (^) e a crase (`).<br>
+        • O <strong>til (~)</strong> é um sinal diacrítico de anasalamento de vogais, não um acento tônico propriamente dito.<br>
+        • Nosso foco nesta aula será a utilização do acento agudo e circunflexo nas regras gerais e nos casos especiais de acento diferencial e Novo Acordo.
+      </div>
+
+      <!-- ================= MONOSSÍLABOS TÔNICOS ================= -->
+      <h3 class="topic-header">Regra dos Monossílabos Tônicos</h3>
+      <div class="morphic-card">
+        <h3>Palavras de Uma Única Sílaba Forte</h3>
+        <p>Acentuam-se os monossílabos tônicos terminados em: <strong>A(s), E(s), O(s)</strong>.</p>
+        <ul class="example-list">
+          <li><strong>A(s):</strong> Pá, pás, já.</li>
+          <li><strong>E(s):</strong> Pé, pés, fé, réu.</li>
+          <li><strong>O(s):</strong> Pó, pós, dó, nó.</li>
+        </ul>
+        <div class="didactic-explain">
+          <em>Atenção:</em> Monossílabos terminados em <strong>I</strong> ou <strong>U</strong> não são acentuados (ex: <em>ti, si, tu, nu, cru</em>).
+        </div>
+      </div>
+
+      <!-- ================= OXÍTONAS ================= -->
+      <h3 class="topic-header">Regra das Oxítonas</h3>
+      <div class="morphic-card">
+        <h3>Acentuação da Última Sílaba Tônica</h3>
+        <p>Serão acentuadas todas as oxítonas terminadas em:</p>
+        <p class="rule-subtitle">"A(s)", "E(s)", "O(s)", "EM", "ENS", "ÉU(s)", "ÉI(s)", "ÓI(s)"</p>
+        <ul class="example-list">
+          <li><strong>A(s):</strong> Pajé, aliás, guaraná, sofá.</li>
+          <li><strong>E(s):</strong> Café, vocês, ipê.</li>
+          <li><strong>O(s):</strong> Mocotó, avó, cipó.</li>
+          <li><strong>EM / ENS:</strong> Além, parabéns, também, armazém.</li>
+          <li><strong>Ditongos Abertos Oxítonos:</strong> Herói, fiéis, chapéu, troféus, papéis.</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs. das Oxítonas com Hiato:</strong> Oxítonas terminadas em "I" e "U" serão acentuadas apenas quando formarem hiato com a sílaba anterior.<br>
+          • Ex.: <em>Ba-ú, Pia-u-í, A-ça-í, Ja-ú</em>.
+        </div>
+      </div>
+
+      <!-- ================= PAROXÍTONAS ================= -->
+      <h3 class="topic-header">Regra Geral das Paroxítonas</h3>
+      <div class="morphic-card">
+        <h3>Acentuação da Penúltima Sílaba Tônica</h3>
+        <p>Serão acentuadas todas as paroxítonas terminadas em:</p>
+        <p class="rule-subtitle">"R", "L", "N", "X", "PS", "Ã(s)", "ÃO(s)", "UM", "UNS", "OM", "ONS", "US", "I(s)", "EI(s)", e DITONGOS</p>
+        <ul class="example-list">
+          <li><strong>R, L, N, X, PS:</strong> Caráter, fósforo, fácil, hífen, tórax, bíceps.</li>
+          <li><strong>Ã(s), ÃO(s):</strong> Órgão, ímã, bênção, órfãos.</li>
+          <li><strong>UM, UNS, ONS:</strong> Álbum, elétrons, prótons.</li>
+          <li><strong>US, I(s):</strong> Vírus, júri, lápis, túnis.</li>
+          <li><strong>EI(s):</strong> Pônei, vôlei, fáceis.</li>
+          <li><strong>DITONGOS (Crescentes/Decrescentes):</strong> História, série, água, mágoa, colégio.</li>
+        </ul>
+      </div>
+
+      <!-- ================= PAROXÍTONAS E O NOVO ACORDO ================= -->
+      <h3 class="topic-header">Regras de Encontros Vocálicos nas Paroxítonas (Novo Acordo)</h3>
+      <p class="intro-text">
+        Esta é uma das partes mais cobradas em concursos públicos. O Novo Acordo Ortográfico alterou pontos específicos das paroxítonas:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Ditongos Abertos "EI" e "OI" nas Paroxítonas</h3>
+        <p><strong>PERDERAM O ACENTO!</strong> Quando os ditongos abertos <em>"EI"</em> e <em>"OI"</em> aparecerem na sílaba tônica de palavra paroxítona, não recebem mais acento.</p>
+        <ul class="example-list">
+          <li>Ex. Corretos: Joia, androide, geleia, ideia, jiboia, estreia, heroico.</li>
+        </ul>
+        <div class="didactic-explain">
+          <em>Cuidado na Prova:</em> Nas OXÍTONAS, esses ditongos abertos continuam acentuados (ex: <em>he-rói, pa-péis, cha-péu</em>)!
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Vogais "I" e "U" Precedidas de Ditongo em Paroxítonas</h3>
+        <p>As vogais "I" e "U" tônicas em hiato, quando vierem <strong>após um ditongo</strong> em palavras paroxítonas, <strong>NÃO são acentuadas</strong>.</p>
+        <ul class="example-list">
+          <li>Ex. Corretos: Fei-u-ra, bai-u-ca, tao-is-mo.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Verbos Terminados em "OAR" e "EER"</h3>
+        <p>A vogal dobrada <strong>"OO"</strong> e <strong>"EE"</strong> perdeu o acento circunflexo totalmente no Novo Acordo Ortográfico.</p>
+        <ul class="example-list">
+          <li>Ex. Corretos (OO): Enjoo, voo, magoo, abençoo.</li>
+          <li>Ex. Corretos (EE): Creem, leem, veem, deem.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>4. Regra Geral do Hiato (I e U Tônicos)</h3>
+        <p>Quando a palavra paroxítona tiver sua sílaba tônica composta pela letra <strong>"I" ou "U"</strong>, sozinha na sílaba ou acompanhada de "S", formando hiato com a sílaba anterior, <strong>DEVERÁ SER ACENTUADA</strong>.</p>
+        <ul class="example-list">
+          <li>Ex. Corretos: Sa-ú-de, sa-í-da, ba-ú, e-go-ís-ta, Lu-ís.</li>
+        </ul>
+        <div class="didactic-explain">
+          <em>Exceção do Hiato:</em> Se o "I" ou "U" for seguido de <strong>NH</strong> na próxima sílaba, NÃO leva acento (ex: <em>ra-i-nha, mo-i-nho</em>).
+        </div>
+      </div>
+
+      <!-- ================= PROPAROXÍTONAS ================= -->
+      <h3 class="topic-header">Regra das Proparoxítonas</h3>
+      <div class="morphic-card">
+        <h3>A Regra Mais Simples da Língua Portuguesa</h3>
+        <p><strong>TODA palavra proparoxítona é acentuada graficamente.</strong> Não há exceções!</p>
+        <ul class="example-list">
+          <li>Exemplos: Árvore, médico, pássaro, lâmpada, ônibus, sílaba, gramática.</li>
+        </ul>
+      </div>
+
+      <!-- ================= ACENTO DIFERENCIAL ================= -->
+      <h3 class="topic-header">Regras do Acento Diferencial</h3>
+      <p class="intro-text">
+        O acento diferencial serve para distinguir palavras homógrafas (que têm a mesma grafia), mas pertencem a classes gramaticais diferentes.
+      </p>
+
+      <div class="morphic-card">
+        <h3>Grupo 1: Acento Diferencial Obrigatório de Verbos</h3>
+        <ul class="example-list">
+          <li><strong>POR / PÔR:</strong> <em>Por</em> (preposição) x <em>Pôr</em> (verbo colocar). Ex: Vou <u>por</u> este caminho / Vou <u>pôr</u> o casaco.</li>
+          <li><strong>PODE / PÔDE:</strong> <em>Pode</em> (presente do indicativo) x <em>Pôde</em> (pretérito perfeito do indicativo). Ex: Ele não <u>pode</u> vir hoje / Ontem ele não <u>pôde</u> vir.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Grupo 2: Plural dos Verbos TER e VIR (e Derivados)</h3>
+        <p>Os verbos <strong>TER</strong> e <strong>VIR</strong> recebem acento circunflexo diferencial na 3ª pessoa do plural:</p>
+        <ul class="example-list">
+          <li>Singular (sem acento): Ele <strong>tem</strong> / Ele <strong>vem</strong>.</li>
+          <li>Plural (com acento circunflexo): Eles <strong>têm</strong> / Eles <strong>vêm</strong>.</li>
+        </ul>
+        <p class="rule-subtitle">Derivados (Manter, Conter, Intervir, Reter):</p>
+        <ul class="example-list">
+          <li>Singular (Acento Agudo): Ele man<strong>tém</strong> / Ele con<strong>tém</strong> / Ele inter<strong>vém</strong>.</li>
+          <li>Plural (Acento Circunflexo): Eles man<strong>têm</strong> / Eles con<strong>têm</strong> / Eles inter<strong>vêm</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Atenção para Provas (Novo Acordo Ortográfico):</strong><br>
+        O acento diferencial foi <strong>ABOLIDO</strong> de palavras paroxítonas homógrafas como:<br>
+        • <em>Pela</em> (substantivo/verbo) e <em>pela</em> (preposição).<br>
+        • <em>Pelo</em> (substantivo) e <em>pelo</em> (preposição).<br>
+        • <em>Para</em> (verbo) e <em>para</em> (preposição).<br>
+        • <em>Polo</em> (substantivo) e <em>polo</em> (combinação).<br>
+        <em>Obs. Facultativa:</em> O uso de acento na palavra <strong>fôrma</strong> (substantivo) é opcional para diferenciar de <strong>forma</strong> (verbo/substantivo).
+      </div>
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 15)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> De acordo com o Novo Acordo Ortográfico, assinale a alternativa em que a palavra foi acentuada <strong>INCORRETAMENTE</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Herói</li>
+            <li>b) Idéia</li>
+            <li>c) Chapéu</li>
+            <li>d) Saúde</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a alternativa cuja palavra receba acento gráfico pela mesma regra que justifica o acento em <em>"HISTÓRIA"</em>:</p>
+          <ul class="exercise-options">
+            <li>a) Avó</li>
+            <li>b) Lâmpada</li>
+            <li>c) Séria</li>
+            <li>d) Café</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Marque a alternativa na qual TODAS as palavras sejam acentuadas por serem <strong>PROPAROXÍTONAS</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Médico, Ônibus, Árvore</li>
+            <li>b) Cipó, Café, Têm</li>
+            <li>c) Caráter, Lápis, Tórax</li>
+            <li>d) Baú, Saída, País</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Assinale a frase em que a palavra sublinhada DEVERIA receber acento circunflexo por estar no plural:</p>
+          <ul class="exercise-options">
+            <li>a) O aluno <u>tem</u> muitos livros.</li>
+            <li>b) Os professores <u>tem</u> uma reunião importante.</li>
+            <li>c) Ele <u>vem</u> sempre aqui.</li>
+            <li>d) O relatório <u>contem</u> dados válidos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> A palavra <em>"FEIURA"</em> não é acentuada graficamente porque:</p>
+          <ul class="exercise-options">
+            <li>a) É uma proparoxítona terminada em A.</li>
+            <li>b) É uma paroxítona com 'U' tônico precedido de ditongo.</li>
+            <li>c) É uma oxítona terminada em A.</li>
+            <li>d) É um monossílabo átono.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a opção em que a mudança do acento diferencial altera a forma verbal para o <strong>PASSADO</strong> (Pretérito Perfeito):</p>
+          <ul class="exercise-options">
+            <li>a) Pode / Pôde</li>
+            <li>b) Por / Pôr</li>
+            <li>c) Tem / Têm</li>
+            <li>d) Vem / Vêm</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Assinale a alternativa com a grafia totalmente <strong>CORRETA</strong> de acordo com a norma-padrão vigente:</p>
+          <ul class="exercise-options">
+            <li>a) Eles vôoam de avião frequentemente.</li>
+            <li>b) Eu sinto muito enjôo ao viajar de navio.</li>
+            <li>c) Os alunos leem bastante durante as férias.</li>
+            <li>d) As testemunhas vêem o acidente com clareza.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Qual das palavras abaixo é acentuada por ser um <strong>MONOSSÍLABO TÔNICO</strong> terminado em 'E'?</p>
+          <ul class="exercise-options">
+            <li>a) Café</li>
+            <li>b) Você</li>
+            <li>c) Pé</li>
+            <li>d) Pajé</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> As palavras <em>"BAÚ"</em>, <em>"SAÍDA"</em> e <em>"PAÍS"</em> são acentuadas devido à regra do:</p>
+          <ul class="exercise-options">
+            <li>a) Ditongo aberto na paroxítona.</li>
+            <li>b) Hiato com I ou U tônicos.</li>
+            <li>c) Monossílabo tônico.</li>
+            <li>d) Encontro consonantal inseparável.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Marque a alternativa que apresenta erro de acentuação gráfica:</p>
+          <ul class="exercise-options">
+            <li>a) Ele vai pôr os documentos na gaveta.</li>
+            <li>b) A jiboia é uma serpente não peçonhenta.</li>
+            <li>c) A geleia de morango está deliciosa.</li>
+            <li>d) Aquele heroi salvou a vida da criança.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a15', 'icon-a15')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a15">▼</span>
+        </button>
+
+        <div id="gabarito-a15" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — Com o Novo Acordo, a palavra "ideia" perdeu o acento por ser paroxítona com ditongo aberto "ei".
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: C</strong> — "História" e "Séria" são acentuadas pela regra das paroxítonas terminadas em ditongo.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: A</strong> — Médico, Ônibus e Árvore possuem a antepenúltima sílaba tônica (todas proparoxítonas).
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — Na frase "Os professores...", o verbo TER está no plural e deve ser grafado como "têm".
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — "Feiura" é uma paroxítona cujo U tônico vem logo após o ditongo "ei", perdendo o acento pelo Novo Acordo.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: A</strong> — "Pode" indica tempo Presente; "Pôde" indica tempo Pretérito (passado).
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: C</strong> — A grafia "leem" está correta (sem acento no EE duplo). As demais opções deveriam ser: voam, enjoo e veem.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: C</strong> — "Pé" é uma palavra de sílaba única (monossílabo tônico). "Café", "você" e "pajé" são oxítonas de duas sílabas.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — Ba-ú, Sa-í-da e Pa-ís são acentuadas por apresentarem I ou U tônicos formando hiato sozinhos na sílaba.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: D</strong> — A palavra "herói" é uma oxítona terminada em ditongo aberto, portanto CONTINUA levando acento. A grafia "heroi" está errada.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 12 - Período Composto: Orações Subordinadas Adverbiais | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* BOX DE CONJUNÇÕES AMPLIPAD do ALUNO */
+    .conj-box {
+      background-color: #e0f2fe;
+      border: 1px solid #bae6fd;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+      color: #0369a1;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+    .conj-box strong {
+      color: #075985;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 12 - Período Composto: Orações Subordinadas Adverbiais</h2>
+
+      <p class="intro-text">
+        São aquelas que assumem as funções que seriam próprias do advérbio. Serão caracterizadas por terem agregadas, a si, conjunções subordinadas. Sua classificação será correspondente à classificação da sua conjunção. Serão elas:
+      </p>
+
+      <!-- 1) CAUSAIS -->
+      <div class="morphic-card">
+        <h3>1) Orações Subordinadas Adverbiais CAUSAIS</h3>
+        <p>Transmitem ideia de causa (o motivo que originou a ação da oração principal):</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Eu treino <u>PORQUE gosto</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (A causa de querer "treinar" é o fato de "gostar".)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Causais:</strong> porque, pois, como (em início de frase), visto que, já que, uma vez que, porquanto, dado que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: <u>Como estava chovendo muito</u>, decidimos adiar o treino ao ar livre.</li>
+          <li>Ex. 3: O candidato foi aprovado <u>já que se dedicou aos estudos com disciplina</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 2) COMPARATIVAS -->
+      <div class="morphic-card">
+        <h3>2) Orações Subordinadas Adverbiais COMPARATIVAS</h3>
+        <p>Transmitem ideia de comparação entre dois elementos ou ações:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Treino <u>COMO um profissional</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (É uma clara comparação entre o sujeito oculto, "eu", e o "profissional".)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Comparativas:</strong> como, tal qual, assim como, tanto quanto, mais... (do) que, menos... (do) que, qual.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Ele correu <u>mais rápido do que o adversário correu</u>.</li>
+          <li>Ex. 3: Ela se manteve serena <u>tal qual um monge diante do perigo</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 3) CONCESSIVAS -->
+      <div class="morphic-card">
+        <h3>3) Orações Subordinadas Adverbiais CONCESSIVAS</h3>
+        <p>Transmitem ideias de contrariedade ou quebra de expectativa (admitem um fato contrário que não impede a ação principal):</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Eu gosto de treinar, <u>EMBORA ninguém da minha família goste</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (O sujeito, "eu", contraria o padrão familiar.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Concessivas:</strong> embora, ainda que, mesmo que, conquanto, posto que, por mais que, se bem que, apesar de que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Fomos ao evento, <u>ainda que o tempo estivesse desfavorável</u>.</li>
+          <li>Ex. 3: <u>Conquanto estivesse exausto</u>, o atleta concluiu a maratona.</li>
+        </ul>
+      </div>
+
+      <!-- 4) CONDICIONAIS -->
+      <div class="morphic-card">
+        <h3>4) Orações Subordinadas Adverbiais CONDICIONAIS</h3>
+        <p>Transmitem ideia de condição para que aconteça algo:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <u>SE você quiser</u>, eu treino.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Esta oração estabelece uma relação de condição para que "o treino" aconteça.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Condicionais:</strong> se, caso, contanto que, desde que, a não ser que, a menos que, sem que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: <u>Caso precise de ajuda</u>, ligue para a nossa central.</li>
+          <li>Ex. 3: Você alcançará seus objetivos, <u>desde que mantenha a constância</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 5) CONFORMATIVAS -->
+      <div class="morphic-card">
+        <h3>5) Orações Subordinadas Adverbiais CONFORMATIVAS</h3>
+        <p>Transmitem ideia de conformidade ou acordo com um fato/regra:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Eu vou treinar amanhã, <u>CONFORME ficou combinado</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Clara ideia de conformidade.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Conformativas:</strong> conforme, segundo, como, consoante.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O relatório foi elaborado <u>segundo as diretrizes da empresa</u>.</li>
+          <li>Ex. 3: Todos agiram <u>consoante determinavam as normas de segurança</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 6) CONSECUTIVAS -->
+      <div class="morphic-card">
+        <h3>6) Orações Subordinadas Adverbiais CONSECUTIVAS</h3>
+        <p>Apresentam fatos consecutivos, ou algo cuja a ação leva a alguma consequência:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Eu estava tão forte <u>QUE treinei mais</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (O fato do treino ter sido maior foi consequência de estar forte.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Consecutivas:</strong> que (precedido de tão, tal, tanto, tamanho), de modo que, de forma que, de sorte que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: O frio era tamanho <u>que as águas dos lagos congelaram</u>.</li>
+          <li>Ex. 3: Estudou tanto <u>que gabaritou a prova de Português</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 7) FINAIS -->
+      <div class="morphic-card">
+        <h3>7) Orações Subordinadas Adverbiais FINAIS</h3>
+        <p>Expressa uma finalidade (o objetivo de uma ação):</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Treinei bastante, <u>A FIM DE QUE meu corpo fosse fortalecido</u>.</li>
+        </ul>
+        <div class="didactic-explain">
+          (A finalidade do treino era se fortalecer.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Finais:</strong> a fim de que, para que, porque (= para que), com o intuito de que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Organizei a rotina <u>para que pudéssemos viajar no final de semana</u>.</li>
+          <li>Ex. 3: Falou em tom baixo <u>a fim de que não acordasse o bebê</u>.</li>
+        </ul>
+      </div>
+
+      <!-- 8) TEMPORAIS -->
+      <div class="morphic-card">
+        <h3>8) Orações Subordinadas Adverbiais TEMPORAIS</h3>
+        <p>Passa a ideia, ou noção, de tempo:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <u>QUANDO eu for treinar</u>, passarei na sua casa.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Clara ideia de hora ou momento.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Temporais:</strong> quando, enquanto, logo que, assim que, apenas, antes que, depois que, desde que, sempre que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: <u>Assim que o sinal tocar</u>, os alunos poderão sair para o intervalo.</li>
+          <li>Ex. 3: <u>Enquanto eles conversavam</u>, a chuva forte começava a cair.</li>
+        </ul>
+      </div>
+
+      <!-- 9) PROPORCIONAIS -->
+      <div class="morphic-card">
+        <h3>9) Orações Subordinadas Adverbiais PROPORCIONAIS</h3>
+        <p>Estabelece uma proporção entre duas coisas, ou situações, distintas:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <u>A MEDIDA QUE treino</u>, melhoro minha condição física.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Clara ideia de grandeza proporcional, “quanto mais treina”, “mais melhora a condição física”.)
+        </div>
+
+        <div class="conj-box">
+          <strong>Principais Conjunções/Locuções Proporcionais:</strong> à medida que, à proporção que, quanto mais... mais, quanto menos... menos, ao passo que.
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: <u>À proporção que subíamos a montanha</u>, o ar ficava mais rarefeito.</li>
+          <li>Ex. 3: <u>Quanto mais praticamos a leitura</u>, mais fácil se torna a escrita.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> Foram utilizados, nos exemplos principais acima, frases similares, porém com as particularidades de cada tipo de oração subordinada adverbial explicitadas, para que ficasse mais fácil a visualização e a compreensão de como se expressa cada oração subordinada adverbial. Para conseguir identificá-las corretamente, é preciso conhecer as conjunções subordinadas e, também, desenvolver a capacidade de interpretar as informações transmitidas nas orações.
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 12)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Em <em>"Como não obteve a pontuação necessária, o candidato não avançou para a segunda fase"</em>, a oração introduzida pela conjunção "Como" exprime ideia de:</p>
+          <ul class="exercise-options">
+            <li>a) Conformidade.</li>
+            <li>b) Comparação.</li>
+            <li>c) Causa.</li>
+            <li>d) Concessão.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na frase <em>"Conquanto houvesse muitos obstáculos no trajeto, a equipe atingiu a meta dentro do prazo"</em>, a oração em destaque classifica-se como:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Adverbial Concessiva.</li>
+            <li>b) Oração Subordinada Adverbial Condicional.</li>
+            <li>c) Oração Subordinada Adverbial Conformativa.</li>
+            <li>d) Oração Subordinada Adverbial Causal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a opção em que a oração subordinada estabelece uma relação semântica de <strong>CONSEQUÊNCIA</strong> em relação à oração principal:</p>
+          <ul class="exercise-options">
+            <li>a) Caso faça sol amanhã, iremos ao parque.</li>
+            <li>b) A palestra foi tão instigante que ninguém percebeu o tempo passar.</li>
+            <li>c) A fim de que todos entendessem, o professor revisou o conteúdo.</li>
+            <li>d) À medida que estudava, sua confiança aumentava.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na oração <em>"Realizamos todo o procedimento segundo constava nos manuais da instituição"</em>, a oração destacada expressa:</p>
+          <ul class="exercise-options">
+            <li>a) Proporção.</li>
+            <li>b) Condição.</li>
+            <li>c) Conformidade.</li>
+            <li>d) Finalidade.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Em <em>"À proporção que o projeto avançava, os custos operacionais diminuíam"</em>, a oração sublinhada é classificada como:</p>
+          <ul class="exercise-options">
+            <li>a) Oração Subordinada Adverbial Proporcional.</li>
+            <li>b) Oração Subordinada Adverbial Temporal.</li>
+            <li>c) Oração Subordinada Adverbial Comparativa.</li>
+            <li>d) Oração Subordinada Adverbial Consecutiva.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa que apresenta uma <strong>ORAÇÃO SUBORDINADA ADVERBIAL CONDICIONAL</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Visto que o trânsito estava pesado, chegamos atrasados.</li>
+            <li>b) Desde que você cumpra suas obrigações, terá total apoio da equipe.</li>
+            <li>c) Desde que mudou de cidade, não nos falamos mais.</li>
+            <li>d) Embora estivesse frio, saímos para caminhar.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na frase <em>"Logo que os portões foram abertos, os torcedores entraram no estádio"</em>, a conjunção em destaque atribui ao período o valor semântico de:</p>
+          <ul class="exercise-options">
+            <li>a) Tempo.</li>
+            <li>b) Proporção.</li>
+            <li>c) Finalidade.</li>
+            <li>d) Causa.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em <em>"Treinou exaustivamente a fim de que obtivesse o primeiro lugar no campeonato"</em>, o conector sublinhado pode ser substituído, sem alteração de sentido, por:</p>
+          <ul class="exercise-options">
+            <li>a) conquanto.</li>
+            <li>b) para que.</li>
+            <li>c) visto que.</li>
+            <li>d) à medida que.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em <em>"O garoto agia como um verdadeiro líder diante dos desafios"</em>, a oração sublinhada expressa uma circunstância de:</p>
+          <ul class="exercise-options">
+            <li>a) Conformidade.</li>
+            <li>b) Causa.</li>
+            <li>c) Comparação.</li>
+            <li>d) Condição.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Assinale a alternativa em que a palavra <strong>COMO</strong> introduz uma <strong>ORAÇÃO SUBORDINADA ADVERBIAL CONFORMATIVA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Como não estudou o suficiente, não obteve um bom resultado.</li>
+            <li>b) Ele canta lindamente como o pai cantava.</li>
+            <li>c) Tudo ocorreu como havíamos planejado na reunião.</li>
+            <li>d) Como era de se esperar, o evento foi um grande sucesso.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a12', 'icon-a12')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a12">▼</span>
+        </button>
+
+        <div id="gabarito-a12" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: C</strong> — A conjunção "Como" posicionada no início da frase expressa a causa/motivo pelo qual o candidato não avançou de fase (Subordinada Adverbial Causal).
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — A conjunção "Conquanto" é estritamente concessiva, indicando uma ideia de oposição ou contraste que não impede o fato principal.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — O conector "que" precedido do intensificador "tão" introduz a consequência da palestra ter sido instigante (Subordinada Adverbial Consecutiva).
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: C</strong> — A palavra "segundo" introduz uma ideia de acordo, regra ou conformidade (Subordinada Adverbial Conformativa).
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: A</strong> — A locução "À proporção que" estabelece uma relação simultânea de aumento/diminuição proporcional entre as duas ações.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — "Desde que" na alternativa B estabelece um requisito/condição. Na alternativa C, a mesma locução possui sentido estritamente temporal.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: A</strong> — A locução conjuntiva "Logo que" possui sentido equivalente a "assim que" ou "no momento em que", marcando a circunstância de tempo.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — "A fim de que" expressa objetivo/finalidade, sendo perfeitamente intercambiável pela locução equivalente "para que".
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: C</strong> — A palavra "como" estabelece uma comparação direta entre a forma de agir do garoto e o comportamento de um verdadeiro líder.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: C</strong> — Na alternativa C, "como" equivale a "conforme/consoante". Na A é causal ("já que"), e na B é comparativa.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

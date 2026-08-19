@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 10 - Sintaxe: Termos Acessórios da Oração | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 10 - Sintaxe: Termos Acessórios da Oração e Vocativo</h2>
+
+      <p class="intro-text">
+        São termos dispensáveis na estrutura básica de uma oração, porém são importantes para compreensão da mensagem, pois acrescentam informações ou especificam coisas. Nesta categoria de termos da oração, teremos os adjuntos adnominais, adjuntos adverbiais, apostos e (para facilitar a nossa compreensão, acrescentarei também) os vocativos.
+      </p>
+
+      <!-- ================= ADJUNTO ADNOMINAL ================= -->
+      <h3 class="topic-header">Adjunto Adnominal (AA)</h3>
+
+      <p class="intro-text">
+        É o termo que acompanha o nome para caracterizá-lo, determiná-lo ou individualizá-lo. O adjunto adnominal poderá ser um adjetivo, um artigo, um numeral ou um pronome. Veja os exemplos:
+      </p>
+
+      <div class="morphic-card">
+        <h3>Exemplo 1: Análise Sintática Detalhada</h3>
+        <p>➔ <u>As</u> pipas <u>coloridas</u> contrastavam com <u>o</u> céu <u>azul</u>.</p>
+
+        <div class="didactic-explain">
+          (Neste exemplo, teremos 4 adjuntos adnominais. Eles estão sublinhados)
+        </div>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 8px;">Sujeito simples = As pipas coloridas</p>
+        <ul class="example-list">
+          <li>Núcleo do sujeito simples = pipas</li>
+          <li>Adjunto adnominal = As (artigo determinando o substantivo "pipas")</li>
+          <li>Adjunto adnominal = coloridas (adjetivo caracterizando o substantivo "pipas")</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 10px;">Predicado verbal = verbo de ação</p>
+        <ul class="example-list">
+          <li>Verbo transitivo indireto = contrastavam</li>
+          <li>Objeto indireto = com o céu azul</li>
+        </ul>
+
+        <div class="didactic-explain">
+          Os adjuntos adnominais estão fazendo parte do objeto indireto "COM O CÉU AZUL".
+        </div>
+
+        <ul class="example-list">
+          <li>Preposição = com</li>
+          <li>Adjunto adnominal = o (artigo caracterizando o substantivo "céu")</li>
+          <li>Núcleo do objeto indireto = céu (substantivo)</li>
+          <li>Adjunto adnominal = azul (adjetivo caracterizando o substantivo "céu")</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Exemplo 2: Análise Sintática Detalhada</h3>
+        <p>Veja outro exemplo:</p>
+        <p>➔ <u>Os</u> fogos iluminavam <u>a</u> noite. <em>(Acompanhe a análise)</em></p>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 8px;">Sujeito simples = Os fogos</p>
+        <ul class="example-list">
+          <li>Núcleo do sujeito = fogos (substantivo)</li>
+          <li>Adjunto adnominal = Os (artigo determinando o substantivo "fogos")</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 10px;">Predicado verbal = verbo de ação</p>
+        <ul class="example-list">
+          <li>Verbo transitivo direto = iluminavam</li>
+        </ul>
+
+        <p style="font-weight: 700; color: var(--brand-color); margin-top: 10px;">Objeto direto = a noite</p>
+        <ul class="example-list">
+          <li>Núcleo do objeto direto = noite (substantivo)</li>
+          <li>Adjunto adnominal = a (artigo determinando noite)</li>
+        </ul>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 3: <u>Aquelas</u> <u>duas</u> alunas <u>dedicadas</u> venceram <u>o</u> concurso <u>estadual</u>.</li>
+          <li>Ex. 4: <u>O</u> <u>nosso</u> velho professor explicou <u>a</u> matéria <u>complexa</u>.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= ADJUNTO ADVERBIAL ================= -->
+      <h3 class="topic-header">Adjunto Adverbal (A adv.)</h3>
+
+      <p class="intro-text">
+        É o termo que se relaciona com o verbo, o adjetivo ou outro advérbio. Resumindo, a forma de identificá-lo é a mesma que foi exposta no estudo da morfologia, e a forma de classificá-lo também é quase a mesma da morfologia, a única diferença é que na sintaxe ele será chamado de adjunto adverbial (A adv.).
+      </p>
+
+      <ul class="example-list" style="margin-bottom: 14px;">
+        <li>Ex.: O transporte chegou <u>rapidamente</u>. / (rapidamente = adjunto adverbial de modo)</li>
+      </ul>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> A sintaxe, por ter uma análise mais dinâmica do que a morfologia, possui algumas variações. Por exemplo:<br><br>
+
+        • <strong>Ex. 1:</strong> Ele chegou <u>de repente</u>.<br>
+        <em>(A parte que está sublinhada, trata-se de uma locução adverbial que passa a ideia de modo, logo deverá ser classificada como: adjunto adverbial de modo.)</em><br><br>
+
+        • <strong>Ex. 2:</strong> Eu viajo <u>nos fins de semana</u>.<br>
+        <em>(A parte que está sublinhada, trata-se de uma expressão adverbial que passa a ideia de tempo, logo deverá ser classificada como: adjunto adverbial de tempo.)</em>
+      </div>
+
+      <div class="morphic-card">
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 3: Os alunos estudaram <u>muito</u> <u>para a prova</u>. <em>(adjunto adverbial de intensidade / adjunto adverbial de finalidade)</em></li>
+          <li>Ex. 4: <u>Talvez</u> os candidatos cheguem <u>de avião</u> <u>amanhã</u>. <em>(adjunto adverbial de dúvida / adjunto adverbial de meio / adjunto adverbial de tempo)</em></li>
+          <li>Ex. 5: Trabalhamos <u>com dedicação</u> <u>naquela empresa</u>. <em>(adjunto adverbial de modo / adjunto adverbial de lugar)</em></li>
+        </ul>
+      </div>
+
+
+      <!-- ================= APOSTO ================= -->
+      <h3 class="topic-header">Aposto</h3>
+
+      <p class="intro-text">
+        É o termo que explica, esclarece, desenvolve, resume, enumera, compara, distribui ou especifica um termo da oração.
+      </p>
+
+      <p class="intro-text">
+        Apesar da quantidade de formas em que o aposto pode ser classificado, geralmente ele aparecerá explicando ou especificando algum termo pertencente à oração, e aparecerá, mais comumente, na frase: entre vírgulas; depois da pontuação dois pontos; entre parênteses ou entre travessões.
+      </p>
+
+      <div class="morphic-card">
+        <h3>Classificações do Aposto</h3>
+
+        <div class="rule-subtitle">1) Aposto Explicativo</div>
+        <p>Aparece destacado por pontuação (vírgulas, travessões ou parênteses) para explicar um termo.</p>
+        <ul class="example-list">
+          <li>Ex. 1: Lúcio, <u>o melhor aluno da classe</u>, passou de ano.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Repare que o trecho sublinhado está explicando de quem se trata "Lúcio", logo o trecho "o melhor aluno da classe" é um aposto explicativo.)
+        </div>
+
+        <div class="rule-subtitle">2) Aposto Especificativo</div>
+        <p>Individualiza ou especifica um substantivo de sentido genérico, sem pausas ou vírgulas (ligado diretamente ao nome ou por preposição).</p>
+        <ul class="example-list">
+          <li>Ex. 2: A cadeira <u>de balanço</u> é a melhor para sentar.</li>
+        </ul>
+        <div class="didactic-explain">
+          (Repare que o trecho sublinhado está especificando qual é a melhor cadeira, logo o trecho "de balanço", é um aposto especificativo.)
+        </div>
+
+        <div class="rule-subtitle">3) Aposto Enumerativo</div>
+        <p>Menciona em sequência as partes que detalham um termo da oração (comumente vem após dois pontos).</p>
+        <ul class="example-list">
+          <li>Ex. 3: Comprei os materiais necessários: <u>lápis, caderno e borracha</u>.</li>
+        </ul>
+
+        <div class="rule-subtitle">4) Aposto Resumidor (ou Recapitulativo)</div>
+        <p>Resume em uma só palavra (normalmente um pronome indefinido) uma série de termos citados anteriormente.</p>
+        <ul class="example-list">
+          <li>Ex. 4: Casa, carro, investimentos, <u>tudo</u> foi vendido no leilão.</li>
+        </ul>
+
+        <div class="rule-subtitle">5) Aposto Comparativo</div>
+        <p>Compara o termo da oração a um elemento de valor explicativo.</p>
+        <ul class="example-list">
+          <li>Ex. 5: Seus olhos, <u>duas jabuticabas brilhantes</u>, fixaram-se na imagem.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> Embora o aposto explicativo e o especificativo sejam os que aparecem com mais frequência nas orações, vale a pena conhecer e praticar as demais classificações para garantir total domínio nas provas.
+      </div>
+
+
+      <!-- ================= VOCATIVO ================= -->
+      <h3 class="topic-header">Vocativo</h3>
+
+      <p class="intro-text">
+        Quando este termo aparece, ele está na oração, mas não se relaciona nem com o sujeito e nem com o predicado. O vocativo é um termo independente que serve para chamar a atenção do receptor da mensagem que está sendo emitida. Veja o exemplo:
+      </p>
+
+      <div class="morphic-card">
+        <ul class="example-list">
+          <li>Ex. 1: <u>Meninos</u>, tenham cuidado para não cair.</li>
+        </ul>
+        <div class="didactic-explain">
+          (A palavra "meninos" é o vocativo, pois é ela que chama a atenção do receptor da mensagem.)
+        </div>
+
+        <ul class="example-list" style="margin-top: 12px;">
+          <li>Ex. 2: <u>Moça</u>, cuidado com o carro.</li>
+        </ul>
+        <div class="didactic-explain">
+          (A palavra "moça" é o vocativo, pois ele chama a atenção do receptor da mensagem.)
+        </div>
+
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 3: Não se esqueça de estudar, <u>meu filho</u>, para o exame de amanhã.</li>
+          <li>Ex. 4: <u>Senhores passageiros</u>, apertem os cintos de segurança!</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 10)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na frase <em>"Aqueles dois jovens motoristas venceram a difícil corrida"</em>, os termos em destaque "Aqueles", "dois" e "jovens" exercem a função sintática de:</p>
+          <ul class="exercise-options">
+            <li>a) Objetos Diretos.</li>
+            <li>b) Adjuntos Adnominais.</li>
+            <li>c) Apostos Explicativos.</li>
+            <li>d) Complementos Nominais.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Em <em>"O atleta correu muito rapidamente para a linha de chegada"</em>, os termos "muito rapidamente" e "para a linha de chegada" são, respectivamente:</p>
+          <ul class="exercise-options">
+            <li>a) Adjunto Adnominal e Objeto Indireto.</li>
+            <li>b) Adjunto Adverbial de Modo e Adjunto Adverbial de Direção/Lugar.</li>
+            <li>c) Complemento Nominal e Aposto Especificativo.</li>
+            <li>d) Predicativo do Sujeito e Adjunto Adnominal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa em que o termo sublinhado é um <strong>VOCATIVO</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) <u>Marta</u>, a secretária da escola, chegou cedo.</li>
+            <li>b) Atenda o telefone, <u>meu amigo</u>!</li>
+            <li>c) O poema foi lido por <u>Marta</u>.</li>
+            <li>d) Conheci <u>Marta</u> ontem à noite.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na oração <em>"Brasília, capital do Brasil, foi planejada por Oscar Niemeyer"</em>, o termo "capital do Brasil" funciona como:</p>
+          <ul class="exercise-options">
+            <li>a) Aposto Explicativo.</li>
+            <li>b) Vocativo.</li>
+            <li>c) Adjunto Adnominal.</li>
+            <li>d) Sujeito Composto.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Em <em>"A rua São João estava totalmente movimentada hoje cedo"</em>, o termo "São João" classifica-se como:</p>
+          <ul class="exercise-options">
+            <li>a) Aposto Explicativo.</li>
+            <li>b) Aposto Especificativo.</li>
+            <li>c) Vocativo.</li>
+            <li>d) Adjunto Adverbial de Lugar.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa que contém um <strong>APOSTO RESUMIDOR (RECAPITULATIVO)</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Pedro, Paulo e Tiago saíram juntos.</li>
+            <li>b) Dinheiro, fama, poder, nada o deixava satisfeito.</li>
+            <li>c) João, venha cá imediatamente!</li>
+            <li>d) O escritor Machado de Assis fundou a Academia.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na frase <em>"De repente, as luzes da cidade acenderam-se"</em>, o termo "De repente" é um:</p>
+          <ul class="exercise-options">
+            <li>a) Adjunto Adnominal.</li>
+            <li>b) Adjunto Adverbial de Modo.</li>
+            <li>c) Aposto Explicativo.</li>
+            <li>d) Vocativo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Diferencie o Vocativo do Aposto. Na frase <em>"Alunos, leiam o capítulo quinto com atenção"</em>, a palavra "Alunos" é:</p>
+          <ul class="exercise-options">
+            <li>a) Sujeito da oração.</li>
+            <li>b) Aposto explicativo.</li>
+            <li>c) Vocativo, pois é um chamamento independente.</li>
+            <li>d) Objeto direto.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em <em>"Comprei dois livros excelentes de literatura"</em>, os termos "dois", "excelentes" e "de literatura" acompanham o substantivo "livros". Sintaticamente, são:</p>
+          <ul class="exercise-options">
+            <li>a) Adjuntos Adnominais.</li>
+            <li>b) Complementos Nominais.</li>
+            <li>c) Apostos Enumerativos.</li>
+            <li>d) Adjuntos Adverbiais.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Assinale a opção em que a classificação do termo em destaque está <strong>INCORRETA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) <u>De manhã</u>, saímos para caminhar. (Adjunto Adverbial de Tempo)</li>
+            <li>b) O professor <u>Queiroz</u> explicou a aula. (Aposto Especificativo)</li>
+            <li>c) <u>Ó Deus</u>, ouvi nossas preces! (Vocativo)</li>
+            <li>d) A vitória do time deixou <u>os torcedores</u> eufóricos. (Aposto Explicativo)</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a10', 'icon-a10')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a10">▼</span>
+        </button>
+
+        <div id="gabarito-a10" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — "Aqueles" (pronome), "dois" (numeral) e "jovens" (adjetivo) acompanham o substantivo núcleo "motoristas", atuando todos como Adjuntos Adnominais.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — "Muito rapidamente" expressa a maneira como ele correu (Adjunto Adverbial de Modo) e "para a linha de chegada" indica a direção/lugar (Adjunto Adverbial de Direção/Lugar).
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — Em "Atenda o telefone, meu amigo!", o termo "meu amigo" é uma invocação/chamamento direto ao interlocutor, caracterizando um Vocativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: A</strong> — "Capital do Brasil" vem isolado entre vírgulas explicando e detalhando o substantivo próprio "Brasília", sendo um Aposto Explicativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — "São João" especifica de qual rua se trata, individualizando o substantivo comum "rua" sem pausa, o que caracteriza um Aposto Especificativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — O pronome indefinido "nada" resume os elementos enumerados anteriormente ("Dinheiro, fama, poder"), funcionando como Aposto Resumidor ou Recapitulativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — "De repente" é uma locução adverbial que indica o modo como a ação verbal ocorreu, sendo um Adjunto Adverbial de Modo.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: C</strong> — "Alunos" é um chamamento direto (Vocativo). Não possui função sintática de sujeito nem se liga diretamente ao predicado.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: A</strong> — O numeral "dois", o adjetivo "excelentes" e a locução adjetiva "de literatura" determinam e caracterizam o substantivo "livros", sendo todos Adjuntos Adnominais.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: D</strong> — Em "deixou os torcedores eufóricos", "os torcedores" é o Objeto Direto do verbo transitivo "deixou", e não um aposto explicativo.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

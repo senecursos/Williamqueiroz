@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 02 - Morfologia: Pronomes | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 1.12rem;
+      color: var(--brand-color);
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* EXEMPLOS EXTRAS */
+    .extra-examples-title {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .extra-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .extra-item {
+      background-color: #f1f5f9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+    }
+
+    .extra-item strong {
+      color: var(--brand-color);
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 02 - Morfologia</h2>
+      <h3 class="subtitle">Pronomes</h3>
+
+      <p class="intro-text">
+        <strong>Pronome</strong> é a palavra que substitui ou acompanha um substantivo, relacionando-o com a pessoa do discurso. Há sete tipos de pronomes: <strong>pronomes pessoais, pronomes de tratamento, pronomes possessivos, pronomes demonstrativos, pronomes indefinidos, pronomes interrogativos e pronomes relativos</strong>.
+      </p>
+
+      <!-- 1. PRONOMES PESSOAIS -->
+      <div class="morphic-card">
+        <h3>1. Pronomes Pessoais</h3>
+        <p>Estes substituem os substantivos, indicando a pessoa do discurso. Eles podem ser do <strong>caso reto</strong> ou <strong>oblíquo</strong>.</p>
+        
+        <p style="margin-top: 10px;"><strong>📌 Quadro dos Pronomes Pessoais:</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Singular:</strong></p>
+        <ul class="example-list">
+          <li><strong>1ª pessoa:</strong> Reto: <em>Eu</em> | Oblíquo: <em>Me, Mim, Comigo</em></li>
+          <li><strong>2ª pessoa:</strong> Reto: <em>Tu</em> | Oblíquo: <em>Te, Ti, Contigo</em></li>
+          <li><strong>3ª pessoa:</strong> Reto: <em>Ele/Ela</em> | Oblíquo: <em>O, A, Lhe, Se, Si, Consigo</em></li>
+        </ul>
+
+        <p style="margin-top: 8px;"><strong>Plural:</strong></p>
+        <ul class="example-list">
+          <li><strong>1ª pessoa:</strong> Reto: <em>Nós</em> | Oblíquo: <em>Nos, Conosco</em></li>
+          <li><strong>2ª pessoa:</strong> Reto: <em>Vós</em> | Oblíquo: <em>Vos, Convosco</em></li>
+          <li><strong>3ª pessoa:</strong> Reto: <em>Eles/Elas</em> | Oblíquo: <em>Os, As, Lhes, Se, Si, Consigo</em></li>
+        </ul>
+      </div>
+
+      <!-- 2. PRONOMES DE TRATAMENTO -->
+      <div class="morphic-card">
+        <h3>2. Pronomes de Tratamento</h3>
+        <p>É a forma cerimoniosa ou informal de tratar as pessoas. Os mais usados são: <em>“senhor”, “senhora”, “vossa senhoria”, “vossa excelência”, “você”...</em></p>
+        <p>Cada cargo, posição social ou contexto exige o uso de um pronome de tratamento específico e adequado.</p>
+      </div>
+
+      <!-- 3. PRONOMES POSSESSIVOS -->
+      <div class="morphic-card">
+        <h3>3. Pronomes Possessivos</h3>
+        <p>Indicam a pessoa gramatical (possuidor) acrescentando a ela a ideia de coisa possuída.</p>
+        
+        <p style="margin-top: 10px;"><strong>📌 Quadro dos Pronomes Possessivos:</strong></p>
+        
+        <p style="margin-top: 8px;"><strong>Singular:</strong></p>
+        <ul class="example-list">
+          <li><strong>1ª pessoa:</strong> <em>Meu, minha, meus, minhas</em></li>
+          <li><strong>2ª pessoa:</strong> <em>Teu, tua, teus, tuas</em></li>
+          <li><strong>3ª pessoa:</strong> <em>Seu, sua, seus, suas</em></li>
+        </ul>
+
+        <p style="margin-top: 8px;"><strong>Plural:</strong></p>
+        <ul class="example-list">
+          <li><strong>1ª pessoa:</strong> <em>Nosso, nossa, nossos, nossas</em></li>
+          <li><strong>2ª pessoa:</strong> <em>Vosso, vossa, vossos, vossas</em></li>
+          <li><strong>3ª pessoa:</strong> <em>Seu, sua, seus, suas</em></li>
+        </ul>
+      </div>
+
+      <!-- 4. PRONOMES DEMONSTRATIVOS -->
+      <div class="morphic-card">
+        <h3>4. Pronomes Demonstrativos</h3>
+        <p>Indicam, no espaço e no tempo, a posição de um ser em relação às pessoas do discurso.</p>
+        
+        <p style="margin-top: 10px;"><strong>📌 Formas dos Pronomes Demonstrativos:</strong></p>
+        <ul class="example-list">
+          <li><strong>Variáveis:</strong> <em>Este, Esta, Estes, Estas | Esse, Essa, Esses, Essas | Aquele, Aquela, Aqueles, Aquelas</em></li>
+          <li><strong>Invariáveis:</strong> <em>Isto | Isso | Aquilo</em></li>
+        </ul>
+      </div>
+
+      <!-- 5. PRONOMES INDEFINIDOS (EXPANDIDO) -->
+      <div class="morphic-card">
+        <h3>5. Pronomes Indefinidos</h3>
+        <p>São palavras que se referem à 3ª pessoa do discurso, atribuindo-lhe um sentido vago, indeterminado ou expressando quantidade imprecisa.</p>
+        
+        <p style="margin-top: 10px;"><strong>📌 Classificação dos Pronomes Indefinidos:</strong></p>
+        <ul class="example-list">
+          <li><strong>Variáveis (flexionam em gênero e/ou número):</strong><br>
+            <em>algum, alguma, alguns, algumas; nenhum, nenhuma, nenhuns, nenhumas; todo, toda, todos, todas; outro, outra, outros, outras; muito, muita, muitos, muitas; pouco, pouca, poucos, poucas; certo, certa, certos, certas; tanto, tanta, tantos, tantas; quanto, quanta, quantos, quantas; qualquer, quaisquer; bastante, bastantes; um, uma, uns, umas.</em>
+          </li>
+          <li style="margin-top: 8px;"><strong>Invariáveis (não sofrem flexão):</strong><br>
+            <em>alguém, ninguém, tudo, nada, algo, cada, quem, mais, menos, demais, outrem.</em>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 6. PRONOMES INTERROGATIVOS -->
+      <div class="morphic-card">
+        <h3>6. Pronomes Interrogativos</h3>
+        <p>São usados na formulação de perguntas diretas ou indiretas.</p>
+        <p>Sendo eles: <em>“que”, “quem”, “qual” (e variações), “quanto” (e variações), “onde”</em>.</p>
+      </div>
+
+      <!-- 7. PRONOMES RELATIVOS -->
+      <div class="morphic-card">
+        <h3>7. Pronomes Relativos</h3>
+        <p>Representam nomes já mencionados anteriormente (antecedentes) e com os quais se relacionam.</p>
+        
+        <p style="margin-top: 10px;"><strong>📌 Formas dos Pronomes Relativos:</strong></p>
+        <ul class="example-list">
+          <li><strong>Variáveis:</strong> <em>O qual, a qual, os quais, as quais | Cujo, cuja, cujos, cujas | Quanto, quanta, quantos, quantas</em></li>
+          <li><strong>Invariáveis:</strong> <em>Que | Quem | Onde</em></li>
+        </ul>
+      </div>
+
+      <!-- OBSERVAÇÃO IMPORTANTE: PRONOMES SUBSTANTIVOS vs ADJETIVOS -->
+      <div class="obs-box">
+        <strong>Obs.: Também pode ocorrer de pronomes assumirem a função de substantivo ou adjetivos.</strong>
+        <br><br>
+        ➢ <strong>Pronomes substantivos</strong> – São aqueles que <u>substituem</u> o substantivo.
+        <br>
+        ➢ <strong>Pronomes adjetivos</strong> – Assumem a função do adjetivo, <u>caracterizando</u> um substantivo.
+      </div>
+
+      <!-- EXEMPLOS PRÁTICOS -->
+      <h3 class="extra-examples-title">💡 Análise Prática de Exemplos</h3>
+      <div class="extra-grid">
+        <div class="extra-item">
+          <strong>Exemplo 1:</strong> <em>"Trouxe o <u>meu</u> livro e o <u>teu</u>."</em>
+          <br><br>
+          (Neste exemplo, é possível observar que o pronome <strong>“meu”</strong> está caracterizando “livro”, logo é um <u>pronome adjetivo</u>. Já o pronome <strong>“teu”</strong> está substituindo a palavra “livro”, logo é um <u>pronome substantivo</u>.)
+        </div>
+
+        <div class="extra-item">
+          <strong>Exemplo 2:</strong> <em>"<u>Poucos</u> conhecem as <u>minhas</u> propostas."</em>
+          <br><br>
+          (Perceba a função do pronome <strong>“poucos”</strong> nesta frase: trata-se de um substantivo, pois está substituindo “indivíduos ou pessoas”; já o pronome <strong>“minhas”</strong> está caracterizando “propostas”, atuando como pronome adjetivo.)
+        </div>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na frase <em>"Aqueles alunos esqueceram os seus cadernos na sala"</em>, a palavra destacada <strong>"Aqueles"</strong> classifica-se como pronome:</p>
+          <ul class="exercise-options">
+            <li>a) Pessoal do caso reto.</li>
+            <li>b) Demonstrativo.</li>
+            <li>c) Indefinido.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a opção em que o pronome sublinhado possui a função de <strong>pronome substantivo</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) <u>Muitas</u> pessoas compareceram ao evento.</li>
+            <li>b) <u>Alguns</u> saíram mais cedo da reunião.</li>
+            <li>c) Guardei <u>minhas</u> roupas no armário.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa que traz um pronome relativo <strong>invariável</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O qual.</li>
+            <li>b) Cujo.</li>
+            <li>c) Quem.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Em <em>"Entregaram-<u>lhe</u> a encomenda ontem à tarde"</em>, o termo sublinhado é um pronome pessoal:</p>
+          <ul class="exercise-options">
+            <li>a) Do caso reto de 3ª pessoa.</li>
+            <li>b) Oblíquo de 3ª pessoa.</li>
+            <li>c) De tratamento cerimonioso.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Na frase <em>"Este livro é meu, mas aquele é de Paulo"</em>, o pronome <strong>"aquele"</strong> atua como:</p>
+          <ul class="exercise-options">
+            <li>a) Pronome adjetivo.</li>
+            <li>b) Pronome substantivo.</li>
+            <li>c) Pronome indefinido.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — <em>Aqueles</em> é um pronome demonstrativo que indica a posição de seres afastados no espaço.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — <em>Alguns</em> substitui o substantivo "pessoas/indivíduos", funcionando como pronome substantivo. Nas alternativas A e C, "muitas" e "minhas" acompanham substantivos (pronomes adjetivos).
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: C</strong> — O pronome relativo <em>Quem</em> não sofre flexão de gênero nem de número, sendo invariável.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — O pronome <em>lhe</em> é um pronome pessoal oblíquo da 3ª pessoa do singular.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — O pronome <em>aquele</em> substitui a palavra "livro" na segunda oração, exercendo a função de pronome substantivo.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

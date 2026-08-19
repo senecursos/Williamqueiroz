@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 14 - Tonalidade e Encontros Vocálicos e Consonantais | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES SINTÁTICOS / FONÉTICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .didactic-explain {
+      font-size: 0.92rem;
+      color: #334155;
+      background-color: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .rule-subtitle {
+      font-weight: 700;
+      color: var(--brand-color);
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    /* OBSERVAÇÕES */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 14 - Tonalidade das Palavras e Encontros Vocálicos e Consonantais</h2>
+
+      <!-- ================= PARTE 1 ================= -->
+      <h3 class="topic-header">Parte 1 - Classificação quanto à Tonalidade (Tonicidade)</h3>
+      <p class="intro-text">
+        Todas as palavras da língua portuguesa com duas ou mais sílabas possuem uma <strong>sílaba tônica</strong> (a sílaba emitida com maior intensidade). A depender da posição em que essa sílaba aparece (última, penúltima ou antepenúltima), a palavra recebe uma classificação fonética específica:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Oxítona</h3>
+        <p>Quando a <strong>última sílaba</strong> for a tônica.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: CA-SA-<strong>RÃO</strong> (A parte mais forte é RÃO).</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Ca-fê / Ca-nal / Ca-ju.</li>
+          <li>Ex. 3: A-mor / A-ba-ca-xi.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Paroxítona</h3>
+        <p>Quando a <strong>penúltima sílaba</strong> for a tônica. (É o grupo mais numeroso da língua portuguesa).</p>
+        <ul class="example-list">
+          <li>Ex. Principal: CA-<strong>DEI</strong>-RA (A parte mais forte é DEI).</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Mē-sa / Lá-pis / A-mi-go.</li>
+          <li>Ex. 3: Fe-li-ci-da-de / Ca-der-no.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Proparoxítona</h3>
+        <p>Quando a <strong>antepenúltima sílaba</strong> for a tônica. <em>Regra de ouro: Todas as proparoxítonas são acentuadas graficamente.</em></p>
+        <ul class="example-list">
+          <li>Ex. Principal: <strong>LÂM</strong>-PA-DA (A parte mais forte é LÂM).</li>
+        </ul>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Mē-di-co / Ár-vo-re.</li>
+          <li>Ex. 3: Sí-la-ba / Ma-te-má-ti-ca.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= PARTE 2 ================= -->
+      <h3 class="topic-header">Parte 2 - Classificação dos Encontros Vocálicos</h3>
+      <p class="intro-text">
+        Encontro vocálico é a sequência de vogais ou semivogais em uma mesma palavra. Ocorrem de três formas: <strong>hiato</strong>, <strong>ditongo</strong> e <strong>tritongo</strong>.
+      </p>
+
+      <div class="obs-box">
+        <strong>Conceito Fundamental (Vogal x Semivogal):</strong><br>
+        • A letra <strong>"A"</strong> é SEMPRE vogal pura.<br>
+        • As letras <strong>"E, O, I, U"</strong> podem funcionar como vogais (som forte) ou semivogais (som fraco e átono ao lado de outra vogal na mesma sílaba).
+      </div>
+
+      <div class="morphic-card">
+        <h3>Hiato</h3>
+        <p>Ocorre quando duas vogais estão juntas na palavra, mas ficam em <strong>sílabas diferentes</strong> na divisão silábica.</p>
+        <ul class="example-list">
+          <li>Ex. Principal: SA-<strong>Í</strong>-DA</li>
+        </ul>
+        <div class="didactic-explain">
+          Obs.: As letras I e U, quando formam hiato e são tónicas, recebem acento gráfico.
+        </div>
+        <div class="rule-subtitle">Exemplos adicionais:</div>
+        <ul class="example-list">
+          <li>Ex. 2: Sa-ú-de / Ba-ú.</li>
+          <li>Ex. 3: Po-e-ma / Co-e-lho.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Ditongo</h3>
+        <p>Ocorre quando uma <strong>vogal + semivogal</strong> (ou vice-versa) permanecem junta na <strong>mesma sílaba</strong>. Podem ser de 4 tipos:</p>
+        
+        <p class="rule-subtitle">1) Ditongo Crescente (Semivogal + Vogal):</p>
+        <ul class="example-list">
+          <li>Ex.: Me-mó-<strong>ria</strong> / Gló-<strong>ria</strong> / Pá-<strong>tria</strong>.</li>
+        </ul>
+
+        <p class="rule-subtitle">2) Ditongo Decrescente (Vogal + Semivogal):</p>
+        <ul class="example-list">
+          <li>Ex.: Na-ta-<strong>ção</strong> / <strong>Pai</strong> / Lei-te / Meu.</li>
+        </ul>
+
+        <p class="rule-subtitle">3) Ditongo Oral (Sem som nasalado):</p>
+        <ul class="example-list">
+          <li>Ex.: Sé-<strong>rie</strong> / Cau-sa / Viu.</li>
+        </ul>
+
+        <p class="rule-subtitle">4) Ditongo Nasal (Com som nasalado, com til ou M/N no fim da sílaba):</p>
+        <ul class="example-list">
+          <li>Ex.: Mui-to / <strong>Mãe</strong> / <strong>Pão</strong> / Tam-bém.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Tritongo</h3>
+        <p>Ocorre quando temos a sequência: <strong>Semivogal + Vogal + Semivogal</strong> na mesma sílaba.</p>
+
+        <p class="rule-subtitle">1) Tritongo Oral:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: Pa-ra-<strong>guai</strong>.</li>
+          <li>Ex. Adicionais: En-xa-<strong>guei</strong> / A-ve-ri-<strong>guei</strong>.</li>
+        </ul>
+
+        <p class="rule-subtitle">2) Tritongo Nasal:</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <strong>Quão</strong>.</li>
+          <li>Ex. Adicionais: En-xa-<strong>guem</strong> / Sā-<strong>guões</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Importante para os estudos de Acentuação:</strong> Lembre-se de que, para classificar os encontros vocálicos, primeiro você precisa fazer a divisão silábica correta. Treinar a separação correta é o pilar indispensável para gabaritar a próxima aula (Acentuação Gráfica)!
+      </div>
+
+
+      <!-- ================= PARTE 3 ================= -->
+      <h3 class="topic-header">Parte 3 - Classificação dos Encontros Consonantais e Dígrafos</h3>
+      <p class="intro-text">
+        O <strong>Encontro Consonantal</strong> é o agrupamento de duas ou mais consoantes na mesma palavra, onde <strong>ambas as consoantes são pronunciadas</strong>.
+      </p>
+
+      <div class="morphic-card">
+        <h3>Tipos de Encontros Consonantais</h3>
+        
+        <p class="rule-subtitle">1) Na mesma sílaba (Inseparáveis):</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <strong>CLA</strong>-ro.</li>
+          <li>Ex. Adicionais: <strong>Prā</strong>-to / <strong>Bro</strong>-che / <strong>Dra</strong>-gão.</li>
+        </ul>
+
+        <p class="rule-subtitle">2) Em sílabas diferentes (Separáveis):</p>
+        <ul class="example-list">
+          <li>Ex. Principal: <strong>POR</strong>-TEI-RO (R e T em sílabas separadas).</li>
+          <li>Ex. Adicionais: <strong>Cus</strong>-to / <strong>Ad</strong>-vo-ga-do / <strong>Ob</strong>-je-to.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Atenção: Não confunda Encontro Consonantal com DÍGRAFO!</h3>
+        <p>No <strong>Encontro Consonantal</strong>, escutamos o som de DUAS consoantes (ex: <u>Pr</u>ato). No <strong>Dígrafo</strong>, duas letras se unem para emitir um <strong>ÚNICO som (fonema)</strong>.</p>
+        
+        <p class="rule-subtitle">Exemplos de Dígrafos Consonantais:</p>
+        <ul class="example-list">
+          <li><em>CH, LH, NH, RR, SS, SC, SÇ, XC, GU, QU</em> (Ex: <strong>Ch</strong>ave, Ca-<strong>rr</strong>o, <strong>Gu</strong>erra, <strong>Qu</strong>eijo).</li>
+        </ul>
+      </div>
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 14)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a alternativa cuja palavra seja classificada como <strong>PROPAROXÍTONA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Computador</li>
+            <li>b) Caráter</li>
+            <li>c) Hipopotamo</li>
+            <li>d) Urubu</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na palavra <em>"SAÚDE"</em>, a sequência das vogais 'A' e 'Ú' forma um:</p>
+          <ul class="exercise-options">
+            <li>a) Ditongo crescente.</li>
+            <li>b) Ditongo decrescente.</li>
+            <li>c) Hiato.</li>
+            <li>d) Tritongo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a opção que contenha um <strong>DITONGO CRESCENTE</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Pai</li>
+            <li>b) História</li>
+            <li>c) Noite</li>
+            <li>d) Baú</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> A palavra <em>"PARAGUAI"</em> apresenta em sua estrutura fonética um:</p>
+          <ul class="exercise-options">
+            <li>a) Ditongo oral.</li>
+            <li>b) Tritongo oral.</li>
+            <li>c) Tritongo nasal.</li>
+            <li>d) Hiato duplo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Marque a alternativa na qual TODAS as palavras sejam <strong>OXÍTONAS</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Café, Rapaz, Saci</li>
+            <li>b) Mesa, Lápis, Caderno</li>
+            <li>c) Lâmpada, Médico, Árvore</li>
+            <li>d) Janela, Porta, Escola</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa que apresenta um <strong>ENCONTRO CONSONANTAL INSEPARÁVEL</strong> (na mesma sílaba):</p>
+          <ul class="exercise-options">
+            <li>a) Porteiro</li>
+            <li>b) Custo</li>
+            <li>c) Pedra</li>
+            <li>d) Ritual</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na palavra <em>"MÃE"</em>, temos a ocorrência de um:</p>
+          <ul class="exercise-options">
+            <li>a) Ditongo nasal decrescente.</li>
+            <li>b) Ditongo oral crescente.</li>
+            <li>c) Tritongo nasal.</li>
+            <li>d) Hiato nasal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Diferencie as palavras <em>"PRATO"</em> e <em>"CARRO"</em> quanto aos encontros consonantais/dígrafos. Marque a correta:</p>
+          <ul class="exercise-options">
+            <li>a) Ambas possuem encontro consonantal.</li>
+            <li>b) "Prato" possui encontro consonantal e "Carro" possui dígrafo.</li>
+            <li>c) "Prato" possui dígrafo e "Carro" possui encontro consonantal.</li>
+            <li>d) Ambas possuem dígrafos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em qual das palavras abaixo ocorre um <strong>TRITONGO NASAL</strong>?</p>
+          <ul class="exercise-options">
+            <li>a) Averiguei</li>
+            <li>b) Enxaguem</li>
+            <li>c) Uruguai</li>
+            <li>d) Quaisquer</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Marque a palavra cuja sílaba tônica seja a <strong>PENÚLTIMA</strong> (Paroxítona):</p>
+          <ul class="exercise-options">
+            <li>a) Maracujá</li>
+            <li>b) Amável</li>
+            <li>c) Pássaro</li>
+            <li>d) Ananás</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a14', 'icon-a14')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a14">▼</span>
+        </button>
+
+        <div id="gabarito-a14" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: C</strong> — "Hipopótamo" tem a antepenúltima sílaba tônica (Hi-po-PÓ-ta-mo), sendo proparoxítona.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: C</strong> — Separação: Sa-ú-de. Duas vogais em sílabas vizinhas e separadas formam um Hiato.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — "His-tó-ria" termina com semivogal 'i' (fraca) + vogal 'a' (forte) na mesma sílaba: Ditongo Crescente.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — Pa-ra-guai (u + a + i) formam semivogal + vogal + semivogal sem som nasal.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: A</strong> — Ca-fé, Ra-paz, Sa-ci têm a última sílaba forte (oxítonas).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: C</strong> — "PE-dra": as consoantes D e R ficam na mesma sílaba.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: A</strong> — O til sobre o A confere som nasal ao ditongo decrescente (vogal A + semivogal E).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — "PRato" tem duas consoantes audíveis (encontro consonantal); "CaRRo" tem duas letras gerando um único som de R forte (dígrafo).
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — "En-xa-guem" termina com u + e + m (representando o som nasal /wẽj/).
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — "A-má-vel" tem a penúltima sílaba forte (Paroxítona).
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

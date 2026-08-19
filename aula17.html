@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 17 - Pontuação: Vírgula, Ponto e Vírgula e Dois-Pontos | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .subtopic-header {
+      font-size: 1.10rem;
+      color: var(--primary-color);
+      margin-top: 16px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES REGRA */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .author-note {
+      font-size: 0.90rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    /* OBSERVAÇÕES E BIZUS */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #166534;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">12) Pontuação: Utilização da Vírgula, Ponto e Vírgula e Dois-Pontos</h2>
+
+      <p class="intro-text">
+        A vírgula é um recurso da língua portuguesa que serve para separar termos em uma frase. É importante conhecer as regras de pontuação, pois assim nos expressaremos, de maneira escrita, melhor, bem como compreenderemos um texto corretamente, tornando-o mais fácil de interpretar.
+      </p>
+
+      <div class="obs-box">
+        <strong>⚠️ Regra Geral de Proibição (NUNCA cometa este erro!):</strong><br>
+        Existe uma regra geral para quando <strong>não usar</strong> vírgulas, e esta regra diz que <u>não se separa sujeito de predicado</u>, e <u>nem verbos de seus complementos</u> (objeto direto ou indireto).<br><br>
+        ➔ <strong>Ex.:</strong> <em>O mecânico pediu o alicate ao ajudante.</em><br>
+        <span class="author-note" style="margin-bottom:0;">A frase do exemplo acima não exige vírgula. Nela temos um sujeito simples (O mecânico), um VTDI (pediu), um OD (o alicate) e, por fim, um OI (ao ajudante).</span>
+      </div>
+
+      <p class="intro-text">
+        Já para os casos em que a vírgula se faz necessária, nós teremos as seguintes, principais, regras:
+      </p>
+      
+      <span class="author-note"><strong>Obs.:</strong> A frase do exemplo acima será a base para que possamos acrescentar outros termos e, consequentemente, as regras ficarem mais claras.</span>
+
+      <!-- ================= VÍRGULA E ADJUNTOS ADVERBIAIS ================= -->
+      <h3 class="topic-header">Envolvendo Adjuntos Adverbiais</h3>
+
+      <div class="morphic-card">
+        <h3>Regra 1: Adjunto Adverbial no fim da oração (Posição Padrão)</h3>
+        <p>Se o adjunto adverbial estiver em posição padrão (no final da oração), a vírgula é facultativa:</p>
+        <ul class="example-list">
+          <li>O mecânico pediu o alicate ao ajudante ontem.</li>
+          <li>O mecânico pediu o alicate ao ajudante, ontem.</li>
+        </ul>
+
+        <div class="bizu-box" style="margin-top: 10px; margin-bottom: 0;">
+          <strong>💡 Nota do Prof. William Queiroz (Dois Adjuntos Sequenciados):</strong> Ocorrendo que dois adjuntos adverbiais estejam sequenciados no fim da frase, é preciso que a vírgula seja utilizada para dividir pelo menos um dos adjuntos:
+          <ul class="example-list" style="margin-top:6px;">
+            <li>O mecânico pediu o alicate ao ajudante, ontem depois do serviço.</li>
+            <li>O mecânico pediu o alicate ao ajudante no serviço, ontem.</li>
+            <li>O mecânico pediu o alicate ao ajudante, ontem, depois do serviço.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 2: Adjuntos Adverbiais Deslocados (Fora da Posição Padrão)</h3>
+        <p>Adjuntos adverbiais possuem grande mobilidade dentro da oração. Quando eles aparecem fora da posição padrão, a vírgula deverá ser utilizada, isolando esse termo com os seguintes critérios:</p>
+        
+        <p><strong>• Começo da oração:</strong></p>
+        <ul class="example-list">
+          <li>Ontem, o mecânico pediu o alicate ao ajudante.</li>
+        </ul>
+
+        <p style="margin-top: 8px;"><strong>• Meio da oração:</strong></p>
+        <ul class="example-list">
+          <li>O mecânico, ontem, pediu o alicate ao ajudante.</li>
+          <li>O mecânico pediu o alicate, ontem, ao ajudante.</li>
+        </ul>
+
+        <div class="bizu-box" style="margin-top: 10px; margin-bottom: 0;">
+          <strong>⚡ Regra de Ouro para Concursos (Extensão do Adjunto Adverbial):</strong><br>
+          • <strong>Adjunto Adverbial Longo (3 ou mais palavras):</strong> Vírgula OBRIGATÓRIA quando deslocado.<br>
+          • <strong>Adjunto Adverbial Curto (1 ou 2 palavras):</strong> Vírgula FACULTATIVA quando deslocado.<br>
+          <em>Ex. Curto: "Hoje(,) faremos o teste." | Ex. Longo: "Durante a tarde de ontem, faremos o teste."</em>
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 3: Orações Subordinadas Adverbiais Deslocadas</h3>
+        <p>Quando aparecem sendo uma oração subordinada adverbial, segue-se as mesmas regras já apresentadas acima: quando a oração vem na posição padrão (depois da oração principal) a vírgula é facultativa, porém se aparecer no início, ou no meio da oração, deve ser isolada por vírgula(s).</p>
+        <ul class="example-list">
+          <li>O mecânico pediu o alicate ao ajudante antes do serviço acabar. <em>(Posição padrão - facultativa)</em></li>
+          <li>Antes do serviço acabar, o mecânico pediu o alicate ao ajudante. <em>(Início - obrigatória)</em></li>
+          <li>O mecânico, antes do serviço acabar, pediu o alicate ao ajudante. <em>(Meio - obrigatória)</em></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 4: Datas, Locais e Endereços</h3>
+        <p>Advérbios de tempo, local e data devem ser separados por vírgula. (Formato amplamente utilizado em correspondências, documentos e contratos.)</p>
+        <ul class="example-list">
+          <li>Terça-feira, 30 de abril de 2024.</li>
+          <li>Barbalha-CE, 30 de abril de 2024.</li>
+        </ul>
+      </div>
+
+      <!-- ================= CONJUNÇÕES E ORAÇÕES ================= -->
+      <h3 class="topic-header">Envolvendo Conjunções Coordenadas e Subordinadas</h3>
+
+      <div class="morphic-card">
+        <h3>Regra 1: Termos de mesma função não ligados por conjunção</h3>
+        <p>A vírgula serve para intercalar elementos que exercem a mesma função sintática quando não estão unidos por conjunções (enumerações).</p>
+        <ul class="example-list">
+          <li>Eu percebi que a roupa dela era feia, vulgar, provocativa, despudorada e ridícula.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 2: Conjunções coordenativas deslocadas</h3>
+        <p>Conjunções coordenativas (especialmente as adversativas e conclusivas) deslocadas para o meio da oração devem ser isoladas por vírgulas.</p>
+        <ul class="example-list">
+          <li>Ler é muito bom; não significa, todavia, que lerei qualquer bobagem.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 3: Orações intercaladas ou incidentais</h3>
+        <p>Às vezes, intercalamos uma informação ou um pensamento no meio de uma estrutura. Esses fragmentos destacam-se da oração e devem ser separados por vírgula:</p>
+        <ul class="example-list">
+          <li>Todos, penso eu, deveriam empenhar-se para atingirmos o resultado.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Regra 4: Orações Subordinadas Adjetivas Explicativas</h3>
+        <p>Quando a oração for subordinada adjetiva explicativa, esta deverá ficar entre vírgulas.</p>
+        <ul class="example-list">
+          <li>O cachorro, que é irracional, agiu com mais prudência que o dono.</li>
+        </ul>
+        <div class="obs-box" style="margin-top: 8px; margin-bottom: 0;">
+          <strong>🎯 Atenção em Concursos:</strong> Se você retirar as vírgulas da frase acima, ela se torna uma <u>Adjetiva Restritiva</u>. A mudança de pontuação altera completamente o sentido do texto!
+        </div>
+      </div>
+
+      <!-- ================= VOCATIVO E APOSTO ================= -->
+      <h3 class="topic-header">Envolvendo Vocativo, Aposto e Expressões Explicativas</h3>
+
+      <div class="morphic-card">
+        <h3>Envolvendo o Vocativo</h3>
+        <p>O vocativo é o termo usado para chamar ou interpelar o interlocutor. Independente da posição em que ele apareça na frase, <strong>deverá sempre ser separado por vírgula(s)</strong>.</p>
+        <ul class="example-list">
+          <li>Policial, ajude-me! <em>(Início)</em></li>
+          <li>Ajude-me, policial! <em>(Fim)</em></li>
+          <li>Por favor, policial, ajude-me! <em>(Meio)</em></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Envolvendo o Aposto</h3>
+        <p>Assim como o vocativo, o aposto explicativo deve ficar isolado mesmo que seja no início da frase.</p>
+        <ul class="example-list">
+          <li><strong>Ex. 1:</strong> José Saramago, único escritor de língua portuguesa a ganhar o Nobel de Literatura, faleceu em 2010.</li>
+          <li><strong>Ex. 2:</strong> Único escritor de língua portuguesa a ganhar o Nobel de Literatura, José Saramago faleceu em 2010.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Expressões Explicativas ou de Retificação</h3>
+        <p>Expressões como: <em>além disso, por exemplo, ou melhor, inclusive, isto é, ou seja, a saber, aliás, com efeito...</em> são isoladas por vírgula.</p>
+        <ul class="example-list">
+          <li>Eu disse que ia, aliás, que não ia.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Elipse ou Zeugma do Verbo (Omissão do Verbo)</h3>
+        <p>A língua dá a possibilidade de omitir um verbo que já apareceu na oração anterior, isso se chama elipse (ou zeugma). Sua ausência fica assinalada pelo uso da vírgula:</p>
+        <ul class="example-list">
+          <li>A cidade parecia mais alegre; as pessoas, mais feliz.</li>
+        </ul>
+        <span class="author-note">(Perceba que depois da palavra “pessoas”, a vírgula está substituindo o verbo “parecer”.)</span>
+      </div>
+
+      <!-- ================= PONTO E VÍRGULA ================= -->
+      <h3 class="topic-header">Ponto e Vírgula (;)</h3>
+
+      <p class="intro-text">
+        Faz uma marcação intermediária: menos forte do que o ponto final e mais forte do que a vírgula. As regras principais são:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1) Separar orações de mesma natureza, longas ou compostas por vírgulas internamente</h3>
+        <ul class="example-list">
+          <li>Não gostem, e abrandem-se; não gostem, e quebrem-se; não gostem, e frutifiquem.</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">2) Alongar a pausa antes de conjunções adversativas</h3>
+        <ul class="example-list">
+          <li>Poderia fazê-lo hoje; contudo só o farei amanhã.</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">3) Separar orações coordenadas adversativas quando a conjunção aparecer no meio da oração</h3>
+        <ul class="example-list">
+          <li>Esperava obter todas as informações sobre o caso; obtive, porém, apenas algumas.</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">4) Separar itens de uma enumeração</h3>
+        <p>É preciso entender que o estudo requer:</p>
+        <ul class="example-list">
+          <li>A) Treino;</li>
+          <li>B) Concentração;</li>
+          <li>C) Muita leitura.</li>
+        </ul>
+      </div>
+
+      <!-- ================= DOIS-PONTOS ================= -->
+      <h3 class="topic-header">Dois-Pontos (:)</h3>
+
+      <p class="intro-text">
+        São utilizados geralmente nas seguintes situações:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1) Para anunciar uma citação</h3>
+        <ul class="example-list">
+          <li>Como diria o poeta: tudo vai bem, quando termina bem.</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">2) Anunciar uma enumeração</h3>
+        <ul class="example-list">
+          <li>Tenho poucos amigos: Paulo, Renato, José e Antônio.</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">3) Anunciar um esclarecimento ou explicação</h3>
+        <ul class="example-list">
+          <li>Não se trata de um homem inteligente: é, apenas, muito esperto.</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">4) Anunciar a fala de um personagem (Discurso Direto)</h3>
+        <ul class="example-list">
+          <li>A namorada perguntou:</li>
+          <li>- Por que você não veio ontem?</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">5) Invocação das correspondências / Atendimentos</h3>
+        <ul class="example-list">
+          <li>Caros colegas:</li>
+          <li>Comunico a todos que a partir de agora....</li>
+        </ul>
+      </div>
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 17)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a alternativa que apresenta ERRO de pontuação (violação da regra geral):</p>
+          <ul class="exercise-options">
+            <li>a) O mecânico pediu o alicate ao ajudante.</li>
+            <li>b) O mecânico, pediu o alicate ao ajudante.</li>
+            <li>c) Ontem, o mecânico pediu o alicate ao ajudante.</li>
+            <li>d) O mecânico pediu, ontem, o alicate ao ajudante.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a frase em que o uso do vocativo exige o isolamento por vírgulas:</p>
+          <ul class="exercise-options">
+            <li>a) Os alunos dedicados passaram no concurso.</li>
+            <li>b) Alunos, leiam o edital com atenção.</li>
+            <li>c) O professor disse que os alunos estudaram bastante.</li>
+            <li>d) Chegaram os novos alunos da turma.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a opção em que a pontuação é facultativa por se tratar de um adjunto adverbial curto intercalado ou deslocado:</p>
+          <ul class="exercise-options">
+            <li>a) Hoje faremos a prova do concurso.</li>
+            <li>b) Durante todo o período da tarde de ontem faremos a prova.</li>
+            <li>c) José Saramago único escritor a ganhar o Nobel faleceu.</li>
+            <li>d) Amigos eu preciso do apoio de vocês.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> "A cidade parecia mais alegre; as pessoas, mais felizes." A vírgula empregada após "pessoas" justifica-se por:</p>
+          <ul class="exercise-options">
+            <li>a) Separar um vocativo.</li>
+            <li>b) Marcar a omissão (elipse/zeugma) do verbo "pareciam".</li>
+            <li>c) Isolamento de aposto explicativo.</li>
+            <li>d) Separar adjunto adverbial deslocado.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a alternativa que indica corretamente a função dos dois-pontos na frase: "Como diria o poeta: tudo vai bem, quando termina bem."</p>
+          <ul class="exercise-options">
+            <li>a) Introduzir a fala de um personagem em diálogo.</li>
+            <li>b) Anunciar uma citação.</li>
+            <li>c) Separar itens de uma lei.</li>
+            <li>d) Indicar a omissão de um verbo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> A frase "O cachorro, que é irracional, agiu com prudência" contém uma oração subordinada adjetiva explicativa. Se as vírgulas forem retiradas:</p>
+          <ul class="exercise-options">
+            <li>a) A frase torna-se gramaticalmente incorreta.</li>
+            <li>b) A oração passa a ser restritiva, alterando o sentido do texto.</li>
+            <li>c) O sentido permanece exatamente o mesmo.</li>
+            <li>d) O verbo "agiu" vai obrigatoriamente para o plural.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Marque a frase em que o ponto e vírgula foi utilizado para separar orações coordenadas com conjunção deslocada:</p>
+          <ul class="exercise-options">
+            <li>a) Treino; Concentração; Leitura.</li>
+            <li>b) Esperava obter todas as informações; obtive, porém, apenas algumas.</li>
+            <li>c) Caros colegas: comunico a todos.</li>
+            <li>d) Policial, ajude-me!</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em qual das frases a expressão explicativa está corretamente pontuada?</p>
+          <ul class="exercise-options">
+            <li>a) Eu disse que ia aliás que não ia.</li>
+            <li>b) Eu disse que ia, aliás, que não ia.</li>
+            <li>c) Eu disse que ia aliás, que não ia.</li>
+            <li>d) Eu disse, que ia aliás que não ia.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Assinale a opção em que a data/localização segue a regra de pontuação correta:</p>
+          <ul class="exercise-options">
+            <li>a) Barbalha-CE 30 de abril de 2024.</li>
+            <li>b) Barbalha-CE, 30 de abril de 2024.</li>
+            <li>c) Barbalha-CE; 30 de abril de 2024.</li>
+            <li>d) Barbalha-CE: 30 de abril de 2024.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Marque a alternativa na qual o aposto está corretamente isolado:</p>
+          <ul class="exercise-options">
+            <li>a) José Saramago único escritor de língua portuguesa faleceu.</li>
+            <li>b) José Saramago, único escritor de língua portuguesa, faleceu em 2010.</li>
+            <li>c) José Saramago único escritor, de língua portuguesa faleceu em 2010.</li>
+            <li>d) José Saramago: único escritor de língua portuguesa faleceu.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a17', 'icon-a17')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a17">▼</span>
+        </button>
+
+        <div id="gabarito-a17" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — Erro grave! Houve a separação do sujeito ("O mecânico") do seu verbo/predicado ("pediu") por vírgula direta.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — "Alunos" é um vocativo (chamamento) e obrigatoriamente deve ser isolado por vírgula.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: A</strong> — "Hoje" é um adjunto adverbial de curta extensão deslocado para o início; o uso da vírgula após ele é facultativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — Trata-se da elipse/zeugma verbal. A vírgula substitui e assinala a subentensão do verbo "pareciam".
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — Os dois-pontos foram usados para introduzir a citação direta de um pensamento/expressão poética.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — Sem as vírgulas, a oração adjetiva deixa de ser explicativa e passa a ser restritiva, modificando o sentido sintático e semântico.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — O ponto e vírgula separa as duas orações e a conjunção adversativa "porém" aparece intercalada/deslocada entre vírgulas.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — Expressões explicativas e retificativas como "aliás", "isto é", "ou seja" devem ficar isoladas por vírgulas.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — A indicação de local e data exige a separação por vírgula em documentos e redações oficiais.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — O aposto explicativo ("único escritor de língua portuguesa") deve obrigatoriamente ser isolado entre vírgulas.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

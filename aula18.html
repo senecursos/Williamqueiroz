@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 18 - Estrutura e Formação das Palavras | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .part-title {
+      font-size: 1.2rem;
+      color: var(--brand-color);
+      margin-top: 20px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--brand-color);
+      padding-left: 8px;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--accent-color);
+      margin-top: 14px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3, .morphic-card h4 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* EXEMPLOS EXTRAS */
+    .extra-examples-title {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .extra-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .extra-item {
+      background-color: #f1f5f9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+    }
+
+    .extra-item strong {
+      color: var(--brand-color);
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 18 - Estrutura e Formação das Palavras</h2>
+
+      <!-- PARTE 1 -->
+      <h3 class="part-title">Parte 1 - Estrutura das Palavras</h3>
+
+      <p class="intro-text">
+        A palavra é formada por partes menores chamadas <strong>elementos mórficos</strong> (<em>morfo</em> = forma), ou seja, para que a palavra se forme, existe uma estrutura que precisa ser compreendida. Essas estruturas são: radicais, vogais temáticas, temas, desinências, afixos, vogais e consoantes de ligação.
+      </p>
+
+      <!-- RADICAL -->
+      <div class="morphic-card">
+        <h3>1. Radical</h3>
+        <p>É o elemento que contém o significado básico da palavra. É a menor parte da palavra, capaz de dar origem a outras palavras de mesma essência (cognatas). Na palavra "gato", o radical é "gat". Perceba que é a partir dessa parte que formamos outras palavras de mesma essência:</p>
+        <ul class="example-list">
+          <li><strong>Gat</strong> + o</li>
+          <li><strong>Gat</strong> + a</li>
+          <li><strong>Gat</strong> + inho</li>
+          <li><strong>Gat</strong> + inha</li>
+          <li><strong>Gat</strong> + ão</li>
+        </ul>
+      </div>
+
+      <!-- VOGAL TEMÁTICA -->
+      <div class="morphic-card">
+        <h3>2. Vogal Temática</h3>
+        <p>É a vogal que vem logo após o radical, preparando-o, assim, para receber outros elementos.</p>
+        <p><strong>Exemplo:</strong> FAL + A + R</p>
+        <ul class="example-list">
+          <li><strong>FAL</strong> = Radical</li>
+          <li><strong>A</strong> = Vogal temática</li>
+        </ul>
+        <div class="obs-box">
+          <strong>Obs.:</strong> A vogal temática caracteriza a conjugação dos verbos, que são três:
+          <br>• Verbos terminados em <strong>-AR</strong> = Primeira conjugação; Ex.: Falar
+          <br>• Verbos terminados em <strong>-ER</strong> = Segunda conjugação; Ex.: Vender
+          <br>• Verbos terminados em <strong>-IR</strong> = Terceira conjugação; Ex.: Partir
+          <br><br>No exemplo, o verbo "falar" pertence à primeira conjugação, pois termina em "AR".
+        </div>
+      </div>
+
+      <!-- TEMA -->
+      <div class="morphic-card">
+        <h3>3. Tema</h3>
+        <p>É o radical acrescido da vogal temática.</p>
+        <ul class="example-list">
+          <li>Fal + a = <strong>fala</strong> (O tema é a palavra "fala".)</li>
+          <li>Vend + e = <strong>vende</strong> (O tema é a palavra "vende".)</li>
+          <li>Part + i = <strong>parti</strong> (O tema é a palavra "parti".)</li>
+        </ul>
+      </div>
+
+      <!-- DESINÊNCIA -->
+      <div class="morphic-card">
+        <h3>4. Desinência</h3>
+        <p>É o elemento da estrutura da palavra que indica o gênero e o número dos nomes; e o modo, tempo, número e pessoa dos verbos. Desta forma, temos a desinência nominal e a desinência verbal.</p>
+
+        <p><strong>📌 Desinência nominal:</strong> Indica o gênero e o número dos "nomes" (substantivos, adjetivos, numerais e pronomes).</p>
+        <p>Ex.: <strong>GAT + A + S</strong></p>
+        <ul class="example-list">
+          <li><strong>Gat</strong> = Radical</li>
+          <li><strong>A</strong> = Desinência de gênero (Indicando que trata-se do feminino da palavra gato.)</li>
+          <li><strong>S</strong> = Desinência de número (Indicando haver mais de uma gata, ou seja, está no plural.)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>📌 Desinência verbal:</strong> Indica o modo, o tempo, o número e a pessoa dos verbos.</p>
+        <p>Ex.: <strong>FAL + Á + VA + MOS</strong></p>
+        <ul class="example-list">
+          <li><strong>FAL</strong> = Radical</li>
+          <li><strong>Á</strong> = Vogal temática (Mostrando que o verbo pertence à primeira conjugação.)</li>
+          <li><strong>VA</strong> = Desinência modo-temporal ou DMT (Esta parte indica que o verbo está conjugado no modo indicativo e no tempo pretérito imperfeito.)</li>
+          <li><strong>MOS</strong> = Desinência número-pessoal ou DNP (Esta parte indica que o verbo está conjugado na primeira pessoa do plural, ou seja, nós falávamos.)</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs. 1:</strong> As palavras nominais em que não houver oposição de masculino e feminino, a vogal átona será vogal temática. Ex.: <em>rosto, mesa</em>. Quando houver a oposição masculino e feminino e o nome estiver no masculino singular, este possuirá desinência zero, pois não possui plural e o masculino é uma forma não-marcada (em palavras mais simples, é uma forma "neutra").
+        </div>
+        <div class="obs-box">
+          <strong>Obs. 2:</strong> Os nomes terminados em consoantes, ou vogais tônicas, possuem apenas radical, e aqueles nomes terminados em "r", "s" e "z" apresentam vogal temática quando estão no plural. Ex.: <em>dor (dores), raiz (raízes)</em>.
+        </div>
+      </div>
+
+      <!-- AFIXO -->
+      <div class="morphic-card">
+        <h3>5. Afixo</h3>
+        <p>É o elemento que se junta ao radical para a formação de novas palavras, podendo ser prefixo ou sufixo.</p>
+
+        <p><strong>➢ Prefixo:</strong> Quando é colocado antes do radical.</p>
+        <p>Ex.: <strong>Infeliz</strong> (In + feliz)</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">(Sendo o elemento "in-", o prefixo; e "feliz", o radical.)</p>
+
+        <p><strong>➢ Sufixo:</strong> Quando é colocado depois do radical.</p>
+        <p>Ex.: <strong>Felizmente</strong> (Feliz + mente)</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">(Sendo o elemento "mente", o sufixo; e "feliz", o radical.)</p>
+      </div>
+
+      <!-- VOGAIS E CONSOANTES DE LIGAÇÃO -->
+      <div class="morphic-card">
+        <h3>6. Vogais e consoantes de ligação</h3>
+        <p>Facilitam a pronúncia de algumas palavras.</p>
+        <p><strong>Ex. 1:</strong> Café + cultura = <strong>Cafeicultura</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 8px;">(A vogal "i" aparece ligando as 2 palavras facilitando a sua pronúncia.)</p>
+
+        <p><strong>Ex. 2:</strong> Chá + eira = <strong>Chaleira</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">(A consoante "l" aparece entre o radical e o sufixo, facilitando a sua pronúncia.)</p>
+      </div>
+
+      <!-- PARTE 2 -->
+      <h3 class="part-title">Parte 2 - Processos de formação das palavras</h3>
+
+      <p class="intro-text">
+        A língua portuguesa obedece, principalmente, a 2 processos de formação das palavras: <strong>derivação</strong> e <strong>composição</strong>.
+      </p>
+
+      <!-- DERIVAÇÃO -->
+      <h4 class="subtitle">Processo de formação das palavras por derivação</h4>
+      <p class="intro-text">
+        É quando a palavra se forma a partir de uma palavra já existente que chamamos de palavra primitiva. A palavra que se forma a partir da primitiva chamamos de palavra derivada. O processo de formação das palavras, por derivação, pode ser de 6 tipos: prefixal, sufixal, prefixal e sufixal, parassintética, regressiva e imprópria.
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Derivação prefixal</h3>
+        <p>Quando se agrega um prefixo ao radical.</p>
+        <p>Ex.: <strong>IN + FELIZ = INFELIZ</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">(A palavra "infeliz" foi formada por prefixação.)</p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Derivação sufixal</h3>
+        <p>Quando se agrega um sufixo ao radical.</p>
+        <p>Ex.: <strong>FELIZ + MENTE = FELIZMENTE</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">(A palavra "felizmente" foi formada por sufixação.)</p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Derivação prefixal e sufixal</h3>
+        <p>Quando se agregam um prefixo e um sufixo ao radical.</p>
+        <p>Ex.: <strong>IN + FELIZ + MENTE = INFELIZMENTE</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">(A palavra "infelizmente" foi formada por prefixação e sufixação.)</p>
+      </div>
+
+      <div class="morphic-card">
+        <h3>4. Derivação parassintética</h3>
+        <p>Quando se agregam um prefixo e um sufixo a um radical, porém a palavra formada não existe se um desses elementos for desagregado do radical.</p>
+        <p>Ex.: <strong>A + NOIT + ECER = ANOITECER</strong></p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">(A palavra "anoitecer" foi formada por derivação parassintética.)</p>
+
+        <div class="obs-box">
+          <strong>Obs.:</strong> É preciso observar a diferença entre "derivação prefixal e sufixal" e a "derivação parassintética": enquanto na "derivação prefixal e sufixal" o prefixo ou o sufixo pode ser retirado do radical transformando-a em uma nova palavra de sentido completo, o mesmo não ocorre na derivação parassintética, que ao retirar o prefixo ou o sufixo, a palavra descaracteriza-se.
+        </div>
+      </div>
+
+      <div class="morphic-card">
+        <h3>5. Derivação regressiva</h3>
+        <p>É mais comum na criação de substantivos derivados de verbos.</p>
+        <ul class="example-list">
+          <li>O debate – de debater</li>
+          <li>O atraso – de atrasar</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>6. Derivação imprópria</h3>
+        <p>Consiste na mudança de classe gramatical de uma palavra sem que a sua forma seja alterada.</p>
+
+        <p><strong>Ex. 1:</strong> Os "maus" pagarão pelos seus erros.</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px;">
+          (Perceba que a palavra "maus" nesta frase não é um adjetivo, é um substantivo, logo, perceba que houve a mudança de classe gramatical sem que a forma da palavra fosse alterada. Neste caso, entendemos que a palavra maus é o adjetivo substantivado.)
+        </p>
+
+        <p><strong>Ex. 2:</strong> Ele falou "claro".</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          (Neste caso, a palavra "claro" sofreu uma derivação imprópria, pois deixou de ser um adjetivo e passou a ser um advérbio. Neste caso, ela é um adjetivo adverbializado.)
+        </p>
+      </div>
+
+      <!-- COMPOSIÇÃO -->
+      <h4 class="subtitle">Processo de formação das palavras por composição</h4>
+      <p class="intro-text">
+        É quando uma palavra é formada por dois ou mais radicais. Podendo ser:
+      </p>
+
+      <div class="morphic-card">
+        <h3>1. Justaposição</h3>
+        <p>Quando não há alteração fonética nos radicais.</p>
+        <ul class="example-list">
+          <li>Sexta + feira = <strong>Sexta-feira</strong></li>
+          <li>Agro + negócio = <strong>Agronegócio</strong></li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Aglutinação</h3>
+        <p>Quando há alteração fonética nos radicais.</p>
+        <ul class="example-list">
+          <li>Plano + alto = <strong>Planalto</strong></li>
+        </ul>
+      </div>
+
+      <div class="obs-box">
+        <strong>Obs.:</strong> Esses são os processos de formação de palavras por composição mais básicos e cobrados. Entretanto, ainda podem ocorrer o processo de composição por:
+        <br><strong>1- Abreviação ou redução:</strong> que ocorre quando uma palavra é abreviada, ex.: "automóvel" vira a palavra "auto";
+        <br><strong>2- Onomatopeia:</strong> que ocorre quando a palavra imita vozes ou ruídos, ex.: "zunzum", "pingue-pongue";
+        <br><strong>3- Hibridismo:</strong> que ocorre quando a palavra é formada com partes de línguas diferentes, ex.: Burocracia, "buro" é francês e "cracia" vem do grego.
+      </div>
+
+      <!-- EXEMPLOS EXTRAS DE FIXAÇÃO -->
+      <h3 class="extra-examples-title">💡 Exemplos Extras para Fixação</h3>
+      <div class="extra-grid">
+        <div class="extra-item">
+          <strong>Incompatibilidade:</strong> IN (prefixo) + COMPATÍVEL (radical) + IDADE (sufixo)
+        </div>
+        <div class="extra-item">
+          <strong>Empobrecer:</strong> EM (prefixo) + POBR (radical) + ECER (sufixo) <em>(Parassíntese)</em>
+        </div>
+        <div class="extra-item">
+          <strong>Gasômetro:</strong> GÁS (radical) + Ô (vogal de ligação) + METRO (radical)
+        </div>
+        <div class="extra-item">
+          <strong>Estudávamos:</strong> ESTUD (radical) + A (vogal temática) + VA (DMT) + MOS (DNP)
+        </div>
+        <div class="extra-item">
+          <strong>Embora:</strong> EM + BOA + HORA <em>(Composição por aglutinação)</em>
+        </div>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS SIMPLES -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação (10 Questões)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na palavra <em>"deslealdade"</em>, os elementos <strong>des-</strong> e <strong>-dade</strong> exercem a função de:</p>
+          <ul class="exercise-options">
+            <li>a) Radical e vogal temática.</li>
+            <li>b) Prefixo e sufixo (Afixos).</li>
+            <li>c) Desinência nominal e consoante de ligação.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na forma verbal <em>"cantávamos"</em>, qual elemento representa a desinência modo-temporal?</p>
+          <ul class="exercise-options">
+            <li>a) cant-</li>
+            <li>b) -va-</li>
+            <li>c) -mos</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na palavra <em>"chaleira"</em>, a letra <strong>l</strong> funciona como:</p>
+          <ul class="exercise-options">
+            <li>a) Consoante de ligação.</li>
+            <li>b) Desinência de gênero.</li>
+            <li>c) Sufixo nominal.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> O conceito de <strong>Tema</strong> corresponde a qual união de elementos mórficos?</p>
+          <ul class="exercise-options">
+            <li>a) Prefixo + Sufixo</li>
+            <li>b) Radical + Vogal Temática</li>
+            <li>c) Radical + Desinência Verbal</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Em <em>"meninas"</em>, qual elemento indica a flexão de plural?</p>
+          <ul class="exercise-options">
+            <li>a) -a-</li>
+            <li>b) -s</li>
+            <li>c) menin-</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa cuja palavra foi formada pelo processo de <strong>derivação parassintética</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Infelizmente</li>
+            <li>b) Anoitecer</li>
+            <li>c) Agronegócio</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> O vocábulo <em>"o debate"</em> (derivado do verbo <em>debater</em>) é um exemplo de qual processo de formação?</p>
+          <ul class="exercise-options">
+            <li>a) Derivação regressiva</li>
+            <li>b) Derivação imprópria</li>
+            <li>c) Composição por aglutinação</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Na frase <em>"Ele falou <strong>claro</strong> com a plateia"</em>, a palavra destacada sofreu qual tipo de formação/alteração?</p>
+          <ul class="exercise-options">
+            <li>a) Composição por justaposição</li>
+            <li>b) Derivação imprópria</li>
+            <li>c) Derivação sufixal</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> As palavras <em>"Sexta-feira"</em> e <em>"Planalto"</em> são formadas, respectivamente, por composição por:</p>
+          <ul class="exercise-options">
+            <li>a) Aglutinação e Justaposição</li>
+            <li>b) Justaposição e Aglutinação</li>
+            <li>c) Justaposição e Parassíntese</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> A palavra <em>"Burocracia"</em> (união do francês <em>buro</em> com o grego <em>cracia</em>) é classificada como um caso de:</p>
+          <ul class="exercise-options">
+            <li>a) Hibridismo</li>
+            <li>b) Onomatopeia</li>
+            <li>c) Abreviação</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — <em>des-</em> é prefixo e <em>-dade</em> é sufixo agregados ao radical <em>leal</em>.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — O elemento <em>-va-</em> indica o pretérito imperfeito do indicativo.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: A</strong> — O <em>l</em> serve unicamente para unir o radical <em>chá</em> ao sufixo <em>-eira</em> facilitando a pronúncia.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — O tema é a junção do radical acrescido da sua respectiva vogal temática.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — O <em>-s</em> é a desinência nominal de número que indica o plural.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — Em <em>anoitecer</em> (A + NOIT + ECER), a retirada do prefixo ou do sufixo deixa a palavra sem sentido ("anoit" ou "noitecer" não existem isoladamente).
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: A</strong> — Ocorre derivação regressiva quando se reduz a forma do verbo (debater) para criar um substantivo (o debate).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — "Claro" é originalmente adjetivo, mas na frase atua como advérbio (modo como falou), caracterizando derivação imprópria.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — <em>Sexta-feira</em> conserva todos os sons (justaposição) e <em>Planalto</em> perdeu fonema de "plano + alto" (aglutinação).
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: A</strong> — Hibridismo é a formação de palavras através da união de elementos vindos de idiomas diferentes (francês + grego).
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

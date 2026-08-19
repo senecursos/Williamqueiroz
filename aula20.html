@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 20 - Concordância Verbal | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS / REGRAS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E BIZUS */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--green-action);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #14532d;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 20 - Concordância Verbal</h2>
+
+      <p class="intro-text">
+        É a parte em que devemos respeitar as regras que determinam como deve ser feita a concordância do verbo com o sujeito da oração. Trata-se de um dos assuntos mais recorrentes em concursos públicos e fundamental para a escrita culta.
+      </p>
+
+      <!-- REGRA 1 -->
+      <div class="morphic-card">
+        <h3>Regra 1: Nomes próprios, sujeito coletivo e coletivos partitivos</h3>
+        
+        <p><strong>➔ Nomes Próprios (Plurais):</strong> A concordância deve ser feita considerando a presença, ou não, de artigos.</p>
+        <ul class="example-list">
+          <li><strong>As Helenas</strong> influenciam o mundo. (Com artigo plural = verbo no plural)</li>
+          <li><strong>Priscila</strong> influencia o mundo.</li>
+          <li><em>Exemplo extra:</em> <strong>Os Estados Unidos</strong> venceram a competição. / <strong>Estados Unidos</strong> venceu a competição.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Sujeito Coletivo Singular:</strong> O verbo fica no singular.</p>
+        <ul class="example-list">
+          <li>A manada <strong>correu</strong> com medo.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Coletivo Especificado:</strong> O verbo pode ser usado no singular ou no plural.</p>
+        <ul class="example-list">
+          <li>A manada de bois <strong>correu</strong> com medo.</li>
+          <li>A manada de bois <strong>correram</strong> com medo.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Coletivos Partitivos:</strong> Com expressões partitivas (<em>a maioria de, a metade de, parte de...</em>) seguidas de elemento no plural, o verbo pode ir para o singular ou para o plural.</p>
+        <ul class="example-list">
+          <li>Parte dos bois <strong>correu</strong>.</li>
+          <li>Parte dos bois <strong>correram</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 2 -->
+      <div class="morphic-card">
+        <h3>Regra 2: Expressões "mais de", "menos de", "cerca de" e "um dos que"</h3>
+        <p>O verbo concorda com o numeral que acompanha a expressão.</p>
+        <ul class="example-list">
+          <li><strong>Mais de um</strong> boi <strong>correu</strong> com medo.</li>
+          <li><strong>Cerca de dez</strong> bois <strong>correram</strong> com medo.</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs.:</strong> Se a expressão for <strong>"um dos que"</strong>, o verbo pode ser usado no singular ou no plural:
+          <br>• Ele foi um dos que mais <strong>ajudou</strong>.
+          <br>• Ele foi um dos que mais <strong>ajudaram</strong>.
+        </div>
+      </div>
+
+      <!-- REGRA 3 -->
+      <div class="morphic-card">
+        <h3>Regra 3: Pronomes Relativos "Que" e "Quem"</h3>
+        <p>Ambos podem concordar com o seu antecedente, porém <strong>apenas o pronome relativo "quem"</strong> pode, também, concordar com o verbo na terceira pessoa do singular.</p>
+        <ul class="example-list">
+          <li>Fui <strong>eu</strong> que <strong>comprei</strong>. (Concorda estritamente com o antecedente "eu")</li>
+          <li>Éramos <strong>nós</strong> quem <strong>levávamos</strong>. (Concorda com o antecedente "nós")</li>
+          <li>Fui eu quem <strong>comprou</strong>. (Concorda na 3ª pessoa do singular atrelada ao "quem")</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 4 -->
+      <div class="morphic-card">
+        <h3>Regra 4: Sujeitos formados por Sinônimos</h3>
+        <p>Quando o sujeito for formado por palavras sinônimas, o verbo pode ser usado no singular, no plural, ou pode concordar com o núcleo mais próximo.</p>
+        <ul class="example-list">
+          <li>Briga e xingamento <strong>aconteceu</strong> durante a reunião.</li>
+          <li>Briga e xingamento <strong>aconteceram</strong> durante a reunião.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 5 -->
+      <div class="morphic-card">
+        <h3>Regra 5: Sujeito formado por palavras em Graduação</h3>
+        <p>Quando o sujeito for formado por palavras em gradação (ideia de sequência ou evolução), o verbo pode ser usado no plural ou concordar no singular com o núcleo mais próximo.</p>
+        <ul class="example-list">
+          <li>Uma semana, um mês, um ano de amizade não <strong>importou</strong> para evitar a intriga.</li>
+          <li>Uma semana, um mês, um ano de amizade não <strong>importaram</strong> para evitar a intriga.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 6 -->
+      <div class="morphic-card">
+        <h3>Regra 6: Pessoas Gramaticais Diferentes no Sujeito Composto</h3>
+        <p>Quando o sujeito for formado por pessoas gramaticais diferentes, o verbo vai para o plural respeitando a hierarquia (1ª pessoa prevalece sobre 2ª e 3ª; 2ª prevalece sobre 3ª).</p>
+        <ul class="example-list">
+          <li>Eu, tu e o cachorro <strong>descansaremos</strong> mais tarde. (Eu + Tu + Ele = NÓS descansaremos)</li>
+          <li>Mônica, Marília e Fernanda <strong>descansaram</strong> na casa. (Ela + Ela + Ela = ELAS descansaram)</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 7 -->
+      <div class="morphic-card">
+        <h3>Regra 7: Sujeitos ligados por "Ou"</h3>
+        <p>Com a conjunção "ou", temos três situações possíveis:</p>
+        
+        <p><strong>1. Ideia de inclusão:</strong> Se a ação referir-se a todos os elementos, o verbo vai para o plural.</p>
+        <ul class="example-list">
+          <li>Água ou suco <strong>hidratam</strong> o corpo.</li>
+        </ul>
+
+        <p><strong>2. Retificação/Correção:</strong> O verbo concorda com o último elemento.</p>
+        <ul class="example-list">
+          <li>O prefeito ou os vereadores ainda não <strong>decidiram</strong> uma solução para a greve.</li>
+          <li>Os vereadores ou o prefeito ainda não <strong>decidiu</strong> uma solução para a greve.</li>
+        </ul>
+
+        <p><strong>3. Ideia de exclusão:</strong> Quando a ação couber apenas a um dos elementos, o verbo fica no singular.</p>
+        <ul class="example-list">
+          <li>A defesa ou a acusação <strong>ganhará</strong> o processo.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 8 -->
+      <div class="morphic-card">
+        <h3>Regra 8: Sujeito ligado por "Nem"</h3>
+        <p>O verbo vai para o plural quando o sujeito for composto e ligado pela conjunção "nem".</p>
+        <ul class="example-list">
+          <li><strong>Nem</strong> você <strong>nem</strong> seu irmão <strong>serão</strong> bem tratados.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 9 -->
+      <div class="morphic-card">
+        <h3>Regra 9: Sujeito ligado por "Com"</h3>
+
+        <p><strong>1. Sentido de "E" (Inclusão/Ação conjunta):</strong> O verbo vai para o plural.</p>
+        <ul class="example-list">
+          <li>O político com a sua comitiva <strong>saíram</strong> cedo.</li>
+        </ul>
+
+        <p><strong>2. Sentido de "Em companhia de" (Coma entre vírgulas):</strong> O verbo concorda com o antecedente principal.</p>
+        <ul class="example-list">
+          <li>O político, com a sua comitiva, <strong>saiu</strong> cedo.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 10 -->
+      <div class="morphic-card">
+        <h3>Regra 10: Expressões Correlativas ("Não só... mas também", "Tanto... quanto")</h3>
+        <p>Quando os sujeitos são ligados por "não só, mas também", "tanto, quanto", "não só, como", o verbo é usado no plural ou concorda com o núcleo mais próximo.</p>
+        <ul class="example-list">
+          <li>Tanto o azul quanto o verde <strong>são</strong> bonitos.</li>
+          <li>Tanto o azul quanto o verde <strong>é</strong> bonito.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 11 (DESTAQUE ESPECIAL SE) -->
+      <div class="morphic-card" style="border-left-color: var(--brand-color); background-color: #f1f5f9;">
+        <h3 style="color: var(--brand-color);">Regra 11: O Uso da Partícula "SE" (Apassivadora vs. Indeterminação)</h3>
+        <p>Esta é uma das regras mais cobradas em bancas de concursos públicos! Preste atenção na transitividade do verbo:</p>
+
+        <p><strong>📌 Partícula Apassivadora (PA):</strong> Ocorre com Verbo Transitivo Direto (VTD). Existe sujeito paciente, logo o verbo <strong>DEVE concordar com o sujeito</strong> (singular ou plural).</p>
+        <ul class="example-list">
+          <li><strong>Construíram-se</strong> novas casas. (Novas casas = Sujeito paciente no plural -> Verbo no plural)</li>
+          <li><strong>Vende-se</strong> este apartamento. (Este apartamento = Sujeito paciente no singular -> Verbo no singular)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>📌 Índice de Indeterminação do Sujeito (IIS):</strong> Ocorre com Verbo Transitivo Indireto (VTI), Verbo Intransitivo (VI) ou Verbo de Ligação (VL) acompanhado de preposição. Não há sujeito determinado, e o verbo <strong>DEVE ficar obrigatoriamente na 3ª pessoa do singular</strong>.</p>
+        <ul class="example-list">
+          <li><strong>Briga-se</strong> por tudo. (Intransitivo -> 3ª pessoa do singular)</li>
+          <li><strong>Precisa-se</strong> de novos funcionários. (VTI com preposição "de" -> 3ª pessoa do singular. JAMAIS use "precisam-se")</li>
+          <li><strong>Vive-se</strong> bem no interior. (Intransitivo -> 3ª pessoa do singular)</li>
+        </ul>
+
+        <div class="bizu-box">
+          <strong>⚡ BIZU DO PROFESSOR WILLIAM:</strong> Tente transformar a frase para a voz passiva analítica!
+          <br>• <em>"Construíram-se novas casas"</em> = <em>"Novas casas foram construídas"</em> (Faz sentido! Logo, é Partícula Apassivadora -> Flexiona o verbo).
+          <br>• <em>"Precisa-se de médicos"</em> = <em>"De médicos são precisados"</em> (Não existe! Há preposição. Logo, é Índice de Indeterminação -> Verbo SEMPRE no singular).
+        </div>
+      </div>
+
+      <!-- REGRA 12 -->
+      <div class="morphic-card">
+        <h3>Regra 12: Verbo no Singular (Apostrofe Resumo e Preço/Quantidade)</h3>
+
+        <p><strong>1. Sujeito seguido por pronomes indefinidos de resumo ("tudo", "nada", "ninguém", "nenhum", "cada um"):</strong> O verbo concorda com o termo resumidor no singular.</p>
+        <ul class="example-list">
+          <li>Diretor, professores e funcionários, <strong>cada um possui</strong> uma metodologia.</li>
+          <li>Carros, casas, dinheiro, <strong>nada o satisfez</strong>.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>2. Locuções "é muito", "é pouco", "é mais de", "é menos de" indicando preço, peso e quantidade:</strong> O verbo fica invariável no singular.</p>
+        <ul class="example-list">
+          <li>Três fardos de cerveja <strong>é pouco</strong> para a noite toda.</li>
+          <li>Cinquenta quilos <strong>é muito</strong> para uma criança carregar.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 13 -->
+      <div class="morphic-card">
+        <h3>Regra 13: Sujeitos ligados por "Como", "Assim como", "Bem como"</h3>
+        <p>O verbo é conjugado no plural concordando com os sujeitos associados pelas expressões "como", "assim como", "bem como".</p>
+        <ul class="example-list">
+          <li>Os exercícios, assim como a boa alimentação, <strong>melhoraram</strong> a aparência dele.</li>
+        </ul>
+      </div>
+
+      <!-- REGRA 14 -->
+      <div class="morphic-card">
+        <h3>Regra 14: Verbos "Dar", "Soar" e "Bater" + Horas / Indicação de Datas</h3>
+        
+        <p><strong>➔ Verbos de Horas (Dar, Soar, Bater):</strong> Concordam com o sujeito da oração (que pode ser a hora expressa ou a palavra relógio/sino).</p>
+        <ul class="example-list">
+          <li><strong>Bateram</strong> 12 horas. (O sujeito é "12 horas")</li>
+          <li><strong>Bateu</strong> meio-dia.</li>
+          <li>O relógio da matriz <strong>bateu</strong> 12 horas. (O sujeito é "O relógio", por isso o verbo fica no singular)</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs.: Nas indicações de datas:</strong>
+          <br>O verbo concorda com a indicação numérica da data:
+          <br>• Hoje <strong>é</strong> primeiro de abril.
+          <br>• Semana que vem <strong>serão</strong> dez de abril.
+          <br><br>Mas também pode concordar com a palavra "dia" implícita ou explícita:
+          <br>• Anteontem <strong>foi</strong> dia 5 de fevereiro.
+        </div>
+      </div>
+
+      <!-- REGRA 15 -->
+      <div class="morphic-card">
+        <h3>Regra 15: Verbos Impessoais e Infinitivo Impessoal</h3>
+
+        <p><strong>➔ Verbos Impessoais:</strong> "Haver" (no sentido de existir, ocorrer), "Fazer" (indicando tempo decorrido) e verbos que manifestam fenômenos naturais não possuem sujeito. São conjugados <strong>SEMPRE na 3ª pessoa do singular</strong>.</p>
+        <ul class="example-list">
+          <li><strong>Havia</strong> muitos recados na rede social. (Não use "haviam")</li>
+          <li><strong>Houve</strong> duas tentativas sem resultados.</li>
+          <li><strong>Faz</strong> três anos que não o vejo. (Não use "fazem")</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Verbos no Infinitivo IMPESSOAL:</strong> Não devem ser flexionados nas seguintes situações:</p>
+        <ul class="example-list">
+          <li><strong>1) Quando têm valor de substantivo:</strong> Comer é o melhor que há. / Comer e beber é o melhor que há.</li>
+          <li><strong>2) Quando têm valor imperativo:</strong> Vá correr! / Vão correr!</li>
+          <li><strong>3) Quando são verbos principais de locução verbal:</strong> Queríamos sair, mas a festa acabou.</li>
+          <li><strong>4) Quando são regidos por preposição:</strong> Começamos a brincar.</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs.: Infinitivo PESSOAL:</strong> Devem ser flexionados quando os sujeitos são diferentes e queremos defini-los.
+          <br>• Ex.: Comprei a pizza para eles <strong>comerem</strong>. / Ouvi os vizinhos <strong>chamarem</strong>.
+        </div>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS SIMPLES -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação (10 Questões)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a opção em que a concordância verbal respeita a norma-padrão quanto ao uso do verbo <strong>haver</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Haviam muitos candidatos inscritos no concurso.</li>
+            <li>b) Havia muitos candidatos inscritos no concurso.</li>
+            <li>c) Havieram graves problemas durante a aplicação da prova.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Na frase <em>"________-se de novos professores para a escola"</em>, a lacuna deve ser preenchida por:</p>
+          <ul class="exercise-options">
+            <li>a) Precisa</li>
+            <li>b) Precisam</li>
+            <li>c) Precisam-se</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa que preenche corretamente a lacuna: <em>"________-se casas modernas no centro da cidade."</em></p>
+          <ul class="exercise-options">
+            <li>a) Aluga</li>
+            <li>b) Alugam</li>
+            <li>c) Alugavam-se-á</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Em relação ao verbo indicar horas, assinale a frase <strong>INCORRETA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O relógio da praça bateu três horas.</li>
+            <li>b) Bateram três horas no relógio da igreja.</li>
+            <li>c) Bateu três horas no campanário.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Escolha a opção correta para completar a frase: <em>"Fui eu que ________ a conta ontem."</em></p>
+          <ul class="exercise-options">
+            <li>a) pagou</li>
+            <li>b) paguei</li>
+            <li>c) pagamos</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Marque a frase em que o verbo <strong>fazer</strong> foi empregado corretamente segundo a gramática normativa:</p>
+          <ul class="exercise-options">
+            <li>a) Fazem dez anos que não visito minha cidade natal.</li>
+            <li>b) Faz dez anos que não visito minha cidade natal.</li>
+            <li>c) Farão dez anos amanhã do ocorrido.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na frase <em>"A maioria dos alunos ________ no exame final"</em>, qual forma verbal é aceita?</p>
+          <ul class="exercise-options">
+            <li>a) Apenas "passou"</li>
+            <li>b) Apenas "passaram"</li>
+            <li>c) Ambas as formas ("passou" / "passaram") estão corretas.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em <em>"Cinquenta quilos de alimento ________ suficiente para as famílias"</em>, a lacuna é preenchida por:</p>
+          <ul class="exercise-options">
+            <li>a) é</li>
+            <li>b) são</li>
+            <li>c) foram</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Assinale a alternativa que completa corretamente a oração: <em>"Nem o aluno nem o professor ________ ao evento."</em></p>
+          <ul class="exercise-options">
+            <li>a) compareceu</li>
+            <li>b) compareceram</li>
+            <li>c) compareram</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Na oração <em>"Os Estados Unidos ________ a economia mundial"</em>, qual concordância é a correta devido à presença do artigo definido plural?</p>
+          <ul class="exercise-options">
+            <li>a) lidera</li>
+            <li>b) lideram</li>
+            <li>c) tinha liderado</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — O verbo <em>haver</em> no sentido de existir é impessoal e deve ficar na 3ª pessoa do singular.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — O verbo <em>precisar</em> exige preposição ("de"), sendo VTI. O "se" atua como Índice de Indeterminação do Sujeito, mantendo o verbo obrigatoriamente no singular (<em>Precisa-se de...</em>).
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — Como <em>alugar</em> é VTD, o "se" funciona como Partícula Apassivadora. O verbo concorda com o sujeito paciente no plural ("casas modernas são alugadas" = <em>Alugam-se casas</em>).
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: C</strong> — Na ausência do termo "relógio" como sujeito explícito, os verbos bater/soar/dar concordam com a quantidade de horas (<em>Bateram três horas</em>).
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — Com o pronome relativo <em>que</em>, o verbo concorda estritamente com o antecedente ("eu paguei").
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — O verbo <em>fazer</em> indicando tempo decorrido é impessoal e não flexiona no plural.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: C</strong> — Expressões partitivas ("a maioria de") seguidas de elemento no plural transmitem concordância atrativa (plural) ou gramatical (singular).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: A</strong> — Expressões que indicam quantidade, peso, medida ou preço usam a locução "é" no singular (<em>Cinquenta quilos é suficiente</em>).
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — Sujeitos compostos associados pela conjunção "nem" exigem o verbo no plural.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — Nomes próprios no plural precedidos de artigo no plural exigem a concordância verbal também no plural (<em>Os Estados Unidos lideram</em>).
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

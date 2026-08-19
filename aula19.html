@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 19 - Concordância Nominal | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* OBSERVAÇÕES E BIZUS */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #166534;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 19 - Concordância Nominal</h2>
+
+      <p class="intro-text">
+        Este estudo garante que as palavras concordem umas com as outras. A concordância verbal apresenta um conjunto de regras para que os verbos concordem com o sujeito, e a <strong>concordância nominal</strong> apresenta regras para que adjetivos, artigos, numerais e pronomes concordem com o substantivo.
+      </p>
+
+      <!-- SEÇÃO 1: INTRODUÇÃO E REGRA GERAL -->
+      <h3 class="topic-header">1. Regra Geral de Concordância Nominal</h3>
+
+      <p class="intro-text">
+        De maneira simplificada, porém eficiente, podemos dizer que adjetivos, numerais, pronomes e artigos devem harmonizar-se quanto ao gênero (masculino/feminino) e ao número (singular/plural) do substantivo. Veja os exemplos:
+      </p>
+
+      <div class="morphic-card">
+        <h3>Exemplo 1: "A bicicleta preta era mais bonita que as que eram amarelas."</h3>
+        <p><strong>Observe a primeira parte da oração:</strong></p>
+        <ul class="example-list">
+          <li><strong>A</strong> = artigo definido feminino no singular</li>
+          <li><strong>Bicicleta</strong> = substantivo no singular</li>
+          <li><strong>Preta</strong> = adjetivo feminino no singular</li>
+          <li><strong>Bonita</strong> = adjetivo feminino no singular</li>
+        </ul>
+        <p style="margin-top: 8px;">Todos estão concordando entre si em gênero e número. O mesmo acontece na segunda parte da oração:</p>
+        <ul class="example-list">
+          <li><strong>As</strong> = pronome no feminino plural representando o substantivo <em>bicicletas</em></li>
+          <li><strong>Amarelas</strong> = adjetivo feminino no plural, qualificando o substantivo <em>bicicletas</em> (representado pelo pronome "as")</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>Exemplo 2: "O elefante é um animal grandioso."</h3>
+        <p><strong>Observe que:</strong></p>
+        <ul class="example-list">
+          <li><strong>O</strong> = artigo definido masculino no singular</li>
+          <li><strong>Elefante</strong> = substantivo masculino no singular</li>
+          <li><strong>Um</strong> = artigo indefinido masculino no singular</li>
+          <li><strong>Grandioso</strong> = adjetivo masculino no singular</li>
+        </ul>
+      </div>
+
+      <p class="intro-text">
+        Nestes dois exemplos percebemos claramente a regra geral de concordância nominal. A seguir, veremos os casos especiais mais cobrados nas provas de concursos públicos.
+      </p>
+
+      <!-- SEÇÃO 2: REGRAS ESPECIAIS PARA CONCURSOS -->
+      <h3 class="topic-header">2. Casos Especiais de Concordância Nominal</h3>
+
+      <!-- CASO 1: ADJETIVO REFERENTE A MAIS DE UM SUBSTANTIVO -->
+      <div class="morphic-card">
+        <h3>Caso 1: Adjetivo referente a dois ou mais substantivos</h3>
+        
+        <p><strong>A) Adjetivo POSTO (depois dos substantivos):</strong></p>
+        <p>Pode concordar com o mais próximo ou ir para o plural (prevalecendo o masculino se houver gêneros mistos).</p>
+        <ul class="example-list">
+          <li>Comprei camisa e sapato <strong>novo</strong>. <em>(Concorda com o mais próximo: sapato)</em></li>
+          <li>Comprei camisa e sapato <strong>novos</strong>. <em>(Vai para o plural masculino)</em></li>
+          <li>Comprei sapato e camisa <strong>nova</strong>. <em>(Concorda com a mais próxima: camisa)</em></li>
+          <li>Comprei sapato e camisa <strong>novos</strong>. <em>(Gêneros mistos = Plural masculino)</em></li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>B) Adjetivo ANTEPOSTO (antes dos substantivos):</strong></p>
+        <p>Concorda obrigatoriamente com o substantivo mais próximo.</p>
+        <ul class="example-list">
+          <li>Comprei <strong>novo</strong> sapato e camisa. <em>(Concorda com "sapato")</em></li>
+          <li>Comprei <strong>nova</strong> camisa e sapato. <em>(Concorda com "camisa")</em></li>
+        </ul>
+      </div>
+
+      <!-- CASO 2: PALAVRAS BASTANTE, MEIO, MENOS -->
+      <div class="morphic-card">
+        <h3>Caso 2: "Bastante", "Meio" e "Menos"</h3>
+
+        <p><strong>• Bastante:</strong></p>
+        <ul class="example-list">
+          <li>Se for <strong>Adjetivo</strong> (trocável por "muitos/muitas"): VARIÁVEL.<br><em>Ex.: Há <strong>bastantes</strong> (muitos) alunos na sala.</em></li>
+          <li>Se for <strong>Advérbio</strong> (trocável por "muito"): INVARIÁVEL.<br><em>Ex.: Eles estudaram <strong>bastante</strong> (muito) para a prova.</em></li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>• Meio:</strong></p>
+        <ul class="example-list">
+          <li>Se for <strong>Numeral/Adjetivo</strong> (metade): VARIÁVEL.<br><em>Ex.: Comeu <strong>meia</strong> maçã e tomou <strong>meio</strong> copo de suco.</em></li>
+          <li>Se for <strong>Advérbio</strong> (um pouco): INVARIÁVEL.<br><em>Ex.: A candidata ficou <strong>meio</strong> nervosa. (NUNCA diga "meia nervosa"!)</em></li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>• Menos:</strong></p>
+        <p>É uma palavra <strong>SEMPRE INVARIÁVEL</strong> em qualquer contexto!</p>
+        <ul class="example-list">
+          <li>Há <strong>menos</strong> pessoas no recinto. <em>(A palavra "menas" NÃO existe!)</em></li>
+        </ul>
+      </div>
+
+      <!-- CASO 3: ANEXO, INCLUSO, OBRIGADO, PRÓPRIO -->
+      <div class="morphic-card">
+        <h3>Caso 3: Anexo, Incluso, Obrigado, Próprio e Só</h3>
+        <p>Concordam em gênero e número com a palavra a que se referem:</p>
+        <ul class="example-list">
+          <li>Os documentos seguem <strong>anexos</strong> ao e-mail. / As fotos vão <strong>anexas</strong>.</li>
+          <li>As notas fiscais estão <strong>inclusas</strong> no pacote.</li>
+          <li>A candidata disse: "Muito <strong>obrigada</strong> pela oportunidade."</li>
+          <li>Elas <strong>próprias</strong> resolveram o problema.</li>
+          <li>Eles ficaram <strong>sós</strong> na sala. <em>(Só = sozinhos → varia)</em></li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>⚠️ Alerta de Concurso:</strong> A expressão <strong>"em anexo"</strong> é estritamente <strong>INVARIÁVEL</strong>!<br>
+          • <em>As cartas seguem <strong>em anexo</strong>.</em> (Certo)<br>
+          • <em><s>As cartas seguem em anexas.</s></em> (Errado!)
+        </div>
+      </div>
+
+      <!-- CASO 4: É PROIBIDO, É BOM, É NECESSÁRIO -->
+      <div class="morphic-card">
+        <h3>Caso 4: Expressões "É proibido", "É bom", "É necessário"</h3>
+        <p>Estas expressões variam apenas se o substantivo vier acompanhado de artigo ou determinante:</p>
+        <ul class="example-list">
+          <li>É <strong>proibido</strong> entrada de estranhos. <em>(Sem determinante = invariável)</em></li>
+          <li>É <strong>proibida a</strong> entrada de estranhos. <em>(Com o artigo "a" = concorda)</em></li>
+          <li>Água é <strong>bom</strong> para a saúde. <em>(Sem determinante = invariável)</em></li>
+          <li><strong>A</strong> água é <strong>boa</strong> para a saúde. <em>(Com o artigo "a" = concorda)</em></li>
+        </ul>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (10 Questões - Aula 19)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Assinale a frase que apresenta ERRO de concordância nominal:</p>
+          <ul class="exercise-options">
+            <li>a) Seguem anexos os relatórios solicitados.</li>
+            <li>b) As fotos seguem em anexas ao processo.</li>
+            <li>c) Ela própria confirmou a presença na reunião.</li>
+            <li>d) Muito obrigada, disse a professora ao diretor.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Marque a opção em que a palavra "meio" foi empregada INCORRETAMENTE:</p>
+          <ul class="exercise-options">
+            <li>a) Bebeu meia garrafa de água após a corrida.</li>
+            <li>b) A funcionária ficou meia chateada com a notícia.</li>
+            <li>c) Eram meio-dia e meia quando a prova terminou.</li>
+            <li>d) Ele usou meio metro de fita no embrulho.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa que preenche corretamente a lacuna: "Na sala havia ______ alunas apreensivas."</p>
+          <ul class="exercise-options">
+            <li>a) menas</li>
+            <li>b) menos</li>
+            <li>c) menas das</li>
+            <li>d) menazinhas</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na frase: "Ela comprou ____ livros e ficou ____ satisfeita com o resultado", as lacunas devem ser preenchidas por:</p>
+          <ul class="exercise-options">
+            <li>a) bastantes - bastante</li>
+            <li>b) bastante - bastante</li>
+            <li>c) bastantes - bastantes</li>
+            <li>d) bastante - bastantes</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Observe as frases:<br>I. É ______ entrada de pessoas estranhas.<br>II. É ______ a entrada de pessoas estranhas.<br>Preenche corretamente as lacunas I e II, respectivamente:</p>
+          <ul class="exercise-options">
+            <li>a) proibido - proibida</li>
+            <li>b) proibida - proibido</li>
+            <li>c) proibido - proibido</li>
+            <li>d) proibida - proibida</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a opção CORRETA quanto à concordância do adjetivo anteposto aos substantivos:</p>
+          <ul class="exercise-options">
+            <li>a) Comprei novos camisa e sapato.</li>
+            <li>b) Comprei novo sapato e camisa.</li>
+            <li>c) Comprei novas sapato e camisa.</li>
+            <li>d) Comprei novos sapatos e camisas.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Na oração "A bicicleta preta era mais bonita que as que eram amarelas", a palavra "amarelas" concorda com:</p>
+          <ul class="exercise-options">
+            <li>a) bonito</li>
+            <li>b) bicicleta (representado pelo pronome "as")</li>
+            <li>c) preta</li>
+            <li>d) o verbo era</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Em qual das alternativas o uso da expressão "É bom" está de acordo com a norma-padrão?</p>
+          <ul class="exercise-options">
+            <li>a) A pimenta é bom para o tempero.</li>
+            <li>b) Pimenta é boa para o tempero.</li>
+            <li>c) Pimenta é bom para o tempero.</li>
+            <li>d) As pimentas é bom para o tempero.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> "Os formandos ficaram _____ na sala após a cerimônia." Qual palavra preenche adequadamente a lacuna indicando "sozinhos"?</p>
+          <ul class="exercise-options">
+            <li>a) só</li>
+            <li>b) sós</li>
+            <li>c) soes</li>
+            <li>d) somes</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Marque a alternativa que atende plenamente às regras de concordância nominal:</p>
+          <ul class="exercise-options">
+            <li>a) Elas mesmas disseram que estavam meio cansadas.</li>
+            <li>b) Elas mesmo disseram que estavam meias cansadas.</li>
+            <li>c) Elas mesmas disseram que estavam meias cansadas.</li>
+            <li>d) Elas mesmo disseram que estavam meio cansadas.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-a19', 'icon-a19')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-a19">▼</span>
+        </button>
+
+        <div id="gabarito-a19" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — A expressão "em anexo" é invariável. O correto seria: "As fotos seguem em anexo" ou "As fotos seguem anexas".
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — Na função de advérbio (significando "um pouco"), a palavra "meio" é invariável: "meio chateada".
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — A palavra "menos" é um pronome/advérbio invariável. "Menas" não existe na língua culta.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: A</strong> — O primeiro "bastantes" é adjetivo (= muitos livros) e varia. O segundo "bastante" é advérbio (= muito satisfeita) e fica no singular.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: A</strong> — Sem o artigo determinante "a", a expressão permanece no masculino ("proibido"). Com o artigo "a", concorda no feminino ("proibida").
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — O adjetivo anteposto deve concordar obrigatoriamente com o substantivo mais próximo: "novo sapato".
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — "Amarelas" é um adjetivo no plural feminino que qualifica o substantivo "bicicletas", retomado pelo pronome "as".
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: C</strong> — Sem o artigo determinante antes de "pimenta", a expressão fica invariável ("Pimenta é bom").
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — Quando equivale a "sozinhos", o termo "só" funciona como adjetivo e flexiona no plural ("sós").
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: A</strong> — "Mesmas" concorda com "elas", e "meio" atua como advérbio modificando o adjetivo "cansadas", permanecendo invariável.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

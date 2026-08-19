@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 21 - Semântica e Coesão Lexical | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .section-header {
+      font-size: 1.15rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 4px solid var(--brand-color);
+      padding-left: 8px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS / REGRAS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO E BIZUS */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    .bizu-box {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid var(--green-action);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.93rem;
+      color: #14532d;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .bizu-box strong {
+      color: #15803d;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 21 - Semântica e Coesão Lexical</h2>
+
+      <p class="intro-text">
+        A Semântica é a área da gramática que se dedica ao estudo dos significados das palavras e das relações de sentido estabelecidas entre elas no texto. A Coesão Lexical, por sua vez, emprega essas relações para garantir a continuidade, a clareza e a fluidez do texto, evitando repetições desnecessárias.
+      </p>
+
+      <h3 class="section-header">PARTE I: SEMÂNTICA LEXICAL</h3>
+
+      <!-- SINÔNIMOS E ANTÔNIMOS -->
+      <div class="morphic-card">
+        <h3>1. Sinonímia e Antonímia</h3>
+        
+        <p><strong>➔ Sinonímia:</strong> Relação estabelecida entre palavras que possuem significados equivalentes ou muito semelhantes dentro de determinado contexto.</p>
+        <ul class="example-list">
+          <li><strong>Adimplente</strong> / Quite / Pontual</li>
+          <li><strong>Longevo</strong> / Idoso / Ancião</li>
+          <li><strong>Iminente</strong> / Próximo / Prestes a ocorrer</li>
+          <li><strong>Retificar</strong> / Corrigir / Ajustar</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Antonímia:</strong> Relação entre palavras que possuem sentidos opostos ou contraditórios.</p>
+        <ul class="example-list">
+          <li><strong>Legal</strong> / Ilegal</li>
+          <li><strong>Eficaz</strong> / Ineficaz</li>
+          <li><strong>Ascensão</strong> / Declínio</li>
+          <li><strong>Altruísmo</strong> / Egoísmo</li>
+        </ul>
+      </div>
+
+      <!-- HIPÔNIMOS E HIPERÔNIMOS -->
+      <div class="morphic-card">
+        <h3>2. Hiperonímia e Hiponímia</h3>
+        <p>Trata-se da relação de hierarquia e inclusão de sentido entre vocábulos.</p>
+        
+        <p><strong>➔ Hiperônimo (Sentido Geral/Gênero):</strong> Palavra de sentido abrangente que inclui outras palavras de sentido mais específico.</p>
+
+        <p><strong>➔ Hipônimo (Sentido Específico/Espécie):</strong> Palavra de significado restrito, que representa um item específico dentro do hiperônimo.</p>
+        
+        <ul class="example-list">
+          <li><strong>Hiperônimo:</strong> Veículo | <strong>Hipônimos:</strong> Carro, moto, caminhão, ônibus.</li>
+          <li><strong>Hiperônimo:</strong> Inseto | <strong>Hipônimos:</strong> Mosquito, abelha, besouro, formiga.</li>
+          <li><strong>Hiperônimo:</strong> Ferramenta | <strong>Hipônimos:</strong> Martelo, alicate, chave de fenda, serrote.</li>
+          <li><strong>Hiperônimo:</strong> Crime | <strong>Hipônimos:</strong> Furto, roubo, estelionato, homicídio.</li>
+        </ul>
+
+        <div class="bizu-box">
+          <strong>⚡ BIZU DE MEMORIZAÇÃO:</strong> 
+          <br>• <strong>HIPER</strong>ônimo = Lembre-se de <em>HIPERmercado</em> (Grande, geral, abrange tudo).
+          <br>• <strong>HIPO</strong>nimo = Lembre-se de <em>HIPOtermia</em> (Baixo, reduzido, específico).
+        </div>
+      </div>
+
+      <!-- PARÔNIMOS -->
+      <div class="morphic-card">
+        <h3>3. Parônimos</h3>
+        <p>São palavras que possuem <strong>grafia e pronúncia semelhantes</strong>, mas cujos <strong>significados são completamente diferentes</strong>. É uma das fontes mais comuns de pegadinhas em concursos.</p>
+        <ul class="example-list">
+          <li><strong>Emergir</strong> (Vir à tona, subir) / <strong>Imergir</strong> (Mergulhar, afundar).</li>
+          <li><strong>Descriminar</strong> (Absolver, descriminalizar) / <strong>Discriminar</strong> (Diferenciar, segregar).</li>
+          <li><strong>Eminente</strong> (Ilustre, elevado) / <strong>Iminente</strong> (Prestes a acontecer).</li>
+          <li><strong>Deferir</strong> (Conceder, aprovar) / <strong>Diferir</strong> (Adiar, discordar).</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>⚠️ PEGADINHA DE CONCURSO:</strong> As bancas costumam trocar <em>descriminar</em> por <em>discriminar</em> na elaboração das questões. Lembre-se: <strong>Descriminar</strong> tira o crime (de + crime); <strong>Discriminar</strong> separa/preconceitua (diferença).
+        </div>
+      </div>
+
+      <!-- POLISSEMIA -->
+      <div class="morphic-card">
+        <h3>4. Polissemia</h3>
+        <p>É a propriedade que <strong>uma mesma palavra</strong> tem de apresentar <strong>múltiplos significados</strong>, a depender do contexto em que é empregada. Todos os significados guardam alguma relação de origem ou semelhança entre si.</p>
+        <ul class="example-list">
+          <li><strong>Banco:</strong> Assento ("Sentou-se no banco") / Instituição financeira ("Depositou no banco").</li>
+          <li><strong>Pena:</strong> Plumagem de ave ("A pena do pavão") / Instrumento de escrita / Punição legal ("Cumpriu a pena").</li>
+          <li><strong>Cabeça:</strong> Parte do corpo / Líder ("Ele é o cabeça do projeto") / Topo ("Cabeça do prego").</li>
+          <li><strong>Linha:</strong> Fio de costura / Traçado geométrico / Linha de raciocínio.</li>
+        </ul>
+      </div>
+
+      <!-- HOMÔNIMOS -->
+      <div class="morphic-card">
+        <h3>5. Homônimos</h3>
+        <p>São palavras de origens e significados completamente distintos, mas que possuem igualdade na som, na grafia ou em ambos.</p>
+
+        <p><strong>➔ Homófonos (Som igual, grafia diferente):</strong></p>
+        <ul class="example-list">
+          <li><strong>Cessão</strong> (Ato de ceder) / <strong>Sessão</strong> (Tempo de reunião/filme) / <strong>Seção</strong> ou <strong>Secção</strong> (Divisão, departamento).</li>
+          <li><strong>Coser</strong> (Costurar) / <strong>Cozer</strong> (Cozinhar).</li>
+          <li><strong>Censo</strong> (Recenseamento demográfico) / <strong>Senso</strong> (Juízo crítico).</li>
+          <li><strong>Apressar</strong> (Dar pressa) / <strong>Apreçar</strong> (Mandar precificar).</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Homógrafos (Grafia igual, som diferente):</strong></p>
+        <ul class="example-list">
+          <li><strong>Almoço</strong> [ó] (Substantivo) / <strong>Almoço</strong> [ô] (Verbo almoçar).</li>
+          <li><strong>Gosto</strong> [ó] (Substantivo) / <strong>Gosto</strong> [ô] (Verbo gostar).</li>
+          <li><strong>Colher</strong> [ê] (Verbo) / <strong>Colher</strong> [é] (Substantivo).</li>
+          <li><strong>Sede</strong> [ê] (Vontade de beber água) / <strong>Sede</strong> [é] (Matriz, local).</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Homônimos Perfeitos (Grafia e som idênticos):</strong></p>
+        <ul class="example-list">
+          <li><strong>Manga</strong> (Fruta) / <strong>Manga</strong> (Parte da camisa).</li>
+          <li><strong>Cedo</strong> (Advérbio de tempo) / <strong>Cedo</strong> (Verbo ceder na 1ª pessoa).</li>
+          <li><strong>São</strong> (Saudável) / <strong>São</strong> (Verbo ser) / <strong>São</strong> (Santo).</li>
+          <li><strong>Cura</strong> (Ato de curar) / <strong>Cura</strong> (Sacerdote).</li>
+        </ul>
+
+        <div class="bizu-box">
+          <strong>⚡ DIFERENÇA VITAL: POLISSEMIA vs. HOMONÍMIA PERFEITA:</strong>
+          <br>• <strong>Polissemia:</strong> A mesma palavra assumindo vários sentidos conexos por extensão (Ex: <em>boca</em> do corpo / <em>boca</em> da garrafa).
+          <br>• <strong>Homonímia Perfeita:</strong> Palavras totalmente diferentes que por coincidência histórica têm a mesma grafia e som (Ex: <em>manga</em> fruta / <em>manga</em> de camisa).
+        </div>
+      </div>
+
+      <h3 class="section-header">PARTE II: COESÃO LEXICAL</h3>
+
+      <p class="intro-text">
+        A coesão lexical ocorre quando empregamos recursos do vocabulário para conectar as partes de um texto. Ela impede a repetição cansativa e mantém o tema articulado.
+      </p>
+
+      <!-- SUBSTITUIÇÃO E REPETIÇÃO -->
+      <div class="morphic-card">
+        <h3>1. Mecanismos de Substituição e Reiteração</h3>
+
+        <p><strong>➔ Substituição por Sinonímia:</strong> Troca de um termo por um sinônimo.</p>
+        <ul class="example-list">
+          <li>"O <strong>magistrado</strong> analisou as provas. Minutos depois, o <strong>juiz</strong> proferiu a sentença."</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Substituição por Hiperonímia / Hiponímia:</strong></p>
+        <ul class="example-list">
+          <li>"O réu comprou um <strong>revólver</strong>. A <strong>arma</strong> foi apreendida pela perícia." (Hipônimo antecede o Hiperônimo)</li>
+          <li>"A <strong>felino</strong> estava faminto. O <strong>leão</strong> rugiu alto." (Hiperônimo antecede o Hipônimo)</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Substituição por Antonímia:</strong></p>
+        <ul class="example-list">
+          <li>"Alguns buscam a <strong>riqueza</strong>; outros preferem conviver com a <strong>pobreza</strong>."</li>
+        </ul>
+      </div>
+
+      <!-- ANÁFORA E CATÁFORA -->
+      <div class="morphic-card">
+        <h3>2. Anáfora e Catáfora Lexical</h3>
+
+        <p><strong>➔ Anáfora Lexical:</strong> Ocorre quando um termo lexical <strong>retoma</strong> uma informação que já foi citada anteriormente no texto.</p>
+        <ul class="example-list">
+          <li>"O <strong>incêndio</strong> atingiu o prédio público. O <strong>sinistro</strong> causou prejuízos milionários." (<em>Sinistro</em> retoma <em>incêndio</em>).</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>➔ Catáfora Lexical:</strong> Ocorre quando um termo lexical <strong>antecipa</strong> uma informação que será detalhada adiante.</p>
+        <ul class="example-list">
+          <li>"O delegado exigia isto: <strong>a apresentação imediata do suspeito</strong>." (<em>Isto</em> antecipa o fato).</li>
+          <li>"Dois <strong>países</strong> assinaram o tratado: <strong>Brasil e Argentina</strong>." (<em>Países</em> antecipa a especificação).</li>
+        </ul>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS SIMPLES -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação (10 Questões)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> (Semântica) O par de palavras que exemplifica a relação de <strong>paronímia</strong> é:</p>
+          <ul class="exercise-options">
+            <li>a) Coser / Cozer</li>
+            <li>b) Deferir / Diferir</li>
+            <li>c) Sessão / Seção</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a alternativa que traz um exemplo de <strong>homófonos</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Eminente / Iminente</li>
+            <li>b) Censo / Senso</li>
+            <li>c) Manga (fruta) / Manga (camisa)</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na frase <em>"Aquele aluno tem um bom <strong>senso</strong> crítico"</em>, a palavra sublinhada é homófona de <strong>censo</strong>. O significado de <strong>censo</strong> é:</p>
+          <ul class="exercise-options">
+            <li>a) Capacidade de julgar</li>
+            <li>b) Recenseamento da população</li>
+            <li>c) Juízo moral</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na frase <em>"O advogado pediu para <strong>descriminar</strong> o acusado"</em>, o verbo destacado significa:</p>
+          <ul class="exercise-options">
+            <li>a) Tratar de forma preconceituosa</li>
+            <li>b) Retirar a culpa do crime / absolver</li>
+            <li>c) Diferenciar dos demais</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Assinale a opção que apresenta uma relação entre <strong>hipônimo</strong> e <strong>hiperônimo</strong>, nesta ordem:</p>
+          <ul class="exercise-options">
+            <li>a) Animal / Cão</li>
+            <li>b) Cão / Animal</li>
+            <li>c) Veículo / Meio de transporte</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> A frase em que a palavra destacada constitui um exemplo de <strong>polissemia</strong> é:</p>
+          <ul class="exercise-options">
+            <li>a) Ele quebrou a <strong>perna</strong> da mesa.</li>
+            <li>b) A <strong>sessão</strong> de cinema atrasou.</li>
+            <li>c) O juiz vai <strong>deferir</strong> o requerimento.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> Em <em>"O <strong>leão</strong> atacou a presa. O <strong>felino</strong> estava caçando há horas"</em>, o termo 'felino' atua como recurso de coesão lexical por:</p>
+          <ul class="exercise-options">
+            <li>a) Hiponímia</li>
+            <li>b) Hiperonímia</li>
+            <li>c) Antonímia</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Quando um termo textual retoma outro termo mencionado previamente no texto, diz-se que ocorreu um processo de:</p>
+          <ul class="exercise-options">
+            <li>a) Catáfora</li>
+            <li>b) Anáfora</li>
+            <li>c) Metáfora</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Assinale a alternativa em que a lacuna é preenchida corretamente por <strong>sessão</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Comprei roupas na ________ de esportes da loja.</li>
+            <li>b) A ________ da câmara de vereadores durou três horas.</li>
+            <li>c) O doador fez a ________ de seus bens para a instituição.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> O termo <strong>imergir</strong> é parônimo de <strong>emergir</strong>. O significado de <strong>emergir</strong> é:</p>
+          <ul class="exercise-options">
+            <li>a) Mergulhar na água</li>
+            <li>b) Vir à tona / vir à superfície</li>
+            <li>c) Afundar completamente</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans-21', 'icon-gab-21')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab-21">▼</span>
+        </button>
+
+        <div id="gabarito-ans-21" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — <em>Deferir</em> (aprovar) e <em>Diferir</em> (discordar/adiar) são parônimos (grafia e som parecidos, sentidos diferentes). "Coser/Cozer" e "Sessão/Seção" são homófonos.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: B</strong> — <em>Censo</em> e <em>Senso</em> possuem exatamente o mesmo som (homófonos), mas grafias diferentes.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: B</strong> — <em>Censo</em> (com C) refere-se ao contagem/recenseamento populacional. <em>Senso</em> (com S) refere-se a juízo ou discernimento.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — <em>Descriminar</em> (com E) significa inocentar ou tirar o caráter criminoso. <em>Discriminar</em> (com I) é segregar ou diferenciar.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — <em>Cão</em> é a espécie/específico (hipônimo); <em>Animal</em> é o gênero/geral (hiperônimo).
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: A</strong> — <em>Perna</em> é um termo polissêmico, estendendo o sentido do membro do corpo para a estrutura de apoio do móvel.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — <em>Felino</em> é uma palavra de sentido mais amplo (hiperônimo) utilizada para retomar o termo específico <em>leão</em> (hipônimo).
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: B</strong> — A <em>anáfora</em> é o recurso coesivo responsável por retomar termos anteriores no texto.
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: B</strong> — <em>Sessão</em> (com S e ss) refere-se a intervalo de tempo de um evento ou reunião. Para divisões de lojas usa-se <em>seção</em> e para transferência de bens usa-se <em>cessão</em>.
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: B</strong> — <em>Emergir</em> significa subir/vir à tona. <em>Imergir</em> significa afundar/mergulhar.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 01 - Morfologia: Substantivo e Adjetivo | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 1.12rem;
+      color: var(--brand-color);
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+
+    .intro-text {
+      font-size: 1.02rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.96rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* EXEMPLOS EXTRAS */
+    .extra-examples-title {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .extra-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .extra-item {
+      background-color: #f1f5f9;
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+    }
+
+    .extra-item strong {
+      color: var(--brand-color);
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 22px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.94rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 01 - Morfologia</h2>
+      <h3 class="subtitle">Substantivo e Adjetivo</h3>
+
+      <p class="intro-text">
+        A <strong>Morfologia</strong> é o estudo voltado para a estrutura, a formação e a classificação das palavras isoladas do seu contexto e de suas funções nas orações. O estudo morfológico organiza-se em <strong>10 classes gramaticais</strong>: artigo, substantivo, adjetivo, pronome, verbo, advérbio, preposição, conjunção, numeral e interjeição.
+      </p>
+
+      <div class="obs-box">
+        <strong>💡 Observação Estratégica:</strong> Para provas e concursos, lembre-se de que a Morfologia analisa a palavra isoladamente (a sua classe gramatical), enquanto a Sintaxe analisa a função que a palavra desempenha dentro da frase. Algumas classes são <em>flexíveis</em> (variam em gênero, número, pessoa etc., como substantivo e verbo) e outras são <em>invariáveis</em> (não mudam de forma, como advérbio e preposição).
+      </div>
+
+      <!-- SEÇÃO SUBSTANTIVO -->
+      <div class="morphic-card">
+        <h3>1. Substantivo</h3>
+        <p>Os substantivos são as palavras que dão nomes aos seres, coisas, estados, processos e sentimentos.</p>
+        
+        <p style="margin-top: 10px;"><strong>📌 Classificação dos Substantivos:</strong></p>
+        <ul class="example-list">
+          <li><strong>Comuns:</strong> indicam um nome comum a todos os seres da mesma espécie. Ex.: <em>criança, árvore, cidade, estado, país...</em></li>
+          <li><strong>Próprios:</strong> particularizam um ser. Ex.: <em>Fernando, Vanessa, Ceará, Itália...</em></li>
+          <li><strong>Concretos:</strong> seres reais ou imaginários que existem de forma independente de outros seres. Ex.: <em>cadeira, Brasília, fada...</em></li>
+          <li><strong>Abstratos:</strong> indicam seres dependentes de outros seres (ações, estados, qualidades e sentimentos). Ex.: <em>feiura</em> (é preciso alguém para ser feio), <em>alegria</em> (é preciso alguém para senti-la).</li>
+          <li><strong>Coletivos:</strong> permanecendo no singular, representam muitos seres da mesma classe. Ex.: <em>manada, boiada, discoteca...</em></li>
+        </ul>
+
+        <p style="margin-top: 12px;"><strong>📌 Formação dos Substantivos:</strong></p>
+        <ul class="example-list">
+          <li><strong>Primitivos:</strong> dão origem a outras palavras. Ex.: <em>casa, mesa, mar, livro...</em></li>
+          <li><strong>Derivados:</strong> palavra originada a partir da palavra primitiva. Ex.: <em>casarão, mesinha, maresia, livreto...</em></li>
+          <li><strong>Simples:</strong> formado de apenas um radical. Ex.: <em>banana, plano...</em></li>
+          <li><strong>Compostos:</strong> formado de dois ou mais radicais. Ex.: <em>banana-maçã, planalto...</em></li>
+        </ul>
+      </div>
+
+      <!-- PLURAL DOS SUBSTANTIVOS COMPOSTOS -->
+      <div class="morphic-card">
+        <h3>Plural dos Substantivos Compostos Separados por Hífen</h3>
+        <p><strong>1) Os dois elementos vão para o plural se a composição for:</strong></p>
+        <ul class="example-list">
+          <li><strong>Substantivo + substantivo:</strong> Couve-flor / couves-flores</li>
+          <li><strong>Substantivo + adjetivo:</strong> Cachorro-quente / cachorros-quentes</li>
+          <li><strong>Adjetivo + substantivo:</strong> Má-língua / más-línguas</li>
+          <li><strong>Numeral + substantivo:</strong> Terça-feira / terças-feiras</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>2) Apenas o primeiro elemento vai para o plural se:</strong></p>
+        <ul class="example-list">
+          <li><strong>O segundo elemento limitar a ideia do primeiro:</strong> banana-maçã / bananas-maçã.</li>
+          <li><strong>Os elementos forem ligados por preposição:</strong> pé-de-moleque / pés-de-moleque.</li>
+        </ul>
+
+        <p style="margin-top: 10px;"><strong>3) Apenas o segundo elemento vai para o plural se:</strong></p>
+        <ul class="example-list">
+          <li><strong>O primeiro elemento for verbo ou palavra invariável:</strong> Alto-falante / alto-falantes (advérbio + adjetivo).</li>
+          <li><strong>Os elementos forem palavras repetidas:</strong> tico-tico / tico-ticos, reco-reco / reco-recos.</li>
+        </ul>
+      </div>
+
+      <!-- SEÇÃO ADJETIVO -->
+      <div class="morphic-card">
+        <h3>2. Adjetivo</h3>
+        <p>É a palavra que caracteriza o substantivo. Eles podem indicar:</p>
+        <ul class="example-list">
+          <li><strong>Qualidade:</strong> homem <u>delicado</u></li>
+          <li><strong>Estado:</strong> jogo <u>tranquilo</u></li>
+          <li><strong>Lugar de origem:</strong> mulher <u>brasileira</u></li>
+        </ul>
+
+        <p style="margin-top: 12px;"><strong>📌 Formação dos Adjetivos:</strong></p>
+        <ul class="example-list">
+          <li><strong>Primitivos:</strong> aquele que não deriva de outra palavra. Ex.: pequeno escorpião / experiência <u>amarga</u></li>
+          <li><strong>Derivados:</strong> aquele que deriva de outra palavra. Ex.: menina <u>amargurada</u> (deriva de amargurar)</li>
+          <li><strong>Simples:</strong> quando possuir apenas um radical. Ex.: olho <u>escuro</u></li>
+          <li><strong>Composto:</strong> quando possui dois ou mais radicais. Ex.: olho <u>castanho-escuro</u></li>
+        </ul>
+      </div>
+
+      <!-- PLURAL DOS ADJETIVOS COMPOSTOS -->
+      <div class="morphic-card">
+        <h3>Plural dos Adjetivos Compostos</h3>
+        <p>Geralmente se flexiona apenas o último elemento, porém temos duas exceções clássicas:</p>
+        <ul class="example-list">
+          <li><strong>Azul-marinho e azul-celeste:</strong> não flexionam para o plural. Ex.: Terno <u>azul-marinho</u> / Ternos <u>azul-marinho</u>.</li>
+          <li><strong>Surdo-mudo:</strong> nesta palavra, a flexão acontece com os dois elementos indo para o plural. Ex.: Meninos <u>surdos-mudos</u>.</li>
+        </ul>
+
+        <div class="obs-box">
+          <strong>Obs.:</strong> Adjetivos compostos referentes a cores, quando o segundo elemento é um substantivo, esse adjetivo será <strong>invariável</strong> (não terá flexão para o plural). Ex.: Camisas <em>amarelo-ouro</em> / Saias <em>verde-abacate</em>.
+        </div>
+      </div>
+
+      <!-- EXEMPLOS EXTRAS DE FIXAÇÃO -->
+      <h3 class="extra-examples-title">💡 Exemplos Extras para Fixação</h3>
+      <div class="extra-grid">
+        <div class="extra-item">
+          <strong>Pés-de-galinha:</strong> Substantivo composto ligado por preposição. Apenas o primeiro elemento vai para o plural.
+        </div>
+        <div class="extra-item">
+          <strong>Pequeno-burguês:</strong> Adjetivo + Substantivo. Ambos os elementos flexionam: <em>pequenos-burgueses</em>.
+        </div>
+        <div class="extra-item">
+          <strong>Guarda-roupa:</strong> Verbo + Substantivo. Apenas o segundo varia: <em>guarda-roupas</em>.
+        </div>
+        <div class="extra-item">
+          <strong>Olhos castanho-claros:</strong> Adjetivo composto padrão. Varia apenas o último elemento.
+        </div>
+      </div>
+
+      <!-- SEÇÃO DE EXERCÍCIOS -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Rápidos de Fixação</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Indique a alternativa em que a palavra destacada é um substantivo <strong>abstrato</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) O <strong>livro</strong> estava aberto sobre a mesa.</li>
+            <li>b) A <strong>saudade</strong> dos amigos aumentava a cada dia.</li>
+            <li>c) O <strong>estudante</strong> tirou nota máxima na prova.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Qual das opções apresenta o plural do substantivo composto grafado de forma <strong>CORRETA</strong>?</p>
+          <ul class="exercise-options">
+            <li>a) As couves-flores foram vendidas na feira.</li>
+            <li>b) Compramos dois pés-de-moleques deliciosos.</li>
+            <li>c) Os altos-falantes do evento estavam muito baixos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Assinale a alternativa que traz um adjetivo <strong>derivado</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Olho azul.</li>
+            <li>b) Menino triste.</li>
+            <li>c) Atitude amargurada.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> Na frase <em>"Compramos trajes azul-marinho para a cerimônia"</em>, a expressão sublinhada permaneceu no singular porque:</p>
+          <ul class="exercise-options">
+            <li>a) É uma palavra invariável por ser verbo.</li>
+            <li>b)Trata-se de uma exceção dos adjetivos compostos que não flexiona no plural.</li>
+            <li>c) O primeiro elemento concorda com o substantivo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> O plural do adjetivo composto <em>"surdo-mudo"</em> é feito da seguinte maneira:</p>
+          <ul class="exercise-options">
+            <li>a) Surdo-mudos.</li>
+            <li>b) Surdos-mudo.</li>
+            <li>c) Surdos-mudos.</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — <em>Saudade</em> é um substantivo abstrato, pois indica um sentimento que necessita de um ser para existencializar-se.
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: A</strong> — <em>Couves-flores</em> flexiona os dois elementos (substantivo + substantivo). Em b) o correto seria <em>pés-de-moleque</em> e em c) <em>alto-falantes</em>.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: C</strong> — <em>Amargurada</em> deriva do verbo amargurar, sendo, portanto, um adjetivo derivado.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — As formas <em>azul-marinho</em> e <em>azul-celeste</em> são exceções invariáveis nos adjetivos compostos.
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: C</strong> — O adjetivo composto <em>surdo-mudo</em> é uma exceção em que ambos os elementos flexionam para o plural.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função para compartilhar a página via API nativa do dispositivo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    // Função para abrir/fechar o gabarito em sanfona
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>

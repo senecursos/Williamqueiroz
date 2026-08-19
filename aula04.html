@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 04 - Morfologia: Advérbios, Preposições e Numerais | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1e3a8a;
+      --accent-color: #2563eb;
+      --green-action: #16a34a;
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO CONTEÚDO DIDÁTICO */
+    .content-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+    }
+
+    .main-title {
+      font-size: 1.35rem;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 6px;
+    }
+
+    .topic-header {
+      font-size: 1.25rem;
+      color: var(--brand-color);
+      margin-top: 22px;
+      margin-bottom: 12px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 800;
+    }
+
+    .subtitle {
+      font-size: 1.08rem;
+      color: var(--primary-color);
+      margin-top: 14px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    /* CARTÕES MÓRFICOS */
+    .morphic-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 6px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+
+    .morphic-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .morphic-card p {
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    /* LISTAS E EXEMPLOS */
+    .example-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+    }
+
+    .example-list li {
+      margin-bottom: 6px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .example-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* LISTA ENUMERADA DE PREPOSIÇÕES EM 2 COLUNAS */
+    .prep-grid-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+      list-style: none;
+      padding: 12px 14px;
+      background-color: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .prep-grid-list li {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .prep-grid-list span {
+      color: var(--accent-color);
+      font-weight: 800;
+      margin-right: 4px;
+    }
+
+    /* TABELAS DIDÁTICAS */
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 0.88rem;
+    }
+
+    .custom-table th, .custom-table td {
+      border: 1px solid var(--border-color);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .custom-table th {
+      background-color: #e2e8f0;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+
+    /* CAIXAS DE OBSERVAÇÃO */
+    .obs-box {
+      background-color: #fffbebfb;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: #78350f;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .obs-box strong {
+      color: #92400e;
+    }
+
+    /* SEÇÃO DE EXERCÍCIOS */
+    .exercises-section {
+      border-top: 2px dashed var(--border-color);
+      padding-top: 18px;
+      margin-top: 24px;
+    }
+
+    .exercises-title {
+      font-size: 1.15rem;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .exercise-item {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      font-size: 0.96rem;
+    }
+
+    .exercise-item p {
+      margin-bottom: 8px;
+    }
+
+    .exercise-options {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .exercise-options li {
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    /* SANFONA DO GABARITO */
+    .accordion-btn {
+      width: 100%;
+      background-color: var(--green-action);
+      color: #ffffff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .accordion-content {
+      display: none;
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 8px;
+      font-size: 0.92rem;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    .gabarito-item {
+      margin-bottom: 10px;
+    }
+
+    .gabarito-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .gabarito-item strong {
+      color: #15803d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CABEÇALHO -->
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <!-- ÁREA DE OFERTAS -->
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          O conteúdo desta página é um trecho do e-book <strong>Noções de Língua Portuguesa</strong>, de William Queiroz. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <!-- BOTÃO COMPARTILHAR -->
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar esta aula</span>
+      </button>
+    </div>
+
+    <!-- INDICADOR DE CONTEÚDO -->
+    <div class="content-divider">
+      <span>CONTEÚDO ⤵</span>
+    </div>
+
+    <!-- CONTEÚDO DIDÁTICO -->
+    <main class="content-area">
+
+      <h2 class="main-title">Aula 04 - Morfologia</h2>
+
+      <!-- ================= 6) ADVÉRBIOS ================= -->
+      <h3 class="topic-header">6) Advérbios</h3>
+
+      <p class="intro-text">
+        É a palavra que indica em que circunstância ocorre a ação verbal, mas também pode se relacionar com outro advérbio, formando uma locução adverbial, ou se relacionar com um adjetivo e modificar o seu sentido. Observe nos exemplos abaixo e perceba a influência do advérbio sobre o verbo, adjetivo e sobre o próprio advérbio. É importante citar que o advérbio é uma palavra invariável, não possui flexão de gênero ou número.
+      </p>
+
+      <div class="morphic-card">
+        <p><strong>Ex. 1:</strong> Se você ler a frase: <em>"A mulher chegou"</em>. Você entenderá de uma forma; mas se ler: <em>"A mulher chegou <u>rapidamente</u>"</em>; você entenderá de outra forma. Essa mudança de circunstância da ação de "chegar", para "chegar rapidamente" (mostrando o MODO como a mulher chegou, pois poderia ser <u>lentamente</u>) só é possível graças ao advérbio interagindo com o verbo.</p>
+
+        <p><strong>Ex. 2:</strong> Se você ler a frase: <em>"O carro é bonito"</em>. Você entenderá de uma forma; mas se ler: <em>"O carro é <u>muito</u> bonito"</em>; você entenderá de outra forma. Você perceberá que a palavra "muito" interage com o adjetivo e INTENSIFICA o fator de beleza do carro. A palavra "muito" é um advérbio.</p>
+
+        <p><strong>Ex. 3:</strong> Se você ler a frase: <em>"Ele acordou"</em>. Você entende uma coisa; mas se ler: <em>"Ele acordou <u>cedo</u>"</em>; ("cedo" é advérbio de TEMPO) você entenderá de outra forma, mas se ler: <em>"Ele acordou <u>muito cedo</u>"</em>. Será possível perceber como a palavra "muito" causou a intensificação da palavra "cedo". Aqui teremos um advérbio interagindo com outro advérbio.</p>
+      </div>
+
+      <h4 class="subtitle">Tipos de advérbios</h4>
+      <ul class="example-list" style="margin-bottom: 14px;">
+        <li><strong>1- Tempo</strong> = Noção de tempo.</li>
+        <li><strong>2- Lugar</strong> = Noção de lugar.</li>
+        <li><strong>3- Modo</strong> = Noção de como a ação ocorreu, ocorre ou ocorrerá.</li>
+        <li><strong>4- Intensidade</strong> = Transmite intensificação para mais ou para menos.</li>
+        <li><strong>5- Afirmação</strong> = Noção de convicção e certeza.</li>
+        <li><strong>6- Negação</strong> = Noção de negação.</li>
+        <li><strong>7- Dúvida</strong> = Transmissão de sentimento de dúvida.</li>
+      </ul>
+
+      <p class="intro-text">
+        Como exemplo, eu citarei sete frases para demonstrar a atuação dos sete tipos de advérbios, porém é importante que você pesquise e decore a grande variação de palavras que podem ser advérbios.
+      </p>
+
+      <div class="morphic-card">
+        <p><em>(O advérbio estará sublinhado e classificado entre parênteses, na frente de cada frase.)</em></p>
+        <ul class="example-list">
+          <li><u>Amanhã</u>, irei com você. (Adv. de tempo)</li>
+          <li>Detesto estar <u>aqui</u>. (Adv. de lugar)</li>
+          <li>Explicarei, <u>detalhadamente</u>, o assunto. (Adv. de modo)</li>
+          <li>Estou <u>bastante</u> cansado. (Adv. de intensidade)</li>
+          <li><u>Sim</u>, eu falarei. (Adv. de afirmação)</li>
+          <li><u>Não</u> falarei. (Adv. de negação)</li>
+          <li><u>Provavelmente</u> falarei. (Adv. de dúvida)</li>
+        </ul>
+      </div>
+
+      <p class="intro-text">
+        Também é possível que o advérbio se apresente como a locução adverbial formada por uma preposição + um advérbio.
+      </p>
+      <ul class="example-list" style="margin-bottom: 14px;">
+        <li><strong>Ex.:</strong> Falarei <u>com certeza</u>. = Falarei <u>certamente</u>.</li>
+      </ul>
+      <p class="intro-text" style="font-size: 0.92rem; color: var(--text-muted);">
+        (Nesse caso, "com certeza" [prep + adv] tem o mesmo valor de "certamente", logo é uma locução adverbial que transmite ideia de convicção, devendo ser considerado com advérbio de afirmação.)
+      </p>
+
+      <!-- TABELA COMPLETA DE CLASSIFICAÇÃO DOS ADVÉRBIOS -->
+      <h4 class="subtitle">Classificação do Advérbio (Tabela Completa)</h4>
+      <p class="intro-text">De acordo com a circunstância que exprime, o advérbio pode ser de:</p>
+
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th style="width: 28%;">Circunstância</th>
+            <th>Advérbios e Locuções</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TEMPO</strong></td>
+            <td>ontem, hoje, amanhã, breve, logo, antes, depois, agora, já, sempre, nunca, jamais, cedo, tarde, outrora, ainda, antigamente, novamente, brevemente, raramente, entrementes, imediatamente etc.</td>
+          </tr>
+          <tr>
+            <td><strong>LUGAR</strong></td>
+            <td>aqui, ali, aí, cá, lá, acolá, atrás, perto, longe, acima, abaixo, adiante, dentro, fora, além, aquém, defronte, algures (em algum lugar), alhures (em outro lugar) etc.</td>
+          </tr>
+          <tr>
+            <td><strong>MODO</strong></td>
+            <td>bem, mal, assim, depressa, devagar, e a maior parte dos que terminam em <em>-mente</em>: calmamente, suavemente, tristemente etc.</td>
+          </tr>
+          <tr>
+            <td><strong>AFIRMAÇÃO</strong></td>
+            <td>sim, deveras, certamente, realmente, efetivamente etc.</td>
+          </tr>
+          <tr>
+            <td><strong>NEGAÇÃO</strong></td>
+            <td>não, absolutamente, tampouco.</td>
+          </tr>
+          <tr>
+            <td><strong>DÚVIDA</strong></td>
+            <td>talvez, quiçá, acaso, decerto, porventura, provavelmente, possivelmente etc.</td>
+          </tr>
+          <tr>
+            <td><strong>INTENSIDADE</strong></td>
+            <td>muito, pouco, bastante, mais, menos, demais, assaz, tão, tanto, meio, todo etc.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="obs-box">
+        <strong>Observações Importantes:</strong><br>
+        <strong>1.º)</strong> Forma-se advérbio derivado do adjetivo com o acréscimo de <em>-mente</em>: <em>tristemente</em> (de triste), <em>docemente</em> (de doce), <em>felizmente</em> (de feliz), <em>alegremente</em> (de alegre) etc.<br>
+        <strong>2.º)</strong> <em>Tampouco</em> equivale a <em>também não</em>. É usado após oração declarativa. Ex.: <em>Ele não me fez promessas nem eu <u>tampouco</u> a ele.</em>
+      </div>
+
+
+      <!-- ================= 7) PREPOSIÇÃO ================= -->
+      <h3 class="topic-header">7) Preposição</h3>
+
+      <p class="intro-text">É a palavra invariável que liga dois termos.</p>
+      <p class="intro-text">
+        Por ser invariável e de número limitado, o meio mais eficiente de aprender preposições é decorando-as. Abaixo estão listadas as <strong>18 preposições essenciais</strong> da Língua Portuguesa:
+      </p>
+
+      <!-- LISTA ENUMERADA EM 2 COLUNAS (AJUSTE SOLICITADO) -->
+      <ol class="prep-grid-list">
+        <li><span>01.</span> A</li>
+        <li><span>02.</span> ANTE</li>
+        <li><span>03.</span> APÓS</li>
+        <li><span>04.</span> ATÉ</li>
+        <li><span>05.</span> COM</li>
+        <li><span>06.</span> CONTRA</li>
+        <li><span>07.</span> DE</li>
+        <li><span>08.</span> DESDE</li>
+        <li><span>09.</span> EM</li>
+        <li><span>10.</span> ENTRE</li>
+        <li><span>11.</span> PARA</li>
+        <li><span>12.</span> PER</li>
+        <li><span>13.</span> PERANTE</li>
+        <li><span>14.</span> POR</li>
+        <li><span>15.</span> SEM</li>
+        <li><span>16.</span> SOB</li>
+        <li><span>17.</span> SOBRE</li>
+        <li><span>18.</span> TRÁS</li>
+      </ol>
+
+      <p class="intro-text">
+        As preposições, por servirem para ligar termos, possuem uma imensa variedade de utilização na língua portuguesa. Dentre elas está a de formar locuções, combinações e contrações com outras classes gramaticais.
+      </p>
+
+      <div class="morphic-card">
+        <h3>&rarr; Locuções prepositivas</h3>
+        <p>É o conjunto de duas ou mais palavras com valor de preposição.</p>
+        <p>Alguns exemplos são: <em>"defronte de"</em> = PERANTE / <em>"acima de"</em> = SOBRE / <em>"junto de"</em> = COM... Existem muitas outras.</p>
+
+        <h3 style="margin-top: 12px;">&rarr; Combinação</h3>
+        <p>Quando a preposição se soma com outra classe gramatical, mas <strong>não sofre alteração</strong> (não há perda fonética).</p>
+        <p>Ex.:</p>
+        <p><strong>&gt; Preposição "A" + artigo definido "O" e "OS".</strong></p>
+        <ol style="padding-left: 20px; margin-bottom: 8px; font-size: 0.95rem;">
+          <li>Mostrarei o livro <u>aos</u> alunos. (a + os)</li>
+          <li>Mostrarei o livro <u>ao</u> aluno. (a + o)</li>
+        </ol>
+        <p><strong>&gt; Preposição "A" + advérbio "ONDE".</strong></p>
+        <ul class="example-list">
+          <li>Não volto para o lugar <u>aonde</u> estamos ontem? (a + onde)</li>
+        </ul>
+
+        <h3 style="margin-top: 12px;">&rarr; Contração</h3>
+        <p>Quando a preposição se soma com outra classe gramatical e <strong>sofre alteração</strong> (há fusão e perda de fonemas).</p>
+      </div>
+
+      <!-- QUADRO COMPLETO DE CONTRAÇÕES (AJUSTE SOLICITADO) -->
+      <h4 class="subtitle">Guia Completo das Principais Contrações Prepositivas</h4>
+      <p class="intro-text">
+        Confira abaixo o catálogo de contrações mais frequentes da língua portuguesa, organizadas por preposição:
+      </p>
+
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Prep.</th>
+            <th>Soma com outra palavra</th>
+            <th>Contração Resultante</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>DE</strong></td>
+            <td>
+              + o, a, os, as<br>
+              + um, uma, uns, umas<br>
+              + este(s), esta(s), isto<br>
+              + esse(s), essa(s), isso<br>
+              + aquele(s), aquela(s), aquilo<br>
+              + ele(s), ela(s)<br>
+              + aqui, ali, outro(s)
+            </td>
+            <td>
+              <strong>do, da, dos, das</strong><br>
+              <strong>dum, duma, duns, dumas</strong><br>
+              <strong>deste, desta, disto</strong><br>
+              <strong>desse, dessa, disso</strong><br>
+              <strong>daquele, daquela, daquilo</strong><br>
+              <strong>dele, dela, deles, delas</strong><br>
+              <strong>daqui, dali, doutro(s)</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>EM</strong></td>
+            <td>
+              + o, a, os, as<br>
+              + um, uma, uns, umas<br>
+              + este(s), esta(s), isto<br>
+              + esse(s), essa(s), isso<br>
+              + aquele(s), aquela(s), aquilo<br>
+              + ele(s), ela(s)
+            </td>
+            <td>
+              <strong>no, na, nos, nas</strong><br>
+              <strong>num, numa, nuns, numas</strong><br>
+              <strong>neste, nesta, nisto</strong><br>
+              <strong>nesse, nessa, nisso</strong><br>
+              <strong>naquele, naquela, naquilo</strong><br>
+              <strong>nele, nela, neles, nelas</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>A</strong></td>
+            <td>
+              + a, as (artigos/pronomes)<br>
+              + aquele(s), aquela(s), aquilo
+            </td>
+            <td>
+              <strong>à, às</strong> <em>(crase)</em><br>
+              <strong>àquele, àquela, àquilo</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>POR (PER)</strong></td>
+            <td>
+              + o, a, os, as
+            </td>
+            <td>
+              <strong>pelo, pela, pelos, pelas</strong>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>PARA</strong></td>
+            <td>
+              + o, a, os, as <em>(linguagem falada/poética)</em>
+            </td>
+            <td>
+              <strong>pra, pro, pras, pros</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- ================= 8) NUMERAL ================= -->
+      <h3 class="topic-header">8) Numeral</h3>
+
+      <p class="intro-text">
+        É a palavra variável responsável por quantificar de forma exata os seres ou indicar a posição/ordem que eles ocupam em uma determinada sequência.
+      </p>
+
+      <h4 class="subtitle">Classificação dos Numerais</h4>
+
+      <div class="morphic-card">
+        <h3>1. Numerais Cardinais</h3>
+        <p>Indicam a quantidade exata e absoluta de elementos ou seres.</p>
+        <p><strong>Exemplos de termos:</strong> <em>um, dois, três, dez, vinte, cem, mil, um milhão.</em></p>
+        <ul class="example-list">
+          <li>Comprei <u>três</u> livros de português na livraria.</li>
+          <li>Há <u>vinte</u> alunos matriculados na turma da manhã.</li>
+          <li>Ele tem <u>cinquenta</u> reais na carteira.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>2. Numerais Ordinais</h3>
+        <p>Indicam a posição, ordem ou hierarquia que um elemento ocupa em uma série.</p>
+        <p><strong>Exemplos de termos:</strong> <em>primeiro, segundo, terceiro, décimo, vigésimo, centésimo.</em></p>
+        <ul class="example-list">
+          <li>Ele conquistou o <u>primeiro</u> lugar no concurso público.</li>
+          <li>O escritório fica no <u>décimo</u> andar do edifício.</li>
+          <li>Esta é a <u>segunda</u> vez que explico este conteúdo.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>3. Numerais Multiplicativos</h3>
+        <p>Expressam a multiplicação de uma quantidade de forma proporcional.</p>
+        <p><strong>Exemplos de termos:</strong> <em>dobro, duplo, triplo, quádruplo, quíntuplo.</em></p>
+        <ul class="example-list">
+          <li>Ele recebeu o <u>dobro</u> do salário neste mês.</li>
+          <li>Teve um lucro <u>triplo</u> após os investimentos.</li>
+          <li>A produção exigiu esforço <u>quádruplo</u> da equipe.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>4. Numerais Fracionários</h3>
+        <p>Indicam a divisão, fração ou diminuição proporcional de uma quantidade total.</p>
+        <p><strong>Exemplos de termos:</strong> <em>meio, metade, terço, quarto, décimo, centésimo.</em></p>
+        <ul class="example-list">
+          <li>Comeu apenas a <u>metade</u> da maçã.</li>
+          <li>A receita pede um <u>terço</u> de xícara de leite.</li>
+          <li>Faltou <u>um quarto</u> para completar a meta estabelecida.</li>
+        </ul>
+      </div>
+
+      <div class="morphic-card">
+        <h3>5. Numerais Coletivos</h3>
+        <p>Palavras no singular que designam um conjunto exato e específico de elementos.</p>
+        <p><strong>Exemplos de termos:</strong> <em>dúzia (12), dezena (10), centena (100), milhar (1000), biênio (2 anos), triênio (3 anos), quinquênio (5 anos), década (10 anos), século (100 anos), milênio (1000 anos), semestre (6 meses).</em></p>
+        <ul class="example-list">
+          <li>Comprei uma <u>dúzia</u> de ovos na feira.</li>
+          <li>O servidor obteve direito à licença após um <u>quinquênio</u> de serviço.</li>
+          <li>Vivenciamos mudanças drásticas no último <u>século</u>.</li>
+        </ul>
+      </div>
+
+
+      <!-- ================= EXERCÍCIOS ================= -->
+      <section class="exercises-section">
+        <h3 class="exercises-title">📝 Exercícios Integrados de Fixação (Advérbio, Preposição e Numeral)</h3>
+
+        <div class="exercise-item">
+          <p><strong>1.</strong> Na oração <em>"Os candidatos estudaram <u>bastante</u> para a prova"</em>, a palavra destacada funciona morfologicamente como:</p>
+          <ul class="exercise-options">
+            <li>a) Adjetivo.</li>
+            <li>b) Advérbio de intensidade.</li>
+            <li>c) Numeral cardinal.</li>
+            <li>d) Preposição essencial.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>2.</strong> Assinale a alternativa que apresenta uma <strong>locução prepositiva</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Com certeza.</li>
+            <li>b) Porventura.</li>
+            <li>c) A fim de.</li>
+            <li>d) Defronte.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>3.</strong> Na frase <em>"A encomenda chegou <u>ontem</u> à tarde"</em>, a palavra sublinhada é um advérbio que exprime ideia de:</p>
+          <ul class="exercise-options">
+            <li>a) Lugar.</li>
+            <li>b) Modo.</li>
+            <li>c) Tempo.</li>
+            <li>d) Afirmação.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>4.</strong> A palavra <strong>"tampouco"</strong> é classificada como advérbio de negação e equivale semanticamente a:</p>
+          <ul class="exercise-options">
+            <li>a) Muito pouco.</li>
+            <li>b) Também não.</li>
+            <li>c) Por pouco.</li>
+            <li>d) Talvez não.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>5.</strong> Em <em>"Fomos <u>ao</u> parque no domingo"</em>, a palavra destacada é resultado do processo morfossintático de:</p>
+          <ul class="exercise-options">
+            <li>a) Contração da preposição 'A' com o artigo 'O'.</li>
+            <li>b) Combinação da preposição 'A' com o artigo 'O'.</li>
+            <li>c) Derivação imprópria.</li>
+            <li>d) Locução adverbial de lugar.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>6.</strong> Assinale a alternativa em que a palavra destacada é um <strong>numeral ordinal</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Ele obteve o <u>dobro</u> da pontuação.</li>
+            <li>b) Ficamos no <u>quinto</u> lugar no torneio.</li>
+            <li>c) Recebi <u>dois</u> convites para o evento.</li>
+            <li>d) Ela comeu a <u>metade</u> do bolo.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>7.</strong> A palavra <strong>"quinquênio"</strong> é um numeral coletivo que faz referência a um período exato de:</p>
+          <ul class="exercise-options">
+            <li>a) 5 meses.</li>
+            <li>b) 5 anos.</li>
+            <li>c) 15 anos.</li>
+            <li>d) 50 anos.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>8.</strong> Dentre os advérbios apresentados a seguir, assinale o único que transmite circunstância de <strong>DÚVIDA</strong>:</p>
+          <ul class="exercise-options">
+            <li>a) Deveras.</li>
+            <li>b) Defronte.</li>
+            <li>c) Quiçá.</li>
+            <li>d) Assaz.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>9.</strong> Em <em>"Ele agiu <u>com calma</u> durante a crise"</em>, a expressão sublinhada atua como:</p>
+          <ul class="exercise-options">
+            <li>a) Locução adverbial de modo.</li>
+            <li>b) Locução prepositiva de tempo.</li>
+            <li>c) Numeral fracionário.</li>
+            <li>d) Advérbio de intensidade.</li>
+          </ul>
+        </div>
+
+        <div class="exercise-item">
+          <p><strong>10.</strong> Indique a opção na qual a preposição <strong>DE</strong> formou uma <u>contração</u> com pronome demonstrativo:</p>
+          <ul class="exercise-options">
+            <li>a) Aos (a + os).</li>
+            <li>b) Na (em + a).</li>
+            <li>c) Daqui (de + aqui).</li>
+            <li>d) Daquilo (de + aquilo).</li>
+          </ul>
+        </div>
+
+        <!-- BOTÃO SANFONA DO GABARITO -->
+        <button class="accordion-btn" onclick="toggleAccordion('gabarito-ans', 'icon-gab')">
+          <span>Ver Gabarito Comentado (10 Questões)</span>
+          <span id="icon-gab">▼</span>
+        </button>
+
+        <div id="gabarito-ans" class="accordion-content">
+          <div class="gabarito-item">
+            <strong>1. Resposta: B</strong> — "Bastante" está intensificando o sentido do verbo "estudaram", funcionando como advérbio de intensidade (invariável).
+          </div>
+          <div class="gabarito-item">
+            <strong>2. Resposta: C</strong> — "A fim de" é um conjunto de palavras que possui valor de preposição (locução prepositiva). "Com certeza" é locução adverbial.
+          </div>
+          <div class="gabarito-item">
+            <strong>3. Resposta: C</strong> — "Ontem" indica a circunstância de tempo em que a ação de chegar ocorreu.
+          </div>
+          <div class="gabarito-item">
+            <strong>4. Resposta: B</strong> — Conforme exposto na aula, o advérbio "tampouco" equivale semanticamente a "também não".
+          </div>
+          <div class="gabarito-item">
+            <strong>5. Resposta: B</strong> — Trata-se de uma combinação (prep. A + art. O = AO), pois não houve perda fonética nem alteração na estrutura das palavras.
+          </div>
+          <div class="gabarito-item">
+            <strong>6. Resposta: B</strong> — "Quinto" indica a posição/ordem em uma sequência, sendo um numeral ordinal.
+          </div>
+          <div class="gabarito-item">
+            <strong>7. Resposta: B</strong> — Quinquênio é o numeral coletivo referente ao período exato de 5 anos.
+          </div>
+          <div class="gabarito-item">
+            <strong>8. Resposta: C</strong> — "Quiçá" é um advérbio de dúvida (sinônimo de *talvez* ou *porventura*).
+          </div>
+          <div class="gabarito-item">
+            <strong>9. Resposta: A</strong> — "Com calma" é uma locução adverbial (prep + substantivo) que equivale ao advérbio de modo "calmamente".
+          </div>
+          <div class="gabarito-item">
+            <strong>10. Resposta: D</strong> — "Daquilo" é resultado da contração da preposição DE com o pronome demonstrativo AQUILO (de + aquilo = aquilo).
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link da aula copiado para a área de transferência!');
+      }
+    }
+
+    function toggleAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+
+      if (content.classList.contains('active')) {
+        content.classList.remove('active');
+        icon.textContent = '▼';
+      } else {
+        content.classList.add('active');
+        icon.textContent = '▲';
+      }
+    }
+  </script>
+
+</body>
+</html>
