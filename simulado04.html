@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulado 04 - Português Estratégico | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1a365d;
+      --accent-color: #2b6cb0;
+      --green-action: #16a34a;
+      --bg-light: #f4f6f8;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #2d3748;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO SIMULADO */
+    .simulado-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .simulado-header {
+      border-bottom: 2px solid var(--brand-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .simulado-header h2 {
+      color: var(--brand-color);
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .simulado-header p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* CARTÃO DA QUESTÃO */
+    .quiz-card {
+      background: #fafafa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .question-number {
+      font-weight: bold;
+      color: var(--accent-color);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .question-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* BOTÕES DE RESPOSTA (VERTICALIZADOS) */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .btn-option {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 2px solid #cbd5e0;
+      background: #ffffff;
+      color: #4a5568;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      line-height: 1.4;
+      width: 100%;
+    }
+
+    .btn-option:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-option.selected {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    /* CAIXA DE FEEDBACK / EXPLICAÇÃO */
+    .feedback-box {
+      display: none;
+      padding: 14px;
+      border-radius: 6px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-box.correct {
+      background-color: #f0fff4;
+      border-left: 4px solid var(--green-action);
+      color: #14532d;
+    }
+
+    .feedback-box.incorrect {
+      background-color: #fff5f5;
+      border-left: 4px solid #dc2626;
+      color: #7f1d1d;
+    }
+
+    .feedback-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    /* BLOCO DE CONCLUSÃO DO SIMULADO */
+    .simulado-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px dashed var(--border-color);
+      text-align: center;
+    }
+
+    .simulado-footer p {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          <strong>Noções de Língua Portuguesa</strong>, de William Queiroz, é o melhor e-book para estudar de forma prática e objetiva. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar este simulado</span>
+      </button>
+    </div>
+
+    <div class="content-divider">
+      <span>SIMULADO ⤵</span>
+    </div>
+
+    <main class="simulado-area">
+
+      <div class="simulado-header">
+        <h2>Simulado 04</h2>
+        <p>Nível: Médio.<br>
+        Analise atentamente as proposições abaixo e responda com base na norma-padrão.</p>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <span class="question-number">Questão 01</span>
+        <p class="question-text">
+          Julgue o item a seguir.<br><br>
+          Na frase <i>"Ele chorou rios de lágrimas ao receber a notícia"</i>, empregou-se o recurso expressivo denominado <b>hipérbole</b> para enfatizar a intensidade da ação.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q1', 'CERTO', 'CERTO', 'A hipérbole consiste no uso intencional de expressivo exagero para conferir maior destaque ao fato relato (\'rios de lágrimas\').')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q1', 'ERRADO', 'CERTO', 'A hipérbole consiste no uso intencional de expressivo exagero para conferir maior destaque ao fato relato (\'rios de lágrimas\').')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <span class="question-number">Questão 02</span>
+        <p class="question-text">
+          Assinale a opção em que a construção frasal exemplifica a figura de linguagem conhecida como <b>metonímia</b>:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q2', 'A', 'B', 'A tique-taque é um exemplo de onomatopeia.')">A) O tique-taque do relógio perturbava o silêncio da noite.</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'B', 'B', 'Substituiu-se o autor pela obra (\'Machado de Assis\' pelos seus livros), o que caracteriza a metonímia.')">B) Costumava ler Machado de Assis antes de dormir.</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'C', 'B', 'Trata-se de uma anáfora (repetição da palavra \'que\').')">C) Que noite fria, que vento forte, que solidão profunda!</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'D', 'B', 'Trata-se de um eufemismo (suavização de um fato desagradável).')">D) O ancião finalmente descansou no Senhor.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <span class="question-number">Questão 03</span>
+        <p class="question-text">
+          Julgue o item subsequente.<br><br>
+          A oração <i>"Aconselhei-o a que estudasse mais para as avaliações"</i> atende perfeitamente às exigências da regência do verbo aconselhar no padrão culto.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q3', 'CERTO', 'CERTO', 'O verbo aconselhar admite regência bitransitiva: quem aconselha, aconselha algo (oração subordinada) a alguém (pronome \'o\').')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q3', 'ERRADO', 'CERTO', 'O verbo aconselhar admite regência bitransitiva: quem aconselha, aconselha algo (oração subordinada) a alguém (pronome \'o\').')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <span class="question-number">Questão 04</span>
+        <p class="question-text">
+          Assinale a alternativa na qual o emprego da vírgula é obrigatório segundo a norma-padrão:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q4', 'A', 'C', 'Adverbial curto anteposto tem vírgula facultativa.')">A) Ontem à noite os relatórios foram aprovados.</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'B', 'C', 'Vírgula proibida entre sujeito e verbo.')">B) Os alunos de tecnologia, organizaram um grande evento.</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'C', 'C', 'A isolação do vocativo é sempre obrigatória na norma escrita.')">C) Senhoras e senhores, apresento-lhes o plano diretor.</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'D', 'C', 'Não se separa o verbo do complemento verbal por vírgula.')">D) O diretor confirmou, a entrega dos equipamentos.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <span class="question-number">Questão 05</span>
+        <p class="question-text">
+          Julgue o item a seguir.<br><br>
+          Em <i>"Houve momentos em que pensamos em desistir"</i>, a flexão no singular do verbo destacar justifica-se por se tratar de forma verbal impessoal.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q5', 'CERTO', 'CERTO', 'O verbo \'haver\' no sentido de existir ou ocorrer é impessoal, devendo permanecer obrigatoriamente na 3ª pessoa do singular.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q5', 'ERRADO', 'CERTO', 'O verbo \'haver\' no sentido de existir ou ocorrer é impessoal, devendo permanecer obrigatoriamente na 3ª pessoa do singular.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q6">
+        <span class="question-number">Questão 06</span>
+        <p class="question-text">
+          Assinale a alternativa cuja concordância verbal contraria as regras formais do sistema gramatical:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q6', 'A', 'A', 'Erro! O correto é \'Haviam de existir\' ou \'Deveria haver\', pois o verbo principal \'haver\' impessoal transmite a impessoalidade ao auxiliar.')">A) Deviam haver muitas opções de escolha no catálogo.</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'B', 'A', 'Concordância correta com o termo quantitativo/fracionário.')">B) A maioria dos servidores compareceu à assembleia.</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'C', 'A', 'Concordância correta do verbo auxiliar com o sujeito plural.')">C) Podem ocorrer novas falhas no sistema operacional.</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'D', 'A', 'Concordância correta com a expressão de porcentagem plural.')">D) Cerca de vinte por cento dos entrevistados responderam sim.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q7">
+        <span class="question-number">Questão 07</span>
+        <p class="question-text">
+          Julgue a afirmação sintática a seguir.<br><br>
+          Na construção <i>"Tudo que tínhamos acumulado perdeu-se na enchente"</i>, a colocação pronominal em "perdeu-se" está inadequada, pois o pronome "Tudo" atrai obrigatoriamente a próclise.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q7', 'CERTO', 'ERRADO', 'O pronome indefinido \'Tudo\' atrai o pronome da oração a que pertence. Como está na oração principal distanciado por oração adjetiva intercalada, a ênclise ao verbo principal da oração seguinte é plenamente aceita.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q7', 'ERRADO', 'ERRADO', 'O pronome indefinido \'Tudo\' atrai o pronome da oração a que pertence. Como está na oração principal distanciado por oração adjetiva intercalada, a ênclise ao verbo principal da oração seguinte é plenamente aceita.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q8">
+        <span class="question-number">Questão 08</span>
+        <p class="question-text">
+          Assinale a alternativa que apresenta a devida e correta aplicação do acento indicativo de crase:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q8', 'A', 'D', 'Antes de pronomes possessivos masculinos não há crase.')">A) O documento foi entregue à seu respectivo advogado.</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'B', 'D', 'Expressões formadas por palavras repetidas não levam crase.')">B) Ficamos cara à cara com o responsável pelo projeto.</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'C', 'D', 'Antes do pronome demonstrativo \'esta\' não há artigo, inviabilizando a crase.')">C) Refiro-me à esta diretriz apresentada recentemente.</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'D', 'D', 'A locução adjetiva/adverbial de base feminina \'à moda de\' oculta exige crase (\'à moda de Machado\').')">D) O autor escreveu uma obra à Machado de Assis.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q9">
+        <span class="question-number">Questão 09</span>
+        <p class="question-text">
+          Julgue o item a seguir.<br><br>
+          Os vocábulos <b>juízes</b>, <b>saída</b> e <b>egoísmo</b> recebem acento gráfico exatamente pela mesma regra ortográfica que justifica a acentuação de <b>raízes</b>.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q9', 'CERTO', 'CERTO', 'Todas são acentuadas pela regra do hiato, em que as vogais \'i\' ou \'u\' tônicas formam hiato com a vogal anterior, estando sozinhas na sílaba ou seguidas de \'s\'.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q9', 'ERRADO', 'CERTO', 'Todas são acentuadas pela regra do hiato, em que as vogais \'i\' ou \'u\' tônicas formam hiato com a vogal anterior, estando sozinhas na sílaba ou seguidas de \'s\'.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q10">
+        <span class="question-number">Questão 10</span>
+        <p class="question-text">
+          Assinale a opção em que a classe gramatical da palavra em destaque está INCORRETAMENTE identificada:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q10', 'A', 'B', '\'Bastante\' modifica o verbo \'estudaram\', funcionando como advérbio de intensidade.')">A) Os alunos estudaram <u>bastante</u> para a prova final. (Advérbio)</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'B', 'B', 'Erro! \'Certo\' antecede o substantivo \'dia\' agindo como pronome indefinido, e não como adjetivo.')">B) Em <u>certo</u> dia, recebemos a confirmação desejada. (Adjetivo)</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'C', 'B', 'Identificação correta (funciona como substantivo antecedido de artigo).')">C) O <u>porquê</u> da decisão não foi esclarecido no edital. (Substantivo)</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'D', 'B', 'Identificação correta (liga as orações com valor de oposição).')">D) Esforçou-se muito, <u>porém</u> não obteve a classificação. (Conjunção)</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q11">
+        <span class="question-number">Questão 11</span>
+        <p class="question-text">
+          Julgue a proposição a seguir.<br><br>
+          Na oração <i>"Assistimos a um documentário instrutivo"</i>, a omissão da preposição "a" acarretaria alteração de sentido e prejuízo para a correção gramatical da frase.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q11', 'CERTO', 'CERTO', 'O verbo \'assistir\' no sentido de ver/presenciar exige preposição \'a\'. Sem ela, assume o sentido de dar assistência/ajudar.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q11', 'ERRADO', 'CERTO', 'O verbo \'assistir\' no sentido de ver/presenciar exige preposição \'a\'. Sem ela, assume o sentido de dar assistência/ajudar.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q12">
+        <span class="question-number">Questão 12</span>
+        <p class="question-text">
+          Assinale a alternativa que apresenta a correta reescrita do período <i>"Não duvido de que ele vencerá"</i> mantendo o padrão culto e o sentido pleno:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q12', 'A', 'C', 'Muda a relação de certeza para uma hipótese com valor concessivo/condicional.')">A) Não duvido caso ele venha a vencer.</button>
+          <button class="btn-option" onclick="checkAnswer('q12', 'B', 'C', 'Altera inteiramente o sentido do período original.')">B) Duvido que ele não venha a vencer o desafio.</button>
+          <button class="btn-option" onclick="checkAnswer('q12', 'C', 'C', 'Substituição perfeitamente equivalente, mantendo o sentido de convicção e a norma gramatical.')">C) Tenho certeza de que a vitória dele ocorrerá.</button>
+          <button class="btn-option" onclick="checkAnswer('q12', 'D', 'C', 'Inverte a ideia original de confiança na vitória.')">D) Não acredito que a vitória seja alcançada por ele.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q13">
+        <span class="question-number">Questão 13</span>
+        <p class="question-text">
+          Julgue a afirmação subsequente.<br><br>
+          Em <i>"Faziam anos que o prédio estava abandonado"</i>, o verbo "fazer" foi empregado em observância integral às regras de concordância da norma-padrão.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q13', 'CERTO', 'ERRADO', 'O verbo \'fazer\' no sentido de tempo decorrido é impessoal e não flexiona no plural. O correto é \'Faz anos\'.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q13', 'ERRADO', 'ERRADO', 'O verbo \'fazer\' no sentido de tempo decorrido é impessoal e não flexiona no plural. O correto é \'Faz anos\'.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q14">
+        <span class="question-number">Questão 14</span>
+        <p class="question-text">
+          Assinale a opção em que a formação do plural do substantivo composto está INCORRETA:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q14', 'A', 'B', 'Formação correta (substantivo + adjetivo: ambos variam).')">A) Segunda-feiras</button>
+          <button class="btn-option" onclick="checkAnswer('q14', 'B', 'B', 'Erro! Em compostos formados por verbo + substantivo, apenas o substantivo vai ao plural: \'Pára-raios\' ou \'Para-raios\'.')">B) Paras-raios</button>
+          <button class="btn-option" onclick="checkAnswer('q14', 'C', 'B', 'Formação correta (substantivo + preposição + substantivo: apenas o 1º varia).')">C) Pés-de-moleque</button>
+          <button class="btn-option" onclick="checkAnswer('q14', 'D', 'B', 'Formação correta (grão/grã ficam invariáveis).')">D) Grã-cruzes</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q15">
+        <span class="question-number">Questão 15</span>
+        <p class="question-text">
+          Julgue o item a seguir.<br><br>
+          Na frase <i>"Comprei o livro que você me indicou"</i>, a palavra "que" classifica-se como pronome relativo e exerce a função sintática de objeto direto na oração subordinada.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q15', 'CERTO', 'CERTO', 'Retoma o antecedente \'livro\' (indicou o livro) e atua como objeto direto do verbo \'indicar\'.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q15', 'ERRADO', 'CERTO', 'Retoma o antecedente \'livro\' (indicou o livro) e atua como objeto direto do verbo \'indicar\'.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q16">
+        <span class="question-number">Questão 16</span>
+        <p class="question-text">
+          Assinale a alternativa que apresenta um desvio de concordância nominal:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q16', 'A', 'A', 'Erro! A palavra \'alerta\' funcionando como advérbio/adjetivo invariável no contexto militar/instrução permanece invariável: \'mantenham-se alerta\'.')">A) Os soldados mantiveram-se alertas durante a operação.</button>
+          <button class="btn-option" onclick="checkAnswer('q16', 'B', 'A', 'Concordância correta do adjetivo anexo com o substantivo.')">B) As cartas enviadas seguiam anexas ao pacote principal.</button>
+          <button class="btn-option" onclick="checkAnswer('q16', 'C', 'A', 'Invariabilidade correta da palavra pseudo.')">C) Aquelas afirmações foram consideradas pseudotracições.</button>
+          <button class="btn-option" onclick="checkAnswer('q16', 'D', 'A', 'Concordância correta do adjetivo com o substantivo a que se refere.')">D) Ela mesma organizou os arquivos da diretoria.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q17">
+        <span class="question-number">Questão 17</span>
+        <p class="question-text">
+          Julgue a proposição subsequente.<br><br>
+          Em <i>"Ao chegar ao escritório, percebeu a ausência dos documentos"</i>, a oração reduzida exprime uma circunstância temporal equivalente a "Quando chegou ao escritório".
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q17', 'CERTO', 'CERTO', 'A estrutura de preposição \'Ao\' + verbo no infinitivo forma uma oração subordinada adverbial temporal reduzida.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q17', 'ERRADO', 'CERTO', 'A estrutura de preposição \'Ao\' + verbo no infinitivo forma uma oração subordinada adverbial temporal reduzida.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q18">
+        <span class="question-number">Questão 18</span>
+        <p class="question-text">
+          Assinale a opção em que a grafia da palavra sublinhada está INCORRETA segundo a norma ortográfica vigente:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q18', 'A', 'C', 'Grafia correta com S (paralisar deriva de paralisia).')">A) É necessário <u>paralisar</u> as obras imediatamente.</button>
+          <button class="btn-option" onclick="checkAnswer('q18', 'B', 'C', 'Grafia correta com Z (analisar deriva de análise, mas categorizar deriva de categoria + izar).')">B) O gestor precisa <u>categorizar</u> os pedidos pendentes.</button>
+          <button class="btn-option" onclick="checkAnswer('q18', 'C', 'C', 'Erro! \'Analisar\' grafa-se com S, pois deriva do substantivo primitivo \'análise\'.')">C) Vamos <u>analizar</u> o resultado dos exames amanhã.</button>
+          <button class="btn-option" onclick="checkAnswer('q18', 'D', 'C', 'Grafia correta com X.')">D) Ele agiu com muita <u>sensatez</u> e cautela no processo.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q19">
+        <span class="question-number">Questão 19</span>
+        <p class="question-text">
+          Julgue o item sintático a seguir.<br><br>
+          Na frase <i>"Trabalhou-se com empenho para obter a aprovação"</i>, a partícula "se" atua como índice de indeterminação do sujeito.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q19', 'CERTO', 'CERTO', 'O verbo \'trabalhar\' é intransitivo no contexto (com preposição antecedendo o advérbio de modo). O \'se\' com verbo intransitivo indetermina o sujeito.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q19', 'ERRADO', 'CERTO', 'O verbo \'trabalhar\' é intransitivo no contexto (com preposição antecedendo o advérbio de modo). O \'se\' com verbo intransitivo indetermina o sujeito.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="quiz-card" id="q20">
+        <span class="question-number">Questão 20</span>
+        <p class="question-text">
+          Assinale a alternativa em que o termo em destaque exerce a função de **agente da passiva**:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q20', 'A', 'B', '\'Pelo professor\' completa o sentido do adjetivo \'admirado\' (Complemento Nominal) no contexto predicais.')">A) O aluno estava muito ansioso <u>pelo resultado</u>.</button>
+          <button class="btn-option" onclick="checkAnswer('q20', 'B', 'B', 'Na oração em voz passiva analítica, o termo introduzido pela preposição \'por\' que pratica a ação é o Agente da Passiva.')">B) A proposta de reforma foi apresentada <u>pelo diretor</u>.</button>
+          <button class="btn-option" onclick="checkAnswer('q20', 'C', 'B', '\'Pela estrada\' é adjunto adverbial de lugar.')">C) O motorista caminhou devagar <u>pela estrada</u> principal.</button>
+          <button class="btn-option" onclick="checkAnswer('q20', 'D', 'B', '\'Por razões de saúde\' é adjunto adverbial de causa.')">D) O servidor ausentou-se <u>por razões de saúde</u>.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <div class="simulado-footer">
+        <p>Parabéns! Você concluiu este simulado. Conclua o próximo.</p>
+        <a href="https://portugues.senebr.com.br/#produtos" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🚀 Quero melhorar o meu desempenho
+        </a>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função de compartilhamento nativo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado para a área de transferência!');
+      }
+    }
+
+    // Função de validação interativa das questões
+    function checkAnswer(questionId, selectedOption, correctOption, explanation) {
+      const card = document.getElementById(questionId);
+      const buttons = card.querySelectorAll('.btn-option');
+      const feedbackBox = card.querySelector('.feedback-box');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.innerText.startsWith(selectedOption)) btn.classList.add('selected');
+      });
+
+      feedbackBox.style.display = 'block';
+      if (selectedOption === correctOption) {
+        feedbackBox.className = 'feedback-box correct';
+        feedbackBox.innerHTML = `<div class="feedback-title">✓ Resposta Correta! (Gabarito: ${correctOption})</div><div><b>Explicação:</b> ${explanation}</div>`;
+      } else {
+        feedbackBox.className = 'feedback-box incorrect';
+        feedbackBox.innerHTML = `<div class="feedback-title">✕ Resposta Incorreta. (Gabarito: ${correctOption})</div><div><b>Explicação:</b> ${explanation}</div>`;
+      }
+    }
+  </script>
+
+</body>
+</html>

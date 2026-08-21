@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulado 01 - Português Estratégico | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1a365d;
+      --accent-color: #2b6cb0;
+      --green-action: #16a34a;
+      --bg-light: #f4f6f8;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #2d3748;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO SIMULADO */
+    .simulado-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .simulado-header {
+      border-bottom: 2px solid var(--brand-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .simulado-header h2 {
+      color: var(--brand-color);
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .simulado-header p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* CARTÃO DA QUESTÃO */
+    .quiz-card {
+      background: #fafafa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .question-number {
+      font-weight: bold;
+      color: var(--accent-color);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .question-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* BOTÕES DE RESPOSTA */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-option {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border: 2px solid #cbd5e0;
+      background: #ffffff;
+      color: #4a5568;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+      text-align: left;
+    }
+
+    .btn-option:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-option.selected {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    /* CAIXA DE FEEDBACK / EXPLICAÇÃO */
+    .feedback-box {
+      display: none;
+      padding: 14px;
+      border-radius: 6px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-box.correct {
+      background-color: #f0fff4;
+      border-left: 4px solid var(--green-action);
+      color: #14532d;
+    }
+
+    .feedback-box.incorrect {
+      background-color: #fff5f5;
+      border-left: 4px solid #dc2626;
+      color: #7f1d1d;
+    }
+
+    .feedback-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    /* BLOCO DE CONCLUSÃO DO SIMULADO */
+    .simulado-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px dashed var(--border-color);
+      text-align: center;
+    }
+
+    .simulado-footer p {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          <strong>Noções de Língua Portuguesa</strong>, de William Queiroz, é o melhor e-book para estudar de forma prática e objetiva. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar este simulado</span>
+      </button>
+    </div>
+
+    <div class="content-divider">
+      <span>SIMULADO ⤵</span>
+    </div>
+
+    <main class="simulado-area">
+
+      <div class="simulado-header">
+        <h2>Simulado 01</h2>
+        <p>Assunto(s): Tópicos variados com questões fáceis no formato CERTO/ERRADO e Múltipla Escolha.<br>
+        Resolva os itens e confira a explicação instantânea.</p>
+      </div>
+
+      <!-- Q1: Concordância Nominal (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q1">
+        <span class="question-number">Questão 01 — Concordância Nominal</span>
+        <p class="question-text">
+          Julgue o item a seguir quanto à concordância nominal.<br><br>
+          Na frase <i>"A candidata enviou a documentação inclusa ao processo e disse: muito obrigada"</i>, o emprego dos termos destacadamente sublinhados atende plenamente às normas gramaticais.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q1', 'CERTO', 'CERTO', 'O adjetivo \'inclusa\' concorda com \'documentação\' e a palavra \'obrigada\' deve concorda em gênero com quem fala (a candidata).')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q1', 'ERRADO', 'CERTO', 'O adjetivo \'inclusa\' concorda com \'documentação\' e a palavra \'obrigada\' deve concorda em gênero com quem fala (a candidata).')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q2: Orações Subordinadas (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q2">
+        <span class="question-number">Questão 02 — Orações Subordinadas</span>
+        <p class="question-text">
+          Assinale a opção em que a oração destacada possui valor de <b>Oração Subordinada Adverbial Causal</b>:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q2', 'A', 'A', 'A locução \'como\' com sentido de \'já que\' / \'visto que\' introduz oração subordinada adverbial causal.')">A) Como não estudou, não passou no teste.</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'B', 'A', 'Trata-se de uma oração subordinada adverbial comparativa.')">B) Ele é forte como um touro.</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'C', 'A', 'Trata-se de uma oração subordinada adverbial final.')">C) Estudou muito para que fosse aprovado.</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'D', 'A', 'Trata-se de uma oração subordinada substantiva subjetiva.')">D) É importante que você estude diariamente.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q3: Orações Subordinadas (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q3">
+        <span class="question-number">Questão 03 — Orações Subordinadas</span>
+        <p class="question-text">
+          Julgue a afirmação sintática a seguir.<br><br>
+          Em <i>"O aluno <b>que estuda diariamente</b> alcança a aprovação"</i>, a oração destacada classifica-se como uma Oração Subordinada Adjetiva Explicativa.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q3', 'CERTO', 'ERRADO', 'Como não está isolada por vírgulas e restringe o sentido do substantivo \'aluno\', trata-se de uma Oração Subordinada Adjetiva Restritiva.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q3', 'ERRADO', 'ERRADO', 'Como não está isolada por vírgulas e restringe o sentido do substantivo \'aluno\', trata-se de uma Oração Subordinada Adjetiva Restritiva.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q4: Concordância Verbal (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q4">
+        <span class="question-number">Questão 04 — Concordância Verbal</span>
+        <p class="question-text">
+          Assinale a alternativa que apresenta a concordância verbal <b>CORRETA</b>:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q4', 'A', 'C', 'O verbo haver no sentido de existir é impessoal e fica no singular: \'Havia muitas pessoas\'.')">A) Havia muitas pessoas na fila do banco.</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'B', 'C', 'O verbo fazer indicando tempo decorrido é impessoal: \'Faz dois anos\'.')">B) Fazem dois anos que não o vejo.</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'C', 'C', 'O verbo concordar deve ir para o plural concordo com o sujeito composto: \'A maioria dos alunos passou / passaram\'. Na frase C, o verbo \'compraram\' concorda corretamente com o núcleo do sujeito \'Os livros\'.')">C) A maioria dos candidatos foi aprovada.</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'D', 'C', 'O verbo precisar com preposição \'de\' fica no singular: \'Precisa-se de técnicos\'.')">D) Precisam-se de novos técnicos no setor.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q5: Tempos Verbais (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q5">
+        <span class="question-number">Questão 05 — Tempos Verbais</span>
+        <p class="question-text">
+          Julgue o item referente ao emprego dos tempos verbais.<br><br>
+          Na frase <i>"Se ele <b>estudar</b> mais, <b>passará</b> no concurso"</i>, as formas verbais destacadas expressam, respectivamente, uma hipótese no futuro do subjuntivo e um fato certo no futuro do presente do indicativo.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q5', 'CERTO', 'CERTO', '\'Estudar\' expressa eventualidade/hipótese no Futuro do Subjuntivo e \'passará\' expressa certeza no Futuro do Presente do Indicativo.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q5', 'ERRADO', 'CERTO', '\'Estudar\' expressa eventualidade/hipótese no Futuro do Subjuntivo e \'passará\' expressa certeza no Futuro do Presente do Indicativo.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q6: Tempos Verbais (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q6">
+        <span class="question-number">Questão 06 — Tempos Verbais</span>
+        <p class="question-text">
+          Na frase <i>"Quando eu cheguei à escola, a aula já <b>havia começado</b>"</i>, a locução verbal indicada expressa uma ação anterior a outra ação passada. Essa ideia corresponde ao tempo verbal:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q6', 'A', 'B', 'O pretérito perfeito indica ação concluída no passado.')">A) Pretérito Perfeito do Indicativo</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'B', 'B', 'O pretérito mais-que-perfeito indica um fato passado anterior a outro fato também já passado.')">B) Pretérito Mais-que-perfeito do Indicativo</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'C', 'B', 'O pretérito imperfeito indica ação duradoura ou contínua no passado.')">C) Pretérito Imperfeito do Indicativo</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'D', 'B', 'O futuro do pretérito indica um fato futuro em relação a outro passado.')">D) Futuro do Pretérito do Indicativo</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q7: Acentuação (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q7">
+        <span class="question-number">Questão 07 — Acentuação Gráfica</span>
+        <p class="question-text">
+          Julgue o item a seguir quanto às regras de acentuação.<br><br>
+          As palavras <b>café</b>, <b>ipê</b> e <b>também</b> são acentuadas ortograficamente seguindo a mesma regra gramatical das oxítonas terminadas em -e e -em.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q7', 'CERTO', 'CERTO', 'Todas as três palavras são oxítonas acentuadas por terminarem em -e e -em.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q7', 'ERRADO', 'CERTO', 'Todas as três palavras são oxítonas acentuadas por terminarem em -e e -em.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q8: Acentuação (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q8">
+        <span class="question-number">Questão 08 — Acentuação Gráfica</span>
+        <p class="question-text">
+          Assinale a alternativa em que TODAS as palavras são acentuadas por serem <b>proparoxítonas</b>:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q8', 'A', 'C', '\'Lápis\' é paroxítona e \'ipê\' é oxítona.')">A) Lápis, médico, ipê.</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'B', 'C', '\'História\' e \'relógio\' são paroxítonas acentuadas por terminarem em ditongo.')">B) História, relógio, água.</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'C', 'C', 'Lógica, rápido e lâmpada possuem a antepenúltima sílaba tônica (proparoxítonas) e todas são acentuadas.')">C) Lógica, rápido, lâmpada.</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'D', 'C', '\'Abaixá-lo\' e \'sofá\' são oxítonas.')">D) Árvore, sofá, fácil.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q9: Período Composto Misto (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q9">
+        <span class="question-number">Questão 09 — Período Composto Misto</span>
+        <p class="question-text">
+          Julgue o item sobre a estrutura do período composto.<br><br>
+          Na frase <i>"O professor entrou na sala, organizou os papéis e disse que iniciaria a aula"</i>, temos um período composto por coordenação e por subordinação (período misto).
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q9', 'CERTO', 'CERTO', 'As duas primeiras orações estão coordenadas entre si (assindética e sindética aditiva), enquanto a última (\'que iniciaria a aula\') é subordinada substantiva objetiva direta.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q9', 'ERRADO', 'CERTO', 'As duas primeiras orações estão coordenadas entre si (assindética e sindética aditiva), enquanto a última (\'que iniciaria a aula\') é subordinada substantiva objetiva direta.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q10: Coesão Lexical (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q10">
+        <span class="question-number">Questão 10 — Coesão Lexical</span>
+        <p class="question-text">
+          Na frase <i>"O <b>cão</b> latia muito na rua; o <b>animal</b> parecia assustado"</i>, o recurso de coesão lexical empregado para retomar o termo "cão" é a:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q10', 'A', 'B', 'Antônimo é uma palavra de sentido oposto.')">A) Antonímia</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'B', 'B', '\'Animal\' tem sentido abrangente (hiperônimo) referente a \'cão\' (hipônimo).')">B) Hiperonímia</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'C', 'B', 'Hipônimo é o termo específico.')">C) Hiponímia</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'D', 'B', 'Parônimo é a palavra com grafia semelhante e sentido diferente.')">D) Paronímia</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q11: Coesão Lexical (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q11">
+        <span class="question-number">Questão 11 — Coesão Lexical</span>
+        <p class="question-text">
+          Julgue o item a seguir.<br><br>
+          Na frase <i>"Comprei um novo <b>carro</b>; o <b>automóvel</b> é super econômico"</i>, a palavra "automóvel" funciona como um sinônimo de "carro", evitando a repetição desnecessária do termo.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q11', 'CERTO', 'CERTO', 'O uso de sinônimos é um recurso de coesão lexical por substituição para manter a fluidez do texto.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q11', 'ERRADO', 'CERTO', 'O uso de sinônimos é um recurso de coesão lexical por substituição para manter a fluidez do texto.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q12: Formação de Palavras (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q12">
+        <span class="question-number">Questão 12 — Formação de Palavras</span>
+        <p class="question-text">
+          Assinale a opção em que o processo de formação do vocábulo está corretamente identificado:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q12', 'A', 'A', '\'Infelizmente\' é formada pelo acréscimo do prefixo in- e do sufixo -mente à palavra feliz.')">A) Infelizmente — Derivação Prefixal e Sufixal</button>
+          <button class="btn-option" onclick="checkAnswer('q12', 'B', 'A', '\'Anoitecer\' é derivação parassintética.')">B) Anoitecer — Derivação Sufixal</button>
+          <button class="btn-option" onclick="checkAnswer('q12', 'C', 'A', '\'Gira-sol\' é composição por justaposição.')">C) Gira-sol — Derivação Regressiva</button>
+          <button class="btn-option" onclick="checkAnswer('q12', 'D', 'A', '\'Embarque\' é derivação regressiva.')">D) Embarque — Derivação Prefixal</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q13: Colocação Pronominal (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q13">
+        <span class="question-number">Questão 13 — Colocação Pronominal</span>
+        <p class="question-text">
+          Julgue o item quanto à colocação do pronome oblíquo átono.<br><br>
+          A frase <i>"<b>Não me fale</b> sobre esse assunto novamente"</i> está em conformidade com a norma-padrão, pois a palavra de sentido negativo "não" atrai o pronome para antes do verbo (próclise).
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q13', 'CERTO', 'CERTO', 'Palavras negativas são fatores atrativos obrigatórios de próclise.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q13', 'ERRADO', 'CERTO', 'Palavras negativas são fatores atrativos obrigatórios de próclise.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q14: Crase (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q14">
+        <span class="question-number">Questão 14 — Uso da Crase</span>
+        <p class="question-text">
+          Assinale a alternativa que preenche <b>CORRETAMENTE</b> a lacuna da frase: <i>"Entreguei o relatório _____ diretora da empresa."</i>
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q14', 'A', 'B', 'Apenas a preposição \'a\' sem artigo.')">A) a</button>
+          <button class="btn-option" onclick="checkAnswer('q14', 'B', 'B', 'Quem entrega, entrega algo A alguém (preposição a) + substantivo feminino determinado (artigo a) = à.')">B) à</button>
+          <button class="btn-option" onclick="checkAnswer('q14', 'C', 'B', '\'Há\' é do verbo haver indicando tempo decorrido.')">C) há</button>
+          <button class="btn-option" onclick="checkAnswer('q14', 'D', 'B', 'Uso do acento grave no sentido oposto incorreto.')">D) á</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q15: Hífen (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q15">
+        <span class="question-number">Questão 15 — Uso do Hífen</span>
+        <p class="question-text">
+          Julgue o item quanto às regras do Novo Acordo Ortográfico.<br><br>
+          A palavra <b>micro-ondas</b> é grafada com hífen porque o prefixo (micro-) termina com a mesma vogal que inicia o segundo elemento (-ondas).
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q15', 'CERTO', 'CERTO', 'Vogais iguais se separam com hífen (micro-ondas, anti-inflamatório).')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q15', 'ERRADO', 'CERTO', 'Vogais iguais se separam com hífen (micro-ondas, anti-inflamatório).')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q16: Tipos de Sujeito (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q16">
+        <span class="question-number">Questão 16 — Tipos de Sujeito</span>
+        <p class="question-text">
+          Na frase <i>"Choveu muito durante a noite inteira"</i>, a oração apresenta:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q16', 'A', 'C', 'Não há sujeito composto nem oculto.')">A) Sujeito Simples</button>
+          <button class="btn-option" onclick="checkAnswer('q16', 'B', 'C', 'O verbo chover indica fenômeno da natureza.')">B) Sujeito Indeterminado</button>
+          <button class="btn-option" onclick="checkAnswer('q16', 'C', 'C', 'Verbos que indicam fenômenos da natureza em sentido literal formam orações sem sujeito.')">C) Oração sem sujeito (sujeito inexistente)</button>
+          <button class="btn-option" onclick="checkAnswer('q16', 'D', 'C', 'Sujeito oculto só ocorre quando identificável pela desinência.')">D) Sujeito Oculto (Desinencial)</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q17: Tipos de Predicado (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q17">
+        <span class="question-number">Questão 17 — Tipos de Predicado</span>
+        <p class="question-text">
+          Julgue o item a seguir.<br><br>
+          Na frase <i>"O aluno chegou <b>cansado</b> à aula"</i>, o predicado classifica-se como <b>predicado verbo-nominal</b>, pois contém um verbo de ação (chegou) e um predicativo do sujeito (cansado).
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q17', 'CERTO', 'CERTO', 'O predicado verbo-nominal possui dois núcleos: um verbo significativo/ação (chegou) e um nome/característica (cansado).')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q17', 'ERRADO', 'CERTO', 'O predicado verbo-nominal possui dois núcleos: um verbo significativo/ação (chegou) e um nome/característica (cansado).')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q18: Plural de Palavras Compostas (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q18">
+        <span class="question-number">Questão 18 — Plural dos Compostos</span>
+        <p class="question-text">
+          Assinale a opção em que o plural do substantivo composto está grafado <b>CORRETAMENTE</b>:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q18', 'A', 'B', 'O correto é guardas-civis (substantivo + adjetivo: ambos variam).')">A) Guarda-civis</button>
+          <button class="btn-option" onclick="checkAnswer('q18', 'B', 'B', 'Composto por verbo (couve/verbo não, aqui substantivo+substantivo) ou regido por preposição: em \'pão de ló\', apenas o primeiro varia -> pães de ló.')">B) Pães de ló</button>
+          <button class="btn-option" onclick="checkAnswer('q18', 'C', 'B', 'O correto é segundas-feiras (ambos variam).')">C) Segunda-feiras</button>
+          <button class="btn-option" onclick="checkAnswer('q18', 'D', 'B', 'O correto é vaga-lumes (verbo + substantivo: apenas o segundo varia).')">D) Vagas-lumes</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q19: Advérbio vs Pronome Indefinido (CERTO/ERRADO) -->
+      <div class="quiz-card" id="q19">
+        <span class="question-number">Questão 19 — Advérbio vs Pronome Indefinido</span>
+        <p class="question-text">
+          Julgue a classificação morfológica do termo em destaque no item a seguir.<br><br>
+          Na frase <i>"Eles estudaram <b>muito</b> para a prova"</i>, a palavra "muito" é um <b>advérbio de intensidade</b> e, por ser uma classe invariável, não vai para o plural.
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q19', 'CERTO', 'CERTO', '\'Muito\' modifica o verbo \'estudaram\', sendo um advérbio invariável. Se modificasse um substantivo (ex: \'muitos livros\'), seria pronome indefinido.')">CERTO</button>
+          <button class="btn-option" onclick="checkAnswer('q19', 'ERRADO', 'CERTO', '\'Muito\' modifica o verbo \'estudaram\', sendo um advérbio invariável. Se modificasse um substantivo (ex: \'muitos livros\'), seria pronome indefinido.')">ERRADO</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q20: Pronome Relativo vs Conjunção Integrante (MÚLTIPLA ESCOLHA) -->
+      <div class="quiz-card" id="q20">
+        <span class="question-number">Questão 20 — Pronome Relativo vs Conjunção Integrante</span>
+        <p class="question-text">
+          Assinale a opção em que a palavra "QUE" atua como <b>Pronome Relativo</b>:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q20', 'A', 'B', 'Trata-se de Conjunção Integrante (Sabe \'isso\').')">A) Sei que você foi aprovado.</button>
+          <button class="btn-option" onclick="checkAnswer('q20', 'B', 'B', '\'Que\' retoma o substantivo antecedente \'livro\' (O livro o qual comprei).')">B) O livro que comprei é excelente.</button>
+          <button class="btn-option" onclick="checkAnswer('q20', 'C', 'B', 'Trata-se de Conjunção Integrante (É necessário \'isso\').')">C) É necessário que todos colaborem.</button>
+          <button class="btn-option" onclick="checkAnswer('q20', 'D', 'B', 'Trata-se de Conjunção Integrante (Desejo \'isso\').')">D) Penso que você está certo.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- BLOCO DE FINALIZAÇÃO E CHAMADA DE AÇÃO -->
+      <div class="simulado-footer">
+        <p>Parabéns! Você concluiu este simulado. Conclua o próximo.</p>
+        <a href="https://portugues.senebr.com.br/#produtos" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🚀 Quero melhorar o meu desempenho
+        </a>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função de compartilhamento nativo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado para a área de transferência!');
+      }
+    }
+
+    // Função de validação interativa das questões
+    function checkAnswer(questionId, selectedOption, correctOption, explanation) {
+      const card = document.getElementById(questionId);
+      const buttons = card.querySelectorAll('.btn-option');
+      const feedbackBox = card.querySelector('.feedback-box');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.innerText.startsWith(selectedOption)) btn.classList.add('selected');
+      });
+
+      feedbackBox.style.display = 'block';
+      if (selectedOption === correctOption) {
+        feedbackBox.className = 'feedback-box correct';
+        feedbackBox.innerHTML = `<div class="feedback-title">✓ Resposta Correta! (Gabarito: ${correctOption})</div><div><b>Explicação:</b> ${explanation}</div>`;
+      } else {
+        feedbackBox.className = 'feedback-box incorrect';
+        feedbackBox.innerHTML = `<div class="feedback-title">✕ Resposta Incorreta. (Gabarito: ${correctOption})</div><div><b>Explicação:</b> ${explanation}</div>`;
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulado Especial da Semana - Português Estratégico | Prof. William Queiroz</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --brand-color: #1a365d;
+      --accent-color: #2b6cb0;
+      --green-action: #16a34a;
+      --bg-light: #f4f6f8;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --text-dark: #2d3748;
+      --text-muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 16px 12px;
+    }
+
+    /* CABEÇALHO */
+    .header-brand {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .header-brand h1 {
+      font-size: 1.55rem;
+      color: var(--primary-color);
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .header-brand p {
+      font-size: 0.98rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    /* CAIXAS PROMOCIONAIS */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .promo-box {
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .promo-box p {
+      font-size: 0.82rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .promo-ebook {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .promo-course {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .promo-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 11px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      transition: transform 0.1s, opacity 0.2s;
+    }
+
+    .promo-btn:active {
+      transform: scale(0.99);
+    }
+
+    .btn-ebook {
+      background: linear-gradient(135deg, var(--brand-color), var(--accent-color));
+    }
+
+    .btn-course {
+      background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    /* BOTÃO DE COMPARTILHAMENTO */
+    .share-container {
+      margin-bottom: 18px;
+    }
+
+    .btn-share {
+      background-color: #ffffff;
+      color: var(--brand-color);
+      border: 1px solid var(--accent-color);
+      padding: 12px 14px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-share:active {
+      transform: scale(0.99);
+      background-color: #eff6ff;
+    }
+
+    /* DIVISOR DE CONTEÚDO */
+    .content-divider {
+      text-align: center;
+      margin-top: 22px;
+      margin-bottom: 16px;
+    }
+
+    .content-divider span {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-color);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ÁREA DO SIMULADO */
+    .simulado-area {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .simulado-header {
+      border-bottom: 2px solid var(--brand-color);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .simulado-header h2 {
+      color: var(--brand-color);
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+
+    .simulado-header p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* CARTÃO DA QUESTÃO */
+    .quiz-card {
+      background: #fafafa;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .question-number {
+      font-weight: bold;
+      color: var(--accent-color);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .question-text {
+      font-size: 0.98rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* BOTÕES DE RESPOSTA */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .btn-option {
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 2px solid #cbd5e0;
+      background: #ffffff;
+      color: #4a5568;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      line-height: 1.4;
+    }
+
+    .btn-option:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-option.selected {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+
+    /* CAIXA DE FEEDBACK / EXPLICAÇÃO */
+    .feedback-box {
+      display: none;
+      padding: 14px;
+      border-radius: 6px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-box.correct {
+      background-color: #f0fff4;
+      border-left: 4px solid var(--green-action);
+      color: #14532d;
+    }
+
+    .feedback-box.incorrect {
+      background-color: #fff5f5;
+      border-left: 4px solid #dc2626;
+      color: #7f1d1d;
+    }
+
+    .feedback-title {
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    /* BLOCO DE CONCLUSÃO DO SIMULADO */
+    .simulado-footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px dashed var(--border-color);
+      text-align: center;
+    }
+
+    .simulado-footer p {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header-brand">
+      <h1>Professor William Queiroz</h1>
+      <p>Português Estratégico</p>
+    </header>
+
+    <section class="promo-section">
+      <div class="promo-box promo-ebook">
+        <p>
+          <strong>Noções de Língua Portuguesa</strong>, de William Queiroz, é o melhor e-book para estudar de forma prática e objetiva. Adquira a obra completa com todos os tópicos essenciais cobrados nos principais concursos do país por apenas <strong>R$ 9,90</strong>.
+        </p>
+        <a href="https://go.hotmart.com/O94195857S?dp=1" class="promo-btn btn-ebook" target="_blank" rel="noopener">
+          📖 Adquirir E-book Completo por R$ 9,90
+        </a>
+      </div>
+
+      <div class="promo-box promo-course">
+        <p>
+          Para aprender com a melhor didática do Brasil, acesse o curso <strong>Português Estratégico</strong>: são 13 horas de conteúdo distribuídas em 22 videoaulas completas. <strong>Bônus exclusivo:</strong> uma aula prática de redação com modelo facilitado para você estruturar qualquer tema.
+        </p>
+        <a href="https://go.hotmart.com/K105536423Y?dp=1" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🎥 Conhecer o Curso Português Estratégico
+        </a>
+      </div>
+    </section>
+
+    <div class="share-container">
+      <button class="btn-share" onclick="sharePage()">
+        <span>📲 Compartilhar este simulado</span>
+      </button>
+    </div>
+
+    <div class="content-divider">
+      <span>SIMULADO ⤵</span>
+    </div>
+
+    <main class="simulado-area">
+
+      <div class="simulado-header">
+        <h2>Simulado Especial da Semana</h2>
+        <p>10 Questões Exclusivas.<br>
+        Responda atentamente e analise a estrutura sintática das orações abaixo.</p>
+      </div>
+
+      <!-- Q1 (Tipos de Sujeito - Fácil) -->
+      <div class="quiz-card" id="q1">
+        <span class="question-number">Questão 01</span>
+        <p class="question-text">
+          Analise a oração a seguir: <i>"Choveu muito durante a madrugada inteira na cidade."</i><br><br>
+          A respeito dessa oração, assinale a opção correta:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q1', 'A', 'C', 'Na frase A, o sujeito não é oculto, a oração não possui sujeito.')">A) O sujeito é oculto e pode ser determinado pelo contexto.</button>
+          <button class="btn-option" onclick="checkAnswer('q1', 'B', 'C', 'O termo \'a madrugada inteira\' é adjunto adverbial de tempo, não sujeito.')">B) O termo "a madrugada inteira" funciona como núcleo do sujeito.</button>
+          <button class="btn-option" onclick="checkAnswer('q1', 'C', 'C', 'Certo! Verbos que exprimem fenômenos da natureza em sentido literal formam orações sem sujeito (sujeito inexistente).')">C) Trata-se de uma oração sem sujeito, pois o verbo exprime fenômeno da natureza em sentido literal.</button>
+          <button class="btn-option" onclick="checkAnswer('q1', 'D', 'C', 'O sujeito não é indeterminado, mas sim inexistente.')">D) O sujeito é indeterminado, visto que não se pode identificar quem praticou a ação.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q2 (Tipos de Sujeito - Média) -->
+      <div class="quiz-card" id="q2">
+        <span class="question-number">Questão 02</span>
+        <p class="question-text">
+          Considere as seguintes orações:<br>
+          I. <i>"Disseram que haveria novo concurso no próximo ano."</i><br>
+          II. <i>"Alugam-se salas comerciais no centro da cidade."</i><br><br>
+          Assinale a alternativa que classifica correta e respectivamente a estrutura de sujeito das orações I e II:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q2', 'A', 'B', 'A oração II possui sujeito paciente (\'salas comerciais\'), não indeterminado.')">A) Indeterminado / Indeterminado</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'B', 'B', 'Certo! Na oração I, o verbo na 3ª pessoa do plural sem antecedente indetermina o sujeito. Na oração II, a presença da partícula apassivadora \'se\' com VTD estabelece sujeito simples paciente (\'salas comerciais\').')">B) Indeterminado / Simples</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'C', 'B', 'A oração I tem sujeito indeterminado, não oculto.')">C) Oculto / Simples</button>
+          <button class="btn-option" onclick="checkAnswer('q2', 'D', 'B', 'A oração I não é sem sujeito, e a II tem sujeito determinado.')">D) Oração sem sujeito / Indeterminado</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q3 (Tipos de Sujeito - Difícil) -->
+      <div class="quiz-card" id="q3">
+        <span class="question-number">Questão 03</span>
+        <p class="question-text">
+          Assinale a alternativa em que a oração apresentada possui **sujeito indeterminado**:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q3', 'A', 'C', 'Em A, temos Oração Sem Sujeito devido ao verbo \'haver\' no sentido de existir.')">A) Havia muitos candidatos aguardando a abertura dos portões.</button>
+          <button class="btn-option" onclick="checkAnswer('q3', 'B', 'C', 'Em B, temos Sujeito Simples Oracional (\'que os alunos chegassem atrasados\').')">B) Convinha que os alunos chegassem atrasados ao recinto.</button>
+          <button class="btn-option" onclick="checkAnswer('q3', 'C', 'C', 'Certo! Verbo Transitivo Indireto (\'precisar de\') + partícula \'se\' (índice de indeterminação do sujeito) gera Sujeito Indeterminado.')">C) Precisa-se de novos especialistas em auditoria técnica.</button>
+          <button class="btn-option" onclick="checkAnswer('q3', 'D', 'C', 'Em D, \'as providências cabíveis\' é o sujeito paciente (voz passiva sintética).')">D) Tomaram-se as providências cabíveis logo após a reunião.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q4 (Tipos de Predicado - Fácil) -->
+      <div class="quiz-card" id="q4">
+        <span class="question-number">Questão 04</span>
+        <p class="question-text">
+          Na frase <i>"Os alunos permaneceram calados durante toda a explicação"</i>, o predicado classifica-se sintaticamente como:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q4', 'A', 'B', 'O verbo \'permanecer\' atua como verbo de ligação, indicando estado.')">A) Predicado Verbal</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'B', 'B', 'Certo! Apresenta um verbo de ligação (\'permaneceram\') e um predicativo do sujeito (\'calados\'). O núcleo do predicado é o nome.')">B) Predicado Nominal</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'C', 'B', 'Não há verbo nocional/significativo para constituir predicado verbo-nominal.')">C) Predicado Verbo-Nominal</button>
+          <button class="btn-option" onclick="checkAnswer('q4', 'D', 'B', 'Termo inexistente na nomenclatura gramatical padrão.')">D) Predicado Adverbial</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q5 (Tipos de Predicado - Média) -->
+      <div class="quiz-card" id="q5">
+        <span class="question-number">Questão 05</span>
+        <p class="question-text">
+          Analise o termo e o tipo de predicado na oração: <i>"Os julgadores consideraram a proposta inovadora."</i><br><br>
+          A classificação correta do predicado e de seu respectivo núcleo ou núcleos é:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q5', 'A', 'C', 'O verbo \'considerar\' é nocional; o predicado não é apenas nominal.')">A) Predicado nominal, cujo núcleo é o adjetivo "inovadora".</button>
+          <button class="btn-option" onclick="checkAnswer('q5', 'B', 'C', 'Há um predicativo do objeto (\'inovadora\'), tornando o predicado verbo-nominal.')">B) Predicado verbal, cujo núcleo é a forma verbal "consideraram".</button>
+          <button class="btn-option" onclick="checkAnswer('q5', 'C', 'C', 'Certo! O predicado é verbo-nominal porque possui dois núcleos: um verbo nocional (\'consideraram\') e um predicativo do objeto (\'inovadora\').')">C) Predicado verbo-nominal, cujos núcleos são "consideraram" e "inovadora".</button>
+          <button class="btn-option" onclick="checkAnswer('q5', 'D', 'C', 'O termo \'a proposta\' é objeto direto, não núcleo do predicado.')">D) Predicado verbo-nominal, cujos núcleos são "consideraram" e "a proposta".</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q6 (Tipos de Predicado - Difícil) -->
+      <div class="quiz-card" id="q6">
+        <span class="question-number">Questão 06</span>
+        <p class="question-text">
+          Assinale a alternativa que apresenta um **Predicado Verbo-Nominal**:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q6', 'A', 'D', 'Em A, \'permaneceram\' é verbo de ligação e \'atentos\' predicativo; o predicado é NOMINAL.')">A) Os candidatos permaneceram atentos durante toda a prova.</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'B', 'D', 'Em B, o verbo \'correram\' é intagrável e acompanhado de adjunto adverbial de lugar; o predicado é VERBAL.')">B) Os atletas correram rapidamente para a linha de chegada.</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'C', 'D', 'Em C, o verbo \'foi\' é de ligação e \'elogiada\' é predicativo; o predicado é NOMINAL.')">C) A apresentação do projeto foi elogiada pelos diretores.</button>
+          <button class="btn-option" onclick="checkAnswer('q6', 'D', 'D', 'Certo! Temos um verbo de ação/nocional (\'chegaram\') + um estado/predicativo do sujeito (\'cansados\'). Trata-se de predicado VERBO-NOMINAL.')">D) Os manifestantes chegaram exaustos ao final da caminhada.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q7 (Termos Integrantes - Média) -->
+      <div class="quiz-card" id="q7">
+        <span class="question-number">Questão 07</span>
+        <p class="question-text">
+          Em <i>"A aprovação do projeto dependia do parecer favorável do relator"</i>, o segmento sublinhado <u>"do parecer favorável do relator"</u> exerce a função sintática de:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q7', 'A', 'A', 'Certo! Quem depende, depende DE algo. Trata-se de complemento exigido por verbo transitivo indireto (\'depender\'), funcionando como Objeto Indireto.')">A) Objeto Indireto</button>
+          <button class="btn-option" onclick="checkAnswer('q7', 'B', 'A', 'Não se trata de complemento nominal, pois complementa o verbo \'dependia\'.')">B) Complemento Nominal</button>
+          <button class="btn-option" onclick="checkAnswer('q7', 'C', 'A', 'O termo é obrigatório para o sentido do verbo, não um adjunto opcional.')">C) Adjunto Adverbial</button>
+          <button class="btn-option" onclick="checkAnswer('q7', 'D', 'A', 'Não há estrutura de voz passiva para configurar agente da passiva.')">D) Agente da Passiva</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q8 (Termos Integrantes - Difícil) -->
+      <div class="quiz-card" id="q8">
+        <span class="question-number">Questão 08</span>
+        <p class="question-text">
+          Considere os termos sublinhados nas frases abaixo:<br>
+          1. <i>"A leitura <u>do texto</u> esclareceu as dúvidas."</i><br>
+          2. <i>"Ele tinha certeza <u>de sua aprovação</u> no exame."</i><br><br>
+          Sintaticamente, os termos sublinhados em 1 e 2 classificam-se, respectivamente, como:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q8', 'A', 'C', 'O termo 1 possui valor paciente (o texto foi lido), sendo Complemento Nominal.')">A) Adjunto Adnominal e Objeto Indireto</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'B', 'C', 'O termo 2 complementa o substantivo abstrato \'certeza\', e não um verbo.')">B) Adjunto Adnominal e Complemento Nominal</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'C', 'C', 'Certo! Em 1, \'do texto\' completa o sentido do substantivo abstrato \'leitura\' com valor paciente (Complemento Nominal). Em 2, \'de sua aprovação\' completa o sentido do substantivo \'certeza\' (Complemento Nominal).')">C) Complemento Nominal e Complemento Nominal</button>
+          <button class="btn-option" onclick="checkAnswer('q8', 'D', 'C', 'Nenhum dos termos complementa verbos para constituir objetos.')">D) Objeto Indireto e Objeto Indireto</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q9 (Termos Integrantes - Difícil) -->
+      <div class="quiz-card" id="q9">
+        <span class="question-number">Questão 09</span>
+        <p class="question-text">
+          Na frase <i>"O documento foi assinado <u>pelo diretor responsável</u> no início da manhã"</i>, a expressão destacada desempenha a função sintática de:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q9', 'A', 'D', 'Não é adjunto adnominal, pois é um termo integrante introduzido por preposição na voz passiva.')">A) Adjunto Adnominal</button>
+          <button class="btn-option" onclick="checkAnswer('q9', 'B', 'D', 'Não completa substantivo nem adjetivo.')">B) Complemento Nominal</button>
+          <button class="btn-option" onclick="checkAnswer('q9', 'C', 'D', 'Não é objeto indireto, pois a oração está na voz passiva analítica.')">C) Objeto Indireto</button>
+          <button class="btn-option" onclick="checkAnswer('q9', 'D', 'D', 'Certo! Na voz passiva analítica (\'foi assinado\'), o elemento preposicionado que pratica a ação verbal é denominado Agente da Passiva.')">D) Agente da Passiva</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- Q10 (Termos Integrantes - Difícil) -->
+      <div class="quiz-card" id="q10">
+        <span class="question-number">Questão 10</span>
+        <p class="question-text">
+          Assinale a opção em que o pronome destacado exerce a função sintática de **Objeto Indireto**:
+        </p>
+        <div class="btn-group">
+          <button class="btn-option" onclick="checkAnswer('q10', 'A', 'B', 'Em A, o pronome \'o\' atua como Objeto Direto.')">A) O diretor <u>o</u> convocou para a reunião extraordinária.</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'B', 'B', 'Certo! O verbo \'obedecer\' é Transitivo Indireto e exige preposição \'a\'. O pronome \'lhe\' substitui \'ao regulamento/a ele\', atuando como Objeto Indireto.')">B) O funcionário não <u>lhe</u> obedeceu durante o expediente.</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'C', 'B', 'Em C, o pronome \'me\' possui valor possessivo (\'roubaram minha carteira\'), atuando como Adjunto Adnominal.')">C) Roubaram-<u>me</u> a carteira na estação de trem.</button>
+          <button class="btn-option" onclick="checkAnswer('q10', 'D', 'B', 'Em D, \'nos\' atua como Objeto Direto do verbo transitivo direto \'esperar\'.')">D) Os organizadores <u>nos</u> esperavam na recepção do evento.</button>
+        </div>
+        <div class="feedback-box"></div>
+      </div>
+
+      <!-- BLOCO DE FINALIZAÇÃO E CHAMADA DE AÇÃO -->
+      <div class="simulado-footer">
+        <p>Parabéns! Você concluiu o Simulado Especial da Semana. Continue praticando!</p>
+        <a href="https://portugues.senebr.com.br/#produtos" class="promo-btn btn-course" target="_blank" rel="noopener">
+          🚀 Quero melhorar o meu desempenho
+        </a>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Função de compartilhamento nativo
+    function sharePage() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado para a área de transferência!');
+      }
+    }
+
+    // Função de validação interativa das questões
+    function checkAnswer(questionId, selectedOption, correctOption, explanation) {
+      const card = document.getElementById(questionId);
+      const buttons = card.querySelectorAll('.btn-option');
+      const feedbackBox = card.querySelector('.feedback-box');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.innerText.startsWith(selectedOption)) btn.classList.add('selected');
+      });
+
+      feedbackBox.style.display = 'block';
+      if (selectedOption === correctOption) {
+        feedbackBox.className = 'feedback-box correct';
+        feedbackBox.innerHTML = `<div class="feedback-title">✓ Resposta Correta! (Gabarito: ${correctOption})</div><div><b>Explicação:</b> ${explanation}</div>`;
+      } else {
+        feedbackBox.className = 'feedback-box incorrect';
+        feedbackBox.innerHTML = `<div class="feedback-title">✕ Resposta Incorreta. (Gabarito: ${correctOption})</div><div><b>Explicação:</b> ${explanation}</div>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
