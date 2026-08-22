@@ -149,6 +149,31 @@
       background-color: #eff6ff;
     }
 
+    /* BOTÃO DOWNLOAD FOLHA DE REDAÇÃO (CINZA DISCRETO) */
+    .btn-download-folha {
+      display: block;
+      width: 100%;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      background-color: #64748b;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-download-folha:hover {
+      background-color: #475569;
+    }
+
+    .btn-download-folha:active {
+      transform: scale(0.99);
+    }
+
     /* DIVISOR DE CONTEÚDO */
     .content-divider {
       text-align: center;
@@ -426,6 +451,11 @@
     <div class="content-divider">
       <span>CONTEÚDO ⤵</span>
     </div>
+
+    <!-- BOTÃO SOLICITADO: BAIXAR FOLHA DE REDAÇÃO (ABAIXO DE 'CONTEÚDO ⤵' E ANTES DA AULA) -->
+    <a href="https://drive.google.com/file/d/1nQu0cq8biM4tUMOPYsT8jO4wp88Uer8X/view?usp=drivesdk" class="btn-download-folha" target="_blank" rel="noopener">
+      📄 Baixe aqui a folha oficial de redação para você treinar
+    </a>
 
     <!-- CONTEÚDO DIDÁTICO -->
     <main class="content-area">
