@@ -45,7 +45,7 @@
             background-color: var(--superficie-clara);
             color: var(--texto-titulo);
             line-height: 1.6;
-            padding-top: 165px;
+            padding-top: 0;
         }
 
         .area-restrita {
@@ -57,20 +57,13 @@
         /* --- TOPO INSTITUCIONAL --- */
         .barra-topo {
             background-color: #ffffff;
-            padding: 15px 0;
+            padding: 15px 0 10px 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 100;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .barra-topo.escondida {
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
         }
 
         .alinhamento-topo {
@@ -106,20 +99,33 @@
             align-items: center;
         }
 
+        /* --- AJUSTE VISUAL DE LINKS DO TOPO --- */
         .menu-navegacao a {
             text-decoration: none;
-            color: var(--texto-titulo);
+            color: var(--azul-principal);
             font-size: 13px;
-            font-weight: 600;
-            margin: 0 12px;
-            transition: color 0.2s ease;
+            font-weight: 700;
+            margin: 0 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .menu-navegacao a:hover {
-            color: var(--marca-ciano);
+            color: var(--marca-ciano-vibrante);
+            background-color: rgba(0, 210, 206, 0.08);
+            text-decoration: underline;
         }
 
-        /* --- NOVA BARRA DE PESQUISA ESTILIZADA --- */
+        .menu-navegacao a:active {
+            transform: translateY(1px);
+        }
+
+        /* --- BARRA DE PESQUISA ESTILIZADA --- */
         .container-busca-topo {
             display: flex;
             align-items: center;
@@ -205,23 +211,21 @@
             color: #ffffff;
         }
 
-        /* --- BOTAO DESAFIO ATUALIZADO --- */
+        /* --- BOTAO DESAFIO --- */
         .chamada-topo.btn-desafio-topo {
-            background-color: #25D366; /* Verde WhatsApp */
-            color: #ffffff; /* Texto Branco */
-            border: 2px solid #FFD700; /* Borda Ouro */
+            background-color: #25D366;
+            color: #ffffff;
+            border: 2px solid #FFD700;
             font-weight: 800;
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
             animation: pulsoDestaqueBotao 2s infinite ease-in-out;
             
-            /* --- NOVO: Borda Preta no Texto (Stroke) --- */
             text-shadow: 
                 -1px -1px 0 #000,  
                  1px -1px 0 #000,
                 -1px  1px 0 #000,
                  1px  1px 0 #000;
             
-            /* Garante alinhamento do ícone amendoado */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -248,113 +252,13 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- SEÇÃO 1: CAPTURA DE LEADS --- */
-        .bloco-captura {
-            background: linear-gradient(135deg, #ffffff 0%, #E2F8F7 100%);
-            padding: 50px 0;
-            border-bottom: 1px solid rgba(0, 210, 206, 0.1);
-        }
-
-        .layout-captura {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .info-captura {
-            width: 100%;
-        }
-
-        .info-captura h2 {
-            font-size: 32px;
-            color: var(--azul-principal);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
-        .info-captura h2 span {
-            color: var(--marca-ciano-vibrante);
-            display: inline-block;
-        }
-
-        .info-captura p {
-            color: var(--texto-titulo);
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .info-captura .detalhe-formulario {
-            font-size: 14px;
-            color: var(--texto-suporte);
-            margin-bottom: 25px;
-            font-weight: 500;
-            display: block;
-        }
-
-        .container-botoes-captura {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .btn-quadrado-captura {
-            width: 140px;
-            height: 140px;
-            border-radius: 12px;
-            border: none;
-            font-family: 'Outfit', sans-serif;
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 15px;
-            line-height: 1.3;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-        }
-
-        .btn-captura-form {
-            background-color: var(--azul-principal);
-            color: #ffffff;
-        }
-
-        .btn-captura-form:hover {
-            background-color: var(--azul-profundo);
-            transform: translateY(-2px);
-        }
-
-        .btn-quadrado-captura i {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .btn-captura-resgate {
-            background-color: var(--marca-ciano);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(0, 210, 206, 0.2);
-        }
-
-        .btn-captura-resgate:hover {
-            background-color: var(--marca-ciano-vibrante);
-            transform: translateY(-2px);
-        }
-
         /* --- SEÇÃO 2: VITRINE PRINCIPAL --- */
         .secao-principal {
-            padding: 60px 0;
+            padding: 30px 0 10px 0;
             display: flex;
             flex-wrap: wrap-reverse;
             align-items: center;
-            scroll-margin-top: 140px;
+            scroll-margin-top: 20px;
         }
 
         .lado-esquerdo {
@@ -392,7 +296,7 @@
         }
 
         .arte-principal {
-            width: 170px;
+            width: 220px;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 12px 24px rgba(13, 27, 42, 0.15);
@@ -428,67 +332,13 @@
             transform: translateY(-2px);
         }
 
-        .molde-foto {
-            width: 330px;
-            height: 330px;
-            background: linear-gradient(45deg, #E2F8F7, #ffffff);
-            border-radius: 24px;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-        }
-
-        .imagem-mestre {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 95%;
-            height: auto;
-        }
-
-        /* --- PAINEL DE VANTAGENS --- */
-        .painel-vantagens {
-            background-color: var(--azul-principal);
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin-top: 20px;
-            box-shadow: 0 15px 35px rgba(11, 34, 64, 0.15);
-        }
-
-        .item-vantagem {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            color: #ffffff;
-            max-width: 280px;
-        }
-
-        .item-vantagem i {
-            font-size: 26px;
-            color: var(--marca-ciano);
-        }
-
-        .texto-vantagem h4 {
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .texto-vantagem p {
-            font-size: 12px;
-            color: #94A3B8;
-        }
-
         /* --- TÍTULOS --- */
         .rotulo-secao {
             text-align: center;
             font-size: 28px;
             font-weight: 800;
             color: var(--azul-principal);
-            margin: 80px 0 40px 0;
+            margin: 30px 0 20px 0;
             position: relative;
         }
 
@@ -498,6 +348,7 @@
             flex-wrap: wrap;
             gap: 24px;
             justify-content: center;
+            margin-bottom: 50px;
         }
 
         .card-multimidia {
@@ -553,13 +404,13 @@
             flex-wrap: wrap;
             gap: 24px;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .box-oferta {
             background: #ffffff;
             border-radius: 16px;
-            padding: 35px 24px;
+            padding: 24px 20px;
             width: calc(33.333% - 16px);
             min-width: 310px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
@@ -568,82 +419,61 @@
             flex-direction: column;
             align-items: center;
             border: 1px solid rgba(0,0,0,0.03);
-            scroll-margin-top: 170px; 
+            scroll-margin-top: 50px; 
             transition: border-color 0.3s ease;
         }
 
+        /* IMAGENS DOS CARDS AMPLIADAS */
         .capa-produto {
             width: 100%;
-            max-width: 200px;
+            max-width: 280px;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 22px;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.09);
+            border-radius: 10px;
+            margin-bottom: 14px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+            object-fit: cover;
         }
 
         .box-oferta h3 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 800;
             color: var(--azul-principal);
-            margin-bottom: 8px;
-            min-height: 44px;
+            margin-bottom: 6px;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .box-oferta .legenda-oferta {
-            font-size: 12px;
-            color: var(--texto-suporte);
-            margin-bottom: 15px;
-        }
-
-        .aviso-direcionamento {
             font-size: 14px;
-            font-weight: 700;
-            color: #E11D48;
-            background-color: #FFF1F2;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border: 1px solid #FFE4E6;
-            margin-top: auto;
+            color: var(--texto-suporte);
             margin-bottom: 10px;
-            line-height: 1.4;
         }
 
         .valor-tag {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--azul-principal);
-            margin-bottom: 15px;
-            margin-top: auto;
-        }
-
-        .valor-subtag {
-            font-size: 11px;
-            color: var(--texto-suporte);
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: -12px;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
+            margin-top: 2px;
         }
 
         .status-vagas {
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: #E11D48;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             margin-top: auto;
         }
 
         .box-oferta .btn-acao-vendas {
             width: 100%;
-            padding: 12px 20px;
-            font-size: 12px;
+            padding: 12px 16px;
+            font-size: 13px;
             margin-top: auto;
         }
 
-        /* --- NOVA ESTRUTURA PARA TRÊS BOTÕES --- */
         .container-tres-botoes {
             display: flex;
             flex-direction: column;
@@ -660,21 +490,8 @@
         }
 
         .container-tres-botoes .btn-acao-vendas {
-            padding: 12px 6px;
-            font-size: 11px; 
-        }
-
-        .grupo-botoes-duplos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            width: 100%;
-            margin-top: auto;
-        }
-
-        .grupo-botoes-duplos .btn-acao-vendas {
-            padding: 12px 8px;
-            font-size: 12px;
+            padding: 12px 10px;
+            font-size: 13px;
         }
 
         .btn-info-secundario {
@@ -687,53 +504,12 @@
             background-color: #CBD5E1 !important;
         }
 
-        /* Destaque sutil para o card de Sócio para casar com a estratégia */
-        .box-oferta-destaque {
-            border: 2px solid var(--marca-ciano) !important;
-            background: linear-gradient(180deg, #ffffff 0%, #F0FDFA 100%) !important;
-        }
-
-        /* --- CARD DE DOWNLOAD FINAL --- */
-        .secao-download-final {
-            margin-bottom: 80px;
-            display: flex;
-            justify-content: center;
-            scroll-margin-top: 170px;
-        }
-
-        .card-download-exclusivo {
-            background: linear-gradient(135deg, #ffffff 0%, #E2F8F7 100%);
-            border: 2px dashed var(--marca-ciano);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 15px 35px rgba(0, 210, 206, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .card-download-exclusivo h3 {
-            font-size: 24px;
-            color: var(--azul-principal);
-            font-weight: 800;
-        }
-
-        .card-download-exclusivo p {
-            font-size: 14px;
-            color: var(--texto-titulo);
-            max-width: 450px;
-        }
-
         /* --- SISTEMA DE COMENTÁRIOS --- */
         .area-comentarios {
             background-color: #ffffff;
             border-radius: 16px;
             padding: 30px;
-            margin-bottom: 80px;
+            margin-bottom: 40px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
@@ -1015,50 +791,14 @@
             text-decoration: none;
         }
 
-        /* --- BOTAO WHATSAPP --- */
-        .wrapper-whatsapp {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 54px;
-            height: 54px;
-            z-index: 1000;
+        /* --- BOTAO WHATSAPP NO RODAPÉ --- */
+        .btn-whatsapp-rodape {
+            color: #25D366 !important;
+            font-weight: 600;
         }
 
-        .icone-whatsapp {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #25D366;
-            color: white;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-            text-decoration: none;
-            z-index: 2;
-        }
-
-        .wrapper-whatsapp::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #25D366;
-            border-radius: 50%;
-            z-index: 1;
-            animation: expansao-pulso 2s infinite ease-in-out;
-        }
-
-        @keyframes expansao-pulso {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(1.5); opacity: 0; }
+        .btn-whatsapp-rodape:hover {
+            color: #ffffff !important;
         }
 
         @media (max-width: 992px) {
@@ -1066,22 +806,93 @@
             .card-multimidia { width: calc(50% - 12px); }
         }
 
+        /* --- AJUSTES EXCLUSIVOS DE ESPAÇAMENTO PARA CELULAR --- */
         @media (max-width: 768px) {
             body {
-                padding-top: 310px;
+                padding-top: 0;
             }
-            .secao-principal { flex-direction: column-reverse; text-align: center; padding-top: 40px; }
-            .lado-esquerdo { padding-right: 0; }
-            .wrapper-apresentacao { flex-direction: column; align-items: center; }
-            .molde-foto { width: 280px; height: 280px; margin-bottom: 30px; border-radius: 16px; }
-            .card-multimidia, .box-oferta { width: 100%; }
-            .alinhamento-topo { flex-direction: column; gap: 12px; text-align: center; }
-            .menu-navegacao { margin: 4px 0; justify-content: center; flex-wrap: wrap; gap: 8px; }
-            .container-busca-topo { border-left: none; padding-left: 0; margin-left: 0; margin-top: 5px; }
-            .botoes-topo-container { width: 100%; max-width: 320px; }
-            .chamada-topo { padding: 12px; }
-            .container-botoes-captura { justify-content: center; }
-            .linha-botoes-duplos { grid-template-columns: 1fr; }
+            .barra-topo {
+                padding-bottom: 5px;
+            }
+            .bloco-marca {
+                border-bottom: 2px solid #013220 !important;
+                padding-bottom: 6px !important;
+                margin-bottom: 4px !important;
+            }
+            .secao-principal { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+                padding-top: 5px !important;
+                padding-bottom: 5px !important;
+                margin-top: 0 !important;
+            }
+            .rotulo-secao {
+                margin: 20px 0 15px 0 !important;
+            }
+            .lado-esquerdo { 
+                padding-right: 0; 
+            }
+            .wrapper-apresentacao { 
+                flex-direction: column; 
+                align-items: center; 
+            }
+            .card-multimidia, .box-oferta { 
+                width: 100%; 
+            }
+            .alinhamento-topo { 
+                flex-direction: column; 
+                gap: 6px; 
+                text-align: center; 
+            }
+            .menu-navegacao { 
+                margin: 0; 
+                justify-content: center; 
+                flex-wrap: wrap; 
+                gap: 6px; 
+            }
+            .container-busca-topo { 
+                border-left: none; 
+                padding-left: 0; 
+                margin-left: 0; 
+                margin-top: 2px; 
+            }
+            .botoes-topo-container { 
+                width: 100%; 
+                max-width: 320px; 
+                margin-bottom: 5px;
+            }
+            .chamada-topo { 
+                padding: 10px; 
+            }
+            .linha-botoes-duplos { 
+                grid-template-columns: 1fr; 
+            }
+            .container-tres-botoes .btn-acao-vendas {
+                font-size: 12px;
+            }
+            .capa-produto {
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+            .box-oferta {
+                padding: 18px 15px;
+            }
+            .box-oferta h3 {
+                margin-bottom: 2px;
+            }
+            .valor-tag {
+                margin-bottom: 6px;
+            }
+            .box-oferta .legenda-oferta {
+                margin-bottom: 6px;
+                font-size: 13px;
+            }
+            .status-vagas {
+                font-size: 13px;
+            }
+            .mural-videos {
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
@@ -1089,17 +900,23 @@
 
     <header class="barra-topo">
         <div class="area-restrita alinhamento-topo">
-            <div class="bloco-marca">
-                <h1>Prof. William Queiroz</h1>
-                <p>Língua Portuguesa & Redação com foco em concursos</p>
-                <div class="tagline">Sua aprovação começa aqui.</div>
+            <div class="bloco-marca" style="display: flex; align-items: center; gap: 15px;">
+                <img src="5.jpg" alt="Prof. William Queiroz" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; flex-shrink: 0;">
+                <div>
+                    <h1 style="margin: 0;">Prof. William Queiroz</h1>
+                    <p style="margin: 5px 0 0 0;">
+                        <span style="font-size: 14px; font-weight: bold; text-transform: none;">Língua Portuguesa & Redação</span><br>
+                        Com foco em concursos
+                    </p>
+                    <div class="tagline">Sua aprovação começa aqui.</div>
+                </div>
             </div>
+
             <nav class="menu-navegacao">
-                <a href="#leads">Bônus Gratuito</a>
-                <a href="#metodologia">Metodologia</a>
-                <a href="#produtos">Produtos</a>
-                <a href="#card-socio">Seja Meu Sócio</a>
-                <a href="resumos.html" style="background-color: #013220; color: #ffffff; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block;">RESUMOS</a>
+                <a href="#produtos"><i class="fa-solid fa-layer-group" style="font-size: 11px;"></i> Produtos</a>
+                <a href="https://escaleconcursos.senebr.com.br/#card-socio" class="btn-fechar-pagina" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px;"></i> Seja Meu Sócio</a>
+                <a href="resumosesimulados.html" style="background-color: #013220; color: #ffffff; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block;">MATERIAIS DIDÁTICOS GRÁTIS</a>
+                <a href="resumosesimulados.html" style="background-color: #013220; color: #ffffff; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block;">SIMULADOS GRÁTIS</a>
                 
                 <div class="container-busca-topo">
                     <input type="text" id="campoBusca" class="input-busca-topo" placeholder="Buscar no site..." onkeydown="verificarTeclaBusca(event)">
@@ -1108,42 +925,17 @@
             </nav>
             
             <div class="botoes-topo-container">
-                
                 <a href="#desafio-gramatica" class="chamada-topo btn-desafio-topo">
                     <i class="fa-solid fa-trophy" style="color: #FFD700; font-size: 1.1rem;"></i> 
                     Desafio de Gramática (Grupo VIP)
                 </a>
-                
-                <a href="https://pay.hotmart.com/K105536423Y" class="chamada-topo btn-curso-topo">Adquira o Português Estratégico</a>
-                <a href="#card-mentoria" class="chamada-topo btn-mentoria-topo">Mentoria Black Premium</a>
+                <a href="#produtos" class="chamada-topo btn-curso-topo">Adquira o Português Estratégico</a>
+                <a href="https://escaleconcursos.senebr.com.br/#produto-mentoria" class="chamada-topo btn-mentoria-topo">Mentoria Black Premium</a>
             </div>
         </div>
     </header>
 
-    <section id="leads" class="bloco-captura">
-        <div class="area-restrita layout-captura">
-            <div class="info-captura">
-                <h2>Baixe Grátis: E-book <span>Morfologia Estratégica</span></h2>
-                <p>Siga os dois passos abaixo de forma rápida para liberar o acesso ao seu material pedagógico imediatamente.</p>
-                <span class="detalhe-formulario">O formulário requer apenas seu nome, e-mail e número de WhatsApp(opcional) para receber nossas atualizações.</span>
-                
-                <div class="container-botoes-captura">
-                    <button onclick="abrirModalForm()" class="btn-quadrado-captura btn-captura-form">
-                        <i class="fa-regular fa-file-lines"></i>
-                        Primeiro<br>Preencha<br>o Formulário
-                    </button>
-
-                    <a href="#produtos" class="btn-quadrado-captura btn-captura-resgate">
-                        <i class="fa-solid fa-gift"></i>
-                        Agora<br>Resgate<br>o seu E-book
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div class="area-restrita">
-        
         <section id="bloco-principal" class="secao-principal">
             <div class="lado-esquerdo">
                 <h2>Chega de Estudos<br><span>Aleatórios.</span></h2>
@@ -1155,84 +947,7 @@
                     </div>
                 </div>
                 
-                <a href="https://pay.hotmart.com/K105536423Y" class="btn-acao-vendas">Comprar Agora</a>
-            </div>
-            
-            <div class="lado-direito">
-                <div class="molde-foto">
-                    <img src="5.jpg" alt="Prof. William Queiroz" class="imagem-mestre">
-                </div>
-            </div>
-        </section>
-
-        <section class="painel-vantagens">
-            <div class="item-vantagem">
-                <i class="fa-solid fa-bolt-lightning"></i>
-                <div class="texto-vantagem">
-                    <h4>13 Horas de Aulas Objetivas</h4>
-                    <p>Divididas em 22 Aulas</p>
-                </div>
-            </div>
-            <div class="item-vantagem">
-                <i class="fa-solid fa-timeline"></i>
-                <div class="texto-vantagem">
-                    <h4>Cronologia Correta</h4>
-                    <p>Todo o edital</p>
-                </div>
-            </div>
-            <div class="item-vantagem">
-                <i class="fa-solid fa-file-signature"></i>
-                <div class="texto-vantagem">
-                    <h4>Foco em Concursos</h4>
-                    <p>Língua Portuguesa</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="metodologia">
-            <h2 class="rotulo-secao">Metodologia</h2>
-            <div class="mural-videos">
-                
-                <div class="card-multimidia">
-                    <div class="player-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/k-_LxbcJsFQ?si=54Dv_YAjpCSnY-Gy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <div class="detalhe-video">
-                        <h3>Apresentação do Curso</h3>
-                        <p>Com o professor William Queiroz</p>
-                    </div>
-                </div>
-
-                <div class="card-multimidia">
-                    <div class="player-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/eB195Q1AL3w?si=mzn1xuQjqTxUuHIA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <div class="detalhe-video">
-                        <h3>Aula Demonstrativa</h3>
-                        <p>Sinta na prática a didática para a sua aprovação.</p>
-                    </div>
-                </div>
-
-                <div class="card-multimedia" id="desafio-gramatica" style="background-color: #D4AF37 !important; border-radius: 16px; overflow: hidden; width: 100%; max-width: 500px; margin: 0 auto;">
-
-
-    <div class="player-video" style="background-color: #1E293B; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe src="https://www.youtube.com/embed/JzbDe3zjHi0?si=KEx7IU381GCZBNHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
-    <div class="detalhe-video" style="display: flex; flex-direction: column;">
-        <h3 style="color: #ffffff; text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000, -1.5px 0px 0 #000, 1.5px 0px 0 #000, 0px -1.5px 0 #000, 0px 1.5px 0 #000;">Desafio de Gramática</h3>
-
-        <!-- Botão Verde para o Grupo VIP adicionado aqui -->
-        <a href="#card-grupo-vip" class="btn-grupo-vip" style="background-color: #10B981; color: #FFFFFF; text-align: center; padding: 12px 20px; text-decoration: none; font-weight: bold; font-size: 14px; border-radius: 6px; margin-top: 15px; text-transform: uppercase; letter-spacing: 0.5px; transition: background-color 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-            Entrar para o Grupo VIP
-        </a>
-    </div>
-</div>
-
-
-
-                
-
+                <a href="https://go.hotmart.com/K105536423Y?dp=1" class="btn-acao-vendas">Comprar Agora</a>
             </div>
         </section>
 
@@ -1240,43 +955,31 @@
             <h2 class="rotulo-secao">Meus Produtos</h2>
             <div class="hub-produtos">
                 
-                <div class="box-oferta" id="ebook-vitrine" style="border: 1px solid rgba(0, 210, 206, 0.4);">
-                    <img src="8.jpg" alt="Ebook Morfologia Estratégica" class="capa-produto">
-                    <h3>E-book - Morfologia Estratégica</h3>
+                <div class="box-oferta">
+                    <img src="1.jpg" alt="Curso Português Estratégico" class="capa-produto">
+                    <h3></h3>
+                    <div class="valor-tag">R$ 49,90</div>
                     
-                    <div class="valor-tag" style="color: var(--marca-ciano-vibrante); margin-top: -10px; margin-bottom: 5px;">GRÁTIS</div>
+                    <a href="#" target="_blank" class="btn-acao-vendas btn-info-secundario" style="margin-bottom: 8px; font-size: 12px; padding: 8px 12px;">Quero saber mais <i class="fa-brands fa-youtube" style="color: #FF0000; margin-left: 4px;"></i></a>
+                    <a href="" class="btn-acao-vendas" style="margin-bottom: 12px;">Comprar</a>
 
-                    <div class="aviso-direcionamento">
-                        <i class="fa-solid fa-arrow-down" style="margin-bottom: 5px; display: block; font-size: 16px;"></i>
-                        Role a página até o último card. Lá você baixará o seu e-book grátis.
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0 15px 0; width: 100%;">
+
+                    <div id="card-grupo-vip" style="display: flex; align-items: center; gap: 15px; text-align: left; width: 100%;">
+                        <img src="3.jpg" alt="Grupo VIP WhatsApp" style="width: 70px; height: 90px; object-fit: cover; border-radius: 6px; flex-shrink: 0;">
+                        <div style="flex-grow: 1;">
+                            <h3 style="margin: 0 0 10px 0; font-size: 1.1rem; justify-content: flex-start;">GRUPO VIP 👑</h3>
+                            <a href="https://go.hotmart.com/O105756691F?dp=1" class="btn-acao-vendas" style="display: block; width: 100%; text-align: center; margin: 0;">Entrar</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="box-oferta">
-                    <img src="1.jpg" alt="Curso Português Estratégico" class="capa-produto">
-                    <h3>Curso - Português Estratégico</h3>
-                    <div class="valor-tag">R$ 49,90</div>
-                    <a href="https://go.hotmart.com/K105536423Y?dp=1" class="btn-acao-vendas">Comprar</a>
-                </div>
-
-                
-
-                <div class="box-oferta" id="card-grupo-vip">
-
-                    <img src="3.jpg" alt="Grupo VIP WhatsApp" class="capa-produto">
-                    <h3>GRUPO VIP 👑</h3>
-                    <div class="valor-tag">TRIMESTRAL: R$ 39,90</div>
-                    <div class="valor-subtag">Mensal: R$ 29,90</div>
-                    <a href="https://go.hotmart.com/O105756691F?dp=1" class="btn-acao-vendas">Entrar</a>
-                </div>
-
                 <div id="aulas-particulares" class="box-oferta">
-
                     <img src="4.jpg" alt="Aula Particular" class="capa-produto">
-                    <h3 style="margin-top: -10px; margin-bottom: -10px;">Aula Particular</h3>
+                    <h3 style="margin-top: -5px; margin-bottom: 2px;">Aula Particular</h3>
                     <div class="legenda-oferta">com professor William Queiroz</div>
                     <div class="status-vagas">Vagas Abertas e Limitadas</div>
-                    <div class="status-vagas">☆Aproveite a PROMOÇÃO ESPECIAL☆ 30% de desconto, em qualquer plano, para pagamentos via PIX. Os valores "em verde" já estão com o desconto calculado.</div>
+                    <div class="status-vagas" style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 12px; line-height: 1.4;">☆Aproveite a PROMOÇÃO ESPECIAL☆ 30% de desconto, em qualquer plano, para pagamentos via PIX. Os valores "em verde" já estão com o desconto calculado.</div>
                     <div class="container-tres-botoes">
                         <a href="aulas-particulares.html" class="btn-acao-vendas">Maiores Informações</a>
 
@@ -1286,43 +989,7 @@
                         </div>
                     </div>
                 </div>
-                        <div id="mentoria-black-premium">
-            
-            <div class="box-oferta" id="card-mentoria">
-                <img src="10.jpg" alt="Mentoria Black Premium" class="capa-produto">
-                
-                <h3>Mentoria Black Premium</h3>
-                
-                <div class="status-vagas" style="margin-top: -10px; margin-bottom: 15px; font-size: 0.85rem;">
-                    Vagas Abertas e Limitadas
-                </div>
-                    <div class="legenda-oferta" style="font-size: 0.85rem;">Com Professor William Queiroz, você estudará de forma eficiente e com a melhor técnica de aprendizado que será desenvolvida baseada nas suas habilidades e tempo disponível para estudo. Na Mentoria Black Premium, você receberá todo o acompanhamento pedagógico necessário para criar o melhor plano de estudo para cada uma das matérias cobradas no edital e conquistar a sua tão almejada vaga.</div>
-                    
-                    <div class="container-tres-botoes">
-                        <a href="mentoria.html" class="btn-acao-vendas">Maiores Informações</a>
-
-                        <div class="linha-botoes-duplos">
-                            <a href="https://go.hotmart.com/P106115838M?dp=1" class="btn-acao-vendas">Contratar via Cartão</a>
-                            <button onclick="abrirModalPix('Mentoria Black Premium')" class="btn-acao-vendas">Contratar pelo PIX</button>
-                        </div>
-                    </div>
-                </div>
-                <div id="card-seja-socio">
-            
-            <div class="box-oferta" id="card-socio">
-                    <img src="socio.jpg" alt="Seja Meu Sócio" class="capa-produto">
-                    <h3>Parceria de Alto Nível:<br>Seja meu Sócio.</h3>
-                    <div class="legenda-oferta" style="text-align: justify; padding: 0 10px; font-size: 13px; color: var(--texto-titulo); line-height: 1.5; margin-bottom: 20px;">
-                        "Eu não quero apenas alunos; eu quero parceiros comprometidos em crescer comigo. Ao investir apenas R$ 50,00, você recebe o meu treinamento prático de vendas e ganha o direito de ser meu sócio, garantindo 40% de participação em cada venda do curso Português Estratégico. Eu te ensino a estratégia que uso, te dou o material de apoio e você lucra comigo. É um negócio real, testado e pronto para você começar hoje."
-                    </div>
-                    <div class="valor-tag">R$ 50,00</div>
-                    <div class="valor-subtag">Investimento Único</div>
-                    <div class="grupo-botoes-duplos">
-                        <a href="seja-socio.html" class="btn-acao-vendas">Maiores Informações</a>
-
-                        <a href="COLOQUE_SEU_LINK_DO_HOTMART_AQUI" class="btn-acao-vendas">Quero ser seu sócio agora</a>
-                    </div>
-                </div>
+                        
                 <div class="box-oferta">
                     <img src="9.jpg" alt="Correção de Redação" class="capa-produto">
                     <h3>Pacote Especial de Correção de Redação</h3>
@@ -1337,37 +1004,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-oferta">
-                    <img src="2.jpg" alt="Ebook Português Estratégico" class="capa-produto">
-                    <h3>Ebook - Noções de Língua Portuguesa</h3>
-                    <div class="valor-tag">R$ 9,90</div>
-                    <a href="https://go.hotmart.com/O94195857S?dp=1" class="btn-acao-vendas">Comprar</a>
-                </div>
-
-                
-
-                
-
-                
-
-                <div class="box-oferta">
-                    <img src="6.jpg" alt="Projeto Ação Jovem" class="capa-produto">
-                    <h3>Projeto Ação Jovem</h3>
-                    <div class="legenda-oferta" style="font-size: 0.85rem;">Esse é um trabalho gratuito ofertado pelo professor William Queiroz através da Sene e com parcerias com instituições educacionais.</div>
-                    <a href="https://instagram.com/comigovoceaprende" target="_blank" class="btn-acao-vendas">Conhecer</a>
-                </div>
-
             </div>
         </section>
 
-        <section id="bloco-download-exclusivo" class="secao-download-final">
-            <div class="card-download-exclusivo">
-                <i class="fa-solid fa-cloud-arrow-down" style="font-size: 40px; color: var(--marca-ciano-vibrante);"></i>
-                <h3>Seu Bônus Está Pronto!</h3>
-                <p>Obrigado por se cadastrar. Clique abaixo para abrir o material completo de Morfologia Estratégica diretamente no Google Drive.</p>
-                <a href=https://drive.google.com/file/d/10_tQb24iWzN9ustfkYDZUELEhA7oWhQy/view?usp=drivesdk target="_blank" class="btn-acao-vendas" style="padding: 16px 60px;">Acessar E-book Gratuitamente</a>
+        <section id="metodologia">
+            <h2 class="rotulo-secao">Metodologia</h2>
+            <div class="mural-videos">
+                <div class="card-multimedia" id="desafio-gramatica" style="background-color: #D4AF37 !important; border-radius: 16px; overflow: hidden; width: 100%; max-width: 500px; margin: 0 auto;">
+                    <div class="player-video" style="background-color: #1E293B; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <iframe src="https://www.youtube.com/embed/JzbDe3zjHi0?si=KEx7IU381GCZBNHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                    </div>
+                    <div class="detalhe-video" style="display: flex; flex-direction: column;">
+                        <h3 style="color: #ffffff; text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000, -1.5px 0px 0 #000, 1.5px 0px 0 #000, 0px -1.5px 0 #000, 0px 1.5px 0 #000;">Desafio de Gramática</h3>
+
+                        <a href="#produtos" class="btn-grupo-vip" style="background-color: #10B981; color: #FFFFFF; text-align: center; padding: 12px 20px; text-decoration: none; font-weight: bold; font-size: 14px; border-radius: 6px; margin-top: 15px; text-transform: uppercase; letter-spacing: 0.5px; transition: background-color 0.3s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                            Entrar para o Grupo VIP
+                        </a>
+                    </div>
+                </div>
             </div>
-        </section>
+        </section>                  
 
         <section class="area-comentarios">
             <h3 style="margin-bottom: 15px; color: var(--azul-principal);">Espaço do Aluno</h3>
@@ -1389,20 +1045,18 @@
                 </div>
             </div>
         </section>
-
     </div> 
 
     <footer>
         <div class="area-restrita">
-                    <div class="canais-comunicacao">
-            <a href="mailto:cursos.sene@gmail.com" class="link-destacado"><i class="fa-regular fa-envelope"></i> cursos.sene@gmail.com</a>
-            <a href="https://www.facebook.com/profile.php?id=61591541761813" target="_blank" class="link-destacado"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a href="https://vm.tiktok.com/ZSCkhHoQC/" target="_blank" class="link-destacado"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+            <div class="canais-comunicacao">
+                <a href="https://wa.me/5588994409549" target="_blank" class="link-destacado btn-whatsapp-rodape"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:cursos.sene@gmail.com" class="link-destacado"><i class="fa-regular fa-envelope"></i> cursos.sene@gmail.com</a>
+                <a href="https://www.facebook.com/profile.php?id=61591541761813" target="_blank" class="link-destacado"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://vm.tiktok.com/ZSCkhHoQC/" target="_blank" class="link-destacado"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                <a href="https://www.youtube.com/@ProfessorWilliamQueiroz" target="_blank" class="link-destacado"><i class="fa-brands fa-youtube"></i> Show de Português</a>
+            </div>
 
-            <a href="https://www.youtube.com/@ProfessorWilliamQueiroz" target="_blank" class="link-destacado"><i class="fa-brands fa-youtube"></i> Show de Português</a>
-        </div>
-
-            
             <div class="perfil-instagram">
                 <a href="https://www.instagram.com/showdeportugues?igsh=ejZsbTBkc2xkaG9z" target="_blank" class="link-destacado"><i class="fa-brands fa-instagram"></i> @showdeportugues</a>
             </div>
@@ -1435,38 +1089,36 @@
             <div id="alertaSucessoPix" class="alerta-notificacao">Chave Pix copiada com sucesso!</div>
             
             <div class="aviso-comprovante">
-                <i class="fa-brands fa-whatsapp"></i> 1) Pague o valor referente ao plano escolhido. 2) Envie o comprovante para o nosso WhatsApp. 3) Agendaremos o início dos seus estudos.
+                <i class="fa-brands fa-whatsapp"></i> 1) Pague o valor referente ao plano escolhido. 2) Envie o comprovante para o nosso WhatsApp (88)994409549. 3) Agendaremos o início dos seus estudos.
             </div>
         </div>
     </div>
-<!-- Modal Exclusivo de Redação -->
-<div id="modalRedacao" class="janela-modal-form">
-    <div class="conteudo-modal-form" style="max-height: 85vh; display: flex; flex-direction: column;">
-        <button onclick="fecharModalRedacao()" class="btn-fechar-modal"><i class="fa-solid fa-xmark"></i></button>
-        
-        <h3 style="margin-bottom: 15px; text-align: center; flex-shrink: 0;">Detalhamento: Como funciona a Correção de Redação?</h3>
-        
-        <!-- Área rolável do texto -->
-        <div style="text-align: left; color: #333; line-height: 1.5; font-size: 14px; overflow-y: auto; padding-right: 5px; -webkit-overflow-scrolling: touch;">
-            <p style="margin-bottom: 12px;">
-                O envio das redações e a nossa interação funcionam de forma 100% online, mas a avaliação é totalmente humana e personalizada.
-            </p>
+
+    <div id="modalRedacao" class="janela-modal-form">
+        <div class="conteudo-modal-form" style="max-height: 85vh; display: flex; flex-direction: column;">
+            <button onclick="fecharModalRedacao()" class="btn-fechar-modal"><i class="fa-solid fa-xmark"></i></button>
             
-            <p style="margin-bottom: 12px;">
-                Assim que a sua contratação é confirmada, você recebe as instruções detalhadas e os temas disponíveis. Você faz a sua escrita de forma manuscrita na folha padrão, tira uma foto legível ou escaneia o seu texto e realiza o envio diretamente pelo nosso sistema (o canal de envio será informado após a contratação).
-            </p>
+            <h3 style="margin-bottom: 15px; text-align: center; flex-shrink: 0;">Detalhamento: Como funciona a Correção de Redação?</h3>
             
-            <p style="margin-bottom: 12px;">
-                A partir daí, o Professor William Queiroz realizará uma análise cirúrgica e minuciosa da sua produção. Você receberá o seu texto de volta com todas as marcações e correções necessárias, acompanhado de um feedback detalhado gravado em áudio.
-            </p>
-            
-            <p style="margin-bottom: 5px;">
-                Nesse áudio, o professor explica exatamente os seus pontos de melhoria em gramática, estrutura e argumentação, mostrando o caminho exato para você alcançar a nota máxima no seu concurso ou vestibular. Todo o processo é feito com agilidade para que você possa aplicar os aprendizados já na próxima escrita.
-            </p>
+            <div style="text-align: left; color: #333; line-height: 1.5; font-size: 14px; overflow-y: auto; padding-right: 5px; -webkit-overflow-scrolling: touch;">
+                <p style="margin-bottom: 12px;">
+                    O envio das redações e a nossa interação funcionam de forma 100% online, mas a avaliação é totalmente humana e personalizada.
+                </p>
+                
+                <p style="margin-bottom: 12px;">
+                    Assim que a sua contratação é confirmada, você recebe as instruções detalhadas e os temas disponíveis. Você faz a sua escrita de forma manuscrita na folha padrão, tira uma foto legível ou escaneia o seu texto e realiza o envio diretamente pelo nosso sistema (o canal de envio será informado após a contratação).
+                </p>
+                
+                <p style="margin-bottom: 12px;">
+                    A partir daí, o Professor William Queiroz realizará uma análise cirúrgica e minuciosa da sua produção. Você receberá o seu texto de volta com todas as marcações e correções necessárias, acompanhado de um feedback detalhado gravado em áudio.
+                </p>
+                
+                <p style="margin-bottom: 5px;">
+                    Nesse áudio, o professor explica exatamente os seus pontos de melhoria em gramática, estrutura e argumentação, mostrando o caminho exato para você alcançar a nota máxima no seu concurso ou vestibular. Todo o processo é feito com agilidade para que você possa aplicar os aprendizados já na próxima escrita.
+                </p>
+            </div>
         </div>
     </div>
-</div>
-
 
     <div id="modalForm" class="janela-modal-form">
         <div class="conteudo-modal-form">
@@ -1477,118 +1129,96 @@
         </div>
     </div>
 
-    <div class="wrapper-whatsapp">
-        <a href="https://wa.me/5588994409549" class="icone-whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
-
     <script>
       function abrirModalRedacao() {
-    document.getElementById('modalRedacao').classList.add('modal-ativo');
-}
+          document.getElementById('modalRedacao').classList.add('modal-ativo');
+      }
 
-function fecharModalRedacao() {
-    document.getElementById('modalRedacao').classList.remove('modal-ativo');
-}
+      function fecharModalRedacao() {
+          document.getElementById('modalRedacao').classList.remove('modal-ativo');
+      }
 
-        function abrirModalPix(nomeProduto) {
-            document.getElementById('modalTituloProduto').innerText = nomeProduto;
-            document.getElementById('modalPix').classList.add('modal-ativo');
-        }
+      function abrirModalPix(nomeProduto) {
+          document.getElementById('modalTituloProduto').innerText = nomeProduto;
+          document.getElementById('modalPix').classList.add('modal-ativo');
+      }
 
-        function fecharModalPix() {
-            document.getElementById('modalPix').classList.remove('modal-ativo');
-            document.getElementById('alertaSucessoPix').style.display = 'none';
-        }
+      function fecharModalPix() {
+          document.getElementById('modalPix').classList.remove('modal-ativo');
+          document.getElementById('alertaSucessoPix').style.display = 'none';
+      }
 
-        function copiarChavePix() {
-            const textoChave = document.getElementById('chavePixTexto').innerText;
-            navigator.clipboard.writeText(textoChave).then(() => {
-                const alerta = document.getElementById('alertaSucessoPix');
-                alerta.style.display = 'block';
-                setTimeout(() => {
-                    alerta.style.display = 'none';
-                }, 3000);
-            }).catch(err => {
-                console.error('Erro ao copiar a chave: ', err);
-            });
-        }
+      function copiarChavePix() {
+          const textoChave = document.getElementById('chavePixTexto').innerText;
+          navigator.clipboard.writeText(textoChave).then(() => {
+              const alerta = document.getElementById('alertaSucessoPix');
+              alerta.style.display = 'block';
+              setTimeout(() => {
+                  alerta.style.display = 'none';
+              }, 3000);
+          }).catch(err => {
+              console.error('Erro ao copiar a chave: ', err);
+          });
+      }
 
-        function abrirModalForm() {
-            document.getElementById('modalForm').classList.add('modal-ativo');
-        }
+      function abrirModalForm() {
+          document.getElementById('modalForm').classList.add('modal-ativo');
+      }
 
-        function fecharModalForm() {
-            document.getElementById('modalForm').classList.remove('modal-ativo');
-        }
+      function fecharModalForm() {
+          document.getElementById('modalForm').classList.remove('modal-ativo');
+      }
 
-        window.onclick = function(event) {
-            const modalPix = document.getElementById('modalPix');
-            const modalForm = document.getElementById('modalForm');
-            if (event.target == modalPix) {
-                fecharModalPix();
-            }
-            if (event.target == modalForm) {
-                fecharModalForm();
-            }
-        }
+      window.onclick = function(event) {
+          const modalPix = document.getElementById('modalPix');
+          const modalForm = document.getElementById('modalForm');
+          if (event.target == modalPix) {
+              fecharModalPix();
+          }
+          if (event.target == modalForm) {
+              fecharModalForm();
+          }
+      }
 
-        window.addEventListener('scroll', function() {
-            const barraTopo = document.querySelector('.barra-topo');
-            const secaoPrincipal = document.getElementById('bloco-principal');
-            
-            if (barraTopo && secaoPrincipal) {
-                const gatilhoSumir = secaoPrincipal.offsetTop;
-                
-                if (window.scrollY >= (gatilhoSumir - 140)) { 
-                    barraTopo.classList.add('escondida');
-                } else {
-                    barraTopo.classList.remove('escondida');
-                }
-            }
-        });
+      function verificarTeclaBusca(event) {
+          if (event.key === 'Enter') {
+              executarBuscaNoSite();
+          }
+      }
 
-        /* --- SCRIPT DO SISTEMA DE BUSCA INTELIGENTE --- */
-        function verificarTeclaBusca(event) {
-            if (event.key === 'Enter') {
-                executarBuscaNoSite();
-            }
-        }
+      function executarBuscaNoSite() {
+          const termoBusca = document.getElementById('campoBusca').value.toLowerCase().trim();
+          if (termoBusca === "") return;
 
-        function executarBuscaNoSite() {
-            const termoBusca = document.getElementById('campoBusca').value.toLowerCase().trim();
-            if (termoBusca === "") return;
+          const cardsProdutos = document.querySelectorAll('.box-oferta');
+          let itemEncontrado = null;
 
-            const cardsProdutos = document.querySelectorAll('.box-oferta');
-            let itemEncontrado = null;
+          for (let card of cardsProdutos) {
+              const titulo = card.querySelector('h3').innerText.toLowerCase();
+              const legenda = card.querySelector('.legenda-oferta') ? card.querySelector('.legenda-oferta').innerText.toLowerCase() : '';
+              
+              if (titulo.includes(termoBusca) || legenda.includes(termoBusca)) {
+                  itemEncontrado = card;
+                  break;
+              }
+          }
 
-            for (let card of cardsProdutos) {
-                const titulo = card.querySelector('h3').innerText.toLowerCase();
-                const legenda = card.querySelector('.legenda-oferta') ? card.querySelector('.legenda-oferta').innerText.toLowerCase() : '';
-                
-                if (titulo.includes(termoBusca) || legenda.includes(termoBusca)) {
-                    itemEncontrado = card;
-                    break;
-                }
-            }
+          if (itemEncontrado) {
+              const topoCard = itemEncontrado.getBoundingClientRect().top + window.scrollY - 20;
+              
+              window.scrollTo({
+                  top: topoCard,
+                  behavior: 'smooth'
+              });
 
-            if (itemEncontrado) {
-                const topoCard = itemEncontrado.getBoundingClientRect().top + window.scrollY - 160;
-                
-                window.scrollTo({
-                    top: topoCard,
-                    behavior: 'smooth'
-                });
-
-                itemEncontrado.classList.add('card-pesquisado-destaque');
-                setTimeout(() => {
-                    itemEncontrado.classList.remove('card-pesquisado-destaque');
-                }, 3000);
-            } else {
-                alert('Nenhum produto ou serviço específico foi encontrado para o termo pesquisado. Tente termos como "Aula Particular", "Redação" ou "Mentoria".');
-            }
-        }
+              itemEncontrado.classList.add('card-pesquisado-destaque');
+              setTimeout(() => {
+                  itemEncontrado.classList.remove('card-pesquisado-destaque');
+              }, 3000);
+          } else {
+              alert('Nenhum produto ou serviço específico foi encontrado para o termo pesquisado. Tente termos como "Aula Particular", "Redação" ou "Mentoria".');
+          }
+      }
     </script>
 
 </body>
