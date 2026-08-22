@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Professor William Queiroz | Português Estratégico</title>
+
+  <!-- 1. Métrica de Acessos -->
+  <script src="analytics.js"></script>
+
+  <!-- 2. Gerenciador Central de Anúncios -->
+  <script src="anuncios.js"></script>
+  
   <style>
     :root {
       --primary-color: #0f172a;
@@ -174,6 +181,18 @@
 
     .btn-simulados-main {
       background: linear-gradient(135deg, #15803d, var(--green-action));
+    }
+
+    .btn-text-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .btn-subtitle {
+      font-size: 0.75rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-top: 2px;
     }
 
     .btn-icon {
@@ -460,7 +479,10 @@
 
       <!-- BOTÃO 2: SIMULADOS -->
       <button class="main-nav-btn btn-simulados-main" onclick="toggleSection('simulados-list', 'icon-simulados')">
-        <span>📝 Simulados Rápidos</span>
+        <div class="btn-text-container">
+          <span>📝 Simulados Interativos</span>
+          <span class="btn-subtitle">(todas as questões com explicação)</span>
+        </div>
         <span id="icon-simulados" class="btn-icon">▼</span>
       </button>
 
@@ -470,42 +492,42 @@
           <a href="simuladoespecial.html" class="item-card">
             <div class="item-info">
               <h3>Simulado Especial da Semana</h3>
-              <p>10 questões de análise sintática</p>
+              <p>10 questões de análise sintática (com todas as questões comentadas)</p>
             </div>
             <span class="item-arrow item-arrow-simulado">→</span>
           </a>
           <a href="simulado01.html" class="item-card">
             <div class="item-info">
               <h3>Simulado 01 (Nível Fácil)</h3>
-              <p>20 questões estilo prova (com comentário)</p>
+              <p>20 questões estilo prova (com todas as questões comentadas)</p>
             </div>
             <span class="item-arrow item-arrow-simulado">→</span>
           </a>
           <a href="simulado02.html" class="item-card">
             <div class="item-info">
               <h3>Simulado 02 (Nível Fácil)</h3>
-              <p>20 questões estilo prova (com comentário)</p>
+              <p>20 questões estilo prova (com todas as questões comentadas)</p>
             </div>
             <span class="item-arrow item-arrow-simulado">→</span>
           </a>
           <a href="simulado03.html" class="item-card">
             <div class="item-info">
               <h3>Simulado 03 (Nível Médio)</h3>
-              <p>20 questões estilo prova (com comentário)</p>
+              <p>20 questões estilo prova (com todas as questões comentadas)</p>
             </div>
             <span class="item-arrow item-arrow-simulado">→</span>
           </a>
           <a href="simulado04.html" class="item-card">
             <div class="item-info">
               <h3>Simulado 04 (Nível Médio)</h3>
-              <p>20 questões estilo prova (com comentário)</p>
+              <p>20 questões estilo prova (com todas as questões comentadas)</p>
             </div>
             <span class="item-arrow item-arrow-simulado">→</span>
           </a>
           <a href="simulado05.html" class="item-card">
             <div class="item-info">
               <h3>Simulado 05 (Nível Difícil)</h3>
-              <p>20 questões estilo prova (com comentário)</p>
+              <p>20 questões estilo prova (com todas as questões comentadas)</p>
             </div>
             <span class="item-arrow item-arrow-simulado">→</span>
           </a>
